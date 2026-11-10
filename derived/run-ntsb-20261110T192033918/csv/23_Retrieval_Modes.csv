@@ -1,0 +1,251 @@
+candidate_id,name,grounded_parent,mode,top10_parent_agreement,jaccard_vs_chunks_hybrid,top10_summary_chunks,top10_findings_chunks,top10_narrative_chunks,source
+B01,Vehicle or pedestrian on the runway without clearance,RI,Whole report · hybrid,0.2,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B01].Whole report · hybrid
+B01,Vehicle or pedestrian on the runway without clearance,RI,Chunks · hybrid,0.7,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B01].Chunks · hybrid
+B01,Vehicle or pedestrian on the runway without clearance,RI,Chunks · vector only,0.2,0.053,9,0,1,viewer/data/techniques.json#modes.rows[B01].Chunks · vector only
+B01,Vehicle or pedestrian on the runway without clearance,RI,Chunks · keyword only,0.7,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B01].Chunks · keyword only
+B01,Vehicle or pedestrian on the runway without clearance,RI,Whole report · RRF,0.3,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B01].Whole report · RRF
+B02,Landing on a taxiway or the wrong runway at night,RI,Whole report · hybrid,0.7,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B02].Whole report · hybrid
+B02,Landing on a taxiway or the wrong runway at night,RI,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B02].Chunks · hybrid
+B02,Landing on a taxiway or the wrong runway at night,RI,Chunks · vector only,0.5,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B02].Chunks · vector only
+B02,Landing on a taxiway or the wrong runway at night,RI,Chunks · keyword only,0.4,0.667,0,0,10,viewer/data/techniques.json#modes.rows[B02].Chunks · keyword only
+B02,Landing on a taxiway or the wrong runway at night,RI,Whole report · RRF,0.6,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B02].Whole report · RRF
+B03,Veer-off during landing in a strong or gusty crosswind,RE,Whole report · hybrid,0.4,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B03].Whole report · hybrid
+B03,Veer-off during landing in a strong or gusty crosswind,RE,Chunks · hybrid,0.8,1.0,4,0,6,viewer/data/techniques.json#modes.rows[B03].Chunks · hybrid
+B03,Veer-off during landing in a strong or gusty crosswind,RE,Chunks · vector only,0.3,0.111,10,0,0,viewer/data/techniques.json#modes.rows[B03].Chunks · vector only
+B03,Veer-off during landing in a strong or gusty crosswind,RE,Chunks · keyword only,0.2,0.053,0,0,10,viewer/data/techniques.json#modes.rows[B03].Chunks · keyword only
+B03,Veer-off during landing in a strong or gusty crosswind,RE,Whole report · RRF,0.7,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B03].Whole report · RRF
+B04,Overrun on a contaminated runway,RE,Whole report · hybrid,1.0,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B04].Whole report · hybrid
+B04,Overrun on a contaminated runway,RE,Chunks · hybrid,1.0,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B04].Chunks · hybrid
+B04,Overrun on a contaminated runway,RE,Chunks · vector only,1.0,0.429,2,0,8,viewer/data/techniques.json#modes.rows[B04].Chunks · vector only
+B04,Overrun on a contaminated runway,RE,Chunks · keyword only,0.9,0.538,0,0,10,viewer/data/techniques.json#modes.rows[B04].Chunks · keyword only
+B04,Overrun on a contaminated runway,RE,Whole report · RRF,1.0,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B04].Whole report · RRF
+B05,Stall warning or upset during a go-around,LOC-I,Whole report · hybrid,0.5,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B05].Whole report · hybrid
+B05,Stall warning or upset during a go-around,LOC-I,Chunks · hybrid,1.0,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B05].Chunks · hybrid
+B05,Stall warning or upset during a go-around,LOC-I,Chunks · vector only,1.0,0.176,0,0,10,viewer/data/techniques.json#modes.rows[B05].Chunks · vector only
+B05,Stall warning or upset during a go-around,LOC-I,Chunks · keyword only,0.3,0.111,0,0,10,viewer/data/techniques.json#modes.rows[B05].Chunks · keyword only
+B05,Stall warning or upset during a go-around,LOC-I,Whole report · RRF,0.8,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B05].Whole report · RRF
+B06,Wake turbulence upset on approach,TURB,Whole report · hybrid,0.3,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B06].Whole report · hybrid
+B06,Wake turbulence upset on approach,TURB,Chunks · hybrid,0.4,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B06].Chunks · hybrid
+B06,Wake turbulence upset on approach,TURB,Chunks · vector only,0.8,0.053,1,8,1,viewer/data/techniques.json#modes.rows[B06].Chunks · vector only
+B06,Wake turbulence upset on approach,TURB,Chunks · keyword only,0.0,0.176,0,7,3,viewer/data/techniques.json#modes.rows[B06].Chunks · keyword only
+B06,Wake turbulence upset on approach,TURB,Whole report · RRF,0.7,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B06].Whole report · RRF
+B07,Loss of separation caused by an ATC clearance,MAC,Whole report · hybrid,0.8,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B07].Whole report · hybrid
+B07,Loss of separation caused by an ATC clearance,MAC,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B07].Chunks · hybrid
+B07,Loss of separation caused by an ATC clearance,MAC,Chunks · vector only,0.4,0.176,3,0,7,viewer/data/techniques.json#modes.rows[B07].Chunks · vector only
+B07,Loss of separation caused by an ATC clearance,MAC,Chunks · keyword only,0.7,0.333,2,2,6,viewer/data/techniques.json#modes.rows[B07].Chunks · keyword only
+B07,Loss of separation caused by an ATC clearance,MAC,Whole report · RRF,0.8,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B07].Whole report · RRF
+B08,TCAS resolution advisory after a level bust,MAC,Whole report · hybrid,0.7,0.333,0,0,0,viewer/data/techniques.json#modes.rows[B08].Whole report · hybrid
+B08,TCAS resolution advisory after a level bust,MAC,Chunks · hybrid,0.9,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B08].Chunks · hybrid
+B08,TCAS resolution advisory after a level bust,MAC,Chunks · vector only,0.5,0.25,0,0,10,viewer/data/techniques.json#modes.rows[B08].Chunks · vector only
+B08,TCAS resolution advisory after a level bust,MAC,Chunks · keyword only,0.9,0.538,0,0,10,viewer/data/techniques.json#modes.rows[B08].Chunks · keyword only
+B08,TCAS resolution advisory after a level bust,MAC,Whole report · RRF,0.8,0.333,0,0,0,viewer/data/techniques.json#modes.rows[B08].Whole report · RRF
+B09,Hydraulic system failure in flight,SCF-NP,Whole report · hybrid,0.5,0.429,0,0,0,viewer/data/techniques.json#modes.rows[B09].Whole report · hybrid
+B09,Hydraulic system failure in flight,SCF-NP,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B09].Chunks · hybrid
+B09,Hydraulic system failure in flight,SCF-NP,Chunks · vector only,0.7,0.333,0,2,8,viewer/data/techniques.json#modes.rows[B09].Chunks · vector only
+B09,Hydraulic system failure in flight,SCF-NP,Chunks · keyword only,0.4,0.538,0,0,10,viewer/data/techniques.json#modes.rows[B09].Chunks · keyword only
+B09,Hydraulic system failure in flight,SCF-NP,Whole report · RRF,0.6,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B09].Whole report · RRF
+B10,Landing gear did not extend,SCF-NP,Whole report · hybrid,0.1,0.0,0,0,0,viewer/data/techniques.json#modes.rows[B10].Whole report · hybrid
+B10,Landing gear did not extend,SCF-NP,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B10].Chunks · hybrid
+B10,Landing gear did not extend,SCF-NP,Chunks · vector only,0.4,0.0,9,0,1,viewer/data/techniques.json#modes.rows[B10].Chunks · vector only
+B10,Landing gear did not extend,SCF-NP,Chunks · keyword only,0.4,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B10].Chunks · keyword only
+B10,Landing gear did not extend,SCF-NP,Whole report · RRF,0.6,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B10].Whole report · RRF
+B11,Terrain warning on a non-precision approach,CFIT,Whole report · hybrid,0.2,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B11].Whole report · hybrid
+B11,Terrain warning on a non-precision approach,CFIT,Chunks · hybrid,0.6,1.0,0,1,9,viewer/data/techniques.json#modes.rows[B11].Chunks · hybrid
+B11,Terrain warning on a non-precision approach,CFIT,Chunks · vector only,0.4,0.053,1,7,2,viewer/data/techniques.json#modes.rows[B11].Chunks · vector only
+B11,Terrain warning on a non-precision approach,CFIT,Chunks · keyword only,0.3,0.176,0,5,5,viewer/data/techniques.json#modes.rows[B11].Chunks · keyword only
+B11,Terrain warning on a non-precision approach,CFIT,Whole report · RRF,0.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B11].Whole report · RRF
+B12,GNSS interference or spoofing,MAC,Whole report · hybrid,0.6,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B12].Whole report · hybrid
+B12,GNSS interference or spoofing,MAC,Chunks · hybrid,0.2,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B12].Chunks · hybrid
+B12,GNSS interference or spoofing,MAC,Chunks · vector only,0.0,0.0,0,0,10,viewer/data/techniques.json#modes.rows[B12].Chunks · vector only
+B12,GNSS interference or spoofing,MAC,Chunks · keyword only,0.2,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B12].Chunks · keyword only
+B12,GNSS interference or spoofing,MAC,Whole report · RRF,0.7,0.0,0,0,0,viewer/data/techniques.json#modes.rows[B12].Whole report · RRF
+B13,Engine shutdown after loss of oil pressure,SCF-PP,Whole report · hybrid,0.9,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B13].Whole report · hybrid
+B13,Engine shutdown after loss of oil pressure,SCF-PP,Chunks · hybrid,0.9,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B13].Chunks · hybrid
+B13,Engine shutdown after loss of oil pressure,SCF-PP,Chunks · vector only,0.8,0.176,1,0,9,viewer/data/techniques.json#modes.rows[B13].Chunks · vector only
+B13,Engine shutdown after loss of oil pressure,SCF-PP,Chunks · keyword only,0.8,0.667,0,0,10,viewer/data/techniques.json#modes.rows[B13].Chunks · keyword only
+B13,Engine shutdown after loss of oil pressure,SCF-PP,Whole report · RRF,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B13].Whole report · RRF
+B14,Takeoff with frost or ice not removed,ICE,Whole report · hybrid,0.2,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B14].Whole report · hybrid
+B14,Takeoff with frost or ice not removed,ICE,Chunks · hybrid,0.3,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B14].Chunks · hybrid
+B14,Takeoff with frost or ice not removed,ICE,Chunks · vector only,0.0,0.053,0,9,1,viewer/data/techniques.json#modes.rows[B14].Chunks · vector only
+B14,Takeoff with frost or ice not removed,ICE,Chunks · keyword only,0.4,0.333,0,3,7,viewer/data/techniques.json#modes.rows[B14].Chunks · keyword only
+B14,Takeoff with frost or ice not removed,ICE,Whole report · RRF,0.5,0.333,0,0,0,viewer/data/techniques.json#modes.rows[B14].Whole report · RRF
+B15,Bird ingestion damaging an engine on takeoff or climb,BIRD,Whole report · hybrid,0.5,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B15].Whole report · hybrid
+B15,Bird ingestion damaging an engine on takeoff or climb,BIRD,Chunks · hybrid,0.4,1.0,2,0,8,viewer/data/techniques.json#modes.rows[B15].Chunks · hybrid
+B15,Bird ingestion damaging an engine on takeoff or climb,BIRD,Chunks · vector only,0.5,0.111,10,0,0,viewer/data/techniques.json#modes.rows[B15].Chunks · vector only
+B15,Bird ingestion damaging an engine on takeoff or climb,BIRD,Chunks · keyword only,0.3,0.25,0,0,10,viewer/data/techniques.json#modes.rows[B15].Chunks · keyword only
+B15,Bird ingestion damaging an engine on takeoff or climb,BIRD,Whole report · RRF,0.4,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B15].Whole report · RRF
+B16,Bird strike damaging the windshield or nose on approach,BIRD,Whole report · hybrid,1.0,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B16].Whole report · hybrid
+B16,Bird strike damaging the windshield or nose on approach,BIRD,Chunks · hybrid,0.8,1.0,2,0,8,viewer/data/techniques.json#modes.rows[B16].Chunks · hybrid
+B16,Bird strike damaging the windshield or nose on approach,BIRD,Chunks · vector only,1.0,0.053,0,10,0,viewer/data/techniques.json#modes.rows[B16].Chunks · vector only
+B16,Bird strike damaging the windshield or nose on approach,BIRD,Chunks · keyword only,0.2,0.176,0,0,10,viewer/data/techniques.json#modes.rows[B16].Chunks · keyword only
+B16,Bird strike damaging the windshield or nose on approach,BIRD,Whole report · RRF,1.0,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B16].Whole report · RRF
+B17,Lithium battery fire from a passenger device,SCF-PP,Whole report · hybrid,0.2,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B17].Whole report · hybrid
+B17,Lithium battery fire from a passenger device,SCF-PP,Chunks · hybrid,0.5,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B17].Chunks · hybrid
+B17,Lithium battery fire from a passenger device,SCF-PP,Chunks · vector only,0.5,0.053,0,0,10,viewer/data/techniques.json#modes.rows[B17].Chunks · vector only
+B17,Lithium battery fire from a passenger device,SCF-PP,Chunks · keyword only,0.5,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B17].Chunks · keyword only
+B17,Lithium battery fire from a passenger device,SCF-PP,Whole report · RRF,0.1,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B17].Whole report · RRF
+B18,Electrical smoke or burning smell in the flight deck,F-NI,Whole report · hybrid,0.6,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B18].Whole report · hybrid
+B18,Electrical smoke or burning smell in the flight deck,F-NI,Chunks · hybrid,0.7,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B18].Chunks · hybrid
+B18,Electrical smoke or burning smell in the flight deck,F-NI,Chunks · vector only,0.5,0.25,0,0,10,viewer/data/techniques.json#modes.rows[B18].Chunks · vector only
+B18,Electrical smoke or burning smell in the flight deck,F-NI,Chunks · keyword only,0.2,0.25,0,0,10,viewer/data/techniques.json#modes.rows[B18].Chunks · keyword only
+B18,Electrical smoke or burning smell in the flight deck,F-NI,Whole report · RRF,0.8,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B18].Whole report · RRF
+B19,Low fuel after holding or a diversion,NAV,Whole report · hybrid,0.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B19].Whole report · hybrid
+B19,Low fuel after holding or a diversion,NAV,Chunks · hybrid,0.3,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B19].Chunks · hybrid
+B19,Low fuel after holding or a diversion,NAV,Chunks · vector only,0.0,0.053,0,9,1,viewer/data/techniques.json#modes.rows[B19].Chunks · vector only
+B19,Low fuel after holding or a diversion,NAV,Chunks · keyword only,0.0,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B19].Chunks · keyword only
+B19,Low fuel after holding or a diversion,NAV,Whole report · RRF,0.1,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B19].Whole report · RRF
+B20,Pushback or towing collision,MAC,Whole report · hybrid,0.5,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B20].Whole report · hybrid
+B20,Pushback or towing collision,MAC,Chunks · hybrid,0.7,1.0,1,0,9,viewer/data/techniques.json#modes.rows[B20].Chunks · hybrid
+B20,Pushback or towing collision,MAC,Chunks · vector only,0.7,0.333,4,0,6,viewer/data/techniques.json#modes.rows[B20].Chunks · vector only
+B20,Pushback or towing collision,MAC,Chunks · keyword only,0.4,0.25,0,1,9,viewer/data/techniques.json#modes.rows[B20].Chunks · keyword only
+B20,Pushback or towing collision,MAC,Whole report · RRF,0.5,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B20].Whole report · RRF
+B21,Disruptive or unruly passenger,CABIN,Whole report · hybrid,0.3,0.333,0,0,0,viewer/data/techniques.json#modes.rows[B21].Whole report · hybrid
+B21,Disruptive or unruly passenger,CABIN,Chunks · hybrid,0.2,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B21].Chunks · hybrid
+B21,Disruptive or unruly passenger,CABIN,Chunks · vector only,0.1,0.333,0,0,10,viewer/data/techniques.json#modes.rows[B21].Chunks · vector only
+B21,Disruptive or unruly passenger,CABIN,Chunks · keyword only,0.2,0.333,0,0,10,viewer/data/techniques.json#modes.rows[B21].Chunks · keyword only
+B21,Disruptive or unruly passenger,CABIN,Whole report · RRF,0.6,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B21].Whole report · RRF
+B22,Tail strike on takeoff,RE,Whole report · hybrid,0.6,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B22].Whole report · hybrid
+B22,Tail strike on takeoff,RE,Chunks · hybrid,0.4,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B22].Chunks · hybrid
+B22,Tail strike on takeoff,RE,Chunks · vector only,0.3,0.111,1,1,8,viewer/data/techniques.json#modes.rows[B22].Chunks · vector only
+B22,Tail strike on takeoff,RE,Chunks · keyword only,0.2,0.333,0,0,10,viewer/data/techniques.json#modes.rows[B22].Chunks · keyword only
+B22,Tail strike on takeoff,RE,Whole report · RRF,0.6,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B22].Whole report · RRF
+B23,Windshear on final approach,LOC-I,Whole report · hybrid,0.4,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B23].Whole report · hybrid
+B23,Windshear on final approach,LOC-I,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B23].Chunks · hybrid
+B23,Windshear on final approach,LOC-I,Chunks · vector only,0.7,0.111,2,0,8,viewer/data/techniques.json#modes.rows[B23].Chunks · vector only
+B23,Windshear on final approach,LOC-I,Chunks · keyword only,0.6,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B23].Chunks · keyword only
+B23,Windshear on final approach,LOC-I,Whole report · RRF,0.5,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B23].Whole report · RRF
+B24,Landing short of the runway,LOC-I,Whole report · hybrid,0.1,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B24].Whole report · hybrid
+B24,Landing short of the runway,LOC-I,Chunks · hybrid,0.2,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B24].Chunks · hybrid
+B24,Landing short of the runway,LOC-I,Chunks · vector only,0.1,0.25,1,1,8,viewer/data/techniques.json#modes.rows[B24].Chunks · vector only
+B24,Landing short of the runway,LOC-I,Chunks · keyword only,0.1,0.176,0,0,10,viewer/data/techniques.json#modes.rows[B24].Chunks · keyword only
+B24,Landing short of the runway,LOC-I,Whole report · RRF,0.0,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B24].Whole report · RRF
+B25,Airframe icing in flight,ICE,Whole report · hybrid,0.2,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B25].Whole report · hybrid
+B25,Airframe icing in flight,ICE,Chunks · hybrid,0.8,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B25].Chunks · hybrid
+B25,Airframe icing in flight,ICE,Chunks · vector only,0.0,0.0,0,8,2,viewer/data/techniques.json#modes.rows[B25].Chunks · vector only
+B25,Airframe icing in flight,ICE,Chunks · keyword only,0.7,0.818,0,0,10,viewer/data/techniques.json#modes.rows[B25].Chunks · keyword only
+B25,Airframe icing in flight,ICE,Whole report · RRF,0.1,0.0,0,0,0,viewer/data/techniques.json#modes.rows[B25].Whole report · RRF
+B26,Unreliable airspeed from blocked pitot probes,ICE,Whole report · hybrid,0.3,0.111,0,0,0,viewer/data/techniques.json#modes.rows[B26].Whole report · hybrid
+B26,Unreliable airspeed from blocked pitot probes,ICE,Chunks · hybrid,0.5,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B26].Chunks · hybrid
+B26,Unreliable airspeed from blocked pitot probes,ICE,Chunks · vector only,0.4,0.176,0,0,10,viewer/data/techniques.json#modes.rows[B26].Chunks · vector only
+B26,Unreliable airspeed from blocked pitot probes,ICE,Chunks · keyword only,0.4,0.429,0,0,10,viewer/data/techniques.json#modes.rows[B26].Chunks · keyword only
+B26,Unreliable airspeed from blocked pitot probes,ICE,Whole report · RRF,0.2,0.176,0,0,0,viewer/data/techniques.json#modes.rows[B26].Whole report · RRF
+B27,Crew crossed a hold-short line without clearance,RI,Whole report · hybrid,0.6,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B27].Whole report · hybrid
+B27,Crew crossed a hold-short line without clearance,RI,Chunks · hybrid,0.4,1.0,0,0,10,viewer/data/techniques.json#modes.rows[B27].Chunks · hybrid
+B27,Crew crossed a hold-short line without clearance,RI,Chunks · vector only,0.6,0.111,1,0,9,viewer/data/techniques.json#modes.rows[B27].Chunks · vector only
+B27,Crew crossed a hold-short line without clearance,RI,Chunks · keyword only,0.1,0.538,0,0,10,viewer/data/techniques.json#modes.rows[B27].Chunks · keyword only
+B27,Crew crossed a hold-short line without clearance,RI,Whole report · RRF,0.5,0.25,0,0,0,viewer/data/techniques.json#modes.rows[B27].Whole report · RRF
+B28,Wrong route or waypoint loaded in the FMS,LOC-I,Whole report · hybrid,0.4,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B28].Whole report · hybrid
+B28,Wrong route or waypoint loaded in the FMS,LOC-I,Chunks · hybrid,0.3,1.0,0,4,6,viewer/data/techniques.json#modes.rows[B28].Chunks · hybrid
+B28,Wrong route or waypoint loaded in the FMS,LOC-I,Chunks · vector only,0.0,0.053,0,8,2,viewer/data/techniques.json#modes.rows[B28].Chunks · vector only
+B28,Wrong route or waypoint loaded in the FMS,LOC-I,Chunks · keyword only,0.4,0.053,0,10,0,viewer/data/techniques.json#modes.rows[B28].Chunks · keyword only
+B28,Wrong route or waypoint loaded in the FMS,LOC-I,Whole report · RRF,0.1,0.053,0,0,0,viewer/data/techniques.json#modes.rows[B28].Whole report · RRF
+C1,Landing or takeoff on an unintended surface,RI,Whole report · hybrid,0.6,0.0,0,0,0,viewer/data/techniques.json#modes.rows[C1].Whole report · hybrid
+C1,Landing or takeoff on an unintended surface,RI,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[C1].Chunks · hybrid
+C1,Landing or takeoff on an unintended surface,RI,Chunks · vector only,0.3,0.053,0,7,3,viewer/data/techniques.json#modes.rows[C1].Chunks · vector only
+C1,Landing or takeoff on an unintended surface,RI,Chunks · keyword only,0.5,0.176,0,0,10,viewer/data/techniques.json#modes.rows[C1].Chunks · keyword only
+C1,Landing or takeoff on an unintended surface,RI,Whole report · RRF,1.0,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C1].Whole report · RRF
+C4,Upset or stall after unreliable airspeed,LOC-I,Whole report · hybrid,0.9,0.0,0,0,0,viewer/data/techniques.json#modes.rows[C4].Whole report · hybrid
+C4,Upset or stall after unreliable airspeed,LOC-I,Chunks · hybrid,0.9,1.0,0,0,10,viewer/data/techniques.json#modes.rows[C4].Chunks · hybrid
+C4,Upset or stall after unreliable airspeed,LOC-I,Chunks · vector only,0.9,0.333,3,0,7,viewer/data/techniques.json#modes.rows[C4].Chunks · vector only
+C4,Upset or stall after unreliable airspeed,LOC-I,Chunks · keyword only,0.8,0.333,0,0,10,viewer/data/techniques.json#modes.rows[C4].Chunks · keyword only
+C4,Upset or stall after unreliable airspeed,LOC-I,Whole report · RRF,0.9,0.0,0,0,0,viewer/data/techniques.json#modes.rows[C4].Whole report · RRF
+C6,Clear-air turbulence with cabin injuries,TURB,Whole report · hybrid,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[C6].Whole report · hybrid
+C6,Clear-air turbulence with cabin injuries,TURB,Chunks · hybrid,1.0,1.0,0,1,9,viewer/data/techniques.json#modes.rows[C6].Chunks · hybrid
+C6,Clear-air turbulence with cabin injuries,TURB,Chunks · vector only,1.0,0.0,2,8,0,viewer/data/techniques.json#modes.rows[C6].Chunks · vector only
+C6,Clear-air turbulence with cabin injuries,TURB,Chunks · keyword only,0.7,0.333,0,0,10,viewer/data/techniques.json#modes.rows[C6].Chunks · keyword only
+C6,Clear-air turbulence with cabin injuries,TURB,Whole report · RRF,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[C6].Whole report · RRF
+C7,Engine damage or shutdown after bird ingestion,BIRD,Whole report · hybrid,0.6,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C7].Whole report · hybrid
+C7,Engine damage or shutdown after bird ingestion,BIRD,Chunks · hybrid,0.8,1.0,0,0,10,viewer/data/techniques.json#modes.rows[C7].Chunks · hybrid
+C7,Engine damage or shutdown after bird ingestion,BIRD,Chunks · vector only,1.0,0.111,1,7,2,viewer/data/techniques.json#modes.rows[C7].Chunks · vector only
+C7,Engine damage or shutdown after bird ingestion,BIRD,Chunks · keyword only,0.3,0.111,0,0,10,viewer/data/techniques.json#modes.rows[C7].Chunks · keyword only
+C7,Engine damage or shutdown after bird ingestion,BIRD,Whole report · RRF,0.8,0.111,0,0,0,viewer/data/techniques.json#modes.rows[C7].Whole report · RRF
+C8,Takeoff after de-icing holdover time exceeded,LOC-I,Whole report · hybrid,0.3,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C8].Whole report · hybrid
+C8,Takeoff after de-icing holdover time exceeded,LOC-I,Chunks · hybrid,0.4,1.0,0,6,4,viewer/data/techniques.json#modes.rows[C8].Chunks · hybrid
+C8,Takeoff after de-icing holdover time exceeded,LOC-I,Chunks · vector only,0.1,0.176,0,10,0,viewer/data/techniques.json#modes.rows[C8].Chunks · vector only
+C8,Takeoff after de-icing holdover time exceeded,LOC-I,Chunks · keyword only,0.4,0.111,0,7,3,viewer/data/techniques.json#modes.rows[C8].Chunks · keyword only
+C8,Takeoff after de-icing holdover time exceeded,LOC-I,Whole report · RRF,0.3,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C8].Whole report · RRF
+C9,Hard landing or tail strike,ARC,Whole report · hybrid,0.8,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C9].Whole report · hybrid
+C9,Hard landing or tail strike,ARC,Chunks · hybrid,1.0,1.0,0,0,10,viewer/data/techniques.json#modes.rows[C9].Chunks · hybrid
+C9,Hard landing or tail strike,ARC,Chunks · vector only,1.0,0.053,9,0,1,viewer/data/techniques.json#modes.rows[C9].Chunks · vector only
+C9,Hard landing or tail strike,ARC,Chunks · keyword only,0.6,0.053,0,0,10,viewer/data/techniques.json#modes.rows[C9].Chunks · keyword only
+C9,Hard landing or tail strike,ARC,Whole report · RRF,0.9,0.053,0,0,0,viewer/data/techniques.json#modes.rows[C9].Whole report · RRF
+D01,Carburetor icing leading to loss of engine power,SCF-PP,Whole report · hybrid,0.6,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D01].Whole report · hybrid
+D01,Carburetor icing leading to loss of engine power,SCF-PP,Chunks · hybrid,0.7,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D01].Chunks · hybrid
+D01,Carburetor icing leading to loss of engine power,SCF-PP,Chunks · vector only,0.5,0.053,10,0,0,viewer/data/techniques.json#modes.rows[D01].Chunks · vector only
+D01,Carburetor icing leading to loss of engine power,SCF-PP,Chunks · keyword only,0.7,0.818,0,0,10,viewer/data/techniques.json#modes.rows[D01].Chunks · keyword only
+D01,Carburetor icing leading to loss of engine power,SCF-PP,Whole report · RRF,0.7,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D01].Whole report · RRF
+D02,Fuel exhaustion from inadequate fuel planning,FUEL,Whole report · hybrid,0.9,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D02].Whole report · hybrid
+D02,Fuel exhaustion from inadequate fuel planning,FUEL,Chunks · hybrid,0.9,1.0,3,0,7,viewer/data/techniques.json#modes.rows[D02].Chunks · hybrid
+D02,Fuel exhaustion from inadequate fuel planning,FUEL,Chunks · vector only,0.8,0.0,0,10,0,viewer/data/techniques.json#modes.rows[D02].Chunks · vector only
+D02,Fuel exhaustion from inadequate fuel planning,FUEL,Chunks · keyword only,0.9,0.111,0,0,10,viewer/data/techniques.json#modes.rows[D02].Chunks · keyword only
+D02,Fuel exhaustion from inadequate fuel planning,FUEL,Whole report · RRF,0.9,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D02].Whole report · RRF
+D03,Fuel starvation from fuel selector or tank mismanagement,FUEL,Whole report · hybrid,0.8,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D03].Whole report · hybrid
+D03,Fuel starvation from fuel selector or tank mismanagement,FUEL,Chunks · hybrid,0.8,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D03].Chunks · hybrid
+D03,Fuel starvation from fuel selector or tank mismanagement,FUEL,Chunks · vector only,0.8,0.0,4,0,6,viewer/data/techniques.json#modes.rows[D03].Chunks · vector only
+D03,Fuel starvation from fuel selector or tank mismanagement,FUEL,Chunks · keyword only,0.7,0.538,0,0,10,viewer/data/techniques.json#modes.rows[D03].Chunks · keyword only
+D03,Fuel starvation from fuel selector or tank mismanagement,FUEL,Whole report · RRF,0.8,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D03].Whole report · RRF
+D04,Loss of directional control in a crosswind on landing,LOC-G,Whole report · hybrid,0.8,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D04].Whole report · hybrid
+D04,Loss of directional control in a crosswind on landing,LOC-G,Chunks · hybrid,1.0,1.0,1,0,9,viewer/data/techniques.json#modes.rows[D04].Chunks · hybrid
+D04,Loss of directional control in a crosswind on landing,LOC-G,Chunks · vector only,0.9,0.0,5,5,0,viewer/data/techniques.json#modes.rows[D04].Chunks · vector only
+D04,Loss of directional control in a crosswind on landing,LOC-G,Chunks · keyword only,0.6,0.176,0,0,10,viewer/data/techniques.json#modes.rows[D04].Chunks · keyword only
+D04,Loss of directional control in a crosswind on landing,LOC-G,Whole report · RRF,1.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D04].Whole report · RRF
+D05,Ground loop in a tailwheel airplane,LOC-G,Whole report · hybrid,0.8,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D05].Whole report · hybrid
+D05,Ground loop in a tailwheel airplane,LOC-G,Chunks · hybrid,1.0,1.0,1,0,9,viewer/data/techniques.json#modes.rows[D05].Chunks · hybrid
+D05,Ground loop in a tailwheel airplane,LOC-G,Chunks · vector only,1.0,0.111,10,0,0,viewer/data/techniques.json#modes.rows[D05].Chunks · vector only
+D05,Ground loop in a tailwheel airplane,LOC-G,Chunks · keyword only,0.4,0.25,0,0,10,viewer/data/techniques.json#modes.rows[D05].Chunks · keyword only
+D05,Ground loop in a tailwheel airplane,LOC-G,Whole report · RRF,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D05].Whole report · RRF
+D06,Bounced landing and improper recovery,ARC,Whole report · hybrid,1.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D06].Whole report · hybrid
+D06,Bounced landing and improper recovery,ARC,Chunks · hybrid,1.0,1.0,2,0,8,viewer/data/techniques.json#modes.rows[D06].Chunks · hybrid
+D06,Bounced landing and improper recovery,ARC,Chunks · vector only,1.0,0.111,10,0,0,viewer/data/techniques.json#modes.rows[D06].Chunks · vector only
+D06,Bounced landing and improper recovery,ARC,Chunks · keyword only,0.7,0.176,0,0,10,viewer/data/techniques.json#modes.rows[D06].Chunks · keyword only
+D06,Bounced landing and improper recovery,ARC,Whole report · RRF,1.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D06].Whole report · RRF
+D07,Gear-up landing with the landing gear not extended,ARC,Whole report · hybrid,0.7,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D07].Whole report · hybrid
+D07,Gear-up landing with the landing gear not extended,ARC,Chunks · hybrid,0.7,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D07].Chunks · hybrid
+D07,Gear-up landing with the landing gear not extended,ARC,Chunks · vector only,0.3,0.176,2,0,8,viewer/data/techniques.json#modes.rows[D07].Chunks · vector only
+D07,Gear-up landing with the landing gear not extended,ARC,Chunks · keyword only,0.7,0.429,0,0,10,viewer/data/techniques.json#modes.rows[D07].Chunks · keyword only
+D07,Gear-up landing with the landing gear not extended,ARC,Whole report · RRF,0.8,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D07].Whole report · RRF
+D08,Aerodynamic stall in the traffic pattern or on approach,LOC-I,Whole report · hybrid,0.5,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D08].Whole report · hybrid
+D08,Aerodynamic stall in the traffic pattern or on approach,LOC-I,Chunks · hybrid,1.0,1.0,1,0,9,viewer/data/techniques.json#modes.rows[D08].Chunks · hybrid
+D08,Aerodynamic stall in the traffic pattern or on approach,LOC-I,Chunks · vector only,1.0,0.053,10,0,0,viewer/data/techniques.json#modes.rows[D08].Chunks · vector only
+D08,Aerodynamic stall in the traffic pattern or on approach,LOC-I,Chunks · keyword only,1.0,0.429,0,0,10,viewer/data/techniques.json#modes.rows[D08].Chunks · keyword only
+D08,Aerodynamic stall in the traffic pattern or on approach,LOC-I,Whole report · RRF,0.9,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D08].Whole report · RRF
+D09,Stall after takeoff at high density altitude,CTOL,Whole report · hybrid,0.3,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D09].Whole report · hybrid
+D09,Stall after takeoff at high density altitude,CTOL,Chunks · hybrid,0.5,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D09].Chunks · hybrid
+D09,Stall after takeoff at high density altitude,CTOL,Chunks · vector only,0.3,0.176,0,0,10,viewer/data/techniques.json#modes.rows[D09].Chunks · vector only
+D09,Stall after takeoff at high density altitude,CTOL,Chunks · keyword only,0.2,0.25,0,0,10,viewer/data/techniques.json#modes.rows[D09].Chunks · keyword only
+D09,Stall after takeoff at high density altitude,CTOL,Whole report · RRF,0.4,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D09].Whole report · RRF
+D10,Wire strike during low-altitude flight,LALT,Whole report · hybrid,0.4,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D10].Whole report · hybrid
+D10,Wire strike during low-altitude flight,LALT,Chunks · hybrid,0.8,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D10].Chunks · hybrid
+D10,Wire strike during low-altitude flight,LALT,Chunks · vector only,0.6,0.0,9,1,0,viewer/data/techniques.json#modes.rows[D10].Chunks · vector only
+D10,Wire strike during low-altitude flight,LALT,Chunks · keyword only,0.3,0.25,0,0,10,viewer/data/techniques.json#modes.rows[D10].Chunks · keyword only
+D10,Wire strike during low-altitude flight,LALT,Whole report · RRF,0.5,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D10].Whole report · RRF
+D11,Spatial disorientation after VFR flight into instrument conditions,UIMC,Whole report · hybrid,0.4,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D11].Whole report · hybrid
+D11,Spatial disorientation after VFR flight into instrument conditions,UIMC,Chunks · hybrid,0.6,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D11].Chunks · hybrid
+D11,Spatial disorientation after VFR flight into instrument conditions,UIMC,Chunks · vector only,0.6,0.25,0,1,9,viewer/data/techniques.json#modes.rows[D11].Chunks · vector only
+D11,Spatial disorientation after VFR flight into instrument conditions,UIMC,Chunks · keyword only,0.3,0.25,0,0,10,viewer/data/techniques.json#modes.rows[D11].Chunks · keyword only
+D11,Spatial disorientation after VFR flight into instrument conditions,UIMC,Whole report · RRF,0.8,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D11].Whole report · RRF
+D12,Reciprocating engine failure from a connecting rod or crankshaft fracture,SCF-PP,Whole report · hybrid,1.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D12].Whole report · hybrid
+D12,Reciprocating engine failure from a connecting rod or crankshaft fracture,SCF-PP,Chunks · hybrid,1.0,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D12].Chunks · hybrid
+D12,Reciprocating engine failure from a connecting rod or crankshaft fracture,SCF-PP,Chunks · vector only,1.0,0.111,2,0,8,viewer/data/techniques.json#modes.rows[D12].Chunks · vector only
+D12,Reciprocating engine failure from a connecting rod or crankshaft fracture,SCF-PP,Chunks · keyword only,1.0,0.667,0,0,10,viewer/data/techniques.json#modes.rows[D12].Chunks · keyword only
+D12,Reciprocating engine failure from a connecting rod or crankshaft fracture,SCF-PP,Whole report · RRF,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D12].Whole report · RRF
+D13,Loss of tail rotor effectiveness in a helicopter,LOC-I,Whole report · hybrid,1.0,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D13].Whole report · hybrid
+D13,Loss of tail rotor effectiveness in a helicopter,LOC-I,Chunks · hybrid,1.0,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D13].Chunks · hybrid
+D13,Loss of tail rotor effectiveness in a helicopter,LOC-I,Chunks · vector only,1.0,0.333,3,0,7,viewer/data/techniques.json#modes.rows[D13].Chunks · vector only
+D13,Loss of tail rotor effectiveness in a helicopter,LOC-I,Chunks · keyword only,1.0,0.538,0,0,10,viewer/data/techniques.json#modes.rows[D13].Chunks · keyword only
+D13,Loss of tail rotor effectiveness in a helicopter,LOC-I,Whole report · RRF,1.0,0.111,0,0,0,viewer/data/techniques.json#modes.rows[D13].Whole report · RRF
+D14,Low rotor RPM in a helicopter,ARC,Whole report · hybrid,0.3,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D14].Whole report · hybrid
+D14,Low rotor RPM in a helicopter,ARC,Chunks · hybrid,0.3,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D14].Chunks · hybrid
+D14,Low rotor RPM in a helicopter,ARC,Chunks · vector only,0.5,0.176,0,0,10,viewer/data/techniques.json#modes.rows[D14].Chunks · vector only
+D14,Low rotor RPM in a helicopter,ARC,Chunks · keyword only,0.2,0.538,0,0,10,viewer/data/techniques.json#modes.rows[D14].Chunks · keyword only
+D14,Low rotor RPM in a helicopter,ARC,Whole report · RRF,0.4,0.053,0,0,0,viewer/data/techniques.json#modes.rows[D14].Whole report · RRF
+D15,Balloon hard landing in high wind,ARC,Whole report · hybrid,0.7,0.25,0,0,0,viewer/data/techniques.json#modes.rows[D15].Whole report · hybrid
+D15,Balloon hard landing in high wind,ARC,Chunks · hybrid,0.7,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D15].Chunks · hybrid
+D15,Balloon hard landing in high wind,ARC,Chunks · vector only,0.9,0.176,3,0,7,viewer/data/techniques.json#modes.rows[D15].Chunks · vector only
+D15,Balloon hard landing in high wind,ARC,Chunks · keyword only,0.6,0.429,0,0,10,viewer/data/techniques.json#modes.rows[D15].Chunks · keyword only
+D15,Balloon hard landing in high wind,ARC,Whole report · RRF,0.8,0.176,0,0,0,viewer/data/techniques.json#modes.rows[D15].Whole report · RRF
+D16,Taxi collision from inadequate visual lookout,GCOL,Whole report · hybrid,0.8,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D16].Whole report · hybrid
+D16,Taxi collision from inadequate visual lookout,GCOL,Chunks · hybrid,0.8,1.0,0,0,10,viewer/data/techniques.json#modes.rows[D16].Chunks · hybrid
+D16,Taxi collision from inadequate visual lookout,GCOL,Chunks · vector only,0.8,0.111,10,0,0,viewer/data/techniques.json#modes.rows[D16].Chunks · vector only
+D16,Taxi collision from inadequate visual lookout,GCOL,Chunks · keyword only,0.5,0.333,0,1,9,viewer/data/techniques.json#modes.rows[D16].Chunks · keyword only
+D16,Taxi collision from inadequate visual lookout,GCOL,Whole report · RRF,1.0,0.0,0,0,0,viewer/data/techniques.json#modes.rows[D16].Whole report · RRF

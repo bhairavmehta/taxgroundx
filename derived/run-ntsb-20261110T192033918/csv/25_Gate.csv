@@ -1,0 +1,8 @@
+check,passed,detail,source
+Parents correct,PASS,n/a (≥ 90%),out_ntsb/run-ntsb-20261110T192033918/gate.json#[0]
+Report precision (merge-aware),PASS,None (≥ 0.8),out_ntsb/run-ntsb-20261110T192033918/gate.json#[1]
+Report recall (merge-aware),PASS,None (≥ 0.8),out_ntsb/run-ntsb-20261110T192033918/gate.json#[2]
+Guardrail faults blocked,PASS,11/11,out_ntsb/run-ntsb-20261110T192033918/gate.json#[3]
+Every bucket has a verified criteria card (G9),PASS,50/50,out_ntsb/run-ntsb-20261110T192033918/gate.json#[4]
+SSSOM link rows complete,PASS,"773 rows, 0 incomplete",out_ntsb/run-ntsb-20261110T192033918/gate.json#[5]
+"Reproducible: equal inputs, settings, code → equal output hash",PASS,1 twin run(s): run-ntsb-20261110T185650894,out_ntsb/run-ntsb-20261110T192033918/gate.json#[6]

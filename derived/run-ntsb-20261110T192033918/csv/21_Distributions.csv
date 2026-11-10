@@ -1,0 +1,149 @@
+distribution,bin_from,bin_to,count,source
+narrative length,0.0,250.0,3890,viewer/data/techniques.json#corpus.narrative_len
+narrative length,250.0,500.0,1474,viewer/data/techniques.json#corpus.narrative_len
+narrative length,500.0,750.0,2463,viewer/data/techniques.json#corpus.narrative_len
+narrative length,750.0,1000.0,3298,viewer/data/techniques.json#corpus.narrative_len
+narrative length,1000.0,1250.0,1894,viewer/data/techniques.json#corpus.narrative_len
+narrative length,1250.0,1500.0,1241,viewer/data/techniques.json#corpus.narrative_len
+narrative length,1500.0,1750.0,935,viewer/data/techniques.json#corpus.narrative_len
+narrative length,1750.0,2000.0,875,viewer/data/techniques.json#corpus.narrative_len
+narrative length,2000.0,2250.0,815,viewer/data/techniques.json#corpus.narrative_len
+narrative length,2250.0,2500.0,701,viewer/data/techniques.json#corpus.narrative_len
+narrative length,2500.0,2750.0,650,viewer/data/techniques.json#corpus.narrative_len
+narrative length,2750.0,3000.0,582,viewer/data/techniques.json#corpus.narrative_len
+narrative length,3000.0,3250.0,540,viewer/data/techniques.json#corpus.narrative_len
+narrative length,3250.0,3500.0,496,viewer/data/techniques.json#corpus.narrative_len
+narrative length,3500.0,3750.0,455,viewer/data/techniques.json#corpus.narrative_len
+narrative length,3750.0,4000.0,403,viewer/data/techniques.json#corpus.narrative_len
+narrative length,4000.0,4250.0,370,viewer/data/techniques.json#corpus.narrative_len
+narrative length,4250.0,4500.0,352,viewer/data/techniques.json#corpus.narrative_len
+narrative length,4500.0,4750.0,264,viewer/data/techniques.json#corpus.narrative_len
+narrative length,4750.0,5000.0,293,viewer/data/techniques.json#corpus.narrative_len
+narrative length,5000.0,5250.0,230,viewer/data/techniques.json#corpus.narrative_len
+narrative length,5250.0,5500.0,240,viewer/data/techniques.json#corpus.narrative_len
+narrative length,5500.0,5750.0,248,viewer/data/techniques.json#corpus.narrative_len
+narrative length,5750.0,6000.0,200,viewer/data/techniques.json#corpus.narrative_len
+narrative length,6000.0,6250.0,196,viewer/data/techniques.json#corpus.narrative_len
+narrative length,6250.0,6500.0,215,viewer/data/techniques.json#corpus.narrative_len
+narrative length,6500.0,6750.0,167,viewer/data/techniques.json#corpus.narrative_len
+narrative length,6750.0,7000.0,172,viewer/data/techniques.json#corpus.narrative_len
+narrative length,7000.0,7250.0,145,viewer/data/techniques.json#corpus.narrative_len
+narrative length,7250.0,7500.0,159,viewer/data/techniques.json#corpus.narrative_len
+narrative length,7500.0,7750.0,133,viewer/data/techniques.json#corpus.narrative_len
+narrative length,7750.0,8000.0,165,viewer/data/techniques.json#corpus.narrative_len
+findings length,0.0,100.0,5523,viewer/data/techniques.json#corpus.findings_len
+findings length,100.0,200.0,4976,viewer/data/techniques.json#corpus.findings_len
+findings length,200.0,300.0,6781,viewer/data/techniques.json#corpus.findings_len
+findings length,300.0,400.0,5426,viewer/data/techniques.json#corpus.findings_len
+findings length,400.0,500.0,2879,viewer/data/techniques.json#corpus.findings_len
+findings length,500.0,600.0,1252,viewer/data/techniques.json#corpus.findings_len
+findings length,600.0,700.0,604,viewer/data/techniques.json#corpus.findings_len
+findings length,700.0,800.0,239,viewer/data/techniques.json#corpus.findings_len
+findings length,800.0,900.0,97,viewer/data/techniques.json#corpus.findings_len
+findings length,900.0,1000.0,49,viewer/data/techniques.json#corpus.findings_len
+findings length,1000.0,1100.0,27,viewer/data/techniques.json#corpus.findings_len
+findings length,1100.0,1200.0,19,viewer/data/techniques.json#corpus.findings_len
+findings length,1200.0,1300.0,5,viewer/data/techniques.json#corpus.findings_len
+findings length,1300.0,1400.0,2,viewer/data/techniques.json#corpus.findings_len
+findings length,1400.0,1500.0,10,viewer/data/techniques.json#corpus.findings_len
+findings length,1500.0,1600.0,1,viewer/data/techniques.json#corpus.findings_len
+findings length,1600.0,1700.0,1,viewer/data/techniques.json#corpus.findings_len
+findings length,1700.0,1800.0,0,viewer/data/techniques.json#corpus.findings_len
+findings length,1800.0,1900.0,1,viewer/data/techniques.json#corpus.findings_len
+findings length,1900.0,2000.0,2,viewer/data/techniques.json#corpus.findings_len
+chunk length · findings,0.0,100.0,2441,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,100.0,200.0,4976,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,200.0,300.0,6781,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,300.0,400.0,5426,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,400.0,500.0,2879,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,500.0,600.0,1252,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,600.0,700.0,604,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,700.0,800.0,239,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,800.0,900.0,97,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,900.0,1000.0,49,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1000.0,1100.0,27,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1100.0,1200.0,19,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1200.0,1300.0,5,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1300.0,1400.0,2,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1400.0,1500.0,10,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · findings,1500.0,1600.0,1,viewer/data/techniques.json#chunks.len_hist.findings
+chunk length · narrative,0.0,100.0,491,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,100.0,200.0,1574,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,200.0,300.0,1711,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,300.0,400.0,2620,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,400.0,500.0,2715,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,500.0,600.0,2760,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,600.0,700.0,3173,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,700.0,800.0,3920,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,800.0,900.0,6514,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,900.0,1000.0,21869,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1000.0,1100.0,57305,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1100.0,1200.0,657,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1200.0,1300.0,26,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1300.0,1400.0,10,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1400.0,1500.0,8,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · narrative,1500.0,1600.0,8,viewer/data/techniques.json#chunks.len_hist.narrative
+chunk length · summary,0.0,100.0,4290,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,100.0,200.0,13716,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,200.0,300.0,4899,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,300.0,400.0,1365,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,400.0,500.0,438,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,500.0,600.0,137,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,600.0,700.0,44,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,700.0,800.0,33,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,800.0,900.0,13,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,900.0,1000.0,9,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1000.0,1100.0,13,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1100.0,1200.0,2,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1200.0,1300.0,5,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1300.0,1400.0,0,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1400.0,1500.0,0,viewer/data/techniques.json#chunks.len_hist.summary
+chunk length · summary,1500.0,1600.0,0,viewer/data/techniques.json#chunks.len_hist.summary
+cosine · same parent,-0.2,-0.15,0,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,-0.15,-0.1,0,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,-0.1,-0.05,0,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,-0.05,-0.0,5,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,-0.0,0.05,139,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.05,0.1,132,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.1,0.15,99,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.15,0.2,90,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.2,0.25,72,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.25,0.3,78,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.3,0.35,53,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.35,0.4,67,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.4,0.45,60,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.45,0.5,56,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.5,0.55,58,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.55,0.6,43,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.6,0.65,40,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.65,0.7,24,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.7,0.75,12,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.75,0.8,11,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.8,0.85,3,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.85,0.9,5,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.9,0.95,2,viewer/data/techniques.json#embedding.cos_same
+cosine · same parent,0.95,1.0,1,viewer/data/techniques.json#embedding.cos_same
+cosine · different parent,-0.2,-0.15,0,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,-0.15,-0.1,0,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,-0.1,-0.05,1,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,-0.05,-0.0,82,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,-0.0,0.05,1322,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.05,0.1,898,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.1,0.15,569,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.15,0.2,454,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.2,0.25,354,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.25,0.3,351,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.3,0.35,263,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.35,0.4,195,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.4,0.45,166,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.45,0.5,106,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.5,0.55,62,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.55,0.6,49,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.6,0.65,27,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.65,0.7,18,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.7,0.75,20,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.75,0.8,7,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.8,0.85,3,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.85,0.9,1,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.9,0.95,0,viewer/data/techniques.json#embedding.cos_diff
+cosine · different parent,0.95,1.0,0,viewer/data/techniques.json#embedding.cos_diff

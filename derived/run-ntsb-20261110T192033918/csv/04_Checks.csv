@@ -1,0 +1,451 @@
+candidate_id,check,name,result,severity,detail,run_id,source
+B01,G1,Parent is an allowed CICTT category,pass,block,parent = RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G5,At least 10 supporting events (at most 12),block,block,"5 valid events, 5 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G6,Evidence sits under the parent (agreement),pass,review,61% of the closest reports are coded RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G7,Clear winner among parents,pass,review,margin 0.41 over GCOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RI, grounded RI",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B01,G9,Criteria card is complete and every citation resolves,pass,block,"21 entries: 4 grounded inclusions, 10 exclusions, 5 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[0].checks
+B02,G1,Parent is an allowed CICTT category,pass,block,parent = RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G5,At least 10 supporting events (at most 12),block,block,"8 valid events, 8 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G6,Evidence sits under the parent (agreement),pass,review,61% of the closest reports are coded RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G7,Clear winner among parents,pass,review,margin 0.37 over ADRM,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RI, grounded RI",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B02,G9,Criteria card is complete and every citation resolves,pass,block,"21 entries: 4 grounded inclusions, 8 exclusions, 8 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[1].checks
+B03,G1,Parent is an allowed CICTT category,pass,block,parent = RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G6,Evidence sits under the parent (agreement),pass,review,80% of the closest reports are coded RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G7,Clear winner among parents,review,review,margin 0.05 over LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RE, grounded RE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B03,G9,Criteria card is complete and every citation resolves,pass,block,"28 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[2].checks
+B04,G1,Parent is an allowed CICTT category,pass,block,parent = RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G7,Clear winner among parents,pass,review,margin 0.66 over SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RE, grounded RE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B04,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 6 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[3].checks
+B05,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G7,Clear winner among parents,pass,review,margin 0.54 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-I, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B05,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[4].checks
+B06,G1,Parent is an allowed CICTT category,pass,block,parent = TURB,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G6,Evidence sits under the parent (agreement),review,review,40% of the closest reports are coded TURB,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G7,Clear winner among parents,pass,review,margin 0.11 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed TURB, grounded TURB",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B06,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[5].checks
+B07,G1,Parent is an allowed CICTT category,pass,block,parent = MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G6,Evidence sits under the parent (agreement),review,review,51% of the closest reports are coded MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G7,Clear winner among parents,pass,review,margin 0.26 over CFIT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed MAC, grounded MAC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B07,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 10 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[6].checks
+B08,G1,Parent is an allowed CICTT category,pass,block,parent = MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G6,Evidence sits under the parent (agreement),pass,review,60% of the closest reports are coded MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G7,Clear winner among parents,pass,review,margin 0.35 over NAV,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed MAC, grounded MAC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B08,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[7].checks
+B09,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G6,Evidence sits under the parent (agreement),review,review,59% of the closest reports are coded SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G7,Clear winner among parents,pass,review,margin 0.13 over RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed SCF-NP, grounded SCF-NP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B09,G9,Criteria card is complete and every citation resolves,pass,block,"22 entries: 4 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[8].checks
+B10,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G6,Evidence sits under the parent (agreement),pass,review,70% of the closest reports are coded SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G7,Clear winner among parents,pass,review,margin 0.15 over ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed SCF-NP, grounded SCF-NP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B10,G9,Criteria card is complete and every citation resolves,pass,block,"23 entries: 4 grounded inclusions, 6 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[9].checks
+B11,G1,Parent is an allowed CICTT category,pass,block,parent = CFIT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G6,Evidence sits under the parent (agreement),pass,review,61% of the closest reports are coded CFIT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G7,Clear winner among parents,pass,review,margin 0.22 over NAV,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed CFIT, grounded CFIT",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B11,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[10].checks
+B12,G1,Parent is an allowed CICTT category,pass,block,parent = MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G5,At least 10 supporting events (at most 12),block,block,"8 valid events, 8 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G6,Evidence sits under the parent (agreement),review,review,20% of the closest reports are coded MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G7,Clear winner among parents,review,review,margin 0.03 over NAV,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed NAV, grounded MAC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B12,G9,Criteria card is complete and every citation resolves,pass,block,"23 entries: 4 grounded inclusions, 10 exclusions, 8 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[11].checks
+B13,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G6,Evidence sits under the parent (agreement),pass,review,90% of the closest reports are coded SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G7,Clear winner among parents,pass,review,margin 0.60 over LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed SCF-NP, grounded SCF-PP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B13,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[12].checks
+B14,G1,Parent is an allowed CICTT category,pass,block,parent = ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G6,Evidence sits under the parent (agreement),review,review,33% of the closest reports are coded ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G7,Clear winner among parents,pass,review,margin 0.22 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed ICE, grounded ICE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B14,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[13].checks
+B15,G1,Parent is an allowed CICTT category,pass,block,parent = BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G6,Evidence sits under the parent (agreement),review,review,42% of the closest reports are coded BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G7,Clear winner among parents,review,review,margin 0.01 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed BIRD, grounded BIRD",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B15,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[14].checks
+B16,G1,Parent is an allowed CICTT category,pass,block,parent = BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G6,Evidence sits under the parent (agreement),pass,review,79% of the closest reports are coded BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G7,Clear winner among parents,pass,review,margin 0.57 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed BIRD, grounded BIRD",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B16,G9,Criteria card is complete and every citation resolves,pass,block,"22 entries: 4 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[15].checks
+B17,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G6,Evidence sits under the parent (agreement),review,review,50% of the closest reports are coded SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G7,Clear winner among parents,pass,review,margin 0.12 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed F-NI, grounded SCF-PP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B17,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 10 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[16].checks
+B18,G1,Parent is an allowed CICTT category,pass,block,parent = F-NI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G6,Evidence sits under the parent (agreement),pass,review,68% of the closest reports are coded F-NI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G7,Clear winner among parents,pass,review,margin 0.13 over SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed F-NI, grounded F-NI",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B18,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[17].checks
+B19,G1,Parent is an allowed CICTT category,pass,block,parent = NAV,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G6,Evidence sits under the parent (agreement),review,review,29% of the closest reports are coded NAV,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G7,Clear winner among parents,review,review,margin 0.04 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed FUEL, grounded NAV",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B19,G9,Criteria card is complete and every citation resolves,pass,block,"23 entries: 3 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[18].checks
+B20,G1,Parent is an allowed CICTT category,pass,block,parent = MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G6,Evidence sits under the parent (agreement),pass,review,67% of the closest reports are coded MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G7,Clear winner among parents,pass,review,margin 0.21 over GCOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed RAMP, grounded MAC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B20,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[19].checks
+B21,G1,Parent is an allowed CICTT category,pass,block,parent = CABIN,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G6,Evidence sits under the parent (agreement),review,review,20% of the closest reports are coded CABIN,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G7,Clear winner among parents,review,review,margin 0.10 over EVAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed CABIN, grounded CABIN",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B21,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[20].checks
+B22,G1,Parent is an allowed CICTT category,pass,block,parent = RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G6,Evidence sits under the parent (agreement),review,review,41% of the closest reports are coded RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G7,Clear winner among parents,review,review,margin 0.01 over CTOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed ARC, grounded RE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B22,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[21].checks
+B23,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G6,Evidence sits under the parent (agreement),review,review,59% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G7,Clear winner among parents,pass,review,margin 0.17 over WSTRW,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed TURB, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B23,G9,Criteria card is complete and every citation resolves,pass,block,"28 entries: 4 grounded inclusions, 11 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[22].checks
+B24,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G6,Evidence sits under the parent (agreement),review,review,40% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G7,Clear winner among parents,review,review,margin 0.05 over RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed USOS, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B24,G9,Criteria card is complete and every citation resolves,pass,block,"29 entries: 4 grounded inclusions, 12 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[23].checks
+B25,G1,Parent is an allowed CICTT category,pass,block,parent = ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G6,Evidence sits under the parent (agreement),pass,review,79% of the closest reports are coded ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G7,Clear winner among parents,pass,review,margin 0.11 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed ICE, grounded ICE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B25,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[24].checks
+B26,G1,Parent is an allowed CICTT category,pass,block,parent = ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G6,Evidence sits under the parent (agreement),review,review,51% of the closest reports are coded ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G7,Clear winner among parents,review,review,margin 0.01 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed SCF-NP, grounded ICE",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B26,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[25].checks
+B27,G1,Parent is an allowed CICTT category,pass,block,parent = RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G6,Evidence sits under the parent (agreement),review,review,40% of the closest reports are coded RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G7,Clear winner among parents,pass,review,margin 0.12 over GCOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RI, grounded RI",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B27,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 10 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[26].checks
+B28,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G6,Evidence sits under the parent (agreement),review,review,28% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G7,Clear winner among parents,review,review,margin 0.04 over CFIT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed NAV, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+B28,G9,Criteria card is complete and every citation resolves,pass,block,"29 entries: 4 grounded inclusions, 12 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[27].checks
+C1,G1,Parent is an allowed CICTT category,pass,block,parent = RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G6,Evidence sits under the parent (agreement),pass,review,61% of the closest reports are coded RI,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G7,Clear winner among parents,pass,review,margin 0.49 over ADRM,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed RI, grounded RI",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C1,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[28].checks
+C4,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G6,Evidence sits under the parent (agreement),pass,review,90% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G7,Clear winner among parents,pass,review,margin 0.47 over ICE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-I, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C4,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[31].checks
+C6,G1,Parent is an allowed CICTT category,pass,block,parent = TURB,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded TURB,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G7,Clear winner among parents,pass,review,margin 0.73 over CABIN,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed TURB, grounded TURB",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C6,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 4 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[33].checks
+C7,G1,Parent is an allowed CICTT category,pass,block,parent = BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G6,Evidence sits under the parent (agreement),pass,review,80% of the closest reports are coded BIRD,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G7,Clear winner among parents,pass,review,margin 0.37 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed SCF-PP, grounded BIRD",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C7,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[34].checks
+C8,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G6,Evidence sits under the parent (agreement),review,review,41% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G7,Clear winner among parents,review,review,margin 0.09 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed ICE, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C8,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 10 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[35].checks
+C9,G1,Parent is an allowed CICTT category,pass,block,parent = ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G7,Clear winner among parents,pass,review,margin 0.69 over SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed RE, grounded ARC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+C9,G9,Criteria card is complete and every citation resolves,pass,block,"28 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[36].checks
+D01,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G6,Evidence sits under the parent (agreement),pass,review,71% of the closest reports are coded SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G7,Clear winner among parents,pass,review,margin 0.28 over FUEL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed SCF-PP, grounded SCF-PP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D01,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[37].checks
+D02,G1,Parent is an allowed CICTT category,pass,block,parent = FUEL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G6,Evidence sits under the parent (agreement),pass,review,91% of the closest reports are coded FUEL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G7,Clear winner among parents,pass,review,margin 0.39 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed FUEL, grounded FUEL",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D02,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 4 grounded inclusions, 6 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[38].checks
+D03,G1,Parent is an allowed CICTT category,pass,block,parent = FUEL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G6,Evidence sits under the parent (agreement),pass,review,80% of the closest reports are coded FUEL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G7,Clear winner among parents,pass,review,margin 0.23 over SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed FUEL, grounded FUEL",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D03,G9,Criteria card is complete and every citation resolves,pass,block,"23 entries: 4 grounded inclusions, 6 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[39].checks
+D04,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G7,Clear winner among parents,pass,review,margin 0.50 over RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-G, grounded LOC-G",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D04,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[40].checks
+D05,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G7,Clear winner among parents,pass,review,margin 0.49 over RE,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-G, grounded LOC-G",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D05,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 3 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[41].checks
+D06,G1,Parent is an allowed CICTT category,pass,block,parent = ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G7,Clear winner among parents,pass,review,margin 0.63 over LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed ARC, grounded ARC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D06,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 3 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[42].checks
+D07,G1,Parent is an allowed CICTT category,pass,block,parent = ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G6,Evidence sits under the parent (agreement),pass,review,70% of the closest reports are coded ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G7,Clear winner among parents,pass,review,margin 0.22 over SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed ARC, grounded ARC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D07,G9,Criteria card is complete and every citation resolves,pass,block,"25 entries: 4 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[43].checks
+D08,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G7,Clear winner among parents,pass,review,margin 0.62 over SEC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-I, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D08,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 3 grounded inclusions, 8 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[44].checks
+D09,G1,Parent is an allowed CICTT category,pass,block,parent = CTOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G6,Evidence sits under the parent (agreement),review,review,50% of the closest reports are coded CTOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G7,Clear winner among parents,review,review,margin 0.01 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed LOC-I, grounded CTOL",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D09,G9,Criteria card is complete and every citation resolves,pass,block,"22 entries: 3 grounded inclusions, 6 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[45].checks
+D10,G1,Parent is an allowed CICTT category,pass,block,parent = LALT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G2,Definitions exist and are crosswalked to the parent,pass,block,1 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G6,Evidence sits under the parent (agreement),pass,review,81% of the closest reports are coded LALT,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G7,Clear winner among parents,pass,review,margin 0.48 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LALT, grounded LALT",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D10,G9,Criteria card is complete and every citation resolves,pass,block,"21 entries: 2 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[46].checks
+D11,G1,Parent is an allowed CICTT category,pass,block,parent = UIMC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G6,Evidence sits under the parent (agreement),pass,review,80% of the closest reports are coded UIMC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G7,Clear winner among parents,pass,review,margin 0.15 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed UIMC, grounded UIMC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D11,G9,Criteria card is complete and every citation resolves,pass,block,"21 entries: 3 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[47].checks
+D12,G1,Parent is an allowed CICTT category,pass,block,parent = SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded SCF-PP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G7,Clear winner among parents,pass,review,margin 0.63 over LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed SCF-PP, grounded SCF-PP",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D12,G9,Criteria card is complete and every citation resolves,pass,block,"27 entries: 4 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[48].checks
+D13,G1,Parent is an allowed CICTT category,pass,block,parent = LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G6,Evidence sits under the parent (agreement),pass,review,100% of the closest reports are coded LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G7,Clear winner among parents,pass,review,margin 0.60 over SCF-NP,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed LOC-I, grounded LOC-I",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D13,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 3 grounded inclusions, 7 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[49].checks
+D14,G1,Parent is an allowed CICTT category,pass,block,parent = ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G2,Definitions exist and are crosswalked to the parent,pass,block,1 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G6,Evidence sits under the parent (agreement),review,review,50% of the closest reports are coded ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G7,Clear winner among parents,review,review,margin 0.02 over LOC-I,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G8,Matches the parent proposed by discovery (or set by an SME),review,review,"proposed LOC-I, grounded ARC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D14,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 2 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[50].checks
+D15,G1,Parent is an allowed CICTT category,pass,block,parent = ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G2,Definitions exist and are crosswalked to the parent,pass,block,2 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G6,Evidence sits under the parent (agreement),pass,review,70% of the closest reports are coded ARC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G7,Clear winner among parents,pass,review,margin 0.34 over LOC-G,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed ARC, grounded ARC",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D15,G9,Criteria card is complete and every citation resolves,pass,block,"26 entries: 3 grounded inclusions, 9 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[51].checks
+D16,G1,Parent is an allowed CICTT category,pass,block,parent = GCOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G2,Definitions exist and are crosswalked to the parent,pass,block,3 valid,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G3,"Every report exists, is coded to the parent and carries evidence",pass,block,ok,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G4,Evidence is quoted word for word,pass,block,all quotes found in the raw report text,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G5,At least 10 supporting events (at most 12),pass,block,"12 valid events, 12 links",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G6,Evidence sits under the parent (agreement),pass,review,80% of the closest reports are coded GCOL,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G7,Clear winner among parents,pass,review,margin 0.54 over MAC,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G8,Matches the parent proposed by discovery (or set by an SME),pass,review,"proposed GCOL, grounded GCOL",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks
+D16,G9,Criteria card is complete and every citation resolves,pass,block,"24 entries: 4 grounded inclusions, 5 exclusions, 12 examples",run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[52].checks

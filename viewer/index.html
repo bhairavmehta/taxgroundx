@@ -1,0 +1,1151 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bucket Grounding Viewer</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky app bar, summary band, tab strip; Buckets = hierarchy rail + detail; a report reader slides in from the right. */
+:root{
+  --bg:#eef2f5; --panel:#fbfcfd; --sunk:#e4eaef; --ink:#14202c; --body:#3e4c5a; --muted:#5b6977; --line:#d0d9e1;
+  --night:#0e1a26; --night-ink:#e9eff4; --night-body:#b5c3cf;
+  --accent:#2a62c9; --accent-soft:#dde7f8; --amber:#9a5b00; --amber-strong:#e39b2d; --amber-soft:#f6e7cc;
+  --ok:#1f5fb4; --ok-soft:#dde7f8; --rev:#8a5200; --rev-soft:#f6e7cc; --bad:#a3342a; --bad-soft:#f5dcd8; --mer:#5a4fa0; --mer-soft:#e6e3f5;
+  --mark:#ffe7a3;
+  --c1:#2a62c9; --c2:#e39b2d; --c3:#1f9d7a; --c4:#c2410c; --c5:#7c4dbe; --c6:#0e8fb0; --c7:#c23a6b; --c8:#6b8e23;
+  --pl:92%; --pt:28%; --ps:70%;
+  --hl-ev:#ffd166; --hl-pc:#cfe0ff; --hl-cause:#ffd3cf; --hl-factor:#ffe3c2; --hl-find:#e7dcff; --hl-rel:#d4f5e6; --hl-kw:#0f7a58;
+  --f-head:'Barlow Semi Condensed','Arial Narrow',Arial,sans-serif; --f-body:'IBM Plex Sans',system-ui,Arial,sans-serif; --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0c151e; --panel:#131f2b; --sunk:#192836; --ink:#e6edf3; --body:#b9c6d2; --muted:#93a3b3; --line:#283849;
+  --night:#08111a; --night-ink:#e9eff4; --night-body:#b5c3cf;
+  --accent:#7fb0f0; --accent-soft:#1b3150; --amber:#f0b357; --amber-strong:#e39b2d; --amber-soft:#3a2a10;
+  --ok:#86b6f2; --ok-soft:#18304f; --rev:#f0b357; --rev-soft:#3a2a10; --bad:#f08f84; --bad-soft:#42201d; --mer:#b4abf0; --mer-soft:#2a2650;
+  --c1:#7fb0f0; --c2:#f0b357; --c3:#4fd1a8; --c4:#f2865a; --c5:#b79cf2; --c6:#5cc8e6; --c7:#f07ba6; --c8:#a9c95a;
+  --pl:22%; --pt:82%; --ps:45%;
+  --hl-ev:#6b5210; --hl-pc:#1d3558; --hl-cause:#4d2420; --hl-factor:#4a3214; --hl-find:#33285a; --hl-rel:#163d30; --hl-kw:#5fe0b4;
+  --mark:#5b4712; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c151e; --panel:#131f2b; --sunk:#192836; --ink:#e6edf3; --body:#b9c6d2; --muted:#93a3b3; --line:#283849;
+  --night:#08111a; --night-ink:#e9eff4; --night-body:#b5c3cf;
+  --accent:#7fb0f0; --accent-soft:#1b3150; --amber:#f0b357; --amber-strong:#e39b2d; --amber-soft:#3a2a10;
+  --ok:#86b6f2; --ok-soft:#18304f; --rev:#f0b357; --rev-soft:#3a2a10; --bad:#f08f84; --bad-soft:#42201d; --mer:#b4abf0; --mer-soft:#2a2650;
+  --c1:#7fb0f0; --c2:#f0b357; --c3:#4fd1a8; --c4:#f2865a; --c5:#b79cf2; --c6:#5cc8e6; --c7:#f07ba6; --c8:#a9c95a;
+  --pl:22%; --pt:82%; --ps:45%;
+  --hl-ev:#6b5210; --hl-pc:#1d3558; --hl-cause:#4d2420; --hl-factor:#4a3214; --hl-find:#33285a; --hl-rel:#163d30; --hl-kw:#5fe0b4;
+  --mark:#5b4712; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{background:var(--bg);color:var(--ink)}
+body{margin:0;font:15px/1.5 var(--f-body)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--night)}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1360px;margin:0 auto}
+h1,h2,h3{font-family:var(--f-head);margin:0;text-wrap:balance;letter-spacing:.2px}
+h2{font-size:26px;font-weight:600} h3{font-size:18px;font-weight:600}
+.mono{font-family:var(--f-mono);font-size:12.5px}
+.lbl{font-size:11.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--muted);font-weight:600}
+.muted{color:var(--muted)} .body{color:var(--body)}
+a{color:var(--accent)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+/* app bar */
+.bar{background:var(--night);color:var(--night-ink);position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.bar .wrap{display:flex;flex-wrap:wrap;gap:10px 28px;align-items:center;justify-content:space-between;padding-block:14px}
+.brand{display:flex;flex-direction:column;gap:2px;min-width:0}
+.brand .eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:#f0b357}
+.brand h1{font-size:26px;font-weight:600;color:var(--night-ink)}
+.runmeta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12.5px;color:var(--night-body)}
+.runmeta b{color:var(--night-ink);font-weight:500}
+@media (max-width:900px){.bar{position:static}}
+.chunk{font-family:var(--f-mono);font-size:11px;letter-spacing:.5px;text-transform:uppercase;border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted)}
+.chunk.findings{border-color:var(--amber-strong);color:var(--amber)} .chunk.summary{border-color:var(--accent);color:var(--accent)}
+.lights{height:4px;background:repeating-linear-gradient(90deg,#e39b2d 0 26px,transparent 26px 60px)}
+nav.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;padding-block:0}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{background:none;border:0;border-bottom:3px solid transparent;color:var(--night-body);font-weight:600;font-size:14px;padding:10px 12px;cursor:pointer;white-space:nowrap}
+nav.tabs button[aria-selected="true"]{color:var(--night-ink);border-bottom-color:#e39b2d}
+nav.tabs button:hover{color:var(--night-ink)}
+main{padding-block:22px 64px}
+section[data-tab]{display:flex;flex-direction:column;gap:18px}
+/* summary band */
+.band{display:flex;flex-wrap:wrap;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.band>div{flex:1 1 150px;background:var(--panel);padding:12px 16px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.band .v{font-family:var(--f-head);font-size:28px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.1}
+.stack{display:flex;height:12px;border-radius:6px;overflow:hidden;background:var(--sunk)}
+.stack span{display:block;height:100%}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12.5px;color:var(--body)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+/* panels */
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.panel>header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.ms{position:relative}
+.ms summary{list-style:none;cursor:pointer;border:1px solid var(--line);border-radius:8px;padding:9px 34px 9px 12px;background:var(--panel);color:var(--ink);font:inherit;position:relative;min-height:40px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ms summary::-webkit-details-marker{display:none}
+.ms summary::after{content:'';position:absolute;right:14px;top:50%;width:7px;height:7px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg)}
+.ms summary.on{border-color:var(--amber-strong);font-weight:600}
+.ms .msp{position:absolute;z-index:30;left:0;top:calc(100% + 4px);width:max(100%,280px);max-width:calc(100vw - 32px);background:var(--panel);border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:10px;display:flex;flex-direction:column;gap:8px}
+.ms .msl{max-height:300px;overflow:auto;display:flex;flex-direction:column}
+.ms .msi{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px;align-items:center;padding:5px 6px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:400;color:var(--ink)}
+.ms .msi:hover{background:var(--sunk)}
+.ms .msb{justify-content:space-between}
+.lblf{font-size:12.5px;font-weight:600;color:var(--body)}
+@media (max-width:720px){.ms .msp{position:fixed;left:max(16px, env(safe-area-inset-left, 0px));right:max(16px, env(safe-area-inset-right, 0px));top:auto;bottom:calc(16px + env(safe-area-inset-bottom, 0px));width:auto;max-width:none}.ms .msl{max-height:55vh}}
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.stick{position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px)}
+@media (max-width:980px){.grid3,.grid4,.grid5{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:900px){.stick{position:static}}
+@media (max-width:720px){.grid2,.grid3,.grid4,.grid5{grid-template-columns:minmax(0,1fr)}}
+.pill{display:inline-flex;align-items:center;gap:5px;padding:1px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
+.s-grounded{background:var(--ok-soft);color:var(--ok)} .s-needs_review{background:var(--rev-soft);color:var(--rev)}
+.s-not_grounded{background:var(--bad-soft);color:var(--bad)} .s-merged,.s-abstain{background:var(--mer-soft);color:var(--mer)}
+.c-pass{color:var(--ok)} .c-review{color:var(--rev)} .c-block{color:var(--bad)}
+.code{font-family:var(--f-mono);font-size:12px;background:var(--sunk);border-radius:4px;padding:0 6px;white-space:nowrap}
+.req{display:flex;flex-direction:column;gap:8px}
+.req .hd{display:flex;justify-content:space-between;gap:8px;align-items:center}
+/* buckets */
+.bench{display:grid;grid-template-columns:320px minmax(0,1fr);gap:18px;align-items:start}
+@media (max-width:900px){.bench{grid-template-columns:minmax(0,1fr)}}
+.rail{background:var(--panel);border:1px solid var(--line);border-radius:10px;display:flex;flex-direction:column;position:sticky;top:calc(env(safe-area-inset-top,0px) + 120px);max-height:calc(100vh - 140px)}
+@media (max-width:900px){.rail{position:static;max-height:420px}}
+.rail .tools{padding:12px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid var(--line)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12.5px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+input[type=search],input[type=text],input[type=number],select,textarea{font:14px var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:7px 10px;width:100%}
+textarea{min-height:90px;resize:vertical}
+.list{overflow:auto;padding:6px}
+.grp{padding:10px 8px 4px;display:flex;justify-content:space-between;gap:8px}
+.item{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 10px;align-items:center;width:100%;padding:8px;border-radius:7px}
+.item:hover{background:var(--sunk)}
+.item[aria-current="true"]{background:var(--accent-soft)}
+.item .id{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.item .nm{font-size:13.5px;line-height:1.3}
+.dot{width:9px;height:9px;border-radius:50%}
+.d-grounded{background:var(--ok)} .d-needs_review{background:var(--amber-strong)} .d-not_grounded{background:var(--bad)} .d-merged,.d-abstain{background:var(--mer)}
+.detail{display:flex;flex-direction:column;gap:18px;min-width:0}
+.dhead{display:flex;flex-direction:column;gap:8px}
+.dhead h2{font-size:34px;line-height:1.1}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13.5px}
+/* chain */
+.chain{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,.8fr) minmax(0,1.2fr) minmax(0,1.6fr);gap:12px}
+@media (max-width:1100px){.chain{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:620px){.chain{grid-template-columns:minmax(0,1fr)}}
+.col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.col>.lbl{display:flex;gap:6px;align-items:center}
+.node{border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--panel);display:flex;flex-direction:column;gap:4px;min-width:0}
+.node.dark{background:var(--night);border-color:var(--night);color:var(--night-ink)}
+.node.dark .muted{color:var(--night-body)}
+.node.parent{border:2px solid var(--accent)}
+.node .t{font-weight:600;font-size:14px;line-height:1.3}
+.node.rep{cursor:pointer}
+.node.rep:hover{border-color:var(--accent)}
+.q{font-size:13.5px;line-height:1.45;color:var(--body)}
+.scroll{max-height:560px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding-right:2px}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:8px}
+.brow{display:grid;grid-template-columns:72px minmax(0,1fr) 48px;gap:10px;align-items:center;font-size:13px}
+.track{height:14px;background:var(--sunk);border-radius:3px;overflow:hidden}
+.fill{height:100%;background:var(--accent)}
+.fill.win{background:var(--amber-strong)}
+.num{font-variant-numeric:tabular-nums;text-align:right}
+/* checks */
+.checks{display:flex;flex-direction:column;gap:6px}
+.chk{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:10px;align-items:start;font-size:13.5px;padding:7px 9px;border-radius:7px;background:var(--sunk)}
+.chk b{font-family:var(--f-mono);font-size:12.5px}
+/* criteria */
+ul.crit{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+ul.crit li{display:flex;flex-direction:column;gap:4px;padding-left:12px;border-left:3px solid var(--line)}
+ul.crit.inc li{border-left-color:var(--accent)} ul.crit.exc li{border-left-color:var(--amber-strong)}
+.cite{all:unset;cursor:pointer;font-family:var(--f-mono);font-size:11.5px;color:var(--accent);align-self:flex-start}
+.cite[disabled]{cursor:default;color:var(--muted)}
+blockquote{margin:0;padding:6px 10px;background:var(--sunk);border-radius:5px;font-size:13.5px;line-height:1.45}
+/* tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11.5px;letter-spacing:1px;text-transform:uppercase;color:var(--muted);background:var(--sunk);font-weight:600;position:sticky;top:0}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--sunk)}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+.matrix td.cell{text-align:center;font-family:var(--f-mono);font-size:12px;font-weight:500}
+.cell.pass{color:var(--ok)} .cell.review{background:var(--rev-soft);color:var(--rev)} .cell.block{background:var(--bad-soft);color:var(--bad)}
+/* buttons */
+.btn{border:0;border-radius:7px;padding:8px 14px;font-weight:600;cursor:pointer;background:var(--accent);color:var(--panel)}
+.btn.ghost{background:var(--sunk);color:var(--ink)}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.field{display:flex;flex-direction:column;gap:4px;min-width:0}
+.field label{font-size:12.5px;font-weight:600;color:var(--body)}
+.pager{display:flex;gap:8px;align-items:center;justify-content:flex-end;font-size:13px}
+.note{font-size:13px;color:var(--muted)}
+.empty{border:1px dashed var(--line);border-radius:10px;padding:28px;text-align:center;color:var(--muted)}
+/* reader */
+.scrim{position:fixed;inset:0;background:rgba(5,10,16,.45);z-index:20}
+.reader{position:fixed;top:0;right:0;bottom:0;width:min(720px,100%);background:var(--panel);z-index:21;display:flex;flex-direction:column;
+  border-left:1px solid var(--line);box-shadow:-12px 0 40px rgba(0,0,0,.18);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.reader header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.reader .rb{overflow:auto;padding:18px 20px 28px;display:flex;flex-direction:column;gap:14px}
+.reader .narr{font-size:15px;line-height:1.65;white-space:pre-wrap}
+mark{background:var(--mark);color:inherit;border-radius:2px;padding:0 1px}
+dl.meta{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;margin:0;font-size:13.5px}
+dl.meta dt{color:var(--muted)} dl.meta dd{margin:0}
+.steps{display:flex;flex-direction:column;gap:14px}
+.step{border-left:3px solid var(--line);padding-left:14px;display:flex;flex-direction:column;gap:8px}
+.step.on{border-left-color:var(--amber-strong)}
+.loading{padding:60px 0;text-align:center;color:var(--muted)}
+/* colour per CICTT parent; click a chip to filter by it */
+.code.p{background:hsl(var(--h) var(--ps) var(--pl));color:hsl(var(--h) 65% var(--pt));cursor:pointer;font-weight:500}
+.code.p:hover{outline:1px solid hsl(var(--h) 60% 50%)}
+.code.p.on{outline:2px solid hsl(var(--h) 70% 45%)}
+/* global filter bar */
+.gf{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(4,minmax(0,1fr)) auto;gap:10px;align-items:end;
+  border-top:4px solid transparent;border-image:linear-gradient(90deg,var(--c1),var(--c3),var(--c2),var(--c7)) 1;border-image-slice:1}
+.gf .sum{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-size:12.5px;color:var(--body)}
+.gf .sum b{color:var(--ink)}
+.gf .tag{display:inline-flex;gap:6px;align-items:center;background:var(--accent-soft);color:var(--accent);border-radius:999px;padding:1px 4px 1px 10px;font-size:12px;font-weight:600}
+.gf .tag button{all:unset;cursor:pointer;width:18px;height:18px;border-radius:50%;text-align:center;line-height:18px}
+.gf .tag button:hover{background:var(--panel)}
+@media (max-width:1100px){.gf{grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}}
+@media (max-width:640px){.gf{grid-template-columns:minmax(0,1fr)}}
+.ms .msall{border-bottom:1px solid var(--line);padding-bottom:6px;font-weight:600}
+/* reader highlights */
+.hl-legend{display:flex;flex-wrap:wrap;gap:6px}
+.hl-legend label{display:inline-flex;gap:6px;align-items:center;font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:2px 10px 2px 6px;cursor:pointer;background:var(--panel)}
+.hl-legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.narr .s{border-radius:3px;padding:1px 0;transition:background .15s}
+.narr.show-ev .s.ev{background:var(--hl-ev);box-shadow:0 0 0 2px var(--hl-ev)}
+.narr.show-pc .s.pc{background:var(--hl-pc)}
+.narr.show-cause .s.cause{background:var(--hl-cause)}
+.narr.show-factor .s.factor{background:var(--hl-factor)}
+.narr.show-find .s.find{background:var(--hl-find)}
+.narr.show-rel .s.rel{background:var(--hl-rel)}
+.narr.show-kw .kw{color:var(--hl-kw);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:2px}
+.relbar{display:inline-block;width:46px;height:6px;border-radius:3px;background:var(--sunk);vertical-align:middle;margin-left:6px;overflow:hidden}
+.relbar span{display:block;height:100%;background:var(--c3)}
+/* colourful KPI tiles */
+.band>div{border-top:3px solid var(--tc,var(--line))}
+.band>div:nth-child(1){--tc:var(--c1)} .band>div:nth-child(2){--tc:var(--c3)} .band>div:nth-child(3){--tc:var(--c2)} .band>div:nth-child(4){--tc:var(--c5)} .band>div:nth-child(5){--tc:var(--c7)}
+.band .v{color:var(--tc)}
+.panel.accent{border-left:4px solid var(--c1)}
+/* charts */
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font:11px var(--f-body);fill:var(--muted)}
+.chart .ax{stroke:var(--line)}
+.chart .lab{fill:var(--ink);font-weight:600}
+.chart .hov:hover{opacity:.75}
+.cgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px}
+@media (max-width:900px){.cgrid{grid-template-columns:minmax(0,1fr)}}
+.kicker{font-family:var(--f-mono);font-size:11.5px;letter-spacing:2px;text-transform:uppercase;color:var(--amber)}
+.toc{display:flex;flex-wrap:wrap;gap:6px}
+.toc a{text-decoration:none;font-size:12.5px;border-radius:999px;padding:3px 10px;background:var(--sunk);color:var(--ink)}
+.toc a:hover{background:var(--accent-soft)}
+.tip{position:fixed;z-index:40;pointer-events:none;background:var(--night);color:var(--night-ink);font-size:12px;padding:6px 9px;border-radius:6px;max-width:280px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.formula{font-family:var(--f-mono);font-size:13px;background:var(--sunk);border-radius:8px;padding:10px 14px;line-height:1.6;overflow-x:auto;white-space:pre}
+.chunkcard{border:1px solid var(--line);border-left:4px solid var(--kc);border-radius:8px;padding:10px 12px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.chunkcard .hdr{font-family:var(--f-mono);font-size:11.5px;color:var(--kc);overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="bar">
+  <div class="wrap gut">
+    <div class="brand">
+      <span class="eyebrow">OBJ-2 · Taxonomy grounding · SRS-TAX-01 to 04</span>
+      <h1>Bucket Grounding Viewer</h1>
+    </div>
+    <div class="runmeta" id="runmeta"><span>Loading run…</span></div>
+  </div>
+  <div class="lights" aria-hidden="true"></div>
+  <div class="wrap gut"><nav class="tabs" role="tablist" id="tabs">
+    <button data-tab="overview" aria-selected="true">Overview</button>
+    <button data-tab="buckets" aria-selected="false">Buckets</button>
+    <button data-tab="matrix" aria-selected="false">Check matrix</button>
+    <button data-tab="parents" aria-selected="false">Parent selection</button>
+    <button data-tab="guardrails" aria-selected="false">Guardrails</button>
+    <button data-tab="reports" aria-selected="false">Reports</button>
+    <button data-tab="try" aria-selected="false">Try a candidate</button>
+    <button data-tab="techniques" aria-selected="false">Techniques</button>
+    <button data-tab="method" aria-selected="false">How it works</button>
+  </nav></div>
+</div>
+
+<main class="wrap gut" id="main">
+  <div class="loading" id="loading">Loading the grounding run…</div>
+  <div class="gf" id="gf" hidden></div>
+  <section data-tab="overview" hidden></section>
+  <section data-tab="buckets" hidden></section>
+  <section data-tab="matrix" hidden></section>
+  <section data-tab="parents" hidden></section>
+  <section data-tab="guardrails" hidden></section>
+  <section data-tab="reports" hidden></section>
+  <section data-tab="try" hidden></section>
+  <section data-tab="techniques" hidden></section>
+  <section data-tab="method" hidden></section>
+  <div class="tip" id="tip" hidden></div>
+</main>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="reader" id="reader" hidden aria-label="Report reader"></aside>
+
+<script>
+(() => {
+const $ = (s, el = document) => el.querySelector(s);
+const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LABEL = {grounded:'Grounded', needs_review:'Needs review', not_grounded:'Not grounded', merged:'Merged', abstain:'Abstained'};
+const OUTCOME = {release_candidate:'Release candidate', sme_review:'SME review', sme_review_agent:'SME review (agent)', escalated_to_sme:'Escalated to SME',
+                 returned_to_discovery:'Returned to discovery', abstained:'Abstained', merged:'Merged before grounding'};
+const COLORS = {grounded:'var(--ok)', needs_review:'var(--amber-strong)', not_grounded:'var(--bad)', merged:'var(--mer)', abstain:'var(--mer)'};
+const pill = s => `<span class="pill s-${s}">${LABEL[s] || s}</span>`;
+let D = null, P = {}, DEF = {}, B = {}, current = null, corpus = null, corpusLoading = null;
+const ui = {status: 'all', q: ''};
+
+/* ---------------------------------------------------------------- boot */
+/* Data is packed into the page (gzip + base64) by tools/pack_viewer.py, so the page needs no network;
+   without a packed block it falls back to fetching data/*.json from beside the page. */
+async function packed(id) {
+  const el = document.getElementById(id); if (!el) return null;
+  const bin = atob(el.textContent.trim()), u = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i);
+  const stream = new Blob([u]).stream().pipeThrough(new DecompressionStream('gzip'));
+  return new Response(stream).json();
+}
+const getJSON = async (id, url) => (await packed(id)) ?? fetch(url).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+Promise.all([getJSON('pk-run', 'data/run.json'), getJSON('pk-techniques', 'data/techniques.json').catch(() => null)]).then(([d, tech]) => {
+  D = d; D.tech = tech; d.parents.forEach(p => P[p.code] = p); d.definitions.forEach(x => DEF[x.id] = x); d.buckets.forEach(b => B[b.id] = b);
+  $('#loading').remove();
+  Object.values(D.reports).forEach(r => { r.mk = normMake(r.make); r.ty = typeRoot(r.model); });
+  renderMeta(); renderGF(); $('#gf').hidden = false; renderOverview(); renderBuckets(); renderMatrix(); renderParents(); renderGuards(); renderReports(); renderTry(); renderTech(); renderMethod();
+  route();
+  setTimeout(loadCorpus, 50);
+}).catch(e => { $('#loading').innerHTML = `The run data could not be loaded (${esc(e.message)}). Open this page from the published viewer or a local web server, not as a file.`; });
+
+window.addEventListener('hashchange', route);
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('button[data-tab]'); if (b) location.hash = b.dataset.tab; });
+function route() {
+  if (!D) return;
+  let h = location.hash.slice(1) || 'overview';
+  if (h.startsWith('bucket-')) { const id = h.slice(7); if (B[id]) { current = id; h = 'buckets'; } }
+  if (!$(`section[data-tab="${h}"]`)) h = 'overview';
+  $$('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.tab === h));
+  $$('section[data-tab]').forEach(s => s.hidden = s.dataset.tab !== h);
+  $('#gf').hidden = h === 'techniques' || h === 'method';
+  if (h === 'buckets') showBucket(current || firstBucket());
+  if (h === 'reports' || h === 'try') loadCorpus();
+}
+
+function renderMeta() {
+  const s = D.summary;
+  $('#runmeta').innerHTML = `<span>Run <b class="mono">${esc(s.run_id)}</b></span><span>Taxonomy <b class="mono">${esc(s.taxonomy_version)}</b></span>
+    <span>Embedder <b>${esc(s.embedder)}</b></span><span>Min support <b>${D.settings.min_support} events</b></span><span>Hash <b class="mono">${esc(s.output_hash.slice(0,12))}</b></span>`;
+}
+
+/* ---------------------------------------------------------------- overview */
+function counts(list) {
+  const c = {grounded:0, needs_review:0, not_grounded:0, merged:0, abstain:0};
+  (list || D.buckets).forEach(b => c[b.status]++); return c;
+}
+function renderOverview() {
+  const s = D.summary, BS = D.buckets.filter(bucketOk), c = counts(BS), live = BS.filter(b => b.status !== 'merged');
+  const links = live.reduce((n, b) => n + (b.parent ? 1 + b.defs.length + b.support.length : 0), 0);
+  const carded = live.filter(b => b.checks.some(k => k.id === 'G9' && k.passed)).length;
+  const total = BS.length || 1;
+  const stack = ['grounded','needs_review','not_grounded','merged'].map(k => `<span style="width:${100*c[k]/total}%;background:${COLORS[k]}" title="${LABEL[k]} ${c[k]}"></span>`).join('');
+  const byParent = {};
+  live.forEach(b => { if (b.parent) (byParent[b.parent] = byParent[b.parent] || []).push(b); });
+  const rc = {}; let nrep = D.corpus.total;
+  if (corpus && anyFilter()) { const rows = corpus.rows.filter(reportOk); nrep = rows.length; rows.forEach(r => r.codes.forEach(k => rc[k] = (rc[k] || 0) + 1)); }
+  else D.parents.forEach(p => rc[p.code] = p.reports || 0);
+  const topCodes = Object.entries(rc).filter(([, n]) => n).sort((a, b) => b[1] - a[1]).slice(0, 18).map(([code, reports]) => ({code, reports}));
+  const max = topCodes[0]?.reports || 1;
+  const yr = {}; if (corpus) (anyFilter() ? corpus.rows.filter(reportOk) : corpus.rows).forEach(r => { const y = r.date.slice(0, 4); yr[y] = (yr[y] || 0) + 1; });
+  const g = D.guardrails, gb = g.filter(x => x.blocked === 'True' || x.blocked === true).length;
+  $('section[data-tab="overview"]').innerHTML = `
+  <div class="panel">
+    <header><h2>${nrep.toLocaleString()} NTSB reports, ${BS.length} discovery candidates${anyFilter() ? ' <span class="pill s-needs_review">filtered</span>' : ''}</h2><span class="note">${esc(D.note || '')}</span></header>
+    <div class="stack" role="img" aria-label="Outcome of ${BS.length} candidates">${stack}</div>
+    <div class="legend">${['grounded','needs_review','not_grounded','merged'].map(k => `<span data-sf="${k}" style="cursor:pointer" title="Filter by ${LABEL[k]}"><i style="background:${COLORS[k]}"></i><b>${c[k]}</b> ${LABEL[k].toLowerCase()}</span>`).join('')}</div>
+  </div>
+  <div class="band">
+    <div><span class="lbl">${anyFilter() ? 'Reports matching' : 'Reports indexed'}</span><span class="v">${nrep.toLocaleString()}</span><span class="note">${Object.entries(s.routing||{}).map(([k,v])=>`${v.toLocaleString()} ${k}`).join(' · ')}</span></div>
+    <div><span class="lbl">Live buckets</span><span class="v">${live.length}</span><span class="note">${c.merged} merged into a twin first</span></div>
+    <div><span class="lbl">Links stored</span><span class="v">${links}</span><span class="note">one SSSOM-style row each</span></div>
+    <div><span class="lbl">Criteria cards</span><span class="v">${carded} / ${live.length}</span><span class="note">pass G9</span></div>
+    <div><span class="lbl">Faults blocked</span><span class="v">${gb} / ${g.length}</span><span class="note">guardrail tests</span></div>
+  </div>
+  <div class="grid4">
+    ${[['SRS-TAX-01','Trace every bucket',`${live.filter(b=>b.parent).length} buckets linked to one CICTT parent, crosswalked definitions and NTSB reports quoted word for word.`],
+       ['SRS-TAX-02','Bounded, re-runnable',`One command from recorded inputs; closed sets; agent capped at ${D.settings.agent_max_calls} calls. Version ${s.taxonomy_version}.`],
+       ['SRS-TAX-03','Criteria and examples',`${carded} of ${live.length} buckets have a verified card: inclusions, exclusions, linked examples.`],
+       ['SRS-TAX-04','Test and revise',`${s.sme_decisions_read} SME decisions read back in this run; report testing and the changelog run against any version.`]]
+       .map(([id,t,e]) => `<div class="panel req"><div class="hd"><span class="mono">${id}</span><span class="pill s-grounded">Met</span></div><h3>${t}</h3><p class="body" style="margin:0;font-size:13.5px">${esc(e)}</p></div>`).join('')}
+  </div>
+  <div class="grid2">
+    <div class="panel"><header><h3>Where the buckets landed</h3><span class="note">grounded parent · bucket status</span></header>
+      <div class="tw"><table><tr><th>Parent</th><th>Buckets</th></tr>
+      ${Object.keys(byParent).sort().map(k => `<tr><td>${pc(k)} ${esc(P[k]?.name||'')}</td><td>${byParent[k].map(b => `<a href="#bucket-${b.id}" class="mono" style="margin-right:8px;white-space:nowrap"><span class="dot d-${b.status}" style="display:inline-block;margin-right:4px"></span>${b.id}</a>`).join('')}</td></tr>`).join('')}
+      </table></div></div>
+    <div class="panel"><header><h3>Reports by CICTT parent</h3><span class="note">select a code to filter every tab · a report can carry several</span></header>
+      <div class="bars">${topCodes.map(p => `<div class="brow">${pc(p.code)}<div class="track"><div class="fill" style="width:${100*p.reports/max}%;background:hsl(${hue(p.code)} 60% 52%)"></div></div><span class="num">${p.reports.toLocaleString()}</span></div>`).join('')}</div></div>
+  </div>
+  ${Object.keys(yr).length ? `<div class="panel"><header><h3>Reports by year</h3><span class="note">${anyFilter() ? 'matching the filters' : 'all reports'} · NTSB events 2008 onward</span></header>${svgBars(Object.keys(yr).sort().map(y => ({l: y, v: yr[y]})), {h: 170, color: 'var(--c3)'})}</div>` : ''}`;
+}
+
+/* ---------------------------------------------------------------- buckets */
+function firstBucket() { return (D.buckets.find(b => b.status === 'needs_review') || D.buckets[0]).id; }
+function renderBuckets() {
+  $('section[data-tab="buckets"]').innerHTML = `<div class="bench">
+    <div class="rail" aria-label="Taxonomy hierarchy">
+      <div class="tools"><div class="chips" id="fchips"></div><span class="note" id="bcount"></span></div>
+      <div class="list" id="blist"></div>
+    </div>
+    <div class="detail" id="bdetail"></div></div>`;
+  railList();
+}
+function railList() {
+  if (!$('#blist')) return;
+  const groups = {}, shown = D.buckets.filter(bucketOk), c = counts(shown);
+  $('#fchips').innerHTML = ['grounded','needs_review','not_grounded','merged'].filter(k => c[k] || GF.status.has(k)).map(k => `<button class="chip" data-sf="${k}" aria-pressed="${GF.status.has(k)}"><span class="dot d-${k}" style="display:inline-block;margin-right:5px"></span>${LABEL[k]} · ${c[k]}</button>`).join('');
+  $('#bcount').textContent = `${shown.length} of ${D.buckets.length} buckets · status chips and the filter bar above apply here`;
+  shown.forEach(b => { const k = b.status === 'merged' ? '~merged' : (b.parent || 'none'); (groups[k] = groups[k] || []).push(b); });
+  const keys = Object.keys(groups).sort();
+  $('#blist').innerHTML = keys.length ? keys.map(k => `<div class="grp"><span class="lbl">${k === '~merged' ? 'Merged before grounding' : `${k} · ${esc(P[k]?.name || '')}`}</span><span class="lbl">${groups[k].length}</span></div>` +
+    groups[k].map(b => `<button class="item" data-id="${b.id}" aria-current="${b.id === current}" style="border-left:3px solid ${b.parent ? `hsl(${hue(b.parent)} 60% 52%)` : 'transparent'}"><span class="id">${b.id}</span><span class="nm">${esc(b.name)}${fleetActive() && b.status !== 'merged' ? ` <span class="note">· ${fleetSupport(b)} from fleet</span>` : ''}</span><span class="dot d-${b.status}" title="${LABEL[b.status]}"></span></button>`).join('')).join('')
+    : '<div class="empty">No bucket matches the filters.</div>';
+  $('#blist').onclick = e => { const b = e.target.closest('.item'); if (b) location.hash = 'bucket-' + b.dataset.id; };
+}
+function checkState(k) { return k.passed ? 'pass' : (k.severity === 'block' ? 'block' : 'review'); }
+function citeBtn(c) {
+  if (c.cite_type === 'report') return `<button class="cite" data-r="${esc(c.cite_id)}" data-q="${esc(c.quote||'')}">report:${esc(c.cite_id)} ↗</button>`;
+  if (c.cite_type === 'sibling' || c.cite_type === 'candidate') return `<a class="cite" href="#bucket-${esc(c.cite_id)}">${c.cite_type}:${esc(c.cite_id)}</a>`;
+  if (c.cite_type === 'definition') return `<span class="cite" title="${esc(DEF[c.cite_id]?.text||'')}">definition:${esc(c.cite_id)}</span>`;
+  return `<span class="cite" disabled>${esc(c.cite_type)}:${esc(c.cite_id)}</span>`;
+}
+function repMeta(k) {
+  const r = D.reports[k] || {};
+  return [r.date, [r.make, r.model].filter(Boolean).join(' '), r.part ? 'Part ' + r.part.replace(/^0+/, '') : ''].filter(Boolean).join(' · ');
+}
+function showBucket(id, quiet) {
+  current = id; if (!quiet) railList();
+  const b = B[id]; if (!b) return;
+  const el = $('#bdetail');
+  if (b.status === 'merged') {
+    el.innerHTML = `<div class="panel dhead"><div class="flow"><span class="mono">${b.id}</span>${pill('merged')}</div><h2>${esc(b.name)}</h2>
+      <p class="body" style="margin:0">${esc(b.definition)}</p>
+      <p style="margin:0">Folded into <a href="#bucket-${b.merged_into}">${b.merged_into} · ${esc(B[b.merged_into]?.name||'')}</a> before grounding. Both discovery batches describe the same events
+      (similarity ${b.diag.merge_score ?? '—'}: half definition cosine, half overlap of retrieved reports). An SME can undo it with <span class="code">keep_separate</span>.</p></div>`;
+    return;
+  }
+  const d = b.diag, inc = b.card.filter(c => c.kind === 'include'), exc = b.card.filter(c => c.kind === 'exclude' || c.kind === 'boundary');
+  const scores = Object.entries(d.parent_scores || {}), smax = Math.max(...scores.map(x => x[1]), 0.0001);
+  const failed = b.checks.filter(k => !k.passed);
+  el.innerHTML = `
+  <div class="panel dhead">
+    <div class="flow"><span class="mono">${b.id}</span>${pill(b.status)}<span class="note">${OUTCOME[b.outcome] || b.outcome}</span>
+      ${b.aliases.length ? `<span class="note">· merged with ${b.aliases.map(a => `<a href="#bucket-${a}">${a}</a>`).join(', ')}</span>` : ''}</div>
+    <h2>${esc(b.name)}</h2>
+    <p class="body" style="margin:0;max-width:75ch">${esc(b.definition)}</p>
+    <div class="flow"><span class="note">Proposed by discovery</span>${pc(b.proposed)}<span class="muted">→</span><span class="note">grounded</span>${pc(b.parent)}
+      ${b.proposed && b.parent && b.proposed !== b.parent ? '<span class="pill s-needs_review">parent changed</span>' : ''}
+      ${failed.length ? `<span class="note">· failed ${failed.map(k => `<b class="c-${checkState(k)}">${k.id}</b>`).join(' ')}</span>` : '<span class="note">· all checks pass</span>'}</div>
+  </div>
+  <div class="panel">
+    <header><h3>Grounding chain</h3><span class="note">every box is a stored record · select a report to read it in full</span></header>
+    <div class="chain">
+      <div class="col"><span class="lbl">Bucket</span><div class="node dark"><span class="mono" style="color:#f0b357">${b.id}${b.aliases.length ? ' + ' + b.aliases.join(', ') : ''}</span><span class="t">${esc(b.name)}</span><span class="q muted">${esc(b.definition)}</span></div></div>
+      <div class="col"><span class="lbl">ICAO parent →</span><div class="node parent" style="border-color:hsl(${hue(b.parent)} 60% 50%)"><span class="mono">${pc(b.parent)}</span><span class="t">${esc(P[b.parent]?.name || '')}</span><span class="q">${esc(P[b.parent]?.definition || '')}</span></div></div>
+      <div class="col"><span class="lbl">Industry definitions · ${b.defs.length} →</span>${b.defs.map(x => `<div class="node"><span class="mono">${x}${d.def_scores?.[x] != null ? ` · ${d.def_scores[x].toFixed(2)}` : ''}</span><span class="t">${esc(DEF[x]?.term || 'not found')}</span><span class="q muted">${esc(DEF[x]?.source || '')}</span><span class="q">${esc(DEF[x]?.text || '')}</span></div>`).join('') || '<div class="empty">None</div>'}</div>
+      <div class="col"><span class="lbl">Supporting reports · ${b.support.length} events</span><div class="scroll">${b.support.map(s => `<div class="node rep" tabindex="0" data-r="${esc(s.report_key)}" data-q="${esc(s.evidence)}">
+          <span class="mono">${esc(s.report_key)} ${(D.reports[s.report_key]?.codes || []).map(pc).join(' ')}${fleetActive() && repRow(s.report_key) && fleetOk(repRow(s.report_key)) ? ' <span class="pill s-grounded">in fleet</span>' : ''}</span>
+          <span class="note">${esc(repMeta(s.report_key))}${d.support_chunks?.[s.report_key] ? ` · matched in <span class="chunk ${d.support_chunks[s.report_key]}">${d.support_chunks[s.report_key]}</span>` : ''}</span><span class="q">“${esc(s.evidence)}”</span></div>`).join('') || '<div class="empty">No supporting report passed the cut-off.</div>'}</div></div>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="panel"><header><h3>Parent choice</h3><span class="note">0.3 × definition fit + 0.7 × vote of closest reports</span></header>
+      <div class="bars">${scores.map(([k, v], i) => `<div class="brow">${pc(k)}<div class="track"><div class="fill" style="width:${Math.max(0, 100 * v / smax)}%;background:hsl(${hue(k)} 60% ${k === b.parent ? 50 : 70}%)"></div></div><span class="num">${v.toFixed(2)}</span></div>`).join('')}</div>
+      <p class="note" style="margin:0">${Math.round(100 * (d.agreement || 0))}% of the closest reports are coded ${esc(b.parent)} · margin ${d.margin?.toFixed(2)} over ${esc(d.runner_up)}${d.co_codes?.length ? ` · suggested co-codes ${d.co_codes.join(', ')}` : ''}</p></div>
+    <div class="panel"><header><h3>Checks</h3><span class="note">${b.checks.filter(k => k.passed).length} of ${b.checks.length} pass</span></header>
+      <div class="checks">${b.checks.map(k => `<div class="chk"><b>${k.id}</b><span>${esc(k.name)}<br><span class="note">${esc(k.detail)}</span></span><span class="pill s-${k.passed ? 'grounded' : (k.severity === 'block' ? 'not_grounded' : 'needs_review')}">${checkState(k)}</span></div>`).join('')}</div></div>
+  </div>
+  <div class="panel"><header><h3>Criteria card</h3><span class="note">SRS-TAX-03 · every line carries one citation the verifier resolves (G9)</span></header>
+    <div class="grid2">
+      <div><div class="lbl" style="margin-bottom:8px">Include when</div><ul class="crit inc">${inc.map(c => `<li><span>${esc(c.text)}</span>${c.quote && c.cite_type === 'report' ? `<blockquote>“${esc(c.quote)}”</blockquote>` : ''}${citeBtn(c)}</li>`).join('')}</ul></div>
+      <div><div class="lbl" style="margin-bottom:8px">Exclude when</div><ul class="crit exc">${exc.map(c => `<li><span>${esc(c.text)}</span>${c.quote && c.cite_type === 'report' ? `<blockquote>“${esc(c.quote)}”</blockquote>` : ''}${citeBtn(c)}</li>`).join('') || '<li>None</li>'}</ul></div>
+    </div></div>
+  <div class="grid2">
+    <div class="panel"><header><h3>Closest reports</h3><span class="note">the pool that voted on the parent</span></header>
+      <div class="tw"><table><tr><th>Report</th><th>Codes</th><th class="num">Score</th></tr>
+      ${(d.pool || []).map(p => `<tr class="click" data-r="${esc(p.report_key)}"><td class="mono">${esc(p.report_key)}</td><td>${p.l1.map(pc).join(' ')}</td><td class="num">${p.score.toFixed(3)}</td></tr>`).join('')}</table></div></div>
+    <div class="panel"><header><h3>Boundaries with siblings</h3><span class="note">reports the sibling rule gave to a better-matching bucket</span></header>
+      ${(d.moved || []).length ? `<div class="tw"><table><tr><th>Report</th><th>Went to</th></tr>${d.moved.map(m => `<tr class="click" data-r="${esc(m.report_key)}" data-q="${esc(m.evidence)}"><td class="mono">${esc(m.report_key)}</td><td><a href="#bucket-${m.to}">${m.to}</a> ${esc(B[m.to]?.name || '')}</td></tr>`).join('')}</table></div>` : '<div class="empty">No reports were shared with a sibling.</div>'}
+      ${b.agent.length ? `<h3>Escalation agent · ${b.agent.length} of ${D.settings.agent_max_calls} calls</h3><div class="tw"><table><tr><th>#</th><th>Tool</th><th>Arguments</th></tr>${b.agent.map((a, i) => `<tr><td>${i + 1}</td><td class="mono">${a.tool}</td><td class="mono">${esc(JSON.stringify(a.args))}</td></tr>`).join('')}</table></div>
+        <p class="note" style="margin:0">Proposals for an SME: ${b.proposals.length ? b.proposals.map(p => p.target_id ? `<button class="cite" data-r="${esc(p.target_id)}" data-q="${esc(p.value||'')}">${p.action} ${esc(p.target_id)}</button>` : esc(p.action + ': ' + (p.reason || ''))).join(' · ') : 'none'}. The agent cannot change or publish a bucket.</p>` : ''}
+    </div>
+  </div>`;
+  const ctx = {label: `${b.id} · ${b.name}`, text: b.name + ' ' + b.definition};
+  el.onclick = e => { const t = e.target.closest('[data-r]'); if (t) openReader(t.dataset.r, t.dataset.q || '', ctx); };
+  el.onkeydown = e => { const t = e.target.closest('.node.rep'); if (t && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openReader(t.dataset.r, t.dataset.q, ctx); } };
+  if (!quiet) window.scrollTo({top: 0});
+}
+
+/* ---------------------------------------------------------------- reader */
+/* Sentence-level highlighting. Each sentence gets one class: the quoted evidence (ev), the probable cause (pc),
+   a coded cause / contributing factor / finding, or one of the sentences most relevant to the bucket being read (rel).
+   Words of the bucket (or the search) are marked inside every sentence (kw). Each class can be switched off. */
+const HL = [['ev','Evidence quoted for the link','--hl-ev'],['pc','Probable cause','--hl-pc'],['cause','Coded cause','--hl-cause'],['factor','Contributing factor','--hl-factor'],
+            ['find','Other finding','--hl-find'],['rel','Most relevant to the bucket','--hl-rel'],['kw','Bucket words','--hl-kw']];
+const hlOn = new Set(HL.map(h => h[0]));
+const splitSent = t => (t || '').match(/[^.!?]+(?:[.!?]+["”’)]*|$)\s*/g) || [];
+function markKw(text, terms) {
+  if (!terms.length) return esc(text);
+  const re = new RegExp('\\b(' + terms.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')\\w*', 'gi');
+  let out = '', last = 0;
+  text.replace(re, (m, _g, i) => { out += esc(text.slice(last, i)) + `<span class="kw">${esc(m)}</span>`; last = i + m.length; return m; });
+  return out + esc(text.slice(last));
+}
+function highlight(text, quote, terms, findings) {
+  const sents = splitSent(text), qn = (quote || '').trim();
+  const stemSet = new Set(terms.map(stem));
+  const rel = sents.map((x, i) => [i, toks(x).filter(w => stemSet.has(w)).length]);
+  const top = new Set(rel.filter(r => r[1] >= 2).sort((a, b) => b[1] - a[1]).slice(0, 4).map(r => r[0]));
+  const maxRel = Math.max(1, ...rel.map(r => r[1]));
+  let hit = false;
+  const html = sents.map((x, i) => {
+    const t = x.trim(); let k = '';
+    if (qn && !hit && (t.includes(qn) || qn.includes(t) && t.length > 25)) { k = 'ev'; hit = true; }
+    else if (/^Probable cause:/i.test(t)) k = 'pc';
+    else if (findings && /^Cause:/.test(t)) k = 'cause';
+    else if (findings && /^Contributing factor:/.test(t)) k = 'factor';
+    else if (findings && /^Finding:/.test(t)) k = 'find';
+    else if (top.has(i)) k = 'rel';
+    const tip = k === 'rel' ? ` title="matches ${rel[i][1]} bucket words"` : '';
+    return `<span class="s ${k}"${k === 'ev' ? ' id="hit"' : ''}${tip}>${markKw(x, terms)}</span>`;
+  }).join('');
+  return {html, hit, nrel: top.size};
+}
+function openReader(key, quote, ctx) {
+  let r = D.reports[key], excerpt = false;
+  if (!r && corpus) { const c = corpus.byKey[key]; if (c) { r = {text: c.text, findings_text: c.findings, codes: c.codes, date: c.date, make: c.make, model: c.model, part: c.part, injury: c.injury, defining: c.defining}; excerpt = true; } }
+  if (!r) { r = {text: 'This report is not in the loaded data. Open the Reports tab once to load the full corpus.', codes: []}; }
+  const terms = [...new Set(toks(ctx?.text || ''))].filter(w => w.length > 3).slice(0, 24);
+  const ftext = r.findings_text || '';
+  const N = highlight(r.text, quote, terms, false), F = ftext ? highlight(ftext, N.hit ? '' : quote, terms, true) : null;
+  const finds = ftext ? [] : (r.findings || '').split('; ').filter(Boolean);
+  const nC = (ftext.match(/Cause:/g) || []).length, nF = (ftext.match(/Contributing factor:/g) || []).length;
+  $('#reader').innerHTML = `<header style="border-top:4px solid ${r.codes?.[0] ? `hsl(${hue(r.codes[0])} 60% 50%)` : 'var(--line)'}"><div style="display:flex;flex-direction:column;gap:4px;min-width:0">
+      <span class="lbl">NTSB report${ctx?.label ? ` · read for ${esc(ctx.label)}` : ''}</span><h2 style="font-size:28px">${esc(key)}</h2>
+      <div class="flow">${(r.codes || []).map(pc).join('')}<span class="note">${esc(r.defining || '')}</span></div></div>
+      <button class="btn ghost" id="rclose" aria-label="Close report">Close</button></header>
+    <div class="rb">
+      <dl class="meta"><dt>Date</dt><dd>${esc(r.date || '—')}</dd><dt>Aircraft</dt><dd>${esc([r.make, r.model].filter(Boolean).join(' ') || '—')} <span class="note">· type ${esc(typeRoot(r.model))}</span></dd>
+        <dt>Operation</dt><dd>${r.part ? 'Part ' + esc(r.part.replace(/^0+/, '')) : '—'}</dd><dt>Highest injury</dt><dd>${esc(r.injury || '—')}</dd>
+        ${r.city ? `<dt>Place</dt><dd>${esc([r.city, r.state, r.country].filter(Boolean).join(', '))}</dd>` : ''}${r.event ? `<dt>NTSB event id</dt><dd class="mono">${esc(r.event)}</dd>` : ''}
+        <dt>Highlights</dt><dd>${quote ? (N.hit || F?.hit ? 'evidence found' : 'evidence not in this excerpt') : 'no evidence quote'} · ${N.nrel + (F?.nrel || 0)} relevant sentences · ${nC} causes · ${nF} factors</dd></dl>
+      <div class="hl-legend" id="hlleg">${HL.map(([k, l, v]) => `<label><input type="checkbox" data-hl="${k}" ${hlOn.has(k) ? 'checked' : ''}><i style="background:var(${v})"></i>${l}</label>`).join('')}</div>
+      <div class="lbl">Narrative · probable cause and analysis</div>
+      <div class="narr hlbox">${N.html}</div>
+      ${excerpt ? `<p class="note" style="margin:0">Excerpt: the first ${D.corpus.excerpt} characters (probable cause and the start of the analysis).</p>` : ''}
+      ${r.occ ? `<div><div class="lbl" style="margin-bottom:6px">Occurrences, in sequence</div><p style="margin:0;font-size:13.5px" class="body">${esc(r.occ)}</p></div>` : ''}
+      ${F ? `<div><div class="lbl" style="margin-bottom:6px">Findings chunk · NTSB coded causes and contributing factors, verbalized</div><div class="narr hlbox" style="font-size:14px">${F.html.replace(/<\/span><span class="s/g, '</span><br><span class="s')}</div></div>` : ''}
+      ${finds.length ? `<div><div class="lbl" style="margin-bottom:6px">NTSB findings · (C) cause, (F) factor</div><ul style="margin:0;padding-left:18px;font-size:13.5px" class="body">${finds.map(f => `<li>${esc(f)}</li>`).join('')}</ul></div>` : ''}
+      <p class="note" style="margin:0">Colours are computed in your browser: the evidence sentence is the one the link quotes (G4 checks it word for word); “most relevant” are the up-to-four sentences sharing the most words with ${ctx?.label ? esc(ctx.label) : 'the bucket'}. Source: NTSB CAROL public database (avall.mdb).</p>
+    </div>`;
+  const apply = () => $$('#reader .hlbox').forEach(n => HL.forEach(([k]) => n.classList.toggle('show-' + k, hlOn.has(k))));
+  apply();
+  $('#hlleg').onchange = e => { const c = e.target.closest('[data-hl]'); if (!c) return; c.checked ? hlOn.add(c.dataset.hl) : hlOn.delete(c.dataset.hl); apply(); };
+  $('#reader').hidden = false; $('#scrim').hidden = false;
+  $('#rclose').onclick = closeReader; $('#rclose').focus();
+  const hit = $('#hit'); if (hit) hit.scrollIntoView({block: 'center'});
+}
+function closeReader() { $('#reader').hidden = true; $('#scrim').hidden = true; }
+$('#scrim').onclick = closeReader;
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#reader').hidden) closeReader(); });
+
+/* ---------------------------------------------------------------- matrix */
+function renderMatrix() {
+  const ids = ['G1','G2','G3','G4','G5','G6','G7','G8','G9','G10'];
+  const live = D.buckets.filter(b => b.status !== 'merged' && bucketOk(b));
+  const fails = ids.map(id => live.filter(b => b.checks.some(k => k.id === id && !k.passed)).length);
+  $('section[data-tab="matrix"]').innerHTML = `<div class="panel"><header><h2>Check matrix</h2><span class="note">${live.length} buckets · G1–G5, G9, G10 block · G6–G8 send to SME review · select a row to open the bucket</span></header>
+   <div class="tw"><table class="matrix"><tr><th>Bucket</th><th>Parent</th>${ids.map(i => `<th class="num">${i}</th>`).join('')}<th>Status</th></tr>
+   <tr><td class="note">Buckets failing</td><td></td>${fails.map(n => `<td class="cell ${n ? 'review' : 'pass'}">${n}</td>`).join('')}<td></td></tr>
+   ${live.map(b => `<tr class="click" data-b="${b.id}"><td><span class="mono">${b.id}</span> ${esc(b.name)}</td><td>${pc(b.parent)}</td>
+     ${ids.map(i => { const k = b.checks.find(x => x.id === i); if (!k) return '<td class="cell">—</td>'; const s = checkState(k); return `<td class="cell ${s}" title="${esc(k.detail)}">${s === 'pass' ? 'pass' : s === 'block' ? 'block' : 'review'}</td>`; }).join('')}
+     <td>${pill(b.status)}</td></tr>`).join('')}</table></div></div>`;
+  $('section[data-tab="matrix"]').onclick = e => { const r = e.target.closest('[data-b]'); if (r) location.hash = 'bucket-' + r.dataset.b; };
+}
+
+/* ---------------------------------------------------------------- parents */
+function renderParents() {
+  const rows = D.parent_selection.filter(r => !B[r.candidate_id] || bucketOk(B[r.candidate_id]));
+  const agree = k => rows.filter(r => r[k] === r.selected).length;
+  const prop = k => rows.filter(r => r[k] === r.proposed).length;
+  $('section[data-tab="parents"]').innerHTML = `
+   <div class="grid3">
+     <div class="panel"><span class="lbl">Definition fit only</span><span style="font-family:var(--f-head);font-size:34px;font-weight:600">${prop('definition_only')} / ${rows.length}</span><span class="note">agree with discovery’s proposed parent</span></div>
+     <div class="panel"><span class="lbl">Report vote only</span><span style="font-family:var(--f-head);font-size:34px;font-weight:600">${prop('vote_only')} / ${rows.length}</span><span class="note">agree with discovery’s proposed parent</span></div>
+     <div class="panel"><span class="lbl">Combined, selected</span><span style="font-family:var(--f-head);font-size:34px;font-weight:600">${prop('selected')} / ${rows.length}</span><span class="note">agree with discovery’s proposed parent</span></div>
+   </div>
+   <div class="panel"><header><h2>Parent selection, three ways</h2><span class="note">real data has no answer key: disagreements with discovery are the cases G8 sends to SMEs</span></header>
+   <div class="tw"><table><tr><th>Bucket</th><th>Proposed</th><th>Definition fit only</th><th>Report vote only</th><th>Combined (used)</th></tr>
+   ${rows.map(r => `<tr class="click" data-b="${r.candidate_id}"><td><span class="mono">${r.candidate_id}</span> ${esc(B[r.candidate_id]?.name || '')}</td><td>${pc(r.proposed)}</td>
+     ${['definition_only','vote_only','selected'].map(k => `<td>${pc(r[k])}${r[k] !== r.proposed ? ' <span class="pill s-needs_review">differs</span>' : ''}</td>`).join('')}</tr>`).join('') || '<tr><td colspan="5" class="note">No bucket matches the filters.</td></tr>'}
+   </table></div></div>`;
+  $('section[data-tab="parents"]').onclick = e => { const r = e.target.closest('[data-b]'); if (r) location.hash = 'bucket-' + r.dataset.b; };
+}
+
+/* ---------------------------------------------------------------- guardrails */
+function renderGuards() {
+  const t = qTerms(), g = D.guardrails.filter(x => !t.length || t.every(w => (x.test + ' ' + x.failed_checks).toLowerCase().includes(w)));
+  $('section[data-tab="guardrails"]').innerHTML = `<div class="panel"><header><h2>Guardrail tests</h2><span class="note">faults an unconstrained model might produce, injected into grounded bucket ${esc(D.guardrails[0]?.base_candidate || '')} and run through the same verifier · ${g.length} of ${D.guardrails.length} shown (search applies)</span></header>
+   <div class="tw"><table><tr><th>Fault</th><th>Result</th><th>Checks that failed</th></tr>
+   ${g.map(x => `<tr><td>${esc(x.test)}</td><td>${(x.blocked === 'True' || x.blocked === true) ? '<span class="pill s-grounded">Blocked</span>' : '<span class="pill s-not_grounded">Not blocked</span>'}</td><td class="mono">${esc(x.failed_checks)}</td></tr>`).join('') || '<tr><td colspan="3" class="note">No test matches the search.</td></tr>'}</table></div></div>`;
+}
+
+/* ---------------------------------------------------------------- corpus */
+function loadCorpus() {
+  if (corpus || corpusLoading) return corpusLoading;
+  corpusLoading = Promise.all(D.corpus.files.map((f, i) => getJSON('pk-corpus-' + (i + 1), f))).then(parts => {
+    const rows = [];
+    parts.forEach(p => p.rows.forEach(r => rows.push({key: r[0], date: r[1], make: r[2], model: r[3], part: r[4], injury: r[5], codes: r[6], defining: r[7], text: r[8], event: r[9], findings: r[10] || '', mk: normMake(r[2]), ty: typeFamily(r[3])})));
+    corpus = {rows, byKey: Object.fromEntries(rows.map(r => [r.key, r]))};
+    buildFleet(); applyFilters(); tryReady();
+  }).catch(e => { $('#rstatus') && ($('#rstatus').textContent = 'The report corpus could not be loaded: ' + e.message); });
+  return corpusLoading;
+}
+
+/* ---------------------------------------------------------------- manufacturer and aircraft type */
+/* NTSB spells one manufacturer many ways (CESSNA, Cessna, CESSNA AIRCRAFT CO). Normalise to one name, then group
+   models into a type family: the letters and first digits of the model (172S, 172N → 172; PA-28-161 → PA28; 737-8H4 → 737). */
+const CORP = new Set('INC INCORPORATED CORP CORPORATION CO COMPANY LLC LTD LIMITED GMBH SA AG PLC AIRCRAFT AIRCRAFTS AIRPLANE AIRPLANES ACFT IND INDUSTRIES INDUSTRIE MFG MANUFACTURING HELICOPTER HELICOPTERS AVN AVIATION DESIGN TEXTRON CANADA INTERNATIONAL INTL DIV DIVISION OF THE'.split(' '));
+const MAKES = [['CESSNA'],['PIPER','NEW PIPER'],['BEECH','BEECHCRAFT'],['BOEING','THE BOEING'],['AIRBUS'],['BELL'],['CIRRUS'],['MOONEY'],['AIR TRACTOR'],['ROBINSON'],
+  ['DE HAVILLAND','DEHAVILLAND','DHC'],['GRUMMAN','GRUMMAN AMERICAN'],['DIAMOND'],['AVIAT'],['BOMBARDIER','CANADAIR'],['EMBRAER'],['EUROCOPTER'],['SIKORSKY'],
+  ['MD HELICOPTERS','MD HELICOPTER','MCDONNELL DOUGLAS HELICOPTER'],['MCDONNELL DOUGLAS'],['AMERICAN CHAMPION'],['CHAMPION'],['SCHWEIZER'],['HUGHES'],['ENSTROM'],['VANS',"VAN'S"],
+  ['AEROSPATIALE'],['SOCATA'],['MAULE'],['AERONCA'],['LUSCOMBE'],['STINSON'],['TAYLORCRAFT'],['BELLANCA'],['ERCOUPE'],['AYRES'],['LANCAIR'],['TECNAM','COSTRUZIONI AERONAUTICHE TECNA'],['FLIGHT DESIGN'],['ZENITH'],['RANS'],['ROCKWELL'],['RAYTHEON'],['NORTH AMERICAN']];
+const MAKE_KEY = MAKES.flatMap(([c, ...a]) => [c, ...a].map(v => [v.replace(/[^A-Z]/g, ''), c, v.replace(/'/g, ' ').replace(/\s+/g, ' ')])).sort((a, b) => b[2].length - a[2].length);
+function normMake(m) {
+  const w = (m || '').toUpperCase().replace(/[^A-Z0-9 ]+/g, ' ').split(/\s+/).filter(Boolean);
+  while (w.length > 1 && w[0] === 'THE') w.shift();
+  const raw = w.join(' ');
+  while (w.length > 1 && CORP.has(w[w.length - 1])) w.pop();
+  const cut = w.join(' ');
+  for (const t of [raw, cut]) for (const [k, c, a] of MAKE_KEY) if (t === a || t.startsWith(a + ' ') || t.replace(/ /g, '') === k) return c;
+  return cut || 'UNKNOWN';
+}
+/* Root-level aircraft type: the model's first designator, without variant suffixes.
+   737-8H4, 737 7H4, 737-800 → 737 · 172S, 172N → 172 · PA-28-161, PA28R → PA28 · R44 II → R44 · EC 130 T2 → EC130 · A320-232 → A320 */
+function typeRoot(m) {
+  let t = (m || '').toUpperCase().replace(/^(CESSNA|PIPER|BOEING|ROBINSON|AIRBUS|BELL|BEECH|MOONEY|CIRRUS)\s+/, '').trim();
+  const parts = t.split(/[\s\-\/(.,]+/).filter(Boolean);
+  if (!parts.length) return '—';
+  let h = parts[0];
+  if (/^[A-Z]+$/.test(h) && parts[1] && /^\d/.test(parts[1])) h += parts[1];
+  if (/^B7\d\d/.test(h)) h = h.slice(1);               // B737-800 written with Boeing's B prefix
+  const f = h.match(/^[A-Z]*\d+/); return f ? f[0] : h.slice(0, 8);
+}
+const typeFamily = typeRoot;
+
+/* ---------------------------------------------------------------- global filters (every tab) */
+const GF = {q: '', status: new Set(), parent: new Set(), make: new Set(), type: new Set()};
+const FL = GF;            // the fleet half of the filter (make, type) keeps its old name in the try/report code
+let FLEET = null, FLOK = new Set();
+function buildFleet() {
+  const mk = new Map(), ty = new Map();
+  for (const r of corpus.rows) { mk.set(r.mk, (mk.get(r.mk) || 0) + 1); const k = r.mk + '|' + r.ty; ty.set(k, (ty.get(k) || 0) + 1); }
+  FLEET = {makes: [...mk].sort((a, b) => b[1] - a[1]), types: [...ty].sort((a, b) => b[1] - a[1])};
+}
+const fleetKey = r => r.mk + '|' + r.ty;
+function fleetPrep() { FLOK = new Set([...GF.type].map(t => t.split('|')[0])); }
+function fleetOk(r) {
+  if (!GF.make.size && !GF.type.size) return true;
+  if (GF.type.has(fleetKey(r))) return true;
+  return GF.make.has(r.mk) && !FLOK.has(r.mk);
+}
+const fleetActive = () => GF.make.size > 0 || GF.type.size > 0;
+const anyFilter = () => !!GF.q || GF.status.size || GF.parent.size || fleetActive();
+function fleetLabel() {
+  const t = [...GF.type].map(k => k.replace('|', ' ')), m = [...GF.make].filter(x => !FLOK.has(x)).map(x => x + ' (all)');
+  const all = [...m, ...t]; return all.length > 4 ? all.slice(0, 4).join(', ') + ` and ${all.length - 4} more` : all.join(', ');
+}
+const qTerms = () => GF.q.toLowerCase().split(/\s+/).filter(Boolean);
+function repRow(k) {              // a report referenced by a bucket, with fleet keys
+  const r = D.reports[k] || (corpus && corpus.byKey[k]); if (!r) return null;
+  if (r.mk === undefined) { r.mk = normMake(r.make); r.ty = typeRoot(r.model); }
+  return r;
+}
+function bucketOk(b) {
+  if (GF.status.size && !GF.status.has(b.status)) return false;
+  if (GF.parent.size && !GF.parent.has(b.parent) && !GF.parent.has(b.proposed)) return false;
+  const t = qTerms();
+  if (t.length) { const hay = (b.id + ' ' + b.name + ' ' + b.definition + ' ' + (b.parent || '') + ' ' + (b.proposed || '')).toLowerCase(); if (!t.every(x => hay.includes(x))) return false; }
+  if (fleetActive()) { if (b.status === 'merged') return false; if (!b.support.some(s => { const r = repRow(s.report_key); return r && fleetOk(r); })) return false; }
+  return true;
+}
+const fleetSupport = b => fleetActive() ? b.support.filter(s => { const r = repRow(s.report_key); return r && fleetOk(r); }).length : b.support.length;
+function reportOk(r) {
+  if (!fleetOk(r)) return false;
+  if (GF.parent.size && !r.codes.some(c => GF.parent.has(c))) return false;
+  const t = qTerms(); if (t.length && !t.every(x => r.text.toLowerCase().includes(x) || r.findings.toLowerCase().includes(x) || r.key.toLowerCase().includes(x))) return false;
+  return true;
+}
+const HUES = {'LOC-I':4,'LOC-G':28,'CFIT':120,'RE':200,'ARC':262,'SCF-PP':12,'SCF-NP':340,'FUEL':45,'MAC':300,'RI':185,'ICE':205,'TURB':160,'BIRD':90,'F-NI':0,'F-POST':16,'UIMC':230,'LALT':140,'GCOL':315,'CTOL':55,'WSTRW':250,'NAV':275,'CABIN':330,'USOS':215,'RAMP':35,'EVAC':350,'SEC':290,'MED':170,'WILD':80,'ADRM':100,'EXTL':60,'AMAN':240,'ATM':195,'OTHR':210,'UNK':210};
+const hue = c => HUES[c] ?? ([...String(c)].reduce((h, ch) => (h * 31 + ch.charCodeAt(0)) % 360, 7));
+const pc = c => c ? `<span class="code p${GF.parent.has(c) ? ' on' : ''}" style="--h:${hue(c)}" data-pf="${esc(c)}" title="Filter by ${esc(c)}">${esc(c)}</span>` : '<span class="code">—</span>';
+document.addEventListener('click', e => { const t = e.target.closest('[data-pf]'); if (!t || !D) return; e.stopPropagation(); e.preventDefault();
+  const c = t.dataset.pf; GF.parent.has(c) ? GF.parent.delete(c) : GF.parent.add(c); applyFilters(); }, true);
+document.addEventListener('click', e => { const t = e.target.closest('[data-sf]'); if (!t || !D) return; const c = t.dataset.sf; GF.status.has(c) ? GF.status.delete(c) : GF.status.add(c); applyFilters(); });
+
+function msField(kind, label) {
+  return `<div class="field"><span class="lblf" id="gf${kind}l">${label}</span><details class="ms" data-kind="${kind}">
+    <summary aria-labelledby="gf${kind}l"><span class="msv">Any</span></summary>
+    <div class="msp"><input type="search" placeholder="Filter list" aria-label="Filter ${label.toLowerCase()} list">
+      <label class="msi msall"><input type="checkbox" data-all><span>Select all shown</span><span class="note" data-shown></span></label>
+      <div class="msl"></div>
+      <div class="row msb"><button type="button" class="btn ghost" data-clear>Clear</button><span class="note" data-count></span></div></div></details></div>`;
+}
+function msOptions(kind) {
+  if (kind === 'status') { const c = counts(); return Object.keys(LABEL).filter(k => c[k]).map(k => ({v: k, l: LABEL[k], n: c[k]})); }
+  if (kind === 'parent') {
+    const nb = {}; D.buckets.forEach(b => { if (b.parent) nb[b.parent] = (nb[b.parent] || 0) + 1; });
+    return D.parents.filter(p => p.reports || nb[p.code]).sort((a, b) => a.code.localeCompare(b.code)).map(p => ({v: p.code, l: `${p.code} · ${p.name}`, n: p.reports, h: hue(p.code)}));
+  }
+  if (!FLEET) return [];
+  if (kind === 'make') return FLEET.makes.filter(([, n]) => n >= 5).map(([m, n]) => ({v: m, l: m, n}));
+  const ms = GF.make.size ? GF.make : null;
+  return FLEET.types.filter(([k, n]) => ms ? ms.has(k.split('|')[0]) : n >= 10).slice(0, ms ? 400 : 300).map(([k, n]) => ({v: k, l: k.replace('|', ' '), n}));
+}
+function renderGF() {
+  $('#gf').innerHTML = `<div class="field"><label for="gfq">Search everything</label><input type="search" id="gfq" placeholder="words in buckets, reports, checks… e.g. carburetor, crosswind" value="${esc(GF.q)}"></div>
+    ${msField('status', 'Bucket status')}${msField('parent', 'CICTT parent')}${msField('make', 'Manufacturer')}${msField('type', 'Aircraft type (root)')}
+    <button class="btn ghost" id="gfclear" type="button">Clear all</button>
+    <div class="sum" id="gfsum"></div>`;
+  let tq; $('#gfq').oninput = e => { clearTimeout(tq); tq = setTimeout(() => { GF.q = e.target.value.trim(); applyFilters(); }, 180); };
+  $('#gfclear').onclick = () => { GF.q = ''; $('#gfq').value = ''; ['status','parent','make','type'].forEach(k => GF[k].clear()); applyFilters(); };
+  $$('#gf details.ms').forEach(d => {
+    const kind = d.dataset.kind;
+    d.querySelector('input[type=search]').oninput = () => fillMS();
+    d.querySelector('.msl').onchange = e => { const c = e.target.closest('input[type=checkbox]'); if (!c) return;
+      GF[kind][c.checked ? 'add' : 'delete'](c.value);
+      if (kind === 'make' && !c.checked) [...GF.type].forEach(t => { if (t.startsWith(c.value + '|')) GF.type.delete(t); });
+      applyFilters(); };
+    d.querySelector('[data-all]').onchange = e => {
+      const q = d.querySelector('input[type=search]').value.toUpperCase().trim();
+      const shown = msOptions(kind).filter(o => !q || o.l.toUpperCase().includes(q));
+      shown.forEach(o => GF[kind][e.target.checked ? 'add' : 'delete'](o.v));
+      if (kind === 'make' && !e.target.checked) [...GF.type].forEach(t => { if (!GF.make.has(t.split('|')[0])) GF.type.delete(t); });
+      applyFilters(); };
+    d.querySelector('[data-clear]').onclick = () => { GF[kind].clear(); if (kind === 'make') GF.type.clear(); applyFilters(); };
+    d.addEventListener('toggle', () => { if (d.open) fillMS(); });
+  });
+  fillMS();
+}
+function fillMS() {
+  fleetPrep();
+  $$('#gf details.ms').forEach(d => {
+    const kind = d.dataset.kind, sel = GF[kind], q = (d.querySelector('input[type=search]').value || '').toUpperCase().trim();
+    const lab = v => kind === 'status' ? LABEL[v] : v.replace('|', ' ');
+    const v = [...sel].map(lab);
+    d.querySelector('.msv').textContent = !v.length ? 'Any' : v.length <= 2 ? v.join(', ') : `${v.length} selected`;
+    d.querySelector('summary').classList.toggle('on', v.length > 0);
+    const opts = msOptions(kind);
+    if ((kind === 'make' || kind === 'type') && !FLEET) { d.querySelector('.msl').innerHTML = '<p class="note">Loading reports…</p>'; return; }
+    const shown = opts.filter(o => !q || o.l.toUpperCase().includes(q));
+    const chosen = [...sel].filter(x => !opts.some(o => o.v === x)).map(x => ({v: x, l: lab(x), n: 0}));
+    d.querySelector('.msl').innerHTML = [...chosen, ...shown].slice(0, 400).map(o => `<label class="msi"><input type="checkbox" value="${esc(o.v)}" ${sel.has(o.v) ? 'checked' : ''}>
+      <span>${o.h != null ? `<i style="display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px;background:hsl(${o.h} 65% 50%)"></i>` : kind === 'status' ? `<i class="dot d-${o.v}" style="display:inline-block;margin-right:6px"></i>` : ''}${esc(o.l)}</span><span class="note">${o.n ? o.n.toLocaleString() : ''}</span></label>`).join('') || '<p class="note">Nothing matches.</p>';
+    const all = d.querySelector('[data-all]'), nOn = shown.filter(o => sel.has(o.v)).length;
+    all.checked = shown.length > 0 && nOn === shown.length; all.indeterminate = nOn > 0 && nOn < shown.length;
+    d.querySelector('[data-shown]').textContent = shown.length ? `${shown.length}` : '';
+    d.querySelector('[data-count]').textContent = sel.size ? `${sel.size} selected` : (kind === 'type' && !GF.make.size ? 'Pick manufacturers to list all their types' : '');
+  });
+}
+function gfSummary() {
+  const el = $('#gfsum'); if (!el) return;
+  const nb = D.buckets.filter(bucketOk).length, nr = corpus ? corpus.rows.filter(reportOk).length : null;
+  el.innerHTML = `<span>Showing <b>${nb}</b> of ${D.buckets.length} buckets${nr != null ? ` · <b>${nr.toLocaleString()}</b> of ${corpus.rows.length.toLocaleString()} reports` : ''}</span>`;
+}
+function applyFilters() {
+  fleetPrep(); fillMS(); gfSummary();
+  renderOverview(); railList(); renderMatrix(); renderParents(); renderGuards(); reportsReady(); fleetNote();
+  if (location.hash.slice(1) === 'buckets' || location.hash.startsWith('#bucket-')) { if (current) showBucket(current, true); }
+}
+function fleetNote() { if (!$('#tfleet')) return; const n = corpus ? corpus.rows.filter(fleetOk).length : 0; $('#tfleet').textContent = fleetActive() ? `Scoring only ${fleetLabel()}: ${n.toLocaleString()} reports (from the filter bar).` : 'Use the Manufacturer and Aircraft type filters above to ground within one fleet.'; }
+function fleetFill() { fillMS(); fleetNote(); }
+document.addEventListener('click', e => $$('details.ms[open]').forEach(d => { if (!d.contains(e.target)) d.open = false; }));
+
+/* ---------------------------------------------------------------- reports browser */
+const R = {q: '', code: '', part: '', inj: '', year: '', page: 0, per: 50};
+function renderReports() {
+  const codes = D.parents.filter(p => p.reports).sort((a, b) => a.code.localeCompare(b.code));
+  $('section[data-tab="reports"]').innerHTML = `<div class="panel">
+    <header><h2>Reports</h2><span class="note" id="rstatus">Loading ${D.corpus.total.toLocaleString()} reports…</span></header>
+    <div class="grid4">
+      <div class="field"><label for="rpart">Operation</label><select id="rpart"><option value="">Any</option><option value="091">Part 91</option><option value="121">Part 121</option><option value="135">Part 135</option><option value="137">Part 137</option><option value="129">Part 129</option></select></div>
+      <div class="field"><label for="rinj">Highest injury</label><select id="rinj"><option value="">Any</option><option>FATL</option><option>SERS</option><option>MINR</option><option>NONE</option></select></div>
+      <div class="field"><label for="ryear">Year</label><select id="ryear"><option value="">Any</option>${Array.from({length: 19}, (_, i) => 2026 - i).map(y => `<option>${y}</option>`).join('')}</select></div>
+    </div><p class="note" style="margin:0">Search, CICTT parent, manufacturer and aircraft type come from the filter bar above; these narrow further.</p></div>
+    <div id="rtable"><div class="loading">Loading reports…</div></div>`;
+  const on = () => { R.part = $('#rpart').value; R.inj = $('#rinj').value; R.year = $('#ryear').value; R.page = 0; reportsReady(); };
+  ['rpart','rinj','ryear'].forEach(id => $('#' + id).addEventListener('change', on));
+  $('#rtable').onclick = e => { const p = e.target.closest('[data-page]'); if (p) { R.page = +p.dataset.page; reportsReady(); return; } const r = e.target.closest('[data-r]'); if (r) openReader(r.dataset.r, '', GF.q ? {label: `search “${GF.q}”`, text: GF.q} : null); };
+}
+function reportsReady() {
+  if (!corpus || !$('#rtable')) return;
+  fleetPrep();
+  const hits = corpus.rows.filter(r => reportOk(r) && (!R.part || r.part === R.part) && (!R.inj || r.injury === R.inj) && (!R.year || r.date.startsWith(R.year)));
+  $('#rstatus').textContent = `${hits.length.toLocaleString()} of ${corpus.rows.length.toLocaleString()} reports`;
+  const pages = Math.max(1, Math.ceil(hits.length / R.per)), p = Math.min(R.page, pages - 1), slice = hits.slice(p * R.per, (p + 1) * R.per);
+  $('#rtable').innerHTML = `<div class="tw"><table><tr><th>Report</th><th>Date</th><th>Aircraft</th><th>Part</th><th>Injury</th><th>CICTT</th><th>Defining event</th></tr>
+   ${slice.map(r => `<tr class="click" data-r="${esc(r.key)}"><td class="mono">${esc(r.key)}</td><td style="white-space:nowrap">${esc(r.date)}</td><td title="${esc([r.make, r.model].filter(Boolean).join(' '))}">${esc(r.mk)} <b>${esc(r.ty)}</b> <span class="mono muted">${esc(r.model)}</span></td><td>${esc(r.part.replace(/^0+/, ''))}</td><td><span class="pill ${r.injury === 'FATL' ? 's-not_grounded' : r.injury === 'SERS' ? 's-needs_review' : r.injury === 'MINR' ? 's-merged' : 's-grounded'}">${esc(r.injury)}</span></td><td>${r.codes.map(pc).join(' ')}</td><td class="body">${esc(r.defining)}</td></tr>`).join('') || '<tr><td colspan="7" class="note">No report matches these filters.</td></tr>'}</table></div>
+   <div class="pager"><span>Page ${p + 1} of ${pages}</span><button class="btn ghost" data-page="${Math.max(0, p - 1)}" ${p === 0 ? 'disabled' : ''}>Previous</button><button class="btn ghost" data-page="${Math.min(pages - 1, p + 1)}" ${p >= pages - 1 ? 'disabled' : ''}>Next</button></div>`;
+}
+
+/* ---------------------------------------------------------------- try a candidate (in-browser scoring) */
+const STOP = new Set('a an the and or of to in on at for from by with without is are was were be been it its this that than then as into over under after before during other such any all not no can may per their there which while we our they he she his her them who also had has have did do does about out up down off very just only pilot pilots airplane aircraft flight accident'.split(' '));
+const stem = w => { for (const s of ['ings','ing','ies','ied','es','ed','s']) if (w.endsWith(s) && w.length - s.length >= 4) return w.slice(0, -s.length); return w; };
+const toks = t => (t.toLowerCase().match(/[a-z][a-z\-]+/g) || []).filter(w => w.length > 2 && !STOP.has(w)).map(w => stem(w.replace(/-/g, '')));
+let IDX = null;
+function buildIndex() {
+  const df = new Map(), docs = corpus.rows.map(r => { const tf = new Map(); toks(r.text + ' ' + r.findings).forEach(w => tf.set(w, (tf.get(w) || 0) + 1)); tf.forEach((_, w) => df.set(w, (df.get(w) || 0) + 1)); return tf; });
+  const N = docs.length, avg = docs.reduce((n, d) => n + [...d.values()].reduce((a, b) => a + b, 0), 0) / N;
+  const idf = w => Math.log(1 + (N - (df.get(w) || 0) + 0.5) / ((df.get(w) || 0) + 0.5));
+  IDX = {docs, len: docs.map(d => [...d.values()].reduce((a, b) => a + b, 0)), avg, idf};
+}
+function bm25(qt, filter) {
+  const {docs, len, avg, idf} = IDX, out = [];
+  docs.forEach((d, i) => { if (filter && !filter(corpus.rows[i])) return; let s = 0;
+    for (const w of qt) { const f = d.get(w); if (f) s += idf(w) * f * 2.2 / (f + 1.2 * (0.25 + 0.75 * len[i] / avg)); }
+    if (s > 0) out.push([i, s]); });
+  out.sort((a, b) => b[1] - a[1]); return out;
+}
+function cosTf(a, b) {
+  const va = new Map(), vb = new Map(); a.forEach(w => va.set(w, (va.get(w) || 0) + IDX.idf(w))); b.forEach(w => vb.set(w, (vb.get(w) || 0) + IDX.idf(w)));
+  let dot = 0, na = 0, nb = 0; va.forEach((v, w) => { na += v * v; if (vb.has(w)) dot += v * vb.get(w); }); vb.forEach(v => nb += v * v);
+  return na && nb ? dot / Math.sqrt(na * nb) : 0;
+}
+function renderTry() {
+  const opts = D.buckets.filter(b => b.status !== 'merged').map(b => `<option value="${b.id}">${b.id} · ${esc(b.name)}</option>`).join('');
+  const pars = D.parents.filter(p => p.in_scope && !p.co_code_only).map(p => `<option value="${p.code}">${p.code} · ${esc(p.name)}</option>`).join('');
+  $('section[data-tab="try"]').innerHTML = `<div class="bench">
+   <div class="panel stick">
+     <h3>Try a candidate</h3>
+     <p class="note" style="margin:0">Type a candidate bucket and follow it through the five steps against all <span id="tcount">${D.corpus.total.toLocaleString()}</span> NTSB reports.</p>
+     <div class="field"><label for="tfrom">Start from a bucket</label><select id="tfrom"><option value="">Choose…</option>${opts}</select></div>
+     <div class="field"><label for="tname">Candidate name</label><input type="text" id="tname" value="Carburetor icing leading to loss of engine power"></div>
+     <div class="field"><label for="tdef">Definition</label><textarea id="tdef">Ice forms in the carburetor, often in humid conditions at reduced power, and the engine loses partial or total power because carburetor heat was not applied.</textarea></div>
+     <div class="field"><label for="tprop">Proposed parent (checked by G8)</label><select id="tprop"><option value="">None</option>${pars}</select></div>
+     <p class="note" style="margin:0" id="tfleet">Use the Manufacturer and Aircraft type filters above to ground within one fleet.</p>
+     <div class="field"><label for="tmin">Minimum supporting events (G5)</label><input type="number" id="tmin" min="1" max="30" value="${D.settings.min_support}"></div>
+     <div class="row"><button class="btn" id="trun">Run the steps</button><span class="note" id="tstate">Loading reports…</span></div>
+     <p class="note" style="margin:0">Runs in your browser with keyword (BM25) scoring over each report’s first ${D.corpus.excerpt} characters plus its findings, so scores differ from the pgvector run. Definitions and checks are the same.</p>
+   </div>
+   <div id="tout"><div class="empty">Choose <b>Run the steps</b>. The example above is filled in so you can start right away.</div></div></div>`;
+  $('#tprop').value = 'SCF-PP';
+  $('#tfrom').onchange = e => { const b = B[e.target.value]; if (!b) return; $('#tname').value = b.name; $('#tdef').value = b.definition; $('#tprop').value = b.proposed || ''; };
+  $('#trun').onclick = runTry;
+  fleetNote();
+}
+function tryReady() { if ($('#tstate')) $('#tstate').textContent = 'Ready'; }
+async function runTry() {
+  await loadCorpus(); if (!corpus) return;
+  $('#tstate').textContent = IDX ? 'Running…' : 'Indexing reports…';
+  await new Promise(r => setTimeout(r, 30));
+  if (!IDX) buildIndex();
+  const S = D.settings, name = $('#tname').value.trim(), def = $('#tdef').value.trim(), prop = $('#tprop').value, minSup = +$('#tmin').value || S.min_support;
+  if (!name || !def) { $('#tout').innerHTML = '<div class="empty">Give the candidate a name and a definition.</div>'; $('#tstate').textContent = 'Ready'; return; }
+  const qt = toks(name + ' ' + def);
+  const rel = (arr) => { if (!arr.length) return []; const top = arr[0][1]; return arr.filter(x => x[1] >= S.relative_cutoff * top); };
+  // 1 retrieve: pool of closest reports
+  const all = (fleetPrep(), bm25(qt, fleetActive() ? fleetOk : null)), top = all[0]?.[1] || 1;
+  const pool = rel(all.slice(0, S.pool_size)).map(([i, s]) => ({r: corpus.rows[i], s: s / top}));
+  // 2 parent: 0.3 x definition fit + 0.7 x vote of the pool's codes
+  const cands = D.parents.filter(p => p.in_scope && !p.co_code_only);
+  const tot = pool.reduce((n, p) => n + p.s, 0) || 1;
+  const fit = Object.fromEntries(cands.map(p => [p.code, cosTf(qt, toks(p.name + ' ' + p.definition))]));
+  const vote = Object.fromEntries(cands.map(p => [p.code, pool.filter(x => x.r.codes.includes(p.code)).reduce((n, x) => n + x.s, 0) / tot]));
+  const score = Object.fromEntries(cands.map(p => [p.code, S.parent_def_weight * fit[p.code] + (1 - S.parent_def_weight) * vote[p.code]]));
+  const ranked = cands.map(p => p.code).sort((a, b) => score[b] - score[a]);
+  const parent = ranked[0], runner = ranked[1], margin = score[parent] - score[runner];
+  // 3 definitions crosswalked to the parent
+  const dsc = D.definitions.filter(x => x.parents.includes(parent)).map(x => ({x, s: cosTf(qt, toks(x.term + ' ' + x.text))})).sort((a, b) => b.s - a.s);
+  const dtop = dsc[0]?.s || 0, defs = dsc.filter(d => d.s >= Math.max(0.02, S.relative_cutoff * dtop)).slice(0, S.max_definitions);
+  // 4 supporting reports coded to the parent, one per event, with the best sentence quoted exactly
+  const under = bm25(qt, r => r.codes.includes(parent) && fleetOk(r)), utop = under[0]?.[1] || 1, seen = new Set(), support = [];
+  for (const [i, s] of under) { if (s < S.relative_cutoff * utop || support.length >= S.max_reports) break; const r = corpus.rows[i]; if (seen.has(r.event)) continue; seen.add(r.event);
+    const sents = (r.text + ' ' + r.findings).split(/(?<=[.!?])\s+/).filter(x => x.length > 20); let best = sents[0] || r.text, bs = -1;
+    sents.forEach(x => { const t = new Set(toks(x)); const sc = qt.filter(w => t.has(w)).length; if (sc > bs) { bs = sc; best = x; } });
+    support.push({r, s: s / utop, q: best}); }
+  // 5 verify
+  const P0 = P[parent], agree = vote[parent];
+  const checks = [
+    ['G1','Parent is an allowed CICTT category', !!P0 && P0.in_scope && !P0.co_code_only, `parent = ${parent}`, 'block'],
+    ['G2','Definitions crosswalked to the parent', defs.length > 0, `${defs.length} crosswalked definition(s)`, 'block'],
+    ['G3','Reports coded to the parent', support.every(x => x.r.codes.includes(parent)), 'closed set: only reports coded ' + parent, 'block'],
+    ['G4','Evidence quoted word for word', support.every(x => (x.r.text + ' ' + x.r.findings).includes(x.q)), 'quotes taken from the report text', 'block'],
+    ['G5',`At least ${minSup} supporting events`, support.length >= minSup, `${support.length} events`, 'block'],
+    ['G6','Closest reports agree with the parent', agree >= S.min_parent_agreement, `${Math.round(100 * agree)}% of the pool is coded ${parent}`, 'review'],
+    ['G7','Clear winner among parents', margin >= S.parent_margin, `margin ${margin.toFixed(2)} over ${runner}`, 'review'],
+    ...(prop ? [['G8','Matches the proposed parent', prop === parent, `proposed ${prop}, grounded ${parent}`, 'review']] : []),
+  ];
+  const status = checks.some(c => !c[2] && c[4] === 'block') ? 'not_grounded' : checks.some(c => !c[2]) ? 'needs_review' : 'grounded';
+  const smax = Math.max(...ranked.slice(0, 5).map(k => score[k]), 0.0001);
+  $('#tout').innerHTML = `<div class="detail">
+   <div class="panel dhead"><div class="flow">${pill(status)}<span class="note">typed candidate · not stored</span></div><h2>${esc(name)}</h2><p class="body" style="margin:0">${esc(def)}</p></div>
+   <div class="panel steps">
+    <div class="step on"><span class="lbl">1 · Retrieve</span><h3>${pool.length} closest reports vote on the parent</h3>
+      <div class="tw"><table><tr><th>Report</th><th>Codes</th><th class="num">Score</th></tr>${pool.map(p => `<tr class="click" data-r="${esc(p.r.key)}"><td class="mono">${esc(p.r.key)}</td><td>${p.r.codes.map(pc).join(' ')}</td><td class="num">${p.s.toFixed(2)}</td></tr>`).join('') || '<tr><td colspan="3" class="note">Nothing in the corpus matches: the candidate would abstain.</td></tr>'}</table></div></div>
+    <div class="step on"><span class="lbl">2 · Parent</span><h3>${esc(parent)} · ${esc(P0?.name || '')}</h3>
+      <div class="bars">${ranked.slice(0, 5).map(k => `<div class="brow">${pc(k)}<div class="track"><div class="fill" style="width:${100 * score[k] / smax}%;background:hsl(${hue(k)} 60% ${k === parent ? 50 : 70}%)"></div></div><span class="num">${score[k].toFixed(2)}</span></div>`).join('')}</div></div>
+    <div class="step on"><span class="lbl">3 · Definitions crosswalked to ${esc(parent)}</span>
+      ${defs.map(d => `<div class="node"><span class="mono">${d.x.id} · ${d.s.toFixed(2)}</span><span class="t">${esc(d.x.term)}</span><span class="q muted">${esc(d.x.source)}</span></div>`).join('') || '<div class="empty">No crosswalked definition fits: G2 fails.</div>'}</div>
+    <div class="step on"><span class="lbl">4 · Supporting reports · ${support.length} events</span>
+      <div class="scroll">${support.map(x => `<div class="node rep" tabindex="0" data-r="${esc(x.r.key)}" data-q="${esc(x.q)}"><span class="mono">${esc(x.r.key)} · ${x.s.toFixed(2)}</span><span class="note">${esc([x.r.date, x.r.make, x.r.model].filter(Boolean).join(' · '))}</span><span class="q">“${esc(x.q)}”</span></div>`).join('') || '<div class="empty">No report coded to the parent passes the cut-off.</div>'}</div></div>
+    <div class="step on"><span class="lbl">5 · Verify</span>
+      <div class="checks">${checks.map(c => `<div class="chk"><b>${c[0]}</b><span>${esc(c[1])}<br><span class="note">${esc(c[3])}</span></span><span class="pill s-${c[2] ? 'grounded' : (c[4] === 'block' ? 'not_grounded' : 'needs_review')}">${c[2] ? 'pass' : c[4]}</span></div>`).join('')}</div></div>
+   </div></div>`;
+  $('#tout').onclick = e => { const t = e.target.closest('[data-r]'); if (t) openReader(t.dataset.r, t.dataset.q || '', {label: 'typed candidate', text: name + ' ' + def}); };
+  $('#tstate').textContent = 'Done';
+}
+
+/* ---------------------------------------------------------------- small SVG charts (no library) */
+const PAL = ['var(--c1)','var(--c2)','var(--c3)','var(--c4)','var(--c5)','var(--c6)','var(--c7)','var(--c8)'];
+const fmtN = v => v >= 1000 ? v.toLocaleString() : (Math.round(v * 100) / 100).toString();
+function svgBars(items, o = {}) {
+  const W = o.w || 640, H = o.h || 200, L = 40, B = items.length > 12 ? 44 : 26, T = 14, n = items.length || 1;
+  const max = o.max || Math.max(...items.map(i => i.v), 1e-9), bw = (W - L - 8) / n;
+  const ticks = [0, .25, .5, .75, 1].map(f => f * max);
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || 'bar chart')}">
+    ${ticks.map(t => { const y = T + (H - T - B) * (1 - t / max); return `<line class="ax" x1="${L}" x2="${W}" y1="${y}" y2="${y}"/><text x="${L - 6}" y="${y + 4}" text-anchor="end">${o.pct ? Math.round(100 * t) + '%' : fmtN(Math.round(t * 100) / 100)}</text>`; }).join('')}
+    ${items.map((it, i) => { const h = (H - T - B) * it.v / max, x = L + i * bw + bw * .12, y = H - B - h;
+      return `<g class="hov"><rect x="${x}" y="${y}" width="${bw * .76}" height="${Math.max(h, 0)}" rx="2" style="fill:${it.c || o.color || 'var(--c1)'}"><title>${esc(it.l)}: ${o.pct ? Math.round(100 * it.v) + '%' : it.v.toLocaleString()}</title></rect>
+        ${o.values ? `<text x="${x + bw * .38}" y="${y - 3}" text-anchor="middle" class="lab">${o.pct ? Math.round(100 * it.v) + '%' : fmtN(it.v)}</text>` : ''}
+        <text x="${x + bw * .38}" y="${H - B + 14}" text-anchor="${n > 12 ? 'end' : 'middle'}" ${n > 12 ? `transform="rotate(-45 ${x + bw * .38} ${H - B + 14})"` : ''}>${esc(it.l)}</text></g>`; }).join('')}
+  </svg>`;
+}
+function svgHist(series, o = {}) {      // overlaid share-of-total curves for histograms sharing the same edges
+  const W = o.w || 640, H = o.h || 210, L = 40, B = 30, T = 12;
+  const sh = series.map(s => { const tot = s.counts.reduce((a, b) => a + b, 0) || 1; return s.counts.map(c => c / tot); });
+  const max = Math.max(...sh.flat(), 1e-9), edges = series[0].edges, n = edges.length - 1;
+  const X = i => L + (W - L - 8) * i / n, Y = v => T + (H - T - B) * (1 - v / max);
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || 'histogram')}">
+    ${[0, .5, 1].map(f => `<line class="ax" x1="${L}" x2="${W}" y1="${Y(f * max)}" y2="${Y(f * max)}"/><text x="${L - 6}" y="${Y(f * max) + 4}" text-anchor="end">${Math.round(100 * f * max)}%</text>`).join('')}
+    ${edges.filter((_, i) => i % Math.ceil(n / 8) === 0).map((e, j) => `<text x="${X(j * Math.ceil(n / 8))}" y="${H - 10}" text-anchor="middle">${o.xfmt ? o.xfmt(e) : e}</text>`).join('')}
+    ${sh.map((v, k) => `<path d="${v.map((y, i) => `${i ? 'L' : 'M'}${X(i)},${Y(y)} L${X(i + 1)},${Y(y)}`).join(' ')}" style="fill:none;stroke:${series[k].color};stroke-width:2.2"/>
+       <path d="M${X(0)},${Y(0)} ${v.map((y, i) => `L${X(i)},${Y(y)} L${X(i + 1)},${Y(y)}`).join(' ')} L${X(n)},${Y(0)}Z" style="fill:${series[k].color};opacity:.12"/>`).join('')}
+    ${o.xlab ? `<text x="${W}" y="${H - 1}" text-anchor="end">${esc(o.xlab)}</text>` : ''}
+  </svg><div class="legend">${series.map(s => `<span><i style="background:${s.color}"></i>${esc(s.name)}</span>`).join('')}</div>`;
+}
+function svgScatter(pts, cats, o = {}) {
+  const W = o.w || 640, H = o.h || 380, pad = 16;
+  const xs = pts.map(p => p[0]), ys = pts.map(p => p[1]);
+  const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+  const X = x => pad + (W - 2 * pad) * (x - x0) / (x1 - x0 || 1), Y = y => H - pad - (H - 2 * pad) * (y - y0) / (y1 - y0 || 1);
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || 'scatter plot')}"><rect x="0" y="0" width="${W}" height="${H}" rx="8" style="fill:var(--sunk);opacity:.5"/>
+    ${pts.map(p => `<circle cx="${X(p[0]).toFixed(1)}" cy="${Y(p[1]).toFixed(1)}" r="2.6" style="fill:hsl(${hue(cats[p[2]])} 65% 50%);opacity:.7"/>`).join('')}</svg>
+    <div class="legend">${cats.map(c => `<span data-pf="${c}" style="cursor:pointer"><i style="background:hsl(${hue(c)} 65% 50%)"></i>${c} · ${esc(P[c]?.name || '')}</span>`).join('')}</div>`;
+}
+function svgHStack(rows, o = {}) {      // horizontal stacked bars, one row per item, with an optional vertical cut-off line
+  const W = o.w || 1100, rh = o.rh || 20, L = o.left || 120, H = rows.length * rh + 30, max = o.max || 1;
+  const X = v => L + (W - L - 10) * v / max;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="${esc(o.label || 'stacked bars')}">
+    ${[0, .25, .5, .75, 1].map(f => `<line class="ax" x1="${X(f * max)}" x2="${X(f * max)}" y1="0" y2="${H - 22}"/><text x="${X(f * max)}" y="${H - 8}" text-anchor="middle">${(f * max).toFixed(2)}</text>`).join('')}
+    ${rows.map((r, i) => { let x = L; return `<g class="hov"><text x="${L - 8}" y="${i * rh + 15}" text-anchor="end" class="${r.bold ? 'lab' : ''}">${esc(r.label)}</text>
+      ${r.parts.map(pt => { const w = X(pt.v) - L, el = `<rect x="${x}" y="${i * rh + 4}" width="${Math.max(w, 0)}" height="${rh - 8}" rx="2" style="fill:${pt.c};opacity:${r.dim ? .35 : 1}"><title>${esc(r.label)} · ${esc(pt.name)} ${pt.v.toFixed(3)}</title></rect>`; x += w; return el; }).join('')}
+      ${r.tag ? `<text x="${x + 6}" y="${i * rh + 15}">${esc(r.tag)}</text>` : ''}</g>`; }).join('')}
+    ${o.cut != null ? `<line x1="${X(o.cut)}" x2="${X(o.cut)}" y1="0" y2="${H - 22}" style="stroke:var(--bad);stroke-width:2;stroke-dasharray:5 4"/><text x="${X(o.cut) + 4}" y="12" style="fill:var(--bad);font-weight:600">cut-off ${o.cut.toFixed(2)}</text>` : ''}
+  </svg>`;
+}
+function box(x, y, w, h, title, sub, c, dark) {
+  return `<g><rect x="${x}" y="${y}" width="${w}" height="${h}" rx="10" style="fill:${dark ? 'var(--night)' : 'var(--panel)'};stroke:${c};stroke-width:2"/>
+    <text x="${x + w / 2}" y="${y + 22}" text-anchor="middle" style="fill:${dark ? 'var(--night-ink)' : 'var(--ink)'};font-weight:700;font-size:13px">${title}</text>
+    ${sub.map((t, i) => `<text x="${x + w / 2}" y="${y + 40 + i * 15}" text-anchor="middle" style="fill:${dark ? 'var(--night-body)' : 'var(--muted)'};font-size:11px">${t}</text>`).join('')}</g>`;
+}
+const arrow = (x1, y1, x2, y2, c = 'var(--muted)') => `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:${c};stroke-width:2" marker-end="url(#ah)"/>`;
+function pipelineSVG() {
+  const W = 1180, H = 330;
+  return `<svg class="chart" viewBox="0 0 ${W} ${H}" role="img" aria-label="Pipeline schematic: index, retrieve, select, verify">
+   <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10z" style="fill:var(--muted)"/></marker></defs>
+   <text x="10" y="16" class="kicker" style="fill:var(--amber);font-size:11px;letter-spacing:2px">INDEX (OFFLINE, ONCE PER RUN)</text>
+   ${box(10, 28, 150, 80, 'NTSB records', [`${D.corpus.total.toLocaleString()} aircraft records`, 'narrative + findings'], 'var(--c8)')}
+   ${box(190, 28, 150, 80, 'Route by type', ['narrative · shorthand', 'notification · thin'], 'var(--c6)')}
+   ${box(370, 28, 170, 80, 'Section chunks', ['summary · findings', 'narrative ≈1,100 chars', '+ event header'], 'var(--c2)')}
+   ${box(570, 28, 170, 80, 'Embed (LSA-128)', ['TF-IDF words + pairs', '→ truncated SVD', 'unit vectors'], 'var(--c1)')}
+   ${box(770, 28, 170, 80, 'Index in Postgres', ['pgvector (cosine)', 'tsvector + GIN', 'sentences for quotes'], 'var(--c5)')}
+   ${box(970, 28, 200, 80, 'Closed sets', [`${D.parents.length} CICTT parents`, `${D.definitions.length} definitions (incl. ECCAIRS)`, 'SME decisions'], 'var(--c7)')}
+   ${arrow(160, 68, 188, 68)}${arrow(340, 68, 368, 68)}${arrow(540, 68, 568, 68)}${arrow(740, 68, 768, 68)}
+   <text x="10" y="150" class="kicker" style="fill:var(--amber);font-size:11px;letter-spacing:2px">PER CANDIDATE (ONLINE)</text>
+   ${box(10, 162, 150, 80, 'Candidate', ['name + definition', '→ same embedder'], 'var(--c8)', true)}
+   ${box(190, 162, 170, 80, 'Two channels', ['dense: 1,000 nearest', 'lexical: 1,000 ts_rank', 'union of chunks'], 'var(--c1)')}
+   ${box(390, 162, 150, 80, 'Hybrid fusion', ['0.6·cos + 0.4·kŵ', 'best chunk per report'], 'var(--c2)')}
+   ${box(570, 162, 150, 80, 'Relative cut-off', ['≥ 0.4 × best', 'per source, ≥ 0.15'], 'var(--c4)')}
+   ${box(750, 162, 150, 80, 'Constrained select', ['parent 0.3 def + 0.7 vote', 'defs · support · quotes'], 'var(--c5)')}
+   ${box(930, 162, 110, 80, 'Verify', ['G1–G10', 'deterministic'], 'var(--c3)', true)}
+   ${box(1060, 162, 110, 80, 'Escalate', ['agent ≤ 5 calls', 'propose only'], 'var(--c7)')}
+   ${arrow(160, 202, 188, 202)}${arrow(360, 202, 388, 202)}${arrow(540, 202, 568, 202)}${arrow(720, 202, 748, 202)}${arrow(900, 202, 928, 202)}${arrow(1040, 202, 1058, 202)}
+   ${arrow(855, 108, 275, 160, 'var(--c5)')}${arrow(1070, 108, 825, 160, 'var(--c7)')}
+   <text x="10" y="282" style="font-size:12px;fill:var(--body)">Modular RAG for <tspan style="font-weight:700">constrained selection</tspan>: retrieval never feeds free text to a generator; it builds closed lists the selector must choose from,</text>
+   <text x="10" y="300" style="font-size:12px;fill:var(--body)">and every choice is re-checked by code (G1–G10). Each module is a setting: units=report|chunks · lexical=fts|bm25 · retrieval=linear|rrf · cutoff_scope · support_refill.</text>
+  </svg>`;
+}
+function heat(v) { const h = 10 + 110 * Math.max(0, Math.min(1, v)); return `background:hsl(${h} 60% var(--pl));color:hsl(${h} 70% var(--pt))`; }
+function renderTech() {
+  const T = D.tech, sec = $('section[data-tab="techniques"]');
+  if (!T) { sec.innerHTML = '<div class="empty">Technique measurements were not packed with this page (run tools/technique_stats.py).</div>'; return; }
+  const ch = T.chunks, em = T.embedding, ex = T.example, md = T.modes;
+  const kc = {summary: 'var(--c1)', findings: 'var(--c2)', narrative: 'var(--c3)', report: 'var(--c5)'};
+  const parts = [
+   ['pipe', 'The pipeline as modular RAG'], ['route', 'Routing'], ['chunk', 'Section-aware chunking'], ['embed', 'Embedding'], ['hybrid', 'Hybrid retrieval and cut-off'],
+   ['modes', 'Retrieval modes compared'], ['parent', 'Parent choice'], ['support', 'Support, events and siblings'], ['dedupe', 'De-duplication'], ['verify', 'Evidence and checks'], ['history', 'Run history'], ['all', 'All techniques']];
+  const live = D.buckets.filter(b => b.status !== 'merged');
+  const checkIds = ['G1','G2','G3','G4','G5','G6','G7','G8','G9','G10'];
+  const merged = D.buckets.filter(b => b.status === 'merged');
+  const ps = D.parent_selection, agreeP = k => ps.filter(r => r[k] === r.proposed).length / (ps.length || 1);
+  const rows = ex.pool.slice(0, 24).map(p => ({label: `${p.key}`, bold: p.score >= ex.cut, dim: p.score < ex.cut, tag: `${p.chunk || ''} ${p.codes.includes('ICE') ? '· ICE' : ''}`,
+    parts: [{v: ex.w * p.cos, c: 'var(--c1)', name: `${ex.w} × cosine`}, {v: (1 - ex.w) * p.kw, c: 'var(--c2)', name: `${(1 - ex.w).toFixed(1)} × keyword`}]}));
+  const H = T.history || [];
+  sec.innerHTML = `
+  <div class="panel accent"><span class="kicker">Techniques · measured on the real NTSB working set</span>
+    <h2>How embedding, chunking and modular retrieval work here, step by step</h2>
+    <p class="body" style="margin:0;max-width:90ch">Every chart on this tab is computed from the database the run used (tools/technique_stats.py), not drawn by hand. Hover a bar for its value; select a CICTT code to filter the other tabs.</p>
+    <div class="toc">${parts.map(([id, t], i) => `<a href="javascript:void 0" data-goto="t-${id}">${i + 1}. ${t}</a>`).join('')}</div></div>
+
+  <div class="panel" id="t-pipe"><span class="kicker">1 · Architecture</span><h3>The pipeline as modular RAG: retrieve, constrain, verify</h3>${pipelineSVG()}</div>
+
+  <div class="cgrid" id="t-route">
+    <div class="panel"><span class="kicker">2 · Routing</span><h3>Records are routed by type before anything is scored</h3>
+      ${svgBars(Object.entries(D.summary.routing || {}).map(([k, v], i) => ({l: k, v, c: PAL[i]})), {h: 190, values: true, label: 'reports per lane'})}
+      <p class="note" style="margin:0">Lanes decide how a record is read and indexed. The relative cut-off is taken within each report source (cutoff_scope = source), because sources score on different scales; every record here comes from NTSB CAROL, so there is one cut-off.</p></div>
+    <div class="panel"><h3>Narrative length</h3>${svgHist([{name: 'narrative (probable cause + analysis)', color: 'var(--c3)', ...T.corpus.narrative_len}, {name: 'findings text', color: 'var(--c2)', edges: T.corpus.narrative_len.edges, counts: T.corpus.findings_len.counts.concat(Array(Math.max(0, T.corpus.narrative_len.counts.length - T.corpus.findings_len.counts.length)).fill(0)).slice(0, T.corpus.narrative_len.counts.length)}], {xlab: 'characters', xfmt: e => e >= 1000 ? (e / 1000) + 'k' : e})}
+      <p class="note" style="margin:0">Median narrative ${T.corpus.median_narrative.toLocaleString()} characters; ${(T.corpus.narrative_len.over || 0).toLocaleString()} longer than 8,000. Long reports are why section chunks help: one vector per report blurs a long analysis.</p></div>
+  </div>
+
+  <div class="panel" id="t-chunk"><span class="kicker">3 · Section-aware chunking</span><h3>${ch.total.toLocaleString()} chunks: a summary, a findings chunk and narrative pieces, each with the event header</h3>
+    <div class="cgrid">
+      <div>${svgBars(Object.entries(ch.by_kind).map(([k, v]) => ({l: `${k} (avg ${ch.mean_len[k]} chars)`, v, c: kc[k]})), {h: 200, values: true, label: 'chunks by kind'})}</div>
+      <div>${svgHist(Object.entries(ch.len_hist).map(([k, h]) => ({name: k, color: kc[k], ...h})), {xlab: 'chunk length, characters', label: 'chunk length by kind'})}</div>
+    </div>
+    <div class="formula">header  = [report key | date | make model | Part N | injury | phase]
+summary = header + probable cause            findings = header + "Cause: … Contributing factor: … Finding: …"
+pieces  = header + whole sentences packed to ≈1,100 characters (no sentence is split)
+score(report) = max over its chunks · the kind of the winning chunk is kept and shown as a badge</div>
+    <div class="grid4">${ch.example.map(c => `<div class="chunkcard" style="--kc:${kc[c.kind]}"><span class="chunk ${c.kind}">${c.kind}</span><span class="hdr">${esc(c.header)}</span><span class="q">${esc(c.body)}${c.body.length >= 420 ? '…' : ''}</span></div>`).join('')}</div>
+    <div class="cgrid"><div><h3>Chunks per report</h3>${svgBars(ch.per_report.counts.map((v, i) => ({l: String(ch.per_report.edges[i]), v, c: 'var(--c6)'})), {h: 170, label: 'chunks per report'})}</div>
+      <div><h3>Which chunk carried the support</h3>${svgBars(Object.entries(T.run.support_kinds).map(([k, v]) => ({l: k, v, c: kc[k] || 'var(--c5)'})), {h: 170, values: true, label: 'support links by winning chunk kind'})}
+      <p class="note" style="margin:0">Across the run's supporting links, the chunk that matched the bucket best. Findings chunks make NTSB's coded causes searchable, which the whole-report vector diluted.</p></div></div>
+  </div>
+
+  <div class="panel" id="t-embed"><span class="kicker">4 · Embedding</span><h3>${esc(em.name)}: TF-IDF over words and word pairs, reduced to ${em.dim} dimensions with truncated SVD</h3>
+    <div class="formula">x = TF-IDF(text; 1–2-grams, sublinear tf, min_df 3, ≤300k features)   →   z = SVDₖ(x), k = ${em.dim}   →   v = z / ‖z‖
+similarity(a, b) = cos(v_a, v_b) = v_a · v_b      (pgvector operator &lt;=&gt;; same embedder for reports, chunks, definitions, candidates)</div>
+    <div class="cgrid">
+      <div><h3>Reports in embedding space</h3>${svgScatter(em.map, em.parents, {label: 'two-dimensional projection of report vectors'})}
+        <p class="note" style="margin:0">${em.map.length.toLocaleString()} single-code reports projected onto their two main directions (PCA of the ${em.dim}-d vectors). Parents overlap: wording alone does not separate categories, which is why grounding adds parent filters, definitions and checks.</p></div>
+      <div><h3>Do same-parent reports sit closer?</h3>${svgHist([{name: `same parent · mean ${em.mean_same}`, color: 'var(--c3)', ...em.cos_same}, {name: `different parent · mean ${em.mean_diff}`, color: 'var(--c4)', ...em.cos_diff}], {xlab: 'cosine similarity', label: 'cosine of random report pairs'})}
+        <h3 style="margin-top:10px">Variance carried by the first directions</h3>${svgBars(em.pc_var.map((v, i) => ({l: 'PC' + (i + 1), v, c: 'var(--c1)'})), {h: 150, pct: true, label: 'share of variance'})}</div>
+    </div>
+    <p class="note" style="margin:0">A stand-in until an approved model is chosen (DG-2): a sentence-transformer plugs into the same interface (taxground/embed.py) and every chart here can be recomputed.</p>
+  </div>
+
+  <div class="panel" id="t-hybrid"><span class="kicker">5 · Hybrid retrieval</span><h3>Worked example: ${esc(ex.candidate)} · ${esc(ex.name)}</h3>
+    <div class="formula">dense   = 1,000 chunks nearest the candidate vector           lexical = 1,000 chunks with the best ts_rank_cd (GIN full-text index)
+score   = ${ex.w} × cos(candidate, chunk) + ${(1 - ex.w).toFixed(1)} × kw / max(kw)       (kw normalised within the query)
+report  = its best chunk          keep if score ≥ max(${ex.min_score}, ${ex.cutoff} × best score)</div>
+    ${svgHStack(rows, {cut: ex.cut, left: 120, max: Math.max(...ex.pool.map(p => p.score), 0.01) * 1.05, label: 'hybrid score decomposition'})}
+    <div class="legend"><span><i style="background:var(--c1)"></i>${ex.w} × cosine</span><span><i style="background:var(--c2)"></i>${(1 - ex.w).toFixed(1)} × normalised keyword rank</span><span><i style="background:var(--bad)"></i>relative cut-off</span><span>right: winning chunk kind · whether the report is coded ICE</span></div>
+    <p class="note" style="margin:0">${ex.parent_reports.toLocaleString()} reports carry the ICE code; the closest ${ex.pool.length} chunks are shown before the parent filter. Rows below the dashed line fail the relative cut-off and never reach the selector.</p>
+  </div>
+
+  <div class="panel" id="t-modes"><span class="kicker">6 · Modules compared</span><h3>Five retrieval configurations, run for all ${md.rows.length} live candidates</h3>
+    <div class="cgrid">
+      <div><h3>Top-10 coded with the bucket's parent</h3>${svgBars(md.labels.map((l, i) => ({l, v: md.mean_agree[l], c: PAL[i]})), {h: 210, pct: true, values: true, max: 1, label: 'mean parent agreement'})}</div>
+      <div><h3>Overlap with chunks · hybrid (Jaccard of top 10)</h3>${svgBars(md.labels.map((l, i) => ({l, v: md.mean_overlap[l], c: PAL[i]})), {h: 210, pct: true, values: true, max: 1, label: 'overlap with the default'})}</div>
+    </div>
+    <div class="tw"><table><tr><th>Bucket</th><th>Parent</th>${md.labels.map(l => `<th class="num">${esc(l)}</th>`).join('')}</tr>
+      ${md.rows.map(r => `<tr><td><a href="#bucket-${r.id}" class="mono">${r.id}</a> ${esc(r.name)}</td><td>${pc(r.parent)}</td>${md.labels.map(l => `<td class="num" style="${heat(r.modes[l].agree)}">${Math.round(100 * r.modes[l].agree)}%</td>`).join('')}</tr>`).join('')}</table></div>
+    <p class="note" style="margin:0">Cells: share of the ten closest reports already coded with the bucket's grounded parent (higher means retrieval agrees with the coding). Computed in ${md.seconds} s against pgvector.</p>
+  </div>
+
+  <div class="cgrid" id="t-parent">
+    <div class="panel"><span class="kicker">7 · Parent choice</span><h3>Two signals, weighted 0.3 / 0.7</h3>
+      <div class="formula">fit(p)   = cos(candidate, parent definition)      vote(p) = Σ score of pool reports coded p / Σ score
+score(p) = 0.3 × fit(p) + 0.7 × vote(p)          G6: vote(parent) ≥ 0.6    G7: margin ≥ 0.10    G8: = proposed</div>
+      ${svgBars([{l: 'definition fit only', v: agreeP('definition_only'), c: 'var(--c6)'}, {l: 'report vote only', v: agreeP('vote_only'), c: 'var(--c2)'}, {l: 'combined (used)', v: agreeP('selected'), c: 'var(--c3)'}], {h: 190, pct: true, values: true, max: 1, label: 'agreement with discovery'})}
+      <p class="note" style="margin:0">Share of candidates whose parent agrees with the one discovery proposed, for each signal alone and combined.</p></div>
+    <div class="panel" id="t-support"><span class="kicker">8 · Support</span><h3>Evidence depth per bucket: relevant events vs links kept</h3>
+      ${svgHStack(T.run.depth.filter(d => d.relevant != null).map(d => ({label: d.id, parts: [{v: d.support, c: 'var(--c3)', name: 'links kept'}, {v: Math.max(0, (d.relevant || 0) - d.support), c: 'var(--sunk)', name: 'further relevant events'}], tag: d.moved ? `${d.moved} to sibling` : ''})), {left: 50, max: Math.max(...T.run.depth.map(d => d.relevant || 0), 12), label: 'support depth'})}
+      <p class="note" style="margin:0">Under the parent, relevant reports are listed in score order (up to 60). Second aircraft of the same event count once; a report shared by siblings goes to the sibling it matches best; the 12 slots are then filled from the rest of the list (support_refill). G5 needs 10 events.</p></div>
+  </div>
+
+  <div class="cgrid" id="t-dedupe">
+    <div class="panel"><span class="kicker">9 · De-duplication</span><h3>Cross-batch twins merge before grounding</h3>
+      <div class="formula">sim(a, b) = 0.5 × cos(a, b) + 0.5 × Jaccard(pool_a, pool_b)
+merge when each is the other's best cross-batch match and sim ≥ 0.55</div>
+      <div class="tw"><table><tr><th>Merged</th><th>Into</th><th class="num">Similarity</th></tr>${merged.map(b => `<tr><td><a href="#bucket-${b.id}">${b.id}</a> ${esc(b.name)}</td><td><a href="#bucket-${b.merged_into}">${b.merged_into}</a> ${esc(B[b.merged_into]?.name || '')}</td><td class="num">${b.diag.merge_score ?? '—'}</td></tr>`).join('') || '<tr><td colspan="3" class="note">No merges in this run.</td></tr>'}</table></div></div>
+    <div class="panel" id="t-verify"><span class="kicker">10 · Evidence and checks</span><h3>Quotes are exact sentences; ten checks decide</h3>
+      <div class="formula">quote = argmax over the report's sentences of 0.5 × cos + 0.5 × keyword overlap      G4: quote ⊂ raw text</div>
+      ${svgBars(checkIds.map(id => ({l: id, v: live.filter(b => b.checks.some(k => k.id === id && !k.passed)).length, c: ['G6','G7','G8'].includes(id) ? 'var(--c2)' : 'var(--bad)'})), {h: 190, values: true, label: 'buckets failing each check'})}
+      <div class="legend"><span><i style="background:var(--bad)"></i>blocking check (not grounded)</span><span><i style="background:var(--c2)"></i>review check (SME)</span></div></div>
+  </div>
+
+  <div class="panel" id="t-history"><span class="kicker">11 · Run history</span><h3>What each technique changed on the real data</h3>
+    ${svgHStack(H.map(h => ({label: h.label, parts: ['grounded','needs_review','not_grounded','merged'].map(k => ({v: h.counts[k] || 0, c: COLORS[k], name: LABEL[k]})), tag: `${h.candidates} candidates`})), {left: 300, max: Math.max(...H.map(h => h.candidates), 1) * 1.1, label: 'status counts per run'})}
+    <div class="legend">${['grounded','needs_review','not_grounded','merged'].map(k => `<span><i style="background:${COLORS[k]}"></i>${LABEL[k]}</span>`).join('')}</div>
+    <div class="tw"><table><tr><th>Run</th><th>Units</th><th>Refill</th>${['grounded','needs_review','not_grounded','merged'].map(k => `<th class="num">${LABEL[k]}</th>`).join('')}</tr>
+      ${H.map(h => `<tr><td>${esc(h.label)}<br><span class="mono muted">${esc(h.run)}</span></td><td>${esc(h.units)}</td><td>${h.refill ? 'on' : 'off'}</td>${['grounded','needs_review','not_grounded','merged'].map(k => `<td class="num">${h.counts[k] || 0}</td>`).join('')}</tr>`).join('')}</table></div></div>
+
+  <div class="panel" id="t-all"><span class="kicker">12 · Reference</span><h3>Every technique, where it lives and how to switch it</h3>
+    <div class="tw"><table><tr><th>Technique</th><th>What it does</th><th>Setting</th><th>Code</th></tr>
+    ${[['Routing by record type','narrative, shorthand, notification, thin and quarantined lanes; relative cut-off per report source','cutoff_scope=source','text.py · ground.relevant'],
+       ['Section-aware chunking','summary, findings, ≈1,100-char narrative pieces, each with an event header','units=chunks','store.chunks_for'],
+       ['Findings as a chunk','NTSB coded causes and factors verbalized and indexed','(always with chunks)','tools/ingest_ntsb.py'],
+       ['LSA embedder','TF-IDF 1–2-grams → SVD-128, unit vectors; deterministic','embedder','embed.LocalEmbedder'],
+       ['Dense + lexical channels','1,000 nearest by vector ∪ 1,000 by ts_rank_cd','per_channel','store.reports_chunks'],
+       ['Linear hybrid fusion','0.6 × cosine + 0.4 × normalised keyword rank','vector_weight=0.6','store.reports_*'],
+       ['Okapi BM25 (option)','lexical scores with k1 1.2, b 0.75 over narrative + findings + codes','lexical=bm25','store.build_bm25'],
+       ['Reciprocal rank fusion (option)','RRF k=60 then rerank','retrieval=rrf','store.reports_rrf'],
+       ['Relative cut-off','keep ≥ 0.4 × best (≥ 0.15)','relative_cutoff, min_score','ground.relevant'],
+       ['Parent scoring','0.3 definition fit + 0.7 vote of the closest reports','parent_def_weight','ground.ground_candidate'],
+       ['Closed-set selection','parent, definitions and reports chosen only from retrieved lists','max_definitions, max_reports','ground.ground_candidate'],
+       ['Event de-duplication','two aircraft of one event count once','(always)','ground.ground_candidate'],
+       ['Sibling rule','a report supports only the sibling it matches best','(always)','ground.resolve_siblings'],
+       ['Support refill','fill slots after de-duplication and the sibling rule, from up to 60 relevant reports','support_refill, support_depth','ground.resolve_siblings'],
+       ['Cross-batch de-duplication','merge twins before grounding','merge_threshold=0.55','ground.dedupe'],
+       ['Evidence sentence','exact sentence, 0.5 cosine + 0.5 keyword','—','store.best_sentence'],
+       ['Lost-in-the-middle packing','strongest evidence at both ends of the LLM prompt','selector=llm-*','ground.build_prompt'],
+       ['Deterministic verifier','G1–G10 on every output, rules, LLM or agent','min_support, min_parent_agreement, parent_margin','verify.py'],
+       ['Bounded agent','≤ 5 tool calls, proposes only','agent_max_calls','agent.py'],
+       ['Versioning','output hash, SSSOM rows, changelog causes, release gate','—','pipeline.py · cli.py']]
+      .map(r => `<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td class="mono">${r[2]}</td><td class="mono">${r[3]}</td></tr>`).join('')}</table></div></div>`;
+  sec.onclick = e => { const g = e.target.closest('[data-goto]'); if (g) { e.preventDefault(); document.getElementById(g.dataset.goto)?.scrollIntoView({behavior: 'smooth', block: 'start'}); } };
+}
+
+/* ---------------------------------------------------------------- method */
+function renderMethod() {
+  const m = D.mapping?.mapping || {};
+  const byCode = {}; Object.entries(m).forEach(([k, v]) => { if (v) (byCode[v] = byCode[v] || []).push(k); });
+  const stages = [['Prepare','Snapshot and hash the inputs, validate every record, route each report (narrative, shorthand, notification, thin, quarantined), index in pgvector with full text.'],
+    ['Remember','Read every active SME decision back from the release store before anything is chosen.'],
+    ['Ground','Merge cross-batch twins, then choose the parent, definitions and reports only from closed sets; one report per event; sibling rule.'],
+    ['Prove','Build the criteria card, run checks G1–G10, send blocked buckets to a bounded agent that can only propose.'],
+    ['Version','Decide each outcome, store SSSOM-style links, write the changelog, release only with SME approval.']];
+  $('section[data-tab="method"]').innerHTML = `
+   <div class="panel"><header><h2>How grounding works</h2><span class="note">one command: python3 -m taxground run --data data/ntsb --set min_support=10</span></header>
+     <div class="grid5">${stages.map(([t, d], i) => `<div class="node" style="${i === 3 ? 'border:2px solid var(--amber-strong)' : ''}"><span class="mono">${i + 1}</span><span class="t">${t}</span><span class="q">${d}</span></div>`).join('')}</div></div>
+   <div class="grid2">
+     <div class="panel"><h3>The checks</h3><div class="tw"><table><tr><th>Id</th><th>Check</th><th>If it fails</th></tr>
+       ${[['G1','Parent is an allowed, in-scope CICTT category','Not grounded'],['G2','Definitions exist and are crosswalked to the parent','Not grounded'],['G3','Reports exist, are coded to the parent and carry evidence','Not grounded'],
+          ['G4','Evidence is quoted word for word from the raw text','Not grounded'],['G5',`At least ${D.settings.min_support} distinct supporting events`,'Not grounded'],['G6',`At least ${Math.round(100 * D.settings.min_parent_agreement)}% of the closest reports sit under the parent`,'Needs review'],
+          ['G7',`Parent beats the runner-up by at least ${D.settings.parent_margin}`,'Needs review'],['G8','Parent matches discovery’s proposal, or an SME set it','Needs review'],['G9','Criteria card complete; every citation resolves; quotes verbatim','Not grounded'],['G10','SME decisions from the release store are honoured','Not grounded']]
+         .map(r => `<tr><td class="mono">${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('')}</table></div></div>
+     <div class="panel"><h3>The data</h3>
+       <p class="body" style="margin:0">${esc(D.note || '')}</p>
+       <p class="body" style="margin:0">Retrieval units: ${D.settings.units === 'chunks' ? 'section-aware chunks — a summary (probable cause), a findings chunk (NTSB coded causes and contributing factors, verbalized) and narrative pieces of about 1,100 characters, each carrying the event header; each report takes its best chunk' : 'one vector per report'}. Quotes are exact sentences of the narrative or the findings.</p>
+       <p class="body" style="margin:0">Each aircraft record is one report: probable cause plus the analysis narrative, kept raw. Multi-aircraft events share an event id and count once. Level 1 codes come from each record’s NTSB occurrences through a draft mapping (${esc(D.mapping?.version || '')}); impact and post-impact fire count only when they are the defining event.</p>
+       <details><summary class="lbl" style="cursor:pointer">NTSB occurrence codes behind each CICTT parent</summary>
+         <div class="tw" style="margin-top:8px"><table><tr><th>CICTT</th><th>NTSB occurrence codes</th></tr>${Object.keys(byCode).sort().map(k => `<tr><td><span class="code">${k}</span></td><td class="mono">${byCode[k].join(' ')}</td></tr>`).join('')}</table></div></details>
+       <p class="note" style="margin:0">Limits: a stand-in embedder (TF-IDF + SVD) and settings tuned on synthetic samples; the occurrence mapping and the definition crosswalk need SME approval; definitions are paraphrases.</p></div>
+   </div>`;
+}
+})();
+</script>

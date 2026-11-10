@@ -1,0 +1,5 @@
+psycopg[binary]>=3.1
+pgvector>=0.2
+numpy>=1.24
+scikit-learn>=1.3
+# optional: sentence-transformers>=2.6 (approved embedder, --model)

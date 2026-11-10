@@ -1,0 +1,50 @@
+item,value,source
+Run id,run-ntsb-20261110T192033918,manifest.json#summary.run_id
+Dataset,ntsb,summary.dataset
+Taxonomy version,ntsb-draft-45231e0fc8,summary.taxonomy_version
+Output hash,45231e0fc8a9c3742a21230ab2d6356de85aa1da0e880d7dc53584bc61be6213,summary.output_hash
+Input hash,80f03ec2c9f7df295db4fb9033f071247b03ba7d047907b0812bcd1fc4381c70,summary.input_hash
+Settings hash,3a42d5c4a2ca,summary.settings_hash
+Code version,tg-99c09c0a83,summary.code_version
+Selector,rules,summary.selector
+Embedder,local-lsa-128,summary.embedder
+Prompt version,constrained_grounding@e2cdc128,summary.prompt_version
+Previous run,run-ntsb-20261110T185650894,summary.previous_run
+SME decisions read,0,summary.sme_decisions_read
+Guardrails blocked,11/11,summary.guardrails_blocked
+Revisions vs previous run,0,summary.revisions
+Validation issues,0,summary.validation_issues
+Routing lane: narrative,24160,summary.routing.narrative
+Routing lane: shorthand,1375,summary.routing.shorthand
+Routing lane: notification,2192,summary.routing.notification
+Routing lane: thin,168,summary.routing.thin
+Setting: units,chunks,settings.units
+Setting: lexical,fts,settings.lexical
+Setting: retrieval,linear,settings.retrieval
+Setting: context_header,false,settings.context_header
+Setting: merged_cap_scale,false,settings.merged_cap_scale
+Setting: cutoff_scope,source,settings.cutoff_scope
+Setting: normalise,false,settings.normalise
+Setting: escalate,true,settings.escalate
+Setting: vector_weight,0.6,settings.vector_weight
+Setting: pool_size,10,settings.pool_size
+Setting: relative_cutoff,0.4,settings.relative_cutoff
+Setting: min_score,0.15,settings.min_score
+Setting: parent_def_weight,0.3,settings.parent_def_weight
+Setting: parent_margin,0.1,settings.parent_margin
+Setting: max_definitions,3,settings.max_definitions
+Setting: max_reports,12,settings.max_reports
+Setting: support_depth,5,settings.support_depth
+Setting: support_refill,true,settings.support_refill
+Setting: min_support,10,settings.min_support
+Setting: min_parent_agreement,0.6,settings.min_parent_agreement
+Setting: merge_threshold,0.55,settings.merge_threshold
+Setting: agent_max_calls,5,settings.agent_max_calls
+Setting: agent_pool,30,settings.agent_pool
+Setting: agent_relative,0.3,settings.agent_relative
+Setting: test_fit_margin,0.05,settings.test_fit_margin
+Setting: test_min_score,0.25,settings.test_min_score
+Input file: icao_categories.json,f4582ce4dfd28e0a12882b7cfb214c77ea445ca8fcdd236ea875731c2c77277a,manifest.json#inputs.files (sha256)
+Input file: industry_definitions.json,33ba0d85566adbae150b04f4111741bbfa2b17f24bbbe11ae5a4c166dbc82d63,manifest.json#inputs.files (sha256)
+Input file: sample_reports.json,d4d63e0f83d00e5ae517ed3fe6dabf6b0e5aa754a80b0db595b9d3562bd74a61,manifest.json#inputs.files (sha256)
+Input file: candidates.json,56c7265b48654fa14be8de7d305aab6c0a32477d3f9d90a04f9a1ba29127c501,manifest.json#inputs.files (sha256)

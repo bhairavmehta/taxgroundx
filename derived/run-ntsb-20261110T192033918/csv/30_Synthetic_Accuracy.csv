@@ -1,0 +1,4 @@
+dataset,run_id,output_hash,parents_correct,precision,recall,precision_merge_aware,recall_merge_aware,grounded,needs_review,not_grounded,merged,sme_decisions,source
+combined,run-combined-20261110T185634839,7d2ff106197c,29/31,0.745,0.887,0.817,0.885,22,9,0,6,0,/tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/synthetic/run-combined-20261110T185634839/grounding_results.json
+sample_b,run-sample_b-20261110T185632519,c7294155ea2e,27/28,0.93,0.939,0.93,0.939,20,6,2,0,0,/tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/synthetic/run-sample_b-20261110T185632519/grounding_results.json
+trial,run-trial-20261110T185630769,d1836ae50afb,8/9,0.967,0.967,0.967,0.967,5,3,1,0,0,/tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/synthetic/run-trial-20261110T185630769/grounding_results.json

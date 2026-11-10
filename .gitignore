@@ -1,0 +1,7 @@
+out*/
+build/
+viewer/data/
+viewer/dist/
+data/ntsb/
+__pycache__/
+*.pyc

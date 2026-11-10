@@ -1,0 +1,16 @@
+reviewed_run_id,candidate_id,action,target_type,target_id,value,rationale,prompting_report
+{RUN},B17,set_parent,parent,F-NI,,Battery thermal runaway is a fire event first; CABIN stays a co-code,TEST-004
+{RUN},B13,reject_link,report,SAMPLE-028,,Bird ingestion is not loss of oil pressure,TEST-003
+{RUN},B13,reject_link,report,SAMPLE-029,,Bird ingestion is not loss of oil pressure,TEST-003
+{RUN},B13,reject_link,report,SAMPLE-031,,Bird ingestion is not loss of oil pressure,TEST-003
+{RUN},B13,add_criterion,criterion,exclude,Engine damage or shutdown caused by bird ingestion belongs to B15 (bird ingestion damaging an engine).,Boundary found by report testing,TEST-003
+{RUN},B13,approve_bucket,candidate,B13,,Parent correction SCF-NP to SCF-PP confirmed,
+{RUN},B05,reject_link,report,SAMPLE-015,,Unreliable airspeed upset is B26 not a go-around stall,
+{RUN},B05,reject_link,report,SAMPLE-017,,Unreliable airspeed upset is B26 not a go-around stall,
+{RUN},B05,reject_link,report,SAMPLE-018,,Unreliable airspeed upset is B26 not a go-around stall,
+{RUN},B28,reject_link,report,SAMPLE-005,,Landing at the wrong airport is not an FMS route error,
+{RUN},B02,remove_criterion,criterion,exclude|report|SYNB-174,,Not a useful boundary for this bucket,
+{RUN},C6,approve_bucket,candidate,C6,,CABIN with TURB as co-code accepted,
+{RUN},C9,approve_bucket,candidate,C9,,Parent correction RE to ARC confirmed,
+{RUN},B23,approve_bucket,candidate,B23,,Parent correction TURB to WSTRW confirmed,
+{RUN},B02,reject_link,report,SAMPLE-022,,Deliberately invalid row: SAMPLE-022 is not linked to B02,

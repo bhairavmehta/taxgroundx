@@ -1,0 +1,31 @@
+measure,key,value,share,source
+lane,narrative,24160,0.866105,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#summary.routing.narrative
+lane,shorthand,1375,0.049292,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#summary.routing.shorthand
+lane,notification,2192,0.07858,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#summary.routing.notification
+lane,thin,168,0.006023,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#summary.routing.thin
+chunk kind,findings,24813,0.159916,viewer/data/techniques.json#chunks.by_kind.findings
+chunk kind,narrative,105384,0.679183,viewer/data/techniques.json#chunks.by_kind.narrative
+chunk kind,summary,24966,0.160902,viewer/data/techniques.json#chunks.by_kind.summary
+mean chunk length (chars),findings,291,,viewer/data/techniques.json#chunks.mean_len.findings
+mean chunk length (chars),narrative,922,,viewer/data/techniques.json#chunks.mean_len.narrative
+mean chunk length (chars),summary,173,,viewer/data/techniques.json#chunks.mean_len.summary
+chunks total,,155163,,viewer/data/techniques.json#chunks.total
+median narrative length (chars),,1433,,viewer/data/techniques.json#corpus.median_narrative
+embedding,local-lsa-128,128,,viewer/data/techniques.json#embedding.dim
+"mean cosine, same-parent report pairs",,0.282,,viewer/data/techniques.json#embedding.mean_same
+"mean cosine, different-parent pairs",,0.164,,viewer/data/techniques.json#embedding.mean_diff
+variance share of embedding direction,PC1,0.1078,,viewer/data/techniques.json#embedding.pc_var[0]
+variance share of embedding direction,PC2,0.0603,,viewer/data/techniques.json#embedding.pc_var[1]
+variance share of embedding direction,PC3,0.0423,,viewer/data/techniques.json#embedding.pc_var[2]
+variance share of embedding direction,PC4,0.031,,viewer/data/techniques.json#embedding.pc_var[3]
+variance share of embedding direction,PC5,0.0297,,viewer/data/techniques.json#embedding.pc_var[4]
+variance share of embedding direction,PC6,0.0268,,viewer/data/techniques.json#embedding.pc_var[5]
+variance share of embedding direction,PC7,0.0255,,viewer/data/techniques.json#embedding.pc_var[6]
+variance share of embedding direction,PC8,0.0252,,viewer/data/techniques.json#embedding.pc_var[7]
+variance share of embedding direction,PC9,0.0242,,viewer/data/techniques.json#embedding.pc_var[8]
+variance share of embedding direction,PC10,0.0207,,viewer/data/techniques.json#embedding.pc_var[9]
+variance share of embedding direction,PC11,0.0183,,viewer/data/techniques.json#embedding.pc_var[10]
+variance share of embedding direction,PC12,0.0166,,viewer/data/techniques.json#embedding.pc_var[11]
+support links by winning chunk kind,narrative,518,,viewer/data/techniques.json#run.support_kinds.narrative
+support links by winning chunk kind,summary,41,,viewer/data/techniques.json#run.support_kinds.summary
+support links by winning chunk kind,findings,26,,viewer/data/techniques.json#run.support_kinds.findings

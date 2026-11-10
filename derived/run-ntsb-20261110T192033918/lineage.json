@@ -1,0 +1,789 @@
+{
+ "run_id": "run-ntsb-20261110T192033918",
+ "built": "2026-11-10T19:35:04+00:00",
+ "generator": "tools/build_derived.py",
+ "command": "python3 tools/build_derived.py --run out_ntsb/run-ntsb-20261110T192033918 --test out_ntsb/test-20261110T192903-v0.2-test --data data/ntsb --techniques viewer/data/techniques.json --clusters /tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/discovery_clusters.json --synthetic /tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/synthetic --history out_ntsb_rep out_ntsb --csv /tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/csv --out derived",
+ "tables": [
+  {
+   "table": "01_Run_Summary",
+   "description": "Run identity, hashes, settings and recorded input files; figures at the top are live formulas over the data tabs.",
+   "rows": 49,
+   "columns": [
+    "item",
+    "value",
+    "source"
+   ],
+   "generator": "taxground run (pipeline.py)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/manifest.json",
+     "sha256": "1e249bbfa5efcce278caa516a516ae4058203787bdbf7041016a9eb72f107d99"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/01_Run_Summary.csv"
+  },
+  {
+   "table": "02_Run_History",
+   "description": "Every NTSB run on disk, oldest first: what changed between runs and the outcome counts. Same hash = same taxonomy.",
+   "rows": 7,
+   "columns": [
+    "run_id",
+    "output_hash",
+    "units",
+    "support_refill",
+    "candidates",
+    "sme_decisions",
+    "grounded",
+    "needs_review",
+    "not_grounded",
+    "merged",
+    "source"
+   ],
+   "generator": "taxground run, one folder per run",
+   "sources": [],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/02_Run_History.csv"
+  },
+  {
+   "table": "03_Buckets",
+   "description": "One row per discovery candidate: proposed and grounded parent, status, failed checks, evidence depth, parent agreement and margin.",
+   "rows": 53,
+   "columns": [
+    "candidate_id",
+    "batch",
+    "name",
+    "definition",
+    "proposed_parent",
+    "grounded_parent",
+    "merged_into",
+    "status",
+    "outcome",
+    "failed_checks",
+    "support_events",
+    "relevant_events_under_parent",
+    "reports_moved_to_sibling",
+    "parent_agreement",
+    "parent_margin",
+    "runner_up_parent",
+    "definition_ids",
+    "criteria_lines",
+    "agent_calls",
+    "merged_aliases",
+    "run_id",
+    "source"
+   ],
+   "generator": "ground.ground_candidate + verify.verify + pipeline.run",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/03_Buckets.csv"
+  },
+  {
+   "table": "04_Checks",
+   "description": "Every check G1\u2013G10 for every live bucket. block = not grounded; review = sent to an SME.",
+   "rows": 450,
+   "columns": [
+    "candidate_id",
+    "check",
+    "name",
+    "result",
+    "severity",
+    "detail",
+    "run_id",
+    "source"
+   ],
+   "generator": "verify.verify",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/04_Checks.csv"
+  },
+  {
+   "table": "05_Support",
+   "description": "Every supporting report link: the verbatim evidence sentence, retrieval score, the chunk kind that matched, and the aircraft.",
+   "rows": 585,
+   "columns": [
+    "candidate_id",
+    "parent",
+    "rank",
+    "report_key",
+    "event_id",
+    "score",
+    "chunk_kind",
+    "evidence_quote",
+    "date",
+    "manufacturer",
+    "type_root",
+    "make_raw",
+    "model_raw",
+    "part",
+    "injury",
+    "report_cictt_codes",
+    "selected_by",
+    "run_id",
+    "source"
+   ],
+   "generator": "ground.ground_candidate + ground.resolve_siblings (support_refill)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/sample_reports.json",
+     "sha256": "d4d63e0f83d00e5ae517ed3fe6dabf6b0e5aa754a80b0db595b9d3562bd74a61"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/05_Support.csv"
+  },
+  {
+   "table": "06_SSSOM_Links",
+   "description": "The stored link rows (SSSOM style): bucket \u2192 parent, definitions and reports, with justification, confidence and evidence.",
+   "rows": 773,
+   "columns": [
+    "run_id",
+    "subject_id",
+    "subject_label",
+    "predicate_id",
+    "object_id",
+    "object_label",
+    "link_type",
+    "mapping_justification",
+    "confidence",
+    "evidence_quote",
+    "mapping_tool",
+    "mapping_tool_version",
+    "mapping_date",
+    "author_id",
+    "reviewer_id",
+    "sme_decision_id",
+    "comment",
+    "source"
+   ],
+   "generator": "pipeline.write_outputs (SSSOM export)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/links.sssom.tsv",
+     "sha256": "cd8d12e8a5850ed52585137bb860f3d985457f2bafe51fa1f59da4db6cdfe61b"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/06_SSSOM_Links.csv"
+  },
+  {
+   "table": "07_Criteria",
+   "description": "Criteria cards (SRS-TAX-03): include, exclude and boundary lines, each with one citation the verifier resolves (G9).",
+   "rows": 1250,
+   "columns": [
+    "candidate_id",
+    "seq",
+    "kind",
+    "text",
+    "cite_type",
+    "cite_id",
+    "quote",
+    "origin",
+    "run_id",
+    "source"
+   ],
+   "generator": "criteria.build_card",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/07_Criteria.csv"
+  },
+  {
+   "table": "08_Parent_Scores",
+   "description": "Parent choice per bucket: the top four scores (0.3 \u00d7 definition fit + 0.7 \u00d7 report vote), plus the parent each signal alone would pick.",
+   "rows": 200,
+   "columns": [
+    "candidate_id",
+    "rank",
+    "parent",
+    "score",
+    "selected",
+    "proposed",
+    "definition_only_pick",
+    "vote_only_pick",
+    "run_id",
+    "source"
+   ],
+   "generator": "ground.ground_candidate (+ tools/export_viewer.py for the single-signal picks)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    },
+    {
+     "path": "viewer/data/run.json",
+     "sha256": "1bd5835c2ffbe3a140452528773d5285e397d701e9770bdb33de585135b5d67f"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/08_Parent_Scores.csv"
+  },
+  {
+   "table": "09_Pool",
+   "description": "The closest reports that voted on each bucket's parent, with their codes and whether they carry the grounded parent.",
+   "rows": 500,
+   "columns": [
+    "candidate_id",
+    "rank",
+    "report_key",
+    "report_codes",
+    "has_grounded_parent",
+    "score",
+    "chunk_kind",
+    "date",
+    "manufacturer",
+    "type_root",
+    "run_id",
+    "source"
+   ],
+   "generator": "store.reports_chunks (hybrid 0.6 / 0.4)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/09_Pool.csv"
+  },
+  {
+   "table": "10_Sibling_Moves",
+   "description": "Reports a bucket gave up because a sibling under the same parent matched them better (GR-6).",
+   "rows": 93,
+   "columns": [
+    "candidate_id",
+    "report_key",
+    "moved_to",
+    "evidence_quote",
+    "run_id",
+    "source"
+   ],
+   "generator": "ground.resolve_siblings",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/10_Sibling_Moves.csv"
+  },
+  {
+   "table": "11_Merges",
+   "description": "Cross-batch twins merged before grounding (0.5 \u00d7 cosine + 0.5 \u00d7 Jaccard of retrieved pools, mutual best match, \u2265 0.55).",
+   "rows": 3,
+   "columns": [
+    "candidate_id",
+    "name",
+    "merged_into",
+    "similarity",
+    "run_id",
+    "source"
+   ],
+   "generator": "ground.dedupe",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/11_Merges.csv"
+  },
+  {
+   "table": "12_Definitions",
+   "description": "Every industry definition the selector could cite, its CICTT parents and origin; times_linked is a live count over 06_SSSOM_Links.",
+   "rows": 548,
+   "columns": [
+    "def_id",
+    "term",
+    "parents",
+    "origin",
+    "source_document",
+    "text",
+    "times_linked",
+    "source"
+   ],
+   "generator": "tools/ingest_ntsb.py + tools/eccairs_crosswalk.py",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/industry_definitions.json",
+     "sha256": "33ba0d85566adbae150b04f4111741bbfa2b17f24bbbe11ae5a4c166dbc82d63"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/12_Definitions.csv"
+  },
+  {
+   "table": "13_CICTT_Parents",
+   "description": "The 33 CICTT Level-1 parents: reports coded to each, definitions crosswalked, and live counts of grounded and review buckets.",
+   "rows": 33,
+   "columns": [
+    "code",
+    "name",
+    "in_scope",
+    "definition",
+    "reports_coded",
+    "definitions",
+    "grounded_buckets",
+    "review_buckets",
+    "share_of_code_assignments",
+    "source"
+   ],
+   "generator": "tools/ingest_ntsb.py",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/icao_categories.json",
+     "sha256": "f4582ce4dfd28e0a12882b7cfb214c77ea445ca8fcdd236ea875731c2c77277a"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/sample_reports.json",
+     "sha256": "d4d63e0f83d00e5ae517ed3fe6dabf6b0e5aa754a80b0db595b9d3562bd74a61"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/industry_definitions.json",
+     "sha256": "33ba0d85566adbae150b04f4111741bbfa2b17f24bbbe11ae5a4c166dbc82d63"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/13_CICTT_Parents.csv"
+  },
+  {
+   "table": "14_NTSB_Occ_Map",
+   "description": "NTSB occurrence code \u2192 CICTT parent (ntsb-occ-cictt-0.1 (draft, pending SME validation)). Consequence-only codes count only when they are the defining event.",
+   "rows": 97,
+   "columns": [
+    "ntsb_occurrence_code",
+    "meaning",
+    "cictt_parent",
+    "rule",
+    "source"
+   ],
+   "generator": "tools/ingest_ntsb.py (OCC map)",
+   "sources": [
+    {
+     "path": "data/ntsb/occ_to_cictt.json",
+     "sha256": "36379574e18cd286e532b345658117eaa3aad29f7a3cd7724549f0919c56b421"
+    },
+    {
+     "path": "/tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/csv/ct_seqevt.csv",
+     "sha256": "c668799197e4db8ac7a0b2c47abd22f6edfac7561fe23503df6cb388399943a0"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/14_NTSB_Occ_Map.csv"
+  },
+  {
+   "table": "15_ECCAIRS_Crosswalk",
+   "description": "All 809 ECCAIRS 1.3.0.12 attribute-390 events and the CICTT parents our draft crosswalk gives them (SME approval needed).",
+   "rows": 809,
+   "columns": [
+    "eccairs_code",
+    "name",
+    "level",
+    "path",
+    "cictt_parents",
+    "status",
+    "definition",
+    "crosswalk_version",
+    "source"
+   ],
+   "generator": "tools/parse_eccairs.py + tools/eccairs_crosswalk.py",
+   "sources": [
+    {
+     "path": "data/eccairs_events.json",
+     "sha256": "1138cee55a5cd45c2090e18c8003905559ec942e6448f52bf707b529a22fe5fa"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/industry_definitions.json",
+     "sha256": "33ba0d85566adbae150b04f4111741bbfa2b17f24bbbe11ae5a4c166dbc82d63"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/15_ECCAIRS_Crosswalk.csv"
+  },
+  {
+   "table": "16_Reports_Index",
+   "description": "Every NTSB report in the run, with normalised manufacturer and root aircraft type (same rules as the viewer). Filter here, then look up by key.",
+   "rows": 27895,
+   "columns": [
+    "report_key",
+    "event_id",
+    "date",
+    "year",
+    "manufacturer",
+    "type_root",
+    "make_raw",
+    "model_raw",
+    "part",
+    "injury",
+    "damage",
+    "cictt_codes",
+    "source_id",
+    "narrative_chars",
+    "findings_chars",
+    "defining_event",
+    "source"
+   ],
+   "generator": "tools/ingest_ntsb.py; normalisation in tools/build_derived.py",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/inputs/sample_reports.json",
+     "sha256": "d4d63e0f83d00e5ae517ed3fe6dabf6b0e5aa754a80b0db595b9d3562bd74a61"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/16_Reports_Index.csv"
+  },
+  {
+   "table": "17_Corpus_by_Year",
+   "description": "Reports and fatal reports per year: live COUNTIFS over 16_Reports_Index.",
+   "rows": 19,
+   "columns": [
+    "year",
+    "reports",
+    "fatal",
+    "fatal_share",
+    "share_of_all"
+   ],
+   "generator": "formulas over 16_Reports_Index",
+   "sources": [
+    {
+     "path": "16_Reports_Index",
+     "sha256": null
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/17_Corpus_by_Year.csv"
+  },
+  {
+   "table": "18_Corpus_by_Make",
+   "description": "The 60 most common normalised manufacturers: live counts over 16_Reports_Index, with the number of raw spellings folded into each.",
+   "rows": 60,
+   "columns": [
+    "manufacturer",
+    "reports",
+    "fatal",
+    "share",
+    "raw_spellings"
+   ],
+   "generator": "formulas over 16_Reports_Index",
+   "sources": [
+    {
+     "path": "16_Reports_Index",
+     "sha256": null
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/18_Corpus_by_Make.csv"
+  },
+  {
+   "table": "19_Corpus_by_Type",
+   "description": "The 150 most common manufacturer + root types (737, 172, PA28\u2026): live counts, and the raw model strings folded into each.",
+   "rows": 150,
+   "columns": [
+    "manufacturer",
+    "type_root",
+    "reports",
+    "fatal",
+    "raw_models",
+    "example_models"
+   ],
+   "generator": "formulas over 16_Reports_Index",
+   "sources": [
+    {
+     "path": "16_Reports_Index",
+     "sha256": null
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/19_Corpus_by_Type.csv"
+  },
+  {
+   "table": "20_Corpus_and_Chunks",
+   "description": "Routing lanes, section-aware chunks (counts and lengths), embedding geometry, and which chunk kind carried support.",
+   "rows": 30,
+   "columns": [
+    "measure",
+    "key",
+    "value",
+    "share",
+    "source"
+   ],
+   "generator": "tools/technique_stats.py",
+   "sources": [
+    {
+     "path": "viewer/data/techniques.json",
+     "sha256": "3d270a255d8e84a2846906b543c2b716eadcf1d563de899bc48ed5f3f5339c92"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/20_Corpus_and_Chunks.csv"
+  },
+  {
+   "table": "21_Distributions",
+   "description": "Histogram bins behind the Techniques charts: text lengths, chunk lengths, cosine of random report pairs.",
+   "rows": 148,
+   "columns": [
+    "distribution",
+    "bin_from",
+    "bin_to",
+    "count",
+    "source"
+   ],
+   "generator": "tools/technique_stats.py",
+   "sources": [
+    {
+     "path": "viewer/data/techniques.json",
+     "sha256": "3d270a255d8e84a2846906b543c2b716eadcf1d563de899bc48ed5f3f5339c92"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/21_Distributions.csv"
+  },
+  {
+   "table": "22_Hybrid_Example",
+   "description": "Worked hybrid-retrieval example for B25 \u00b7 Airframe icing in flight: score = 0.6 \u00d7 cosine + 0.4 \u00d7 normalised keyword; kept if \u2265 cut-off.",
+   "rows": 40,
+   "columns": [
+    "rank",
+    "report_key",
+    "codes",
+    "chunk_kind",
+    "cosine",
+    "keyword_norm",
+    "score_stored",
+    "score_recomputed",
+    "cut_off",
+    "kept",
+    "source"
+   ],
+   "generator": "tools/technique_stats.py (store.reports_chunks)",
+   "sources": [
+    {
+     "path": "viewer/data/techniques.json",
+     "sha256": "3d270a255d8e84a2846906b543c2b716eadcf1d563de899bc48ed5f3f5339c92"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/22_Hybrid_Example.csv"
+  },
+  {
+   "table": "23_Retrieval_Modes",
+   "description": "Five retrieval configurations \u00d7 every live bucket: share of the top 10 coded with the grounded parent, and overlap with chunks\u00b7hybrid.",
+   "rows": 250,
+   "columns": [
+    "candidate_id",
+    "name",
+    "grounded_parent",
+    "mode",
+    "top10_parent_agreement",
+    "jaccard_vs_chunks_hybrid",
+    "top10_summary_chunks",
+    "top10_findings_chunks",
+    "top10_narrative_chunks",
+    "source"
+   ],
+   "generator": "tools/technique_stats.py",
+   "sources": [
+    {
+     "path": "viewer/data/techniques.json",
+     "sha256": "3d270a255d8e84a2846906b543c2b716eadcf1d563de899bc48ed5f3f5339c92"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/23_Retrieval_Modes.csv"
+  },
+  {
+   "table": "24_Guardrails",
+   "description": "Faults an unconstrained model might produce, injected into a grounded bucket and run through the same verifier.",
+   "rows": 11,
+   "columns": [
+    "test",
+    "status",
+    "failed_checks",
+    "base_candidate",
+    "blocked",
+    "run_id",
+    "source"
+   ],
+   "generator": "pipeline (guardrail tests)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv",
+     "sha256": "1cf58ae73cbb6ffb774e1b80b6b71cb0063f5e7c507065b7152ebb6c88c42da4"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/24_Guardrails.csv"
+  },
+  {
+   "table": "25_Gate",
+   "description": "Release gate: the seven checks a run must pass before release (accuracy rows need an answer key; real data has none yet).",
+   "rows": 7,
+   "columns": [
+    "check",
+    "passed",
+    "detail",
+    "source"
+   ],
+   "generator": "taxground gate (cli.cmd_gate)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/gate.json",
+     "sha256": "a3548b7a300fd73c25285986069be9d1b067d48838b3a830ac5dfe7905296529"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/25_Gate.csv"
+  },
+  {
+   "table": "26_Report_Tests",
+   "description": "New reports scored against a released version (SRS-TAX-04): verdict, best bucket, runner-up and the revision it prompts.",
+   "rows": 200,
+   "columns": [
+    "report_key",
+    "bucket",
+    "parent",
+    "score",
+    "runner_up",
+    "margin",
+    "verdict",
+    "quote",
+    "prompt",
+    "expected",
+    "date",
+    "manufacturer",
+    "type_root",
+    "test_run",
+    "source"
+   ],
+   "generator": "taxground test (cli.cmd_test)",
+   "sources": [
+    {
+     "path": "out_ntsb/test-20261110T192903-v0.2-test/report_test.csv",
+     "sha256": "bd3c0fe8cad1c63a5380a2df7f06ffea5e546feb436a566ce131e2770430c29a"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/26_Report_Tests.csv"
+  },
+  {
+   "table": "27_Revision_Prompts",
+   "description": "Every non-fitting test verdict as a draft SME decision row, carrying the prompting report.",
+   "rows": 149,
+   "columns": [
+    "reviewed_run_id",
+    "candidate_id",
+    "action",
+    "target_type",
+    "target_id",
+    "value",
+    "rationale",
+    "prompting_report",
+    "suggestion",
+    "source"
+   ],
+   "generator": "taxground test",
+   "sources": [
+    {
+     "path": "out_ntsb/test-20261110T192903-v0.2-test/revision_prompts.csv",
+     "sha256": "5134e8527ad033406b216008c8f631ed05a338f1d44ca49a1bf5b29ebd60f460"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/27_Revision_Prompts.csv"
+  },
+  {
+   "table": "28_Discovery_Clusters",
+   "description": "k-means clusters of real reports inside each parent: distinctive words and most common coded findings (worksheet for batch D).",
+   "rows": 82,
+   "columns": [
+    "parent",
+    "cluster",
+    "size",
+    "distinctive_terms",
+    "top_findings",
+    "example_reports",
+    "source"
+   ],
+   "generator": "tools/discover_clusters.py",
+   "sources": [
+    {
+     "path": "/tmp/claude-0/-home-claude/87bfed0b-0f8b-56ee-90ca-c97b355370f0/scratchpad/build/discovery_clusters.json",
+     "sha256": "18daab1e637ca98e1497d6e74b49ed69282231a3d5d62e819412697b68514c22"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/28_Discovery_Clusters.csv"
+  },
+  {
+   "table": "29_Batch_D",
+   "description": "Discovery batch D (drafted by Claude from the cluster worksheet, pending SME review) and how each candidate grounded.",
+   "rows": 16,
+   "columns": [
+    "candidate_id",
+    "name",
+    "definition",
+    "proposed_parent",
+    "grounded_parent",
+    "status",
+    "failed_checks",
+    "source"
+   ],
+   "generator": "data/discovery/ntsb_batch_d.json + taxground run",
+   "sources": [
+    {
+     "path": "data/discovery/ntsb_batch_d.json",
+     "sha256": "b7a63cea10652514b1da25c9aba88b3252cc5647d1f943044043aeab6d86243d"
+    },
+    {
+     "path": "out_ntsb/run-ntsb-20261110T192033918/grounding_results.json",
+     "sha256": "dc09649b3091e7747de8a37c571c6cdef410446f8a4b55fa60dcad85e7a6e2ea"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/29_Batch_D.csv"
+  },
+  {
+   "table": "30_Synthetic_Accuracy",
+   "description": "The three hand-labelled synthetic answer keys (build step 0): parent accuracy and report-link precision and recall.",
+   "rows": 3,
+   "columns": [
+    "dataset",
+    "run_id",
+    "output_hash",
+    "parents_correct",
+    "precision",
+    "recall",
+    "precision_merge_aware",
+    "recall_merge_aware",
+    "grounded",
+    "needs_review",
+    "not_grounded",
+    "merged",
+    "sme_decisions",
+    "source"
+   ],
+   "generator": "taxground run on data/trial, data/sample_b, data/combined",
+   "sources": [],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/30_Synthetic_Accuracy.csv"
+  },
+  {
+   "table": "31_Changelog",
+   "description": "The most recent changelog with changes (run-ntsb-20261110T185650894): every revision with its cause, tried in order (SME, sibling, new report, data, settings, code).",
+   "rows": 45,
+   "columns": [
+    "Bucket",
+    "Change",
+    "Target",
+    "Before",
+    "After",
+    "Cause",
+    "Reference",
+    "source"
+   ],
+   "generator": "pipeline (changelog attribution)",
+   "sources": [
+    {
+     "path": "out_ntsb/run-ntsb-20261110T185650894/changelog.md",
+     "sha256": "f16f2ca408baea3b1bd89c11f2804731ad330f352c6147297ab7e7f999d66e0e"
+    }
+   ],
+   "csv": "derived/run-ntsb-20261110T192033918/csv/31_Changelog.csv"
+  }
+ ]
+}

@@ -1,0 +1,4 @@
+candidate_id,name,merged_into,similarity,run_id,source
+C2,Runway entry or crossing without clearance,B01,0.6698,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[29]
+C3,Overrun after a long or fast landing on a wet or contaminated runway,B04,0.7583,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[30]
+C5,TCAS resolution advisory after an altitude deviation,B08,0.5963,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/grounding_results.json#results[32]

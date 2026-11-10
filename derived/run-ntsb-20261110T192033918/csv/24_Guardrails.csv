@@ -1,0 +1,12 @@
+test,status,failed_checks,base_candidate,blocked,run_id,source
+Parent not in the allowed list,not_grounded,G1 G2 G3 G5 G9,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row1
+Invented definition id,not_grounded,G2,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row2
+Definition from another parent,not_grounded,G2,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row3
+Paraphrased evidence,not_grounded,G4,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row4
+Report from another parent,not_grounded,G3 G5,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row5
+Invented report key,not_grounded,G3 G5,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row6
+Criterion cites an invented definition,not_grounded,G9,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row7
+Criterion quote paraphrased,not_grounded,G9,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row8
+Exclusion cites a supporting report,not_grounded,G9,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row9
+Card without any exclusion,not_grounded,G9,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row10
+SME-rejected report reinserted,not_grounded,G10,B04,True,run-ntsb-20261110T192033918,out_ntsb/run-ntsb-20261110T192033918/guardrail_tests.csv#row11
