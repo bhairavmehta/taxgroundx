@@ -1,0 +1,12 @@
+test,status,failed_checks,base_candidate,blocked
+Parent not in the allowed list,not_grounded,G1 G2 G3 G5 G9,B04,True
+Invented definition id,not_grounded,G2,B04,True
+Definition from another parent,not_grounded,G2,B04,True
+Paraphrased evidence,not_grounded,G4,B04,True
+Report from another parent,not_grounded,G3 G5,B04,True
+Invented report key,not_grounded,G3 G5,B04,True
+Criterion cites an invented definition,not_grounded,G9,B04,True
+Criterion quote paraphrased,not_grounded,G9,B04,True
+Exclusion cites a supporting report,not_grounded,G9,B04,True
+Card without any exclusion,not_grounded,G9,B04,True
+SME-rejected report reinserted,not_grounded,G10,B04,True

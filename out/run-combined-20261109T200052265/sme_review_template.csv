@@ -1,0 +1,718 @@
+reviewed_run_id,candidate_id,action,target_type,target_id,value,rationale,prompting_report,current
+run-combined-20261109T200052265,B01,,parent,RI,,,,status grounded
+run-combined-20261109T200052265,B01,,definition,IND-19,,,,Vehicle or pedestrian deviation
+run-combined-20261109T200052265,B01,,definition,IND-40,,,,Pilot deviation (runway incursion)
+run-combined-20261109T200052265,B01,,definition,IND-02,,,,Runway incursion types
+run-combined-20261109T200052265,B01,,report,SAMPLE-008,,,,A snow removal vehicle entered the active runway without a clearance during clearing operations.
+run-combined-20261109T200052265,B01,,report,SYNB-010,,,,A airport operations vehicle entered Runway 18R without a clearance shortly after sunrise.
+run-combined-20261109T200052265,B01,,report,SYNB-006,,,,A fuel truck entered Runway 09L without a clearance late in the evening.
+run-combined-20261109T200052265,B01,,report,SYNB-007,,,,A maintenance worker on foot entered Runway 27R without a clearance late in the evening.
+run-combined-20261109T200052265,B01,,report,SYNB-005,,,,A fuel truck entered Runway 36 without a clearance at night.
+run-combined-20261109T200052265,B01,,report,SYNB-009,,,,A snow removal truck entered Runway 18R without a clearance at night.
+run-combined-20261109T200052265,B01,,report,SYNB-001,,,,A tug towing an aircraft entered Rwy 16 without a clearance shortly after sunrise.
+run-combined-20261109T200052265,B01,,report,SYNB-004,,,,A snow removal truck entered Rwy 18R without a clearance shortly after sunrise.
+run-combined-20261109T200052265,B01,,criterion,include|parent|RI,,,,The occurrence meets the CICTT RI (Runway Incursion) definition.
+run-combined-20261109T200052265,B01,,criterion,include|candidate|B01,,,,"Core definition: A ground vehicle, tug or person enters an active runway or its protected area without an ATC clearance."
+run-combined-20261109T200052265,B01,,criterion,include|definition|IND-19,,,,"Matches 'Vehicle or pedestrian deviation' (FAA Runway Safety programme): A runway incursion caused by a ground vehicle or a person, such as a driver or pedestrian entering a runway without ATC authorization."
+run-combined-20261109T200052265,B01,,criterion,include|definition|IND-40,,,,"Matches 'Pilot deviation (runway incursion)' (FAA Runway Safety programme – Pilot deviation): A runway incursion caused by a pilot, such as crossing a hold-short line or entering a runway without an ATC clearance."
+run-combined-20261109T200052265,B01,,criterion,include|definition|IND-02,,,,"Matches 'Runway incursion types' (FAA Runway Safety programme): Runway incursions are classified by cause as pilot deviations, operational incidents (controller actions) or vehicle and pedestrian deviations, and by severity from A to D."
+run-combined-20261109T200052265,B01,,criterion,include|report|SAMPLE-008,,,,Narrative describes 'clearance' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B01,,criterion,include|report|SAMPLE-008,,,,Narrative describes 'entered' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B01,,criterion,include|report|SYNB-006,,,,Narrative describes 'truck' (4 of 8 supporting reports).
+run-combined-20261109T200052265,B01,,criterion,exclude|report|SAMPLE-003,,,,Belongs to sibling B02 'Landing on a taxiway or the wrong runway at night' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B01,,criterion,exclude|report|SAMPLE-007,,,,Belongs to sibling B27 'Crew crossed a hold-short line without clearance' when it matches that bucket better (3 report(s) assigned there).
+run-combined-20261109T200052265,B01,,criterion,exclude|report|SAMPLE-010,,,,"Coded RE (Runway Excursion) rather than RI: similar wording, different occurrence category."
+run-combined-20261109T200052265,B01,,criterion,exclude|definition|IND-34,,,,"Not 'Pushback and towing' — that definition is crosswalked to RAMP, not RI."
+run-combined-20261109T200052265,B01,,criterion,exclude|definition|IND-06,,,,"Not 'Runway condition code (RWYCC)' — that definition is crosswalked to RE, not RI."
+run-combined-20261109T200052265,B01,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not RI."
+run-combined-20261109T200052265,B01,,criterion,exclude|parent|RAMP,,,,"Events better described by CICTT RAMP (Ground Handling) (runner-up parent, margin 0.78)."
+run-combined-20261109T200052265,B02,,parent,RI,,,,status grounded
+run-combined-20261109T200052265,B02,,definition,IND-03,,,,Wrong-surface event
+run-combined-20261109T200052265,B02,,definition,IND-04,,,,Anomaly: Ground Incursion – Runway or Taxiway
+run-combined-20261109T200052265,B02,,report,SAMPLE-004,,,,"In low visibility the crew began a takeoff from taxiway Bravo, believing it was the runway."
+run-combined-20261109T200052265,B02,,report,SAMPLE-001,,,,"During a night visual approach to Runway 27R the crew lined up on the parallel taxiway, mistaking the taxiway edge lights for runway lights."
+run-combined-20261109T200052265,B02,,report,SYNB-012,,,,"The crew lined up on taxiway Echo in darkness, mistaking its lights for Runway 18R."
+run-combined-20261109T200052265,B02,,report,SYNB-015,,,,"The flight crew lined up on taxiway Charlie at dusk, mistaking its lights for Runway 22."
+run-combined-20261109T200052265,B02,,report,SYNB-016,,,,"The captain and first officer lined up on taxiway Alpha at night, mistaking its lights for Runway 04R."
+run-combined-20261109T200052265,B02,,report,SYNB-017,,,,"The crew lined up on taxiway Kilo at dusk, mistaking its lights for Runway 04R."
+run-combined-20261109T200052265,B02,,report,SAMPLE-005,,,,The crew landed at a nearby general aviation airport with a similar runway alignment instead of the destination airport.
+run-combined-20261109T200052265,B02,,report,SAMPLE-003,,,,After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R.
+run-combined-20261109T200052265,B02,,report,SAMPLE-002,,,,"Cleared for takeoff on Runway 4L, the crew taxied onto Runway 4R, which was closed for construction."
+run-combined-20261109T200052265,B02,,report,SYNB-011,,,,"The captain and first officer lined up on taxiway Charlie in darkness, mistaking its lights for Runway 34L."
+run-combined-20261109T200052265,B02,,criterion,include|parent|RI,,,,The occurrence meets the CICTT RI (Runway Incursion) definition.
+run-combined-20261109T200052265,B02,,criterion,include|candidate|B02,,,,"Core definition: At night or in low light the crew lines up on and lands, or nearly lands, on a taxiway or a runway other than the one assigned."
+run-combined-20261109T200052265,B02,,criterion,include|definition|IND-03,,,,"Matches 'Wrong-surface event' (FAA Runway Safety programme): A landing, attempted landing, line-up or takeoff on a surface other than the one assigned: a wrong runway, a taxiway, a closed runway or the wrong airport."
+run-combined-20261109T200052265,B02,,criterion,include|definition|IND-04,,,,"Matches 'Anomaly: Ground Incursion – Runway or Taxiway' (NASA ASRS coding taxonomy): An aircraft, vehicle or person entering a runway or taxiway without authorization, or an aircraft using a taxiway or the wrong runway for landing or takeoff."
+run-combined-20261109T200052265,B02,,criterion,include|report|SAMPLE-004,,,,Narrative describes 'taxiway' (7 of 10 supporting reports).
+run-combined-20261109T200052265,B02,,criterion,include|report|SAMPLE-001,,,,Narrative describes 'lights' (6 of 10 supporting reports).
+run-combined-20261109T200052265,B02,,criterion,include|report|SAMPLE-001,,,,Narrative describes 'lined' (6 of 10 supporting reports).
+run-combined-20261109T200052265,B02,,criterion,exclude|report|SYNB-206,,,,Belongs to sibling B27 'Crew crossed a hold-short line without clearance' when it matches that bucket better (2 report(s) assigned there).
+run-combined-20261109T200052265,B02,,criterion,boundary|sibling|B01,,,,Distinguish from sibling B01 'Vehicle or pedestrian on the runway without clearance' under the same parent.
+run-combined-20261109T200052265,B02,,criterion,exclude|definition|IND-05,,,,"Not 'Runway excursion (veer-off and overrun)' — that definition is crosswalked to RE, not RI."
+run-combined-20261109T200052265,B02,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not RI."
+run-combined-20261109T200052265,B02,,criterion,exclude|definition|IND-35,,,,"Not 'Tail strike' — that definition is crosswalked to ARC, not RI."
+run-combined-20261109T200052265,B02,,criterion,exclude|parent|NAV,,,,"Events better described by CICTT NAV (Navigation Error) (runner-up parent, margin 0.53)."
+run-combined-20261109T200052265,B03,,parent,RE,,,,status grounded
+run-combined-20261109T200052265,B03,,definition,IND-20,,,,Crosswind landing
+run-combined-20261109T200052265,B03,,definition,IND-05,,,,Runway excursion (veer-off and overrun)
+run-combined-20261109T200052265,B03,,definition,IND-07,,,,Anomaly: Ground Excursion – Runway
+run-combined-20261109T200052265,B03,,report,SAMPLE-014,,,,"In a strong, gusty crosswind the aircraft veered off the left side of the runway during the landing roll."
+run-combined-20261109T200052265,B03,,report,SYNB-028,,,,The aircraft veered off the left side of the runway and stopped on the grass.
+run-combined-20261109T200052265,B03,,report,SYNB-025,,,,"Landing on Runway 18R with a crosswind near the limit, the A330-300 drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-026,,,,"Landing on Runway 36 in strong gusts from the left, the B737-800 drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-023,,,,The aircraft veered off the left side of the rwy and stopped on the grass.
+run-combined-20261109T200052265,B03,,report,SYNB-019,,,,The aircraft veered off the left side of the rwy and struck an edge light.
+run-combined-20261109T200052265,B03,,report,SYNB-021,,,,"Landing on Runway 31L with a crosswind near the limit, the B767-300F drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-022,,,,"Landing on Runway 04R in strong gusts from the left, the E175 drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-024,,,,"Landing on Rwy 31L in strong gusts from the left, the B787-9 drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-020,,,,"Landing on Rwy 04R with a 30-knot gusting crosswind, the B777-300ER drifted toward the edge."
+run-combined-20261109T200052265,B03,,report,SYNB-027,,,,"Landing on Rwy 13 with a crosswind near the limit, the B737 MAX 8 drifted toward the edge."
+run-combined-20261109T200052265,B03,,criterion,include|parent|RE,,,,The occurrence meets the CICTT RE (Runway Excursion) definition.
+run-combined-20261109T200052265,B03,,criterion,include|candidate|B03,,,,Core definition: In a strong or gusty crosswind the aircraft drifts and veers off the side of the runway during the landing roll.
+run-combined-20261109T200052265,B03,,criterion,include|definition|IND-20,,,,Matches 'Crosswind landing' (SKYbrary – Crosswind Landings): Landing with a wind component across the runway; strong or gusty crosswinds near the aircraft limit increase the risk of lateral runway excursion (veer-off).
+run-combined-20261109T200052265,B03,,criterion,include|definition|IND-05,,,,"Matches 'Runway excursion (veer-off and overrun)' (SKYbrary – Runway Excursion): An aircraft leaves the runway surface during takeoff or landing, either by veering off the side or by overrunning the end."
+run-combined-20261109T200052265,B03,,criterion,include|definition|IND-07,,,,"Matches 'Anomaly: Ground Excursion – Runway' (NASA ASRS coding taxonomy): An aircraft departs the runway surface during the takeoff or landing roll, including overruns after a long or fast landing."
+run-combined-20261109T200052265,B03,,criterion,include|report|SYNB-025,,,,Narrative describes 'edge' (8 of 11 supporting reports).
+run-combined-20261109T200052265,B03,,criterion,include|report|SYNB-025,,,,Narrative describes 'anding' (7 of 11 supporting reports).
+run-combined-20261109T200052265,B03,,criterion,include|report|SYNB-025,,,,Narrative describes 'drifted' (7 of 11 supporting reports).
+run-combined-20261109T200052265,B03,,criterion,boundary|sibling|B04,,,,Distinguish from sibling B04 'Overrun on a contaminated runway' under the same parent.
+run-combined-20261109T200052265,B03,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not RE."
+run-combined-20261109T200052265,B03,,criterion,exclude|definition|IND-03,,,,"Not 'Wrong-surface event' — that definition is crosswalked to RI, not RE."
+run-combined-20261109T200052265,B03,,criterion,exclude|definition|IND-18,,,,"Not 'Hard landing, tail strike' — that definition is crosswalked to ARC, not RE."
+run-combined-20261109T200052265,B03,,criterion,exclude|parent|ARC,,,,"Events better described by CICTT ARC (Abnormal Runway Contact) (runner-up parent, margin 0.71)."
+run-combined-20261109T200052265,B04,,parent,RE,,,,status grounded
+run-combined-20261109T200052265,B04,,definition,IND-07,,,,Anomaly: Ground Excursion – Runway
+run-combined-20261109T200052265,B04,,definition,IND-05,,,,Runway excursion (veer-off and overrun)
+run-combined-20261109T200052265,B04,,definition,IND-06,,,,Runway condition code (RWYCC)
+run-combined-20261109T200052265,B04,,report,SAMPLE-010,,,,Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.
+run-combined-20261109T200052265,B04,,report,SAMPLE-013,,,,"With one thrust reverser unavailable, a long landing on a contaminated runway ended in a low-speed overrun past the runway end."
+run-combined-20261109T200052265,B04,,report,SAMPLE-011,,,,"After an unstabilized, fast approach the aircraft touched down 2,500 feet beyond the threshold on a runway reported with standing water and came to a stop in the overrun area."
+run-combined-20261109T200052265,B04,,report,SAMPLE-012,,,,The crew did not recompute the landing distance and the aircraft overran onto the grass beyond the runway end.
+run-combined-20261109T200052265,B04,,report,SYNB-036,,,,Braking action was poor and the B777-300ER overran the end of Runway 36 by 40 metres.
+run-combined-20261109T200052265,B04,,report,SYNB-035,,,,Braking action was poor and the A320 overran the end of Runway 18R into the safety area.
+run-combined-20261109T200052265,B04,,report,SYNB-033,,,,Braking action was poor and the A320 overran the end of Runway 31L onto the grass.
+run-combined-20261109T200052265,B04,,report,SYNB-029,,,,Braking action was poor and the A330-300 overran the end of Runway 16 onto the grass.
+run-combined-20261109T200052265,B04,,report,SYNB-034,,,,Braking action was poor and the B787-9 overran the end of Rwy 18R by 40 metres.
+run-combined-20261109T200052265,B04,,report,SYNB-032,,,,Braking action was poor and the CRJ900 overran the end of Rwy 31L into the safety area.
+run-combined-20261109T200052265,B04,,criterion,include|parent|RE,,,,The occurrence meets the CICTT RE (Runway Excursion) definition.
+run-combined-20261109T200052265,B04,,criterion,include|candidate|B04,,,,"Core definition: On a wet, slushy, snowy or icy runway braking is poor and the aircraft overruns the end of the runway."
+run-combined-20261109T200052265,B04,,criterion,include|definition|IND-07,,,,"Matches 'Anomaly: Ground Excursion – Runway' (NASA ASRS coding taxonomy): An aircraft departs the runway surface during the takeoff or landing roll, including overruns after a long or fast landing."
+run-combined-20261109T200052265,B04,,criterion,include|definition|IND-05,,,,"Matches 'Runway excursion (veer-off and overrun)' (SKYbrary – Runway Excursion): An aircraft leaves the runway surface during takeoff or landing, either by veering off the side or by overrunning the end."
+run-combined-20261109T200052265,B04,,criterion,include|definition|IND-06,,,,"Matches 'Runway condition code (RWYCC)' (ICAO Global Reporting Format (GRF) for runway surface conditions): A runway condition code from 6 (dry) down to 0 reports braking performance on wet or contaminated runways (water, slush, snow, ice), so crews can recompute landing distance."
+run-combined-20261109T200052265,B04,,criterion,include|report|SAMPLE-010,,,,Narrative describes 'end' (9 of 10 supporting reports).
+run-combined-20261109T200052265,B04,,criterion,include|report|SAMPLE-010,,,,Narrative describes 'overran' (8 of 10 supporting reports).
+run-combined-20261109T200052265,B04,,criterion,include|report|SAMPLE-010,,,,Narrative describes 'action' (7 of 10 supporting reports).
+run-combined-20261109T200052265,B04,,criterion,exclude|report|SYNB-026,,,,Belongs to sibling B03 'Veer-off during landing in a strong or gusty crosswind' when it matches that bucket better (2 report(s) assigned there).
+run-combined-20261109T200052265,B04,,criterion,exclude|report|SAMPLE-003,,,,"Coded RI (Runway Incursion) rather than RE: similar wording, different occurrence category."
+run-combined-20261109T200052265,B04,,criterion,exclude|definition|IND-37,,,,"Not 'Undershoot' — that definition is crosswalked to USOS, not RE."
+run-combined-20261109T200052265,B04,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not RE."
+run-combined-20261109T200052265,B04,,criterion,exclude|definition|IND-40,,,,"Not 'Pilot deviation (runway incursion)' — that definition is crosswalked to RI, not RE."
+run-combined-20261109T200052265,B04,,criterion,exclude|parent|USOS,,,,"Events better described by CICTT USOS (Undershoot/Overshoot) (runner-up parent, margin 0.63)."
+run-combined-20261109T200052265,B05,,parent,LOC-I,,,,status needs_review
+run-combined-20261109T200052265,B05,,definition,IND-21,,,,Stall prevention and recovery
+run-combined-20261109T200052265,B05,,definition,IND-08,,,,Loss of control in-flight
+run-combined-20261109T200052265,B05,,definition,IND-09,,,,Unreliable airspeed
+run-combined-20261109T200052265,B05,,report,SYNB-196,,,,The stall warning sounded falsely and the crew flew pitch and power.
+run-combined-20261109T200052265,B05,,report,SYNB-037,,,,With full thrust the pitch rose to 25 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-040,,,,With full thrust the pitch rose to 20 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-042,,,,With full thrust the pitch rose to 20 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-039,,,,With full thrust the pitch rose to 25 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-043,,,,With full thrust the pitch rose to 20 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-038,,,,With full thrust the pitch rose to 25 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-041,,,,With full thrust the pitch rose to 25 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,report,SYNB-049,,,,"On final approach 6 miles behind a B747, the A320 encountered wake turbulence."
+run-combined-20261109T200052265,B05,,report,SYNB-044,,,,With full thrust the pitch rose to 28 degrees and the speed decayed until the stick shaker activated.
+run-combined-20261109T200052265,B05,,criterion,include|parent|LOC-I,,,,The occurrence meets the CICTT LOC-I (Loss of Control – Inflight) definition.
+run-combined-20261109T200052265,B05,,criterion,include|candidate|B05,,,,"Core definition: During a go-around or missed approach the aircraft pitches up with high thrust, energy is mismanaged, and a stall warning or upset follows."
+run-combined-20261109T200052265,B05,,criterion,include|definition|IND-21,,,,"Matches 'Stall prevention and recovery' (FAA Advisory Circular 120-109A – Stall Prevention and Recovery Training): Training to recognise and recover from approaches to stall and full stalls, including during go-arounds with high thrust and pitch."
+run-combined-20261109T200052265,B05,,criterion,include|definition|IND-08,,,,"Matches 'Loss of control in-flight' (IATA – Loss of Control In-flight (LOC-I)): A significant, unintended departure of the aircraft from controlled flight, such as a stall, spin or upset, often following a system malfunction or crew response to erroneous indications."
+run-combined-20261109T200052265,B05,,criterion,include|definition|IND-09,,,,"Matches 'Unreliable airspeed' (SKYbrary – Unreliable Airspeed): Erroneous or disagreeing airspeed indications, for example from pitot icing, ice crystals or a blocked pitot tube, which can lead to an upset if the crew follows the wrong indication."
+run-combined-20261109T200052265,B05,,criterion,include|report|SYNB-196,,,,Narrative describes 'pitch' (9 of 10 supporting reports).
+run-combined-20261109T200052265,B05,,criterion,include|report|SYNB-037,,,,Narrative describes 'activated' (8 of 10 supporting reports).
+run-combined-20261109T200052265,B05,,criterion,include|report|SYNB-037,,,,Narrative describes 'decayed' (8 of 10 supporting reports).
+run-combined-20261109T200052265,B05,,criterion,exclude|report|SAMPLE-033,,,,"Coded CFIT (Controlled Flight Into or Toward Terrain) rather than LOC-I: similar wording, different occurrence category."
+run-combined-20261109T200052265,B05,,criterion,exclude|report|SYNB-184,,,,"Coded USOS (Undershoot/Overshoot) rather than LOC-I: similar wording, different occurrence category."
+run-combined-20261109T200052265,B05,,criterion,exclude|report|SAMPLE-011,,,,"Coded RE (Runway Excursion) rather than LOC-I: similar wording, different occurrence category."
+run-combined-20261109T200052265,B05,,criterion,exclude|definition|IND-22,,,,"Not 'Wake turbulence' — that definition is crosswalked to TURB, not LOC-I."
+run-combined-20261109T200052265,B05,,criterion,exclude|definition|IND-26,,,,"Not 'Terrain awareness and warning system (TAWS)' — that definition is crosswalked to CFIT, not LOC-I."
+run-combined-20261109T200052265,B05,,criterion,exclude|definition|IND-37,,,,"Not 'Undershoot' — that definition is crosswalked to USOS, not LOC-I."
+run-combined-20261109T200052265,B05,,criterion,exclude|parent|ICE,,,,"Events better described by CICTT ICE (Icing) (runner-up parent, margin 0.12)."
+run-combined-20261109T200052265,B06,,parent,TURB,,,,status grounded
+run-combined-20261109T200052265,B06,,definition,IND-22,,,,Wake turbulence
+run-combined-20261109T200052265,B06,,report,SAMPLE-027,,,,Wake turbulence from a heavy aircraft on final approach caused a sudden 30-degree roll.
+run-combined-20261109T200052265,B06,,report,SYNB-046,,,,"On final approach 6 miles behind a heavy aircraft, the A321neo encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-045,,,,"On final approach 3 miles behind a B777, the B787-9 encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-050,,,,"On final approach 6 miles behind a B747, the CRJ900 encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-052,,,,"On final approach 5 miles behind a B777, the B767-300F encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-048,,,,"On final approach 3 miles behind a A380, the B737-800 encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-051,,,,"On final approach 3 miles behind a B777, the CRJ900 encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SYNB-047,,,,"On final approach 6 miles behind a B777, the B767-300F encountered wake turbulence."
+run-combined-20261109T200052265,B06,,report,SAMPLE-026,,,,"Only light chop was expected, but the aircraft met sudden severe turbulence in clear air."
+run-combined-20261109T200052265,B06,,report,SAMPLE-023,,,,The aircraft encountered severe clear-air turbulence at FL350 with no weather shown on radar.
+run-combined-20261109T200052265,B06,,criterion,include|parent|TURB,,,,The occurrence meets the CICTT TURB (Turbulence Encounter) definition.
+run-combined-20261109T200052265,B06,,criterion,include|candidate|B06,,,,Core definition: Wake vortices from a preceding heavier aircraft cause a sudden roll or pitch upset on approach or departure.
+run-combined-20261109T200052265,B06,,criterion,include|definition|IND-22,,,,"Matches 'Wake turbulence' (FAA Advisory Circular 90-23G – Aircraft Wake Turbulence): Vortices from a preceding aircraft, strongest behind heavy aircraft at slow speed, can cause sudden rolls on approach or departure; spacing reduces the risk."
+run-combined-20261109T200052265,B06,,criterion,exclude|report|SAMPLE-018,,,,"Coded LOC-I (Loss of Control – Inflight) rather than TURB: similar wording, different occurrence category."
+run-combined-20261109T200052265,B06,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not TURB."
+run-combined-20261109T200052265,B06,,criterion,exclude|definition|IND-09,,,,"Not 'Unreliable airspeed' — that definition is crosswalked to LOC-I, SCF-NP, not TURB."
+run-combined-20261109T200052265,B06,,criterion,exclude|definition|IND-21,,,,"Not 'Stall prevention and recovery' — that definition is crosswalked to LOC-I, not TURB."
+run-combined-20261109T200052265,B06,,criterion,exclude|parent|LOC-I,,,,"Events better described by CICTT LOC-I (Loss of Control – Inflight) (runner-up parent, margin 0.57)."
+run-combined-20261109T200052265,B07,,parent,MAC,,,,status grounded
+run-combined-20261109T200052265,B07,,definition,IND-23,,,,Loss of separation
+run-combined-20261109T200052265,B07,,definition,IND-12,,,,Conflict: Airborne Conflict / NMAC
+run-combined-20261109T200052265,B07,,definition,IND-11,,,,Level bust (altitude deviation)
+run-combined-20261109T200052265,B07,,report,SAMPLE-022,,,,The controller issued a descent clearance into conflicting traffic and both aircraft received TCAS resolution advisories.
+run-combined-20261109T200052265,B07,,report,SYNB-060,,,,Separation was lost.
+run-combined-20261109T200052265,B07,,report,SYNB-059,,,,Separation was lost.
+run-combined-20261109T200052265,B07,,report,SYNB-056,,,,The controller cleared the B777-300ER to turn left into conflicting traffic at FL310.
+run-combined-20261109T200052265,B07,,report,SYNB-058,,,,The controller cleared the A320 to turn left into conflicting traffic at FL280.
+run-combined-20261109T200052265,B07,,report,SYNB-054,,,,The controller cleared the A320 to descend into conflicting traffic at FL210.
+run-combined-20261109T200052265,B07,,criterion,include|parent|MAC,,,,The occurrence meets the CICTT MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) definition.
+run-combined-20261109T200052265,B07,,criterion,include|candidate|B07,,,,"Core definition: A controller clearance or instruction puts two aircraft into conflict, leading to loss of separation or a TCAS alert."
+run-combined-20261109T200052265,B07,,criterion,include|definition|IND-23,,,,"Matches 'Loss of separation' (ICAO Doc 4444 – PANS-ATM (separation minima)): Two aircraft come closer than the prescribed separation minima, often after an ATC clearance or instruction puts them in conflict."
+run-combined-20261109T200052265,B07,,criterion,include|definition|IND-12,,,,"Matches 'Conflict: Airborne Conflict / NMAC' (NASA ASRS coding taxonomy): Two aircraft in flight come into conflict or lose separation, including near midair collisions and TCAS events."
+run-combined-20261109T200052265,B07,,criterion,include|definition|IND-11,,,,"Matches 'Level bust (altitude deviation)' (EUROCONTROL – Level bust): An unauthorised vertical deviation of more than 300 feet from the cleared flight level or altitude, a common cause of loss of separation and TCAS resolution advisories."
+run-combined-20261109T200052265,B07,,criterion,include|report|SAMPLE-022,,,,Narrative describes 'conflicting' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B07,,criterion,include|report|SAMPLE-022,,,,Narrative describes 'controller' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B07,,criterion,include|report|SAMPLE-022,,,,Narrative describes 'traffic' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B07,,criterion,exclude|report|SAMPLE-021,,,,Belongs to sibling B08 'TCAS resolution advisory after a level bust' when it matches that bucket better (3 report(s) assigned there).
+run-combined-20261109T200052265,B07,,criterion,exclude|report|SAMPLE-018,,,,"Coded LOC-I (Loss of Control – Inflight) rather than MAC: similar wording, different occurrence category."
+run-combined-20261109T200052265,B07,,criterion,exclude|report|SYNB-010,,,,"Coded RI (Runway Incursion) rather than MAC: similar wording, different occurrence category."
+run-combined-20261109T200052265,B07,,criterion,exclude|definition|IND-27,,,,"Not 'GNSS jamming and spoofing' — that definition is crosswalked to NAV, not MAC."
+run-combined-20261109T200052265,B07,,criterion,exclude|definition|IND-36,,,,"Not 'Low-level windshear' — that definition is crosswalked to WSTRW, not MAC."
+run-combined-20261109T200052265,B07,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not MAC."
+run-combined-20261109T200052265,B07,,criterion,exclude|parent|LOC-I,,,,"Events better described by CICTT LOC-I (Loss of Control – Inflight) (runner-up parent, margin 0.54)."
+run-combined-20261109T200052265,B08,,parent,MAC,,,,status grounded
+run-combined-20261109T200052265,B08,,definition,IND-11,,,,Level bust (altitude deviation)
+run-combined-20261109T200052265,B08,,definition,IND-10,,,,Resolution advisory (RA)
+run-combined-20261109T200052265,B08,,report,SAMPLE-019,,,,"The climbing aircraft overshot its cleared altitude of FL240 by 400 feet, and opposite-direction traffic received a TCAS resolution advisory to descend."
+run-combined-20261109T200052265,B08,,report,SAMPLE-021,,,,The resulting level bust triggered a TCAS climb resolution advisory and separation was lost.
+run-combined-20261109T200052265,B08,,report,SAMPLE-020,,,,"Autopilot mode confusion caused an altitude deviation, and the crew received a TCAS resolution advisory for traffic 600 feet below."
+run-combined-20261109T200052265,B08,,report,SYNB-061,,,,Traffic above triggered a TCAS resolution advisory to level off.
+run-combined-20261109T200052265,B08,,report,SYNB-062,,,,Traffic above triggered a TCAS resolution advisory to climb.
+run-combined-20261109T200052265,B08,,report,SYNB-066,,,,Traffic above triggered a TCAS resolution advisory to level off.
+run-combined-20261109T200052265,B08,,report,SYNB-064,,,,Traffic crossing triggered a TCAS resolution advisory to level off.
+run-combined-20261109T200052265,B08,,report,SYNB-067,,,,Traffic ahead triggered a TCAS resolution advisory to climb.
+run-combined-20261109T200052265,B08,,report,SYNB-065,,,,Traffic crossing triggered a TCAS resolution advisory to level off.
+run-combined-20261109T200052265,B08,,report,SYNB-063,,,,Traffic ahead triggered a TCAS resolution advisory to descend.
+run-combined-20261109T200052265,B08,,report,SYNB-068,,,,Traffic ahead triggered a TCAS resolution advisory to descend.
+run-combined-20261109T200052265,B08,,criterion,include|parent|MAC,,,,The occurrence meets the CICTT MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) definition.
+run-combined-20261109T200052265,B08,,criterion,include|candidate|B08,,,,Core definition: The aircraft climbs or descends through its cleared altitude (level bust) and a TCAS resolution advisory follows.
+run-combined-20261109T200052265,B08,,criterion,include|definition|IND-11,,,,"Matches 'Level bust (altitude deviation)' (EUROCONTROL – Level bust): An unauthorised vertical deviation of more than 300 feet from the cleared flight level or altitude, a common cause of loss of separation and TCAS resolution advisories."
+run-combined-20261109T200052265,B08,,criterion,include|definition|IND-10,,,,Matches 'Resolution advisory (RA)' (ICAO Annex 10 – Airborne Collision Avoidance System (ACAS)): An ACAS or TCAS indication to the flight crew recommending a vertical manoeuvre to increase separation from conflicting traffic.
+run-combined-20261109T200052265,B08,,criterion,include|report|SAMPLE-019,,,,Narrative describes 'advisory' (11 of 11 supporting reports).
+run-combined-20261109T200052265,B08,,criterion,include|report|SAMPLE-019,,,,Narrative describes 'resolution' (11 of 11 supporting reports).
+run-combined-20261109T200052265,B08,,criterion,include|report|SAMPLE-021,,,,Narrative describes 'triggered' (9 of 11 supporting reports).
+run-combined-20261109T200052265,B08,,criterion,exclude|report|SAMPLE-022,,,,Belongs to sibling B07 'Loss of separation caused by an ATC clearance' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B08,,criterion,exclude|definition|IND-22,,,,"Not 'Wake turbulence' — that definition is crosswalked to TURB, not MAC."
+run-combined-20261109T200052265,B08,,criterion,exclude|parent|LOC-I,,,,"Events better described by CICTT LOC-I (Loss of Control – Inflight) (runner-up parent, margin 0.75)."
+run-combined-20261109T200052265,B09,,parent,SCF-NP,,,,status grounded
+run-combined-20261109T200052265,B09,,definition,IND-24,,,,Hydraulic system failure
+run-combined-20261109T200052265,B09,,definition,IND-25,,,,Landing gear malfunction
+run-combined-20261109T200052265,B09,,report,SYNB-074,,,,The flight crew ran the hydraulic loss checklist and diverted.
+run-combined-20261109T200052265,B09,,report,SYNB-071,,,,The flight crew ran the hydraulic loss checklist and continued to the destination.
+run-combined-20261109T200052265,B09,,report,SYNB-076,,,,At FL350 the left hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-075,,,,At FL180 the B hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-073,,,,At FL310 the green hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-078,,,,At FL350 the green hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-069,,,,At FL210 the green hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-072,,,,At FL280 the A hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-070,,,,At FL210 the B hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,report,SYNB-077,,,,At FL280 the green hydraulic system quantity dropped to zero.
+run-combined-20261109T200052265,B09,,criterion,include|parent|SCF-NP,,,,The occurrence meets the CICTT SCF-NP (System/Component Failure – Non-Powerplant) definition.
+run-combined-20261109T200052265,B09,,criterion,include|candidate|B09,,,,"Core definition: Loss of fluid or pressure in a hydraulic system in flight degrades flight controls, brakes or landing gear."
+run-combined-20261109T200052265,B09,,criterion,include|definition|IND-24,,,,"Matches 'Hydraulic system failure' (SKYbrary – Hydraulic System Failure): Loss of hydraulic fluid or pressure that degrades flight controls, brakes, steering or landing gear, handled with non-normal checklists."
+run-combined-20261109T200052265,B09,,criterion,include|definition|IND-25,,,,"Matches 'Landing gear malfunction' (SKYbrary – Landing Gear Malfunction): Failure of a landing gear leg to extend, retract or lock, requiring alternate extension or a landing with gear not fully down."
+run-combined-20261109T200052265,B09,,criterion,include|report|SYNB-074,,,,Narrative describes 'hydraulic' (10 of 10 supporting reports).
+run-combined-20261109T200052265,B09,,criterion,include|report|SYNB-076,,,,Narrative describes 'dropped' (8 of 10 supporting reports).
+run-combined-20261109T200052265,B09,,criterion,include|report|SYNB-076,,,,Narrative describes 'quantity' (8 of 10 supporting reports).
+run-combined-20261109T200052265,B09,,criterion,exclude|report|SYNB-083,,,,Belongs to sibling B10 'Landing gear did not extend' when it matches that bucket better (2 report(s) assigned there).
+run-combined-20261109T200052265,B09,,criterion,boundary|sibling|B26,,,,Distinguish from sibling B26 'Unreliable airspeed from blocked pitot probes' under the same parent.
+run-combined-20261109T200052265,B09,,criterion,exclude|report|SAMPLE-036,,,,"Coded ARC (Abnormal Runway Contact) rather than SCF-NP: similar wording, different occurrence category."
+run-combined-20261109T200052265,B09,,criterion,exclude|definition|IND-28,,,,"Not 'In-flight engine shutdown (IFSD)' — that definition is crosswalked to SCF-PP, not SCF-NP."
+run-combined-20261109T200052265,B09,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not SCF-NP."
+run-combined-20261109T200052265,B09,,criterion,exclude|definition|IND-32,,,,"Not 'Smoke or fumes in flight' — that definition is crosswalked to F-NI, not SCF-NP."
+run-combined-20261109T200052265,B09,,criterion,exclude|parent|SCF-PP,,,,"Events better described by CICTT SCF-PP (System/Component Failure – Powerplant) (runner-up parent, margin 0.66)."
+run-combined-20261109T200052265,B10,,parent,SCF-NP,,,,status grounded
+run-combined-20261109T200052265,B10,,definition,IND-25,,,,Landing gear malfunction
+run-combined-20261109T200052265,B10,,definition,IND-24,,,,Hydraulic system failure
+run-combined-20261109T200052265,B10,,report,SYNB-083,,,,The alternate gear extension did not lock the gear.
+run-combined-20261109T200052265,B10,,report,SYNB-085,,,,The alternate gear extension was used and the gear locked down.
+run-combined-20261109T200052265,B10,,report,SYNB-079,,,,The alternate gear extension did not lock the gear.
+run-combined-20261109T200052265,B10,,report,SYNB-081,,,,The alternate gear extension did not lock the gear.
+run-combined-20261109T200052265,B10,,report,SYNB-080,,,,The alternate gear extension was used and the gear locked down.
+run-combined-20261109T200052265,B10,,report,SYNB-084,,,,The alternate gear extension was used and the gear locked down.
+run-combined-20261109T200052265,B10,,report,SYNB-086,,,,The alternate gear extension worked on the second attempt.
+run-combined-20261109T200052265,B10,,report,SYNB-082,,,,The alternate gear extension worked on the second attempt.
+run-combined-20261109T200052265,B10,,criterion,include|parent|SCF-NP,,,,The occurrence meets the CICTT SCF-NP (System/Component Failure – Non-Powerplant) definition.
+run-combined-20261109T200052265,B10,,criterion,include|candidate|B10,,,,"Core definition: One or more landing gear legs fail to extend or lock down, requiring alternate extension or a gear-up landing."
+run-combined-20261109T200052265,B10,,criterion,include|definition|IND-25,,,,"Matches 'Landing gear malfunction' (SKYbrary – Landing Gear Malfunction): Failure of a landing gear leg to extend, retract or lock, requiring alternate extension or a landing with gear not fully down."
+run-combined-20261109T200052265,B10,,criterion,include|definition|IND-24,,,,"Matches 'Hydraulic system failure' (SKYbrary – Hydraulic System Failure): Loss of hydraulic fluid or pressure that degrades flight controls, brakes, steering or landing gear, handled with non-normal checklists."
+run-combined-20261109T200052265,B10,,criterion,include|report|SYNB-083,,,,Narrative describes 'alternate' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B10,,criterion,include|report|SYNB-083,,,,Narrative describes 'extension' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B10,,criterion,include|report|SYNB-083,,,,Narrative describes 'lock' (6 of 8 supporting reports).
+run-combined-20261109T200052265,B10,,criterion,exclude|report|SAMPLE-017,,,,Belongs to sibling B26 'Unreliable airspeed from blocked pitot probes' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B10,,criterion,boundary|sibling|B09,,,,Distinguish from sibling B09 'Hydraulic system failure in flight' under the same parent.
+run-combined-20261109T200052265,B10,,criterion,exclude|report|SAMPLE-036,,,,"Coded ARC (Abnormal Runway Contact) rather than SCF-NP: similar wording, different occurrence category."
+run-combined-20261109T200052265,B10,,criterion,exclude|definition|IND-18,,,,"Not 'Hard landing, tail strike' — that definition is crosswalked to ARC, not SCF-NP."
+run-combined-20261109T200052265,B10,,criterion,exclude|definition|IND-03,,,,"Not 'Wrong-surface event' — that definition is crosswalked to RI, not SCF-NP."
+run-combined-20261109T200052265,B10,,criterion,exclude|parent|ARC,,,,"Events better described by CICTT ARC (Abnormal Runway Contact) (runner-up parent, margin 0.57)."
+run-combined-20261109T200052265,B11,,parent,CFIT,,,,status grounded
+run-combined-20261109T200052265,B11,,definition,IND-26,,,,Terrain awareness and warning system (TAWS)
+run-combined-20261109T200052265,B11,,report,SAMPLE-033,,,,"During a non-precision approach at night the crew received a GPWS terrain warning, climbed and went around."
+run-combined-20261109T200052265,B11,,report,SYNB-089,,,,The terrain awareness system called TOO LOW TERRAIN and the crew climbed away.
+run-combined-20261109T200052265,B11,,report,SYNB-091,,,,"Flying a visual approach late in the evening with gusty winds, the aircraft descended below the minimum altitude."
+run-combined-20261109T200052265,B11,,report,SYNB-093,,,,"The terrain awareness system called TERRAIN, PULL UP and the crew climbed away."
+run-combined-20261109T200052265,B11,,report,SYNB-087,,,,"The terrain awareness system called TERRAIN, PULL UP and the crew climbed away."
+run-combined-20261109T200052265,B11,,report,SYNB-092,,,,The terrain awareness system called SINK RATE and the crew climbed away.
+run-combined-20261109T200052265,B11,,report,SYNB-088,,,,The terrain awareness system called SINK RATE and the crew climbed away.
+run-combined-20261109T200052265,B11,,report,SYNB-090,,,,The terrain awareness system called SINK RATE and the crew climbed away.
+run-combined-20261109T200052265,B11,,report,SYNB-094,,,,The terrain awareness system called SINK RATE and the crew climbed away.
+run-combined-20261109T200052265,B11,,criterion,include|parent|CFIT,,,,The occurrence meets the CICTT CFIT (Controlled Flight Into or Toward Terrain) definition.
+run-combined-20261109T200052265,B11,,criterion,include|candidate|B11,,,,Core definition: During a non-precision or visual approach the aircraft descends too low and the terrain awareness system warns of terrain or obstacles.
+run-combined-20261109T200052265,B11,,criterion,include|definition|IND-26,,,,"Matches 'Terrain awareness and warning system (TAWS)' (14 CFR 121.354 – Terrain awareness and warning system): Airliners must carry a system that warns the crew of terrain, obstacles and excessive descent so they can climb away before impact."
+run-combined-20261109T200052265,B11,,criterion,include|report|SAMPLE-033,,,,Narrative describes 'climbed' (8 of 9 supporting reports).
+run-combined-20261109T200052265,B11,,criterion,include|report|SAMPLE-033,,,,Narrative describes 'terrain' (8 of 9 supporting reports).
+run-combined-20261109T200052265,B11,,criterion,include|report|SYNB-089,,,,Narrative describes 'awareness' (7 of 9 supporting reports).
+run-combined-20261109T200052265,B11,,criterion,exclude|report|SYNB-184,,,,"Coded USOS (Undershoot/Overshoot) rather than CFIT: similar wording, different occurrence category."
+run-combined-20261109T200052265,B11,,criterion,exclude|definition|IND-37,,,,"Not 'Undershoot' — that definition is crosswalked to USOS, not CFIT."
+run-combined-20261109T200052265,B11,,criterion,exclude|definition|IND-22,,,,"Not 'Wake turbulence' — that definition is crosswalked to TURB, not CFIT."
+run-combined-20261109T200052265,B11,,criterion,exclude|definition|IND-27,,,,"Not 'GNSS jamming and spoofing' — that definition is crosswalked to NAV, not CFIT."
+run-combined-20261109T200052265,B11,,criterion,exclude|parent|F-NI,,,,"Events better described by CICTT F-NI (Fire/Smoke (Non-Impact)) (runner-up parent, margin 0.61)."
+run-combined-20261109T200052265,B12,,parent,NAV,,,,status grounded
+run-combined-20261109T200052265,B12,,definition,IND-27,,,,GNSS jamming and spoofing
+run-combined-20261109T200052265,B12,,report,SYNB-095,,,,Near the Black Sea both GPS receivers showed a position 40 miles in error.
+run-combined-20261109T200052265,B12,,report,SYNB-101,,,,Near the Black Sea both GPS receivers showed a position 40 miles in error.
+run-combined-20261109T200052265,B12,,report,SYNB-100,,,,Approaching the region both GPS receivers lost signal.
+run-combined-20261109T200052265,B12,,report,SYNB-102,,,,On a route near a conflict area both GPS receivers reported a different time.
+run-combined-20261109T200052265,B12,,report,SYNB-098,,,,Over the eastern Mediterranean both GPS receivers showed a position 40 miles in error.
+run-combined-20261109T200052265,B12,,report,SYNB-096,,,,The position errors stopped after 20 minutes.
+run-combined-20261109T200052265,B12,,criterion,include|parent|NAV,,,,The occurrence meets the CICTT NAV (Navigation Error) definition.
+run-combined-20261109T200052265,B12,,criterion,include|candidate|B12,,,,"Core definition: Satellite navigation signals are jammed or spoofed, giving false position, lost RNP capability or incorrect time, often near conflict zones."
+run-combined-20261109T200052265,B12,,criterion,include|definition|IND-27,,,,"Matches 'GNSS jamming and spoofing' (EASA Safety Information Bulletin 2022-02 – GNSS outages and alterations): Interference with satellite navigation signals, by jamming or spoofing, causes loss of GPS position, false positions or false terrain warnings, especially near conflict zones."
+run-combined-20261109T200052265,B12,,criterion,include|report|SYNB-095,,,,Narrative describes 'both' (5 of 6 supporting reports).
+run-combined-20261109T200052265,B12,,criterion,include|report|SYNB-095,,,,Narrative describes 'receivers' (5 of 6 supporting reports).
+run-combined-20261109T200052265,B12,,criterion,include|report|SYNB-095,,,,Narrative describes 'error' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B12,,criterion,boundary|sibling|B28,,,,Distinguish from sibling B28 'Wrong route or waypoint loaded in the FMS' under the same parent.
+run-combined-20261109T200052265,B12,,criterion,exclude|report|SAMPLE-021,,,,"Coded MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) rather than NAV: similar wording, different occurrence category."
+run-combined-20261109T200052265,B12,,criterion,exclude|definition|IND-12,,,,"Not 'Conflict: Airborne Conflict / NMAC' — that definition is crosswalked to MAC, not NAV."
+run-combined-20261109T200052265,B12,,criterion,exclude|definition|IND-23,,,,"Not 'Loss of separation' — that definition is crosswalked to MAC, ATM, not NAV."
+run-combined-20261109T200052265,B12,,criterion,exclude|definition|IND-36,,,,"Not 'Low-level windshear' — that definition is crosswalked to WSTRW, not NAV."
+run-combined-20261109T200052265,B12,,criterion,exclude|parent|MAC,,,,"Events better described by CICTT MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) (runner-up parent, margin 0.47)."
+run-combined-20261109T200052265,B13,,parent,SCF-PP,,,,status needs_review
+run-combined-20261109T200052265,B13,,definition,IND-28,,,,In-flight engine shutdown (IFSD)
+run-combined-20261109T200052265,B13,,definition,IND-16,,,,Engine bird ingestion
+run-combined-20261109T200052265,B13,,report,SYNB-104,,,,The flight crew shut the engine down and declared an emergency.
+run-combined-20261109T200052265,B13,,report,SYNB-103,,,,The flight crew shut the engine down and returned.
+run-combined-20261109T200052265,B13,,report,SYNB-108,,,,The flight crew shut the engine down and declared an emergency.
+run-combined-20261109T200052265,B13,,report,SYNB-105,,,,At FL210 the number 2 engine oil pressure fell below the limit.
+run-combined-20261109T200052265,B13,,report,SYNB-106,,,,At FL180 the right engine oil pressure fell below the limit.
+run-combined-20261109T200052265,B13,,report,SYNB-107,,,,At FL370 the right engine oil pressure fell below the limit.
+run-combined-20261109T200052265,B13,,report,SYNB-117,,,,The flight crew shut the engine down and returned.
+run-combined-20261109T200052265,B13,,report,SYNB-113,,,,The crew shut the engine down and returned.
+run-combined-20261109T200052265,B13,,report,SYNB-116,,,,The flight crew shut the engine down and returned.
+run-combined-20261109T200052265,B13,,criterion,include|parent|SCF-PP,,,,The occurrence meets the CICTT SCF-PP (System/Component Failure – Powerplant) definition.
+run-combined-20261109T200052265,B13,,criterion,include|candidate|B13,,,,Core definition: Low oil pressure or oil loss in flight leads the crew to shut an engine down as a precaution.
+run-combined-20261109T200052265,B13,,criterion,include|definition|IND-28,,,,"Matches 'In-flight engine shutdown (IFSD)' (SKYbrary – In-Flight Shutdown): An engine is shut down in flight because of a failure or a precautionary indication such as low oil pressure, high vibration or fire."
+run-combined-20261109T200052265,B13,,criterion,include|definition|IND-16,,,,"Matches 'Engine bird ingestion' (14 CFR 33.76 – Bird ingestion (engine certification)): Engines must be shown to withstand the ingestion of birds of defined sizes; large or multiple bird ingestion can damage fan blades and cause surge, loss of thrust, shutdown or fire."
+run-combined-20261109T200052265,B13,,criterion,include|report|SYNB-104,,,,Narrative describes 'engine' (9 of 9 supporting reports).
+run-combined-20261109T200052265,B13,,criterion,include|report|SYNB-104,,,,Narrative describes 'shut' (6 of 9 supporting reports).
+run-combined-20261109T200052265,B13,,criterion,include|report|SYNB-103,,,,Narrative describes 'returned' (4 of 9 supporting reports).
+run-combined-20261109T200052265,B13,,criterion,exclude|definition|IND-24,,,,"Not 'Hydraulic system failure' — that definition is crosswalked to SCF-NP, not SCF-PP."
+run-combined-20261109T200052265,B13,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not SCF-PP."
+run-combined-20261109T200052265,B13,,criterion,exclude|definition|IND-15,,,,"Not 'Wildlife strike' — that definition is crosswalked to BIRD, not SCF-PP."
+run-combined-20261109T200052265,B13,,criterion,exclude|parent|BIRD,,,,"Events better described by CICTT BIRD (Bird) (runner-up parent, margin 0.59)."
+run-combined-20261109T200052265,B13,,criterion,exclude|sme|D-75847280c4,,,,Engine damage or shutdown caused by bird ingestion belongs to B15 (bird ingestion damaging an engine).
+run-combined-20261109T200052265,B14,,parent,ICE,,,,status grounded
+run-combined-20261109T200052265,B14,,definition,IND-29,,,,Clean aircraft concept
+run-combined-20261109T200052265,B14,,definition,IND-17,,,,Holdover time
+run-combined-20261109T200052265,B14,,definition,IND-38,,,,In-flight airframe icing
+run-combined-20261109T200052265,B14,,report,SYNB-110,,,,"After a long taxi in light snow, a passenger reported ice on the wing."
+run-combined-20261109T200052265,B14,,report,SYNB-109,,,,"After a long taxi in light snow, a passenger reported ice on the wing."
+run-combined-20261109T200052265,B14,,report,SAMPLE-015,,,,"Climbing through FL280 in icing conditions, the captain and first officer airspeed indications disagreed."
+run-combined-20261109T200052265,B14,,report,SAMPLE-018,,,,Ice crystals caused unreliable airspeed indications.
+run-combined-20261109T200052265,B14,,criterion,include|parent|ICE,,,,The occurrence meets the CICTT ICE (Icing) definition.
+run-combined-20261109T200052265,B14,,criterion,include|candidate|B14,,,,"Core definition: The aircraft departs or begins to depart with frost, snow or ice on its wings because it was not removed or the fluid failed."
+run-combined-20261109T200052265,B14,,criterion,include|definition|IND-29,,,,"Matches 'Clean aircraft concept' (FAA Advisory Circular 120-60B – Ground Deicing and Anti-icing Program): No takeoff may be made with frost, ice or snow adhering to wings or control surfaces; contamination must be removed before departure."
+run-combined-20261109T200052265,B14,,criterion,include|definition|IND-17,,,,"Matches 'Holdover time' (FAA holdover time guidelines (ground de-icing and anti-icing)): The estimated time a de-icing or anti-icing fluid protects aircraft surfaces from frost or ice; if it is exceeded before takeoff, the aircraft must be checked or de-iced again."
+run-combined-20261109T200052265,B14,,criterion,include|definition|IND-38,,,,"Matches 'In-flight airframe icing' (FAA Advisory Circular 91-74B – Pilot Guide: Flight in Icing Conditions): Ice accumulates on wings, tail and windshield in supercooled cloud or freezing drizzle, increasing drag and stall speed."
+run-combined-20261109T200052265,B14,,criterion,include|report|SAMPLE-015,,,,Narrative describes 'airspeed' (2 of 4 supporting reports).
+run-combined-20261109T200052265,B14,,criterion,include|report|SYNB-110,,,,Narrative describes 'fter' (2 of 4 supporting reports).
+run-combined-20261109T200052265,B14,,criterion,include|report|SYNB-110,,,,Narrative describes 'ice' (2 of 4 supporting reports).
+run-combined-20261109T200052265,B14,,criterion,exclude|report|SYNB-194,,,,Belongs to sibling B25 'Airframe icing in flight' when it matches that bucket better (4 report(s) assigned there).
+run-combined-20261109T200052265,B14,,criterion,exclude|report|SAMPLE-032,,,,Belongs to sibling C8 'Takeoff after de-icing holdover time exceeded' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B14,,criterion,exclude|report|SYNB-151,,,,"Coded RAMP (Ground Handling) rather than ICE: similar wording, different occurrence category."
+run-combined-20261109T200052265,B14,,criterion,exclude|definition|IND-06,,,,"Not 'Runway condition code (RWYCC)' — that definition is crosswalked to RE, not ICE."
+run-combined-20261109T200052265,B14,,criterion,exclude|definition|IND-34,,,,"Not 'Pushback and towing' — that definition is crosswalked to RAMP, not ICE."
+run-combined-20261109T200052265,B14,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not ICE."
+run-combined-20261109T200052265,B14,,criterion,exclude|parent|RAMP,,,,"Events better described by CICTT RAMP (Ground Handling) (runner-up parent, margin 0.70)."
+run-combined-20261109T200052265,B15,,parent,BIRD,,,,status needs_review
+run-combined-20261109T200052265,B15,,definition,IND-16,,,,Engine bird ingestion
+run-combined-20261109T200052265,B15,,definition,IND-39,,,,Damaging bird strike
+run-combined-20261109T200052265,B15,,definition,IND-15,,,,Wildlife strike
+run-combined-20261109T200052265,B15,,report,SAMPLE-031,,,,"After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher."
+run-combined-20261109T200052265,B15,,report,SAMPLE-029,,,,"Multiple bird strikes during the takeoff roll caused the right engine to surge, and the crew rejected the takeoff."
+run-combined-20261109T200052265,B15,,report,SAMPLE-028,,,,"The engine vibrated and lost thrust, and the crew shut it down and returned."
+run-combined-20261109T200052265,B15,,report,SYNB-113,,,,The right engine showed high vibration after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-117,,,,The right engine showed high vibration after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-114,,,,The number 1 engine showed high vibration after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-111,,,,The number 1 engine surged with loud bangs after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-115,,,,The left engine lost thrust after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-118,,,,The left engine showed high vibration after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-116,,,,The number 1 engine surged with loud bangs after ingesting birds.
+run-combined-20261109T200052265,B15,,report,SYNB-112,,,,The right engine surged with loud bangs after ingesting birds.
+run-combined-20261109T200052265,B15,,criterion,include|parent|BIRD,,,,The occurrence meets the CICTT BIRD (Bird) definition.
+run-combined-20261109T200052265,B15,,criterion,include|candidate|B15,,,,"Core definition: One or more birds are ingested into an engine during takeoff or initial climb, causing vibration, surging or loss of thrust."
+run-combined-20261109T200052265,B15,,criterion,include|definition|IND-16,,,,"Matches 'Engine bird ingestion' (14 CFR 33.76 – Bird ingestion (engine certification)): Engines must be shown to withstand the ingestion of birds of defined sizes; large or multiple bird ingestion can damage fan blades and cause surge, loss of thrust, shutdown or fire."
+run-combined-20261109T200052265,B15,,criterion,include|definition|IND-39,,,,"Matches 'Damaging bird strike' (FAA National Wildlife Strike Database – strike reporting): A collision with birds that damages the aircraft, such as a cracked windshield, dented radome or ingested engine, reported to the wildlife strike database."
+run-combined-20261109T200052265,B15,,criterion,include|definition|IND-15,,,,"Matches 'Wildlife strike' (FAA National Wildlife Strike Database): A collision between an aircraft and a bird or other wildlife, including ingestion into an engine, reported with damage and phase of flight."
+run-combined-20261109T200052265,B15,,criterion,include|report|SAMPLE-031,,,,Narrative describes 'engine' (11 of 11 supporting reports).
+run-combined-20261109T200052265,B15,,criterion,include|report|SAMPLE-031,,,,Narrative describes 'bird' (10 of 11 supporting reports).
+run-combined-20261109T200052265,B15,,criterion,include|report|SAMPLE-031,,,,Narrative describes 'ingesting' (9 of 11 supporting reports).
+run-combined-20261109T200052265,B15,,criterion,boundary|sibling|B16,,,,Distinguish from sibling B16 'Bird strike damaging the windshield or nose on approach' under the same parent.
+run-combined-20261109T200052265,B15,,criterion,exclude|definition|IND-28,,,,"Not 'In-flight engine shutdown (IFSD)' — that definition is crosswalked to SCF-PP, not BIRD."
+run-combined-20261109T200052265,B15,,criterion,exclude|definition|IND-21,,,,"Not 'Stall prevention and recovery' — that definition is crosswalked to LOC-I, not BIRD."
+run-combined-20261109T200052265,B15,,criterion,exclude|parent|SCF-PP,,,,"Events better described by CICTT SCF-PP (System/Component Failure – Powerplant) (runner-up parent, margin 0.02)."
+run-combined-20261109T200052265,B16,,parent,BIRD,,,,status grounded
+run-combined-20261109T200052265,B16,,definition,IND-39,,,,Damaging bird strike
+run-combined-20261109T200052265,B16,,definition,IND-16,,,,Engine bird ingestion
+run-combined-20261109T200052265,B16,,definition,IND-15,,,,Wildlife strike
+run-combined-20261109T200052265,B16,,report,SAMPLE-030,,,,"A bird strike on approach was found on the post-flight inspection, with dents on the radome."
+run-combined-20261109T200052265,B16,,report,SYNB-214,,,,A bird struck the radome during the approach.
+run-combined-20261109T200052265,B16,,report,SYNB-254,,,,A bird struck the windshield during the approach.
+run-combined-20261109T200052265,B16,,report,SYNB-120,,,,"On descent through 5,000 ft a large pelican struck the radome."
+run-combined-20261109T200052265,B16,,report,SYNB-121,,,,"On descent through 5,000 feet a large eagle struck the radome."
+run-combined-20261109T200052265,B16,,report,SYNB-126,,,,"On descent through 3,000 feet a large goose struck the windshield."
+run-combined-20261109T200052265,B16,,report,SYNB-123,,,,"On descent through 3,000 ft a large pelican struck the radome."
+run-combined-20261109T200052265,B16,,report,SYNB-124,,,,"On descent through 5,000 ft a large goose struck the nose."
+run-combined-20261109T200052265,B16,,report,SYNB-119,,,,"On descent through 3,000 ft a large goose struck the windshield."
+run-combined-20261109T200052265,B16,,report,SYNB-125,,,,"On descent through 3,000 feet a large pelican struck the radome."
+run-combined-20261109T200052265,B16,,report,SYNB-234,,,,A bird struck the left wing leading edge during the approach.
+run-combined-20261109T200052265,B16,,criterion,include|parent|BIRD,,,,The occurrence meets the CICTT BIRD (Bird) definition.
+run-combined-20261109T200052265,B16,,criterion,include|candidate|B16,,,,"Core definition: A large bird or flock strikes the windshield, radome or nose on approach or descent and causes visible damage."
+run-combined-20261109T200052265,B16,,criterion,include|definition|IND-39,,,,"Matches 'Damaging bird strike' (FAA National Wildlife Strike Database – strike reporting): A collision with birds that damages the aircraft, such as a cracked windshield, dented radome or ingested engine, reported to the wildlife strike database."
+run-combined-20261109T200052265,B16,,criterion,include|definition|IND-16,,,,"Matches 'Engine bird ingestion' (14 CFR 33.76 – Bird ingestion (engine certification)): Engines must be shown to withstand the ingestion of birds of defined sizes; large or multiple bird ingestion can damage fan blades and cause surge, loss of thrust, shutdown or fire."
+run-combined-20261109T200052265,B16,,criterion,include|definition|IND-15,,,,"Matches 'Wildlife strike' (FAA National Wildlife Strike Database): A collision between an aircraft and a bird or other wildlife, including ingestion into an engine, reported with damage and phase of flight."
+run-combined-20261109T200052265,B16,,criterion,include|report|SYNB-214,,,,Narrative describes 'struck' (10 of 11 supporting reports).
+run-combined-20261109T200052265,B16,,criterion,include|report|SYNB-120,,,,Narrative describes 'descent' (7 of 11 supporting reports).
+run-combined-20261109T200052265,B16,,criterion,include|report|SYNB-120,,,,Narrative describes 'large' (7 of 11 supporting reports).
+run-combined-20261109T200052265,B16,,criterion,exclude|report|SAMPLE-031,,,,Belongs to sibling B15 'Bird ingestion damaging an engine on takeoff or climb' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B16,,criterion,exclude|definition|IND-18,,,,"Not 'Hard landing, tail strike' — that definition is crosswalked to ARC, not BIRD."
+run-combined-20261109T200052265,B16,,criterion,exclude|definition|IND-35,,,,"Not 'Tail strike' — that definition is crosswalked to ARC, not BIRD."
+run-combined-20261109T200052265,B16,,criterion,exclude|definition|IND-26,,,,"Not 'Terrain awareness and warning system (TAWS)' — that definition is crosswalked to CFIT, not BIRD."
+run-combined-20261109T200052265,B16,,criterion,exclude|parent|RAMP,,,,"Events better described by CICTT RAMP (Ground Handling) (runner-up parent, margin 0.75)."
+run-combined-20261109T200052265,B17,,parent,F-NI,,,,status needs_review
+run-combined-20261109T200052265,B17,,definition,IND-31,,,,Lithium battery fire
+run-combined-20261109T200052265,B17,,report,SYNB-127,,,,A passenger's power bank began smoking after being crushed in a seat mechanism.
+run-combined-20261109T200052265,B17,,report,SYNB-129,,,,A passenger's power bank overheated after being crushed in a seat mechanism.
+run-combined-20261109T200052265,B17,,report,SYNB-131,,,,A passenger's power bank caught fire in a seat pocket.
+run-combined-20261109T200052265,B17,,report,SYNB-130,,,,A passenger's laptop caught fire after being crushed in a seat mechanism.
+run-combined-20261109T200052265,B17,,report,SYNB-128,,,,A passenger's power bank caught fire in a seat pocket.
+run-combined-20261109T200052265,B17,,report,SYNB-133,,,,A passenger's laptop began smoking in the overhead bin.
+run-combined-20261109T200052265,B17,,report,SYNB-134,,,,A passenger's phone began smoking after being crushed in a seat mechanism.
+run-combined-20261109T200052265,B17,,report,SYNB-132,,,,A passenger's phone began smoking in the overhead bin.
+run-combined-20261109T200052265,B17,,criterion,include|parent|F-NI,,,,The occurrence meets the CICTT F-NI (Fire/Smoke (Non-Impact)) definition.
+run-combined-20261109T200052265,B17,,criterion,include|candidate|B17,,,,"Core definition: A phone, laptop, power bank or other lithium battery device overheats, smokes or catches fire in the cabin."
+run-combined-20261109T200052265,B17,,criterion,include|definition|IND-31,,,,"Matches 'Lithium battery fire' (FAA SAFO – Fire risks from lithium batteries in the cabin): Portable electronic devices and power banks can overheat in thermal runaway, producing smoke and fire in the cabin; crew cool the device with water or non-alcoholic liquid."
+run-combined-20261109T200052265,B17,,criterion,include|report|SYNB-127,,,,Narrative describes 'bank' (4 of 8 supporting reports).
+run-combined-20261109T200052265,B17,,criterion,include|report|SYNB-127,,,,Narrative describes 'began' (4 of 8 supporting reports).
+run-combined-20261109T200052265,B17,,criterion,include|report|SYNB-127,,,,Narrative describes 'being' (4 of 8 supporting reports).
+run-combined-20261109T200052265,B17,,criterion,boundary|sibling|B18,,,,Distinguish from sibling B18 'Electrical smoke or burning smell in the flight deck' under the same parent.
+run-combined-20261109T200052265,B17,,criterion,exclude|report|SYNB-164,,,,"Coded CABIN (Cabin Safety Events) rather than F-NI: similar wording, different occurrence category."
+run-combined-20261109T200052265,B17,,criterion,exclude|definition|IND-30,,,,"Not 'Unruly or disruptive passenger' — that definition is crosswalked to CABIN, not F-NI."
+run-combined-20261109T200052265,B17,,criterion,exclude|parent|CABIN,,,,"Events better described by CICTT CABIN (Cabin Safety Events) (runner-up parent, margin -0.09)."
+run-combined-20261109T200052265,B18,,parent,F-NI,,,,status grounded
+run-combined-20261109T200052265,B18,,definition,IND-32,,,,Smoke or fumes in flight
+run-combined-20261109T200052265,B18,,report,SYNB-138,,,,During descent at FL210 we noticed an electrical burning smell in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-137,,,,During descent at FL330 the captain and first officer noticed an electrical burning smell in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-139,,,,During cruise at FL310 the flight crew noticed smoke in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-141,,,,During descent at FL240 the captain and first officer noticed smoke in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-135,,,,During climb at FL310 the crew noticed smoke in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-142,,,,During descent at FL330 the crew noticed smoke in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-140,,,,During climb at FL350 the crew noticed haze in the flight deck.
+run-combined-20261109T200052265,B18,,report,SYNB-136,,,,During cruise at FL310 we noticed haze in the flight deck.
+run-combined-20261109T200052265,B18,,criterion,include|parent|F-NI,,,,The occurrence meets the CICTT F-NI (Fire/Smoke (Non-Impact)) definition.
+run-combined-20261109T200052265,B18,,criterion,include|candidate|B18,,,,"Core definition: Smoke, fumes or a burning electrical smell appears in the flight deck, often traced to wiring, a display or a window heater."
+run-combined-20261109T200052265,B18,,criterion,include|definition|IND-32,,,,"Matches 'Smoke or fumes in flight' (SKYbrary – Smoke and Fumes): Smoke, fumes or burning smells in the flight deck or cabin, often electrical in origin, handled with oxygen masks and the smoke checklist."
+run-combined-20261109T200052265,B18,,criterion,include|report|SYNB-138,,,,Narrative describes 'deck' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B18,,criterion,include|report|SYNB-138,,,,Narrative describes 'noticed' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B18,,criterion,include|report|SYNB-138,,,,Narrative describes 'uring' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B18,,criterion,boundary|sibling|B17,,,,Distinguish from sibling B17 'Lithium battery fire from a passenger device' under the same parent.
+run-combined-20261109T200052265,B18,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not F-NI."
+run-combined-20261109T200052265,B18,,criterion,exclude|parent|SCF-NP,,,,"Events better described by CICTT SCF-NP (System/Component Failure – Non-Powerplant) (runner-up parent, margin 0.18)."
+run-combined-20261109T200052265,B19,,parent,FUEL,,,,status grounded
+run-combined-20261109T200052265,B19,,definition,IND-33,,,,Minimum fuel and fuel emergency
+run-combined-20261109T200052265,B19,,report,SYNB-146,,,,"After two missed approaches in clear conditions, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-145,,,,"After two missed approaches in clear conditions, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-150,,,,"After two missed approaches with a low overcast, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-144,,,,"After two missed approaches in clear conditions, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-148,,,,"After two missed approaches with gusty winds, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-149,,,,"After 40 minutes of holding in low visibility, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-143,,,,"After a diversion to a busy alternate in light snow, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,report,SYNB-147,,,,"After a diversion to a busy alternate in clear conditions, fuel dropped toward final reserve."
+run-combined-20261109T200052265,B19,,criterion,include|parent|FUEL,,,,The occurrence meets the CICTT FUEL (Fuel Related) definition.
+run-combined-20261109T200052265,B19,,criterion,include|candidate|B19,,,,"Core definition: Extended holding, a missed approach or a diversion leaves the aircraft close to or below final reserve fuel, and the crew declares minimum fuel or a fuel emergency."
+run-combined-20261109T200052265,B19,,criterion,include|definition|IND-33,,,,"Matches 'Minimum fuel and fuel emergency' (ICAO Annex 6 – Fuel planning and in-flight fuel management): The crew declares MINIMUM FUEL when any change may land them below final reserve, and MAYDAY FUEL when the landing fuel is expected to be below final reserve."
+run-combined-20261109T200052265,B19,,criterion,include|report|SYNB-146,,,,Narrative describes 'dropped' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B19,,criterion,include|report|SYNB-146,,,,Narrative describes 'final' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B19,,criterion,include|report|SYNB-146,,,,Narrative describes 'fter' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B19,,criterion,exclude|definition|IND-37,,,,"Not 'Undershoot' — that definition is crosswalked to USOS, not FUEL."
+run-combined-20261109T200052265,B19,,criterion,exclude|definition|IND-22,,,,"Not 'Wake turbulence' — that definition is crosswalked to TURB, not FUEL."
+run-combined-20261109T200052265,B19,,criterion,exclude|parent|USOS,,,,"Events better described by CICTT USOS (Undershoot/Overshoot) (runner-up parent, margin 0.82)."
+run-combined-20261109T200052265,B20,,parent,RAMP,,,,status grounded
+run-combined-20261109T200052265,B20,,definition,IND-34,,,,Pushback and towing
+run-combined-20261109T200052265,B20,,report,SYNB-151,,,,During pushback from the gate the A320 wing tip struck a parked aircraft.
+run-combined-20261109T200052265,B20,,report,SYNB-153,,,,The tug driver could not see the wing tip.
+run-combined-20261109T200052265,B20,,report,SYNB-156,,,,The tug driver could not see the wing tip.
+run-combined-20261109T200052265,B20,,report,SYNB-158,,,,The towbar shear pin failed.
+run-combined-20261109T200052265,B20,,report,SYNB-152,,,,During pushback from the gate the B737 MAX 8 wing tip struck a parked aircraft.
+run-combined-20261109T200052265,B20,,report,SYNB-155,,,,During pushback from the gate the A320 struck a baggage cart.
+run-combined-20261109T200052265,B20,,report,SYNB-154,,,,During pushback from the gate the B787-9 tail struck a light pole.
+run-combined-20261109T200052265,B20,,report,SYNB-157,,,,During pushback from the gate the B777-300ER tail struck a light pole.
+run-combined-20261109T200052265,B20,,criterion,include|parent|RAMP,,,,The occurrence meets the CICTT RAMP (Ground Handling) definition.
+run-combined-20261109T200052265,B20,,criterion,include|candidate|B20,,,,"Core definition: During pushback or towing the tug, towbar or aircraft strikes another aircraft, a vehicle or a fixed object."
+run-combined-20261109T200052265,B20,,criterion,include|definition|IND-34,,,,"Matches 'Pushback and towing' (IATA Ground Operations Manual – Pushback and towing): Moving an aircraft with a tug or towbar, with wing walkers and headset communication, to prevent collisions with aircraft, vehicles and objects."
+run-combined-20261109T200052265,B20,,criterion,include|report|SYNB-151,,,,Narrative describes 'gate' (5 of 8 supporting reports).
+run-combined-20261109T200052265,B20,,criterion,include|report|SYNB-151,,,,Narrative describes 'pushback' (5 of 8 supporting reports).
+run-combined-20261109T200052265,B20,,criterion,include|report|SYNB-151,,,,Narrative describes 'struck' (5 of 8 supporting reports).
+run-combined-20261109T200052265,B20,,criterion,exclude|report|SYNB-001,,,,"Coded RI (Runway Incursion) rather than RAMP: similar wording, different occurrence category."
+run-combined-20261109T200052265,B20,,criterion,exclude|report|SAMPLE-035,,,,"Coded ARC (Abnormal Runway Contact) rather than RAMP: similar wording, different occurrence category."
+run-combined-20261109T200052265,B20,,criterion,exclude|definition|IND-01,,,,"Not 'Runway incursion' — that definition is crosswalked to RI, not RAMP."
+run-combined-20261109T200052265,B20,,criterion,exclude|definition|IND-39,,,,"Not 'Damaging bird strike' — that definition is crosswalked to BIRD, not RAMP."
+run-combined-20261109T200052265,B20,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not RAMP."
+run-combined-20261109T200052265,B20,,criterion,exclude|parent|RI,,,,"Events better described by CICTT RI (Runway Incursion) (runner-up parent, margin 0.50)."
+run-combined-20261109T200052265,B21,,parent,CABIN,,,,status grounded
+run-combined-20261109T200052265,B21,,definition,IND-30,,,,Unruly or disruptive passenger
+run-combined-20261109T200052265,B21,,report,SYNB-160,,,,A intoxicated passenger refused to follow crew instructions during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-159,,,,A aggressive passenger refused to follow crew instructions during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-163,,,,A agitated passenger refused to follow crew instructions during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-161,,,,A aggressive passenger refused to follow crew instructions during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-166,,,,A aggressive passenger refused to follow crew instructions during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-164,,,,A aggressive passenger shouted at cabin crew during the flight.
+run-combined-20261109T200052265,B21,,report,SYNB-165,,,,Cabin crew restrained the passenger with help from others.
+run-combined-20261109T200052265,B21,,report,SYNB-162,,,,Cabin crew restrained the passenger with help from others.
+run-combined-20261109T200052265,B21,,criterion,include|parent|CABIN,,,,The occurrence meets the CICTT CABIN (Cabin Safety Events) definition.
+run-combined-20261109T200052265,B21,,criterion,include|candidate|B21,,,,"Core definition: A passenger is aggressive, intoxicated or refuses crew instructions, interfering with the crew or other passengers."
+run-combined-20261109T200052265,B21,,criterion,include|definition|IND-30,,,,"Matches 'Unruly or disruptive passenger' (ICAO Doc 10117 – Manual on the Legal Aspects of Unruly and Disruptive Passengers): A passenger who fails to respect rules of conduct or to follow crew instructions, disturbing good order and discipline on board."
+run-combined-20261109T200052265,B21,,criterion,include|report|SYNB-160,,,,Narrative describes 'passenger' (8 of 8 supporting reports).
+run-combined-20261109T200052265,B21,,criterion,include|report|SYNB-160,,,,Narrative describes 'follow' (5 of 8 supporting reports).
+run-combined-20261109T200052265,B21,,criterion,include|report|SYNB-160,,,,Narrative describes 'instructions' (5 of 8 supporting reports).
+run-combined-20261109T200052265,B21,,criterion,exclude|report|SAMPLE-024,,,,Belongs to sibling C6 'Clear-air turbulence with cabin injuries' when it matches that bucket better (2 report(s) assigned there).
+run-combined-20261109T200052265,B21,,criterion,exclude|parent|TURB,,,,"Events better described by CICTT TURB (Turbulence Encounter) (runner-up parent, margin 0.80)."
+run-combined-20261109T200052265,B22,,parent,ARC,,,,status grounded
+run-combined-20261109T200052265,B22,,definition,IND-35,,,,Tail strike
+run-combined-20261109T200052265,B22,,definition,IND-18,,,,"Hard landing, tail strike"
+run-combined-20261109T200052265,B22,,report,SAMPLE-035,,,,An incorrect takeoff weight in the flight management computer led to early rotation and a tail strike on takeoff.
+run-combined-20261109T200052265,B22,,report,SYNB-173,,,,During rotation on Runway 34L the tail of the B737-800 struck the runway.
+run-combined-20261109T200052265,B22,,report,SYNB-174,,,,During rotation on Runway 36 the tail of the A320 struck the runway.
+run-combined-20261109T200052265,B22,,report,SYNB-167,,,,The takeoff speeds had been computed with the wrong weight.
+run-combined-20261109T200052265,B22,,report,SYNB-172,,,,The takeoff speeds had been computed with the wrong weight.
+run-combined-20261109T200052265,B22,,report,SYNB-168,,,,The pilot flying rotated early and fast.
+run-combined-20261109T200052265,B22,,criterion,include|parent|ARC,,,,The occurrence meets the CICTT ARC (Abnormal Runway Contact) definition.
+run-combined-20261109T200052265,B22,,criterion,include|candidate|B22,,,,"Core definition: The tail strikes the runway during takeoff rotation, often after early or fast rotation or a wrong takeoff speed or weight."
+run-combined-20261109T200052265,B22,,criterion,include|definition|IND-35,,,,"Matches 'Tail strike' (SKYbrary – Tailstrike): The aft fuselage contacts the runway during takeoff rotation or landing, often after early rotation, wrong takeoff speeds or excessive pitch."
+run-combined-20261109T200052265,B22,,criterion,include|definition|IND-18,,,,"Matches 'Hard landing, tail strike' (SKYbrary – Hard Landing and Tail Strike): A touchdown with a vertical load above limits, a bounced landing, or contact of the tail with the runway during takeoff rotation or landing flare."
+run-combined-20261109T200052265,B22,,criterion,include|report|SAMPLE-035,,,,Narrative describes 'rotation' (3 of 6 supporting reports).
+run-combined-20261109T200052265,B22,,criterion,include|report|SAMPLE-035,,,,Narrative describes 'tail' (3 of 6 supporting reports).
+run-combined-20261109T200052265,B22,,criterion,include|report|SAMPLE-035,,,,Narrative describes 'weight' (3 of 6 supporting reports).
+run-combined-20261109T200052265,B22,,criterion,exclude|report|SYNB-170,,,,Belongs to sibling C9 'Hard landing or tail strike' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B22,,criterion,exclude|report|SAMPLE-002,,,,"Coded RI (Runway Incursion) rather than ARC: similar wording, different occurrence category."
+run-combined-20261109T200052265,B22,,criterion,exclude|definition|IND-03,,,,"Not 'Wrong-surface event' — that definition is crosswalked to RI, not ARC."
+run-combined-20261109T200052265,B22,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not ARC."
+run-combined-20261109T200052265,B22,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not ARC."
+run-combined-20261109T200052265,B22,,criterion,exclude|parent|RI,,,,"Events better described by CICTT RI (Runway Incursion) (runner-up parent, margin 0.74)."
+run-combined-20261109T200052265,B23,,parent,WSTRW,,,,status needs_review
+run-combined-20261109T200052265,B23,,definition,IND-36,,,,Low-level windshear
+run-combined-20261109T200052265,B23,,report,SYNB-179,,,,The predictive windshear warning sounded and the captain and first officer flew the windshear escape manoeuvre.
+run-combined-20261109T200052265,B23,,report,SYNB-182,,,,On short final near a thunderstorm the airspeed dropped by 30 knots.
+run-combined-20261109T200052265,B23,,report,SYNB-180,,,,On short final near a thunderstorm the airspeed dropped by 25 knots.
+run-combined-20261109T200052265,B23,,report,SYNB-178,,,,On short final near a thunderstorm the airspeed dropped by 25 knots.
+run-combined-20261109T200052265,B23,,report,SYNB-176,,,,The predictive windshear warning sounded and the crew flew the windshear escape manoeuvre.
+run-combined-20261109T200052265,B23,,report,SYNB-181,,,,The reactive windshear warning sounded and the CAPT and FO flew the windshear escape manoeuvre.
+run-combined-20261109T200052265,B23,,report,SYNB-175,,,,The predictive windshear warning sounded and the captain and first officer flew the windshear escape manoeuvre.
+run-combined-20261109T200052265,B23,,report,SYNB-252,,,,The approach was flown with extra speed but no windshear was met.
+run-combined-20261109T200052265,B23,,report,SYNB-232,,,,The approach was flown normally with no windshear encountered.
+run-combined-20261109T200052265,B23,,report,SYNB-272,,,,The approach was flown to the other rwy without problems.
+run-combined-20261109T200052265,B23,,criterion,include|parent|WSTRW,,,,The occurrence meets the CICTT WSTRW (Windshear or Thunderstorm) definition.
+run-combined-20261109T200052265,B23,,criterion,include|candidate|B23,,,,"Core definition: A sudden change in wind speed or direction on approach, often near a thunderstorm or microburst, causes loss of airspeed and a windshear warning."
+run-combined-20261109T200052265,B23,,criterion,include|definition|IND-36,,,,"Matches 'Low-level windshear' (FAA Advisory Circular 00-54 – Pilot Windshear Guide): Sudden changes in wind speed or direction near the ground, such as microbursts from thunderstorms, causing airspeed loss; crews fly the windshear escape manoeuvre."
+run-combined-20261109T200052265,B23,,criterion,exclude|report|SYNB-177,,,,"Coded TURB (Turbulence Encounter) rather than WSTRW: similar wording, different occurrence category."
+run-combined-20261109T200052265,B23,,criterion,exclude|definition|IND-22,,,,"Not 'Wake turbulence' — that definition is crosswalked to TURB, not WSTRW."
+run-combined-20261109T200052265,B23,,criterion,exclude|definition|IND-27,,,,"Not 'GNSS jamming and spoofing' — that definition is crosswalked to NAV, not WSTRW."
+run-combined-20261109T200052265,B23,,criterion,exclude|definition|IND-23,,,,"Not 'Loss of separation' — that definition is crosswalked to MAC, ATM, not WSTRW."
+run-combined-20261109T200052265,B23,,criterion,exclude|parent|MAC,,,,"Events better described by CICTT MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) (runner-up parent, margin 0.77)."
+run-combined-20261109T200052265,B24,,parent,USOS,,,,status grounded
+run-combined-20261109T200052265,B24,,definition,IND-37,,,,Undershoot
+run-combined-20261109T200052265,B24,,report,SYNB-184,,,,On a visual approach at night the E175 touched down on the approach lights short of the threshold of Runway 34L.
+run-combined-20261109T200052265,B24,,report,SYNB-187,,,,On a visual approach shortly after sunrise the B787-9 touched down 50 metres short of the threshold of Runway 34L.
+run-combined-20261109T200052265,B24,,report,SYNB-186,,,,On a non-precision approach late in the evening the B787-9 touched down 50 metres short of the threshold of Runway 34L.
+run-combined-20261109T200052265,B24,,report,SYNB-183,,,,On a RNAV approach late in the evening the B787-9 touched down in the grass short of the threshold of Runway 22.
+run-combined-20261109T200052265,B24,,report,SYNB-188,,,,On a visual approach shortly after sunrise the A321neo touched down in the grass short of the threshold of Runway 16.
+run-combined-20261109T200052265,B24,,report,SYNB-185,,,,On a visual approach shortly after sunrise the A321neo touched down in the grass short of the threshold of Rwy 36.
+run-combined-20261109T200052265,B24,,criterion,include|parent|USOS,,,,The occurrence meets the CICTT USOS (Undershoot/Overshoot) definition.
+run-combined-20261109T200052265,B24,,criterion,include|candidate|B24,,,,"Core definition: The aircraft touches down before the runway threshold, on the approach lights or in the undershoot area."
+run-combined-20261109T200052265,B24,,criterion,include|definition|IND-37,,,,"Matches 'Undershoot' (SKYbrary – Landing Short (Undershoot)): The aircraft touches down before the runway threshold, often after an unstable or low approach or a visual illusion."
+run-combined-20261109T200052265,B24,,criterion,include|report|SYNB-184,,,,Narrative describes 'short' (6 of 6 supporting reports).
+run-combined-20261109T200052265,B24,,criterion,include|report|SYNB-184,,,,Narrative describes 'threshold' (6 of 6 supporting reports).
+run-combined-20261109T200052265,B24,,criterion,include|report|SYNB-184,,,,Narrative describes 'touched' (6 of 6 supporting reports).
+run-combined-20261109T200052265,B24,,criterion,exclude|report|SAMPLE-011,,,,"Coded RE (Runway Excursion) rather than USOS: similar wording, different occurrence category."
+run-combined-20261109T200052265,B24,,criterion,exclude|report|SAMPLE-007,,,,"Coded RI (Runway Incursion) rather than USOS: similar wording, different occurrence category."
+run-combined-20261109T200052265,B24,,criterion,exclude|definition|IND-05,,,,"Not 'Runway excursion (veer-off and overrun)' — that definition is crosswalked to RE, not USOS."
+run-combined-20261109T200052265,B24,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not USOS."
+run-combined-20261109T200052265,B24,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not USOS."
+run-combined-20261109T200052265,B24,,criterion,exclude|parent|RE,,,,"Events better described by CICTT RE (Runway Excursion) (runner-up parent, margin 0.32)."
+run-combined-20261109T200052265,B25,,parent,ICE,,,,status grounded
+run-combined-20261109T200052265,B25,,definition,IND-38,,,,In-flight airframe icing
+run-combined-20261109T200052265,B25,,definition,IND-17,,,,Holdover time
+run-combined-20261109T200052265,B25,,definition,IND-29,,,,Clean aircraft concept
+run-combined-20261109T200052265,B25,,report,SYNB-194,,,,"Holding at 12,000 ft in icing conditions, ice built up on the wings faster than expected."
+run-combined-20261109T200052265,B25,,report,SYNB-190,,,,"Holding at 8,000 feet in icing conditions, ice built up on the wings faster than expected."
+run-combined-20261109T200052265,B25,,report,SYNB-193,,,,The windshield iced over.
+run-combined-20261109T200052265,B25,,report,SYNB-189,,,,The windshield iced over.
+run-combined-20261109T200052265,B25,,report,SYNB-191,,,,"Holding at 10,000 ft in supercooled cloud, ice built up on the wings faster than expected."
+run-combined-20261109T200052265,B25,,report,SYNB-192,,,,"Holding at 10,000 feet in supercooled cloud, ice built up on the wings faster than expected."
+run-combined-20261109T200052265,B25,,criterion,include|parent|ICE,,,,The occurrence meets the CICTT ICE (Icing) definition.
+run-combined-20261109T200052265,B25,,criterion,include|candidate|B25,,,,"Core definition: Ice builds on the wings, tail or windshield in flight in icing conditions, degrading performance or handling."
+run-combined-20261109T200052265,B25,,criterion,include|definition|IND-38,,,,"Matches 'In-flight airframe icing' (FAA Advisory Circular 91-74B – Pilot Guide: Flight in Icing Conditions): Ice accumulates on wings, tail and windshield in supercooled cloud or freezing drizzle, increasing drag and stall speed."
+run-combined-20261109T200052265,B25,,criterion,include|definition|IND-17,,,,"Matches 'Holdover time' (FAA holdover time guidelines (ground de-icing and anti-icing)): The estimated time a de-icing or anti-icing fluid protects aircraft surfaces from frost or ice; if it is exceeded before takeoff, the aircraft must be checked or de-iced again."
+run-combined-20261109T200052265,B25,,criterion,include|definition|IND-29,,,,"Matches 'Clean aircraft concept' (FAA Advisory Circular 120-60B – Ground Deicing and Anti-icing Program): No takeoff may be made with frost, ice or snow adhering to wings or control surfaces; contamination must be removed before departure."
+run-combined-20261109T200052265,B25,,criterion,include|report|SYNB-194,,,,Narrative describes 'built' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B25,,criterion,include|report|SYNB-194,,,,Narrative describes 'expected' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B25,,criterion,include|report|SYNB-194,,,,Narrative describes 'faster' (4 of 6 supporting reports).
+run-combined-20261109T200052265,B25,,criterion,exclude|report|SYNB-110,,,,Belongs to sibling B14 'Takeoff with frost or ice not removed' when it matches that bucket better (2 report(s) assigned there).
+run-combined-20261109T200052265,B25,,criterion,exclude|report|SAMPLE-032,,,,Belongs to sibling C8 'Takeoff after de-icing holdover time exceeded' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B25,,criterion,exclude|report|SYNB-170,,,,"Coded ARC (Abnormal Runway Contact) rather than ICE: similar wording, different occurrence category."
+run-combined-20261109T200052265,B25,,criterion,exclude|report|SAMPLE-030,,,,"Coded BIRD (Bird) rather than ICE: similar wording, different occurrence category."
+run-combined-20261109T200052265,B25,,criterion,exclude|definition|IND-06,,,,"Not 'Runway condition code (RWYCC)' — that definition is crosswalked to RE, not ICE."
+run-combined-20261109T200052265,B25,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not ICE."
+run-combined-20261109T200052265,B25,,criterion,exclude|definition|IND-24,,,,"Not 'Hydraulic system failure' — that definition is crosswalked to SCF-NP, not ICE."
+run-combined-20261109T200052265,B25,,criterion,exclude|parent|RAMP,,,,"Events better described by CICTT RAMP (Ground Handling) (runner-up parent, margin 0.63)."
+run-combined-20261109T200052265,B26,,parent,SCF-NP,,,,status needs_review
+run-combined-20261109T200052265,B26,,definition,IND-09,,,,Unreliable airspeed
+run-combined-20261109T200052265,B26,,report,SAMPLE-017,,,,A pitot heat failure at cruise produced a falling airspeed indication.
+run-combined-20261109T200052265,B26,,report,SYNB-201,,,,Ice crystals had blocked the probes.
+run-combined-20261109T200052265,B26,,report,SAMPLE-016,,,,"The crew used the unreliable airspeed checklist, flew pitch and power, and returned to the departure airport without further problems."
+run-combined-20261109T200052265,B26,,report,SYNB-199,,,,The autopilot disconnected and we flew pitch and power.
+run-combined-20261109T200052265,B26,,report,SYNB-200,,,,The autopilot disconnected and we flew pitch and power.
+run-combined-20261109T200052265,B26,,report,SYNB-198,,,,The autopilot disconnected and the crew flew pitch and power.
+run-combined-20261109T200052265,B26,,report,SYNB-195,,,,A wasp nest was found in a pitot probe.
+run-combined-20261109T200052265,B26,,criterion,include|parent|SCF-NP,,,,The occurrence meets the CICTT SCF-NP (System/Component Failure – Non-Powerplant) definition.
+run-combined-20261109T200052265,B26,,criterion,include|candidate|B26,,,,"Core definition: Pitot probes blocked by ice, insects or covers give wrong airspeed indications, leading to warnings and autopilot disconnection."
+run-combined-20261109T200052265,B26,,criterion,include|definition|IND-09,,,,"Matches 'Unreliable airspeed' (SKYbrary – Unreliable Airspeed): Erroneous or disagreeing airspeed indications, for example from pitot icing, ice crystals or a blocked pitot tube, which can lead to an upset if the crew follows the wrong indication."
+run-combined-20261109T200052265,B26,,criterion,boundary|sibling|B09,,,,Distinguish from sibling B09 'Hydraulic system failure in flight' under the same parent.
+run-combined-20261109T200052265,B26,,criterion,boundary|sibling|B10,,,,Distinguish from sibling B10 'Landing gear did not extend' under the same parent.
+run-combined-20261109T200052265,B26,,criterion,exclude|report|SAMPLE-015,,,,"Coded LOC-I (Loss of Control – Inflight) rather than SCF-NP: similar wording, different occurrence category."
+run-combined-20261109T200052265,B26,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not SCF-NP."
+run-combined-20261109T200052265,B26,,criterion,exclude|definition|IND-21,,,,"Not 'Stall prevention and recovery' — that definition is crosswalked to LOC-I, not SCF-NP."
+run-combined-20261109T200052265,B26,,criterion,exclude|definition|IND-38,,,,"Not 'In-flight airframe icing' — that definition is crosswalked to ICE, not SCF-NP."
+run-combined-20261109T200052265,B26,,criterion,exclude|parent|LOC-I,,,,"Events better described by CICTT LOC-I (Loss of Control – Inflight) (runner-up parent, margin 0.03)."
+run-combined-20261109T200052265,B27,,parent,RI,,,,status grounded
+run-combined-20261109T200052265,B27,,definition,IND-40,,,,Pilot deviation (runway incursion)
+run-combined-20261109T200052265,B27,,definition,IND-02,,,,Runway incursion types
+run-combined-20261109T200052265,B27,,definition,IND-19,,,,Vehicle or pedestrian deviation
+run-combined-20261109T200052265,B27,,report,SAMPLE-007,,,,"A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-204,,,,"Taxiing on taxiway Delta at dusk, the flight crew crossed the hold-short line for Runway 22 without a clearance."
+run-combined-20261109T200052265,B27,,report,SAMPLE-006,,,,"Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll."
+run-combined-20261109T200052265,B27,,report,SYNB-205,,,,"Taxiing on taxiway Charlie at night, the crew crossed the hold-short line for Runway 22 without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-206,,,,"Taxiing on taxiway Kilo at night, the flight crew crossed the hold-short line for Runway 18R without a clearance."
+run-combined-20261109T200052265,B27,,report,SAMPLE-009,,,,"The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-210,,,,"Taxiing on taxiway Charlie at night, the crew crossed the hold-short line for Runway 34L without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-203,,,,"Taxiing on twy Echo late in the evening, we crossed the hold-short line for Rwy 22 without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-209,,,,"Taxiing on taxiway Charlie late in the evening, the flight crew crossed the hold-short line for Runway 04R without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-207,,,,"Taxiing on taxiway Charlie in daylight, the captain and first officer crossed the hold-short line for Runway 22 without a clearance."
+run-combined-20261109T200052265,B27,,report,SYNB-208,,,,"Taxiing on taxiway Alpha shortly after sunrise, we crossed the hold-short line for Runway 16 without a clearance."
+run-combined-20261109T200052265,B27,,criterion,include|parent|RI,,,,The occurrence meets the CICTT RI (Runway Incursion) definition.
+run-combined-20261109T200052265,B27,,criterion,include|candidate|B27,,,,Core definition: The flight crew taxis past a runway hold-short line without a clearance to enter or cross the runway (pilot deviation).
+run-combined-20261109T200052265,B27,,criterion,include|definition|IND-40,,,,"Matches 'Pilot deviation (runway incursion)' (FAA Runway Safety programme – Pilot deviation): A runway incursion caused by a pilot, such as crossing a hold-short line or entering a runway without an ATC clearance."
+run-combined-20261109T200052265,B27,,criterion,include|definition|IND-02,,,,"Matches 'Runway incursion types' (FAA Runway Safety programme): Runway incursions are classified by cause as pilot deviations, operational incidents (controller actions) or vehicle and pedestrian deviations, and by severity from A to D."
+run-combined-20261109T200052265,B27,,criterion,include|definition|IND-19,,,,"Matches 'Vehicle or pedestrian deviation' (FAA Runway Safety programme): A runway incursion caused by a ground vehicle or a person, such as a driver or pedestrian entering a runway without ATC authorization."
+run-combined-20261109T200052265,B27,,criterion,include|report|SAMPLE-007,,,,Narrative describes 'clearance' (11 of 11 supporting reports).
+run-combined-20261109T200052265,B27,,criterion,include|report|SYNB-204,,,,Narrative describes 'crossed' (10 of 11 supporting reports).
+run-combined-20261109T200052265,B27,,criterion,include|report|SYNB-204,,,,Narrative describes 'axiing' (9 of 11 supporting reports).
+run-combined-20261109T200052265,B27,,criterion,exclude|report|SAMPLE-008,,,,Belongs to sibling B01 'Vehicle or pedestrian on the runway without clearance' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,B27,,criterion,boundary|sibling|B02,,,,Distinguish from sibling B02 'Landing on a taxiway or the wrong runway at night' under the same parent.
+run-combined-20261109T200052265,B27,,criterion,exclude|definition|IND-06,,,,"Not 'Runway condition code (RWYCC)' — that definition is crosswalked to RE, not RI."
+run-combined-20261109T200052265,B27,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not RI."
+run-combined-20261109T200052265,B27,,criterion,exclude|definition|IND-37,,,,"Not 'Undershoot' — that definition is crosswalked to USOS, not RI."
+run-combined-20261109T200052265,B27,,criterion,exclude|parent|USOS,,,,"Events better described by CICTT USOS (Undershoot/Overshoot) (runner-up parent, margin 0.77)."
+run-combined-20261109T200052265,B28,,parent,NAV,,,,status not_grounded
+run-combined-20261109T200052265,B28,,definition,IND-41,,,,Lateral navigation error
+run-combined-20261109T200052265,B28,,report,SYNB-211,,,,After departure the aircraft turned toward the wrong waypoint because a similar-named waypoint was selected.
+run-combined-20261109T200052265,B28,,report,SYNB-212,,,,After departure the aircraft turned toward the wrong waypoint because an old route was loaded.
+run-combined-20261109T200052265,B28,,criterion,include|parent|NAV,,,,The occurrence meets the CICTT NAV (Navigation Error) definition.
+run-combined-20261109T200052265,B28,,criterion,include|candidate|B28,,,,"Core definition: The flight management system is loaded with the wrong route, waypoint or departure, and the aircraft deviates from its cleared route."
+run-combined-20261109T200052265,B28,,criterion,include|definition|IND-41,,,,"Matches 'Lateral navigation error' (SKYbrary – Lateral Navigation Error): The aircraft leaves its cleared route because of a wrong route, waypoint or procedure loaded in the flight management system."
+run-combined-20261109T200052265,B28,,criterion,boundary|sibling|B12,,,,Distinguish from sibling B12 'GNSS interference or spoofing' under the same parent.
+run-combined-20261109T200052265,B28,,criterion,exclude|report|SYNB-213,,,,"Coded OTHR (Other) rather than NAV: similar wording, different occurrence category."
+run-combined-20261109T200052265,B28,,criterion,exclude|definition|IND-08,,,,"Not 'Loss of control in-flight' — that definition is crosswalked to LOC-I, not NAV."
+run-combined-20261109T200052265,B28,,criterion,exclude|definition|IND-03,,,,"Not 'Wrong-surface event' — that definition is crosswalked to RI, not NAV."
+run-combined-20261109T200052265,B28,,criterion,exclude|definition|IND-29,,,,"Not 'Clean aircraft concept' — that definition is crosswalked to ICE, not NAV."
+run-combined-20261109T200052265,B28,,criterion,exclude|parent|LOC-I,,,,"Events better described by CICTT LOC-I (Loss of Control – Inflight) (runner-up parent, margin 0.55)."
+run-combined-20261109T200052265,C1,,candidate,B02,,,,merged into B02 (keep_separate to undo)
+run-combined-20261109T200052265,C2,,candidate,B27,,,,merged into B27 (keep_separate to undo)
+run-combined-20261109T200052265,C3,,candidate,B04,,,,merged into B04 (keep_separate to undo)
+run-combined-20261109T200052265,C4,,candidate,B26,,,,merged into B26 (keep_separate to undo)
+run-combined-20261109T200052265,C5,,candidate,B08,,,,merged into B08 (keep_separate to undo)
+run-combined-20261109T200052265,C6,,parent,CABIN,,,,status needs_review
+run-combined-20261109T200052265,C6,,definition,IND-14,,,,Turbulence-related injuries
+run-combined-20261109T200052265,C6,,report,SAMPLE-025,,,,"Moderate to severe clear-air turbulence over the mountains caught the cabin with carts not secured, and a flight attendant was struck by a cart."
+run-combined-20261109T200052265,C6,,report,SAMPLE-023,,,,The aircraft encountered severe clear-air turbulence at FL350 with no weather shown on radar.
+run-combined-20261109T200052265,C6,,report,SAMPLE-026,,,,"Only light chop was expected, but the aircraft met sudden severe turbulence in clear air."
+run-combined-20261109T200052265,C6,,report,SAMPLE-024,,,,Unforecast turbulence near the jet stream occurred just after the seat belt sign was turned off.
+run-combined-20261109T200052265,C6,,report,SYNB-243,,,,Moderate turbulence at FL310 spilled drinks in the cabin.
+run-combined-20261109T200052265,C6,,report,SYNB-223,,,,Moderate turbulence at FL240 spilled drinks in the cabin.
+run-combined-20261109T200052265,C6,,report,SYNB-263,,,,Moderate turbulence at FL180 spilled drinks in the cabin.
+run-combined-20261109T200052265,C6,,report,SYNB-129,,,,Cabin crew cooled the device with water.
+run-combined-20261109T200052265,C6,,criterion,include|parent|CABIN,,,,The occurrence meets the CICTT CABIN (Cabin Safety Events) definition.
+run-combined-20261109T200052265,C6,,criterion,include|candidate|C6,,,,"Core definition: An unexpected encounter with turbulence in clear air injures passengers or cabin crew who are standing, unbelted or near unsecured carts."
+run-combined-20261109T200052265,C6,,criterion,include|definition|IND-14,,,,"Matches 'Turbulence-related injuries' (FAA Advisory Circular 120-88A – Preventing Injuries Caused by Turbulence): Passengers and flight attendants are injured in turbulence mainly when standing or not wearing seat belts, and by unsecured carts and galley equipment."
+run-combined-20261109T200052265,C6,,criterion,include|report|SAMPLE-025,,,,Narrative describes 'cabin' (4 of 8 supporting reports).
+run-combined-20261109T200052265,C6,,criterion,include|report|SAMPLE-025,,,,Narrative describes 'oderate' (4 of 8 supporting reports).
+run-combined-20261109T200052265,C6,,criterion,exclude|report|SYNB-164,,,,Belongs to sibling B21 'Disruptive or unruly passenger' when it matches that bucket better (4 report(s) assigned there).
+run-combined-20261109T200052265,C6,,criterion,exclude|report|SAMPLE-027,,,,"Coded TURB (Turbulence Encounter) rather than CABIN: similar wording, different occurrence category."
+run-combined-20261109T200052265,C6,,criterion,exclude|definition|IND-13,,,,"Not 'Clear-air turbulence (CAT)' — that definition is crosswalked to TURB, not CABIN."
+run-combined-20261109T200052265,C6,,criterion,exclude|parent|TURB,,,,"Events better described by CICTT TURB (Turbulence Encounter) (runner-up parent, margin 0.12)."
+run-combined-20261109T200052265,C7,,candidate,B15,,,,merged into B15 (keep_separate to undo)
+run-combined-20261109T200052265,C8,,parent,ICE,,,,status grounded
+run-combined-20261109T200052265,C8,,definition,IND-17,,,,Holdover time
+run-combined-20261109T200052265,C8,,definition,IND-29,,,,Clean aircraft concept
+run-combined-20261109T200052265,C8,,report,SAMPLE-032,,,,"The takeoff was delayed beyond the de-icing fluid holdover time, and the crew returned to the pad for a second de-icing."
+run-combined-20261109T200052265,C8,,report,SYNB-230,,,,The holdover time was checked again before departure.
+run-combined-20261109T200052265,C8,,report,SYNB-250,,,,The holdover time was checked again before departure.
+run-combined-20261109T200052265,C8,,report,SYNB-270,,,,The holdover time was checked again before departure.
+run-combined-20261109T200052265,C8,,criterion,include|parent|ICE,,,,The occurrence meets the CICTT ICE (Icing) definition.
+run-combined-20261109T200052265,C8,,criterion,include|candidate|C8,,,,Core definition: The aircraft is delayed after ground de-icing and the fluid holdover time is exceeded before takeoff.
+run-combined-20261109T200052265,C8,,criterion,include|definition|IND-17,,,,"Matches 'Holdover time' (FAA holdover time guidelines (ground de-icing and anti-icing)): The estimated time a de-icing or anti-icing fluid protects aircraft surfaces from frost or ice; if it is exceeded before takeoff, the aircraft must be checked or de-iced again."
+run-combined-20261109T200052265,C8,,criterion,include|definition|IND-29,,,,"Matches 'Clean aircraft concept' (FAA Advisory Circular 120-60B – Ground Deicing and Anti-icing Program): No takeoff may be made with frost, ice or snow adhering to wings or control surfaces; contamination must be removed before departure."
+run-combined-20261109T200052265,C8,,criterion,include|report|SAMPLE-032,,,,Narrative describes 'holdover' (4 of 4 supporting reports).
+run-combined-20261109T200052265,C8,,criterion,include|report|SAMPLE-032,,,,Narrative describes 'time' (4 of 4 supporting reports).
+run-combined-20261109T200052265,C8,,criterion,include|report|SYNB-230,,,,Narrative describes 'again' (3 of 4 supporting reports).
+run-combined-20261109T200052265,C8,,criterion,exclude|report|SYNB-109,,,,Belongs to sibling B14 'Takeoff with frost or ice not removed' when it matches that bucket better (1 report(s) assigned there).
+run-combined-20261109T200052265,C8,,criterion,boundary|sibling|B25,,,,Distinguish from sibling B25 'Airframe icing in flight' under the same parent.
+run-combined-20261109T200052265,C8,,criterion,exclude|report|SAMPLE-002,,,,"Coded RI (Runway Incursion) rather than ICE: similar wording, different occurrence category."
+run-combined-20261109T200052265,C8,,criterion,exclude|definition|IND-04,,,,"Not 'Anomaly: Ground Incursion – Runway or Taxiway' — that definition is crosswalked to RI, not ICE."
+run-combined-20261109T200052265,C8,,criterion,exclude|definition|IND-07,,,,"Not 'Anomaly: Ground Excursion – Runway' — that definition is crosswalked to RE, not ICE."
+run-combined-20261109T200052265,C8,,criterion,exclude|definition|IND-01,,,,"Not 'Runway incursion' — that definition is crosswalked to RI, not ICE."
+run-combined-20261109T200052265,C8,,criterion,exclude|parent|RI,,,,"Events better described by CICTT RI (Runway Incursion) (runner-up parent, margin 0.68)."
+run-combined-20261109T200052265,C9,,parent,ARC,,,,status needs_review
+run-combined-20261109T200052265,C9,,definition,IND-18,,,,"Hard landing, tail strike"
+run-combined-20261109T200052265,C9,,definition,IND-35,,,,Tail strike
+run-combined-20261109T200052265,C9,,report,SAMPLE-034,,,,A late flare in gusty winds led to a hard landing and a tail strike.
+run-combined-20261109T200052265,C9,,report,SAMPLE-036,,,,A bounced landing was followed by a hard second touchdown that damaged the nose landing gear.
+run-combined-20261109T200052265,C9,,report,SYNB-170,,,,During rotation on Runway 16 the tail of the CRJ900 struck the runway.
+run-combined-20261109T200052265,C9,,report,SYNB-240,,,,A hard landing inspection was carried out.
+run-combined-20261109T200052265,C9,,report,SYNB-260,,,,A hard landing inspection was carried out.
+run-combined-20261109T200052265,C9,,report,SYNB-220,,,,A hard landing inspection was carried out.
+run-combined-20261109T200052265,C9,,report,SYNB-169,,,,During rotation on Runway 09L the tail of the B777-300ER struck the runway.
+run-combined-20261109T200052265,C9,,criterion,include|parent|ARC,,,,The occurrence meets the CICTT ARC (Abnormal Runway Contact) definition.
+run-combined-20261109T200052265,C9,,criterion,include|candidate|C9,,,,"Core definition: A hard or bounced touchdown, or contact of the tail with the runway during rotation or flare."
+run-combined-20261109T200052265,C9,,criterion,include|definition|IND-18,,,,"Matches 'Hard landing, tail strike' (SKYbrary – Hard Landing and Tail Strike): A touchdown with a vertical load above limits, a bounced landing, or contact of the tail with the runway during takeoff rotation or landing flare."
+run-combined-20261109T200052265,C9,,criterion,include|definition|IND-35,,,,"Matches 'Tail strike' (SKYbrary – Tailstrike): The aft fuselage contacts the runway during takeoff rotation or landing, often after early rotation, wrong takeoff speeds or excessive pitch."
+run-combined-20261109T200052265,C9,,criterion,include|report|SAMPLE-034,,,,Narrative describes 'hard' (5 of 7 supporting reports).
+run-combined-20261109T200052265,C9,,criterion,include|report|SAMPLE-034,,,,Narrative describes 'landing' (5 of 7 supporting reports).
+run-combined-20261109T200052265,C9,,criterion,include|report|SYNB-240,,,,Narrative describes 'carried' (3 of 7 supporting reports).
+run-combined-20261109T200052265,C9,,criterion,exclude|report|SAMPLE-035,,,,Belongs to sibling B22 'Tail strike on takeoff' when it matches that bucket better (5 report(s) assigned there).
+run-combined-20261109T200052265,C9,,criterion,exclude|definition|IND-39,,,,"Not 'Damaging bird strike' — that definition is crosswalked to BIRD, not ARC."
+run-combined-20261109T200052265,C9,,criterion,exclude|definition|IND-25,,,,"Not 'Landing gear malfunction' — that definition is crosswalked to SCF-NP, not ARC."
+run-combined-20261109T200052265,C9,,criterion,exclude|definition|IND-06,,,,"Not 'Runway condition code (RWYCC)' — that definition is crosswalked to RE, not ARC."
+run-combined-20261109T200052265,C9,,criterion,exclude|parent|USOS,,,,"Events better described by CICTT USOS (Undershoot/Overshoot) (runner-up parent, margin 0.87)."

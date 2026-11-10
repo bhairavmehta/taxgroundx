@@ -1,0 +1,3692 @@
+{
+ "summary": {
+  "run_id": "run-trial-20261109T200101139",
+  "dataset": "trial",
+  "taxonomy_version": "trial-draft-19dc90759f",
+  "output_hash": "19dc90759f18646b70862d9ed1249b9371b9b490ee762ef9a39b14f0132a464f",
+  "input_hash": "2b1ef7d8cc2ce7108f87bf42f4913de5703d3bb25a75f3019f09a17b7365f164",
+  "settings_hash": "69324c39d7f5",
+  "code_version": "tg-c3bae55ee8",
+  "selector": "llm-file",
+  "embedder": "local-lsa-64",
+  "prompt_version": "constrained_grounding@e2cdc128",
+  "schema_version": "2.0",
+  "base_release": null,
+  "previous_run": null,
+  "sme_decisions_read": 0,
+  "status": {
+   "grounded": 5,
+   "needs_review": 3,
+   "not_grounded": 1,
+   "merged": 0,
+   "abstain": 0
+  },
+  "metrics": {
+   "answer_key": true,
+   "buckets": 9,
+   "parent_correct": "9/9",
+   "parent_rate": 1.0,
+   "precision": 1.0,
+   "recall": 0.967,
+   "merge_precision": 1.0,
+   "merge_recall": 0.967,
+   "merges_found": 0,
+   "merges_correct": 0,
+   "twin_pairs_in_key": 0
+  },
+  "guardrails_blocked": "11/11",
+  "revisions": 0,
+  "validation_issues": 0,
+  "routing": {
+   "narrative": 36
+  },
+  "merges": {}
+ },
+ "settings": {
+  "lexical": "fts",
+  "retrieval": "linear",
+  "context_header": false,
+  "merged_cap_scale": false,
+  "cutoff_scope": "source",
+  "normalise": false,
+  "escalate": true,
+  "vector_weight": 0.6,
+  "pool_size": 10,
+  "relative_cutoff": 0.4,
+  "min_score": 0.15,
+  "parent_def_weight": 0.3,
+  "parent_margin": 0.1,
+  "max_definitions": 3,
+  "max_reports": 12,
+  "min_support": 3,
+  "min_parent_agreement": 0.6,
+  "merge_threshold": 0.55,
+  "agent_max_calls": 5,
+  "agent_pool": 30,
+  "agent_relative": 0.3,
+  "test_fit_margin": 0.05,
+  "test_min_score": 0.25
+ },
+ "results": [
+  {
+   "candidate_id": "C1",
+   "name": "Landing or takeoff on an unintended surface",
+   "definition": "The aircraft lands, lines up to land, or starts a takeoff on a surface other than the assigned runway: a taxiway, a closed or wrong runway, or the wrong airport.",
+   "batch": "C",
+   "proposed_parent": "RI",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C1",
+    "parent_code": "RI",
+    "definition_ids": [
+     "IND-03",
+     "IND-04"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-001",
+      "evidence": "During a night visual approach to Runway 27R the crew lined up on the parallel taxiway, mistaking the taxiway edge lights for runway lights."
+     },
+     {
+      "report_key": "SAMPLE-002",
+      "evidence": "Cleared for takeoff on Runway 4L, the crew taxied onto Runway 4R, which was closed for construction."
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "evidence": "After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R."
+     },
+     {
+      "report_key": "SAMPLE-004",
+      "evidence": "In low visibility the crew began a takeoff from taxiway Bravo, believing it was the runway."
+     },
+     {
+      "report_key": "SAMPLE-005",
+      "evidence": "The crew landed at a nearby general aviation airport with a similar runway alignment instead of the destination airport."
+     }
+    ],
+    "concerns": ""
+   },
+   "status": "grounded",
+   "outcome": "release_candidate",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = RI",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "2 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "5 valid events, 5 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "75% of the closest reports are coded RI",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.36 over RE",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed RI, grounded RI",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "18 entries: 3 grounded inclusions, 6 exclusions, 5 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT RI (Runway Incursion) definition.",
+     "cite_type": "parent",
+     "cite_id": "RI",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|RI"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: The aircraft lands, lines up to land, or starts a takeoff on a surface other than the assigned runway: a taxiway, a closed or wrong runway, or the wrong airport.",
+     "cite_type": "candidate",
+     "cite_id": "C1",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C1"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Wrong-surface event' (FAA Runway Safety programme): A landing, attempted landing, line-up or takeoff on a surface other than the one assigned: a wrong runway, a taxiway, a closed runway or the wrong airport.",
+     "cite_type": "definition",
+     "cite_id": "IND-03",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-03"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Anomaly: Ground Incursion \u2013 Runway or Taxiway' (NASA ASRS coding taxonomy): An aircraft, vehicle or person entering a runway or taxiway without authorization, or an aircraft using a taxiway or the wrong runway for landing or takeoff.",
+     "cite_type": "definition",
+     "cite_id": "IND-04",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-04"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'approach' (2 of 5 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-001",
+     "quote": "During a night visual approach to Runway 27R the crew lined up on the parallel taxiway, mistaking the taxiway edge lights for runway lights.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-001"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'instead' (2 of 5 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-003",
+     "quote": "After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-003"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'takeoff' (2 of 5 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-002",
+     "quote": "Cleared for takeoff on Runway 4L, the crew taxied onto Runway 4R, which was closed for construction.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "include|report|SAMPLE-002"
+    },
+    {
+     "kind": "exclude",
+     "text": "Belongs to sibling C2 'Runway entry or crossing without clearance' when it matches that bucket better (2 report(s) assigned there).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-006",
+     "quote": "Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll.",
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|report|SAMPLE-006"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded RE (Runway Excursion) rather than RI: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "The aircraft landed long on a wet runway with a tailwind.",
+     "origin": "derived",
+     "seq": 8,
+     "key": "exclude|report|SAMPLE-010"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Excursion \u2013 Runway' \u2014 that definition is crosswalked to RE, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-07",
+     "quote": null,
+     "origin": "derived",
+     "seq": 9,
+     "key": "exclude|definition|IND-07"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Runway excursion (veer-off and overrun)' \u2014 that definition is crosswalked to RE, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-05",
+     "quote": null,
+     "origin": "derived",
+     "seq": 10,
+     "key": "exclude|definition|IND-05"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Hard landing, tail strike' \u2014 that definition is crosswalked to ARC, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-18",
+     "quote": null,
+     "origin": "derived",
+     "seq": 11,
+     "key": "exclude|definition|IND-18"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT RE (Runway Excursion) (runner-up parent, margin 0.36).",
+     "cite_type": "parent",
+     "cite_id": "RE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 12,
+     "key": "exclude|parent|RE"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-001",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-001",
+     "quote": "During a night visual approach to Runway 27R the crew lined up on the parallel taxiway, mistaking the taxiway edge lights for runway lights.",
+     "origin": "derived",
+     "seq": 13,
+     "key": "example_pos|report|SAMPLE-001"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-002",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-002",
+     "quote": "Cleared for takeoff on Runway 4L, the crew taxied onto Runway 4R, which was closed for construction.",
+     "origin": "derived",
+     "seq": 14,
+     "key": "example_pos|report|SAMPLE-002"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-003",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-003",
+     "quote": "After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R.",
+     "origin": "derived",
+     "seq": 15,
+     "key": "example_pos|report|SAMPLE-003"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-004",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-004",
+     "quote": "In low visibility the crew began a takeoff from taxiway Bravo, believing it was the runway.",
+     "origin": "derived",
+     "seq": 16,
+     "key": "example_pos|report|SAMPLE-004"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-005",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-005",
+     "quote": "The crew landed at a nearby general aviation airport with a similar runway alignment instead of the destination airport.",
+     "origin": "derived",
+     "seq": 17,
+     "key": "example_pos|report|SAMPLE-005"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Landing or takeoff on an unintended surface",
+    "proposed_parent": "RI",
+    "co_codes": [],
+    "parent_scores": {
+     "RI": 0.5663,
+     "RE": 0.2018,
+     "NAV": 0.1137,
+     "ICE": 0.0571
+    },
+    "runner_up": "RE",
+    "margin": 0.3645,
+    "parent_agreement": 0.75,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-03",
+      "source": "FAA Runway Safety programme",
+      "term": "Wrong-surface event",
+      "body": "A landing, attempted landing, line-up or takeoff on a surface other than the one assigned: a wrong runway, a taxiway, a closed runway or the wrong airport.",
+      "parents": [
+       "RI"
+      ],
+      "cos": 0.9823,
+      "score": 0.9894
+     },
+     {
+      "def_id": "IND-04",
+      "source": "NASA ASRS coding taxonomy",
+      "term": "Anomaly: Ground Incursion \u2013 Runway or Taxiway",
+      "body": "An aircraft, vehicle or person entering a runway or taxiway without authorization, or an aircraft using a taxiway or the wrong runway for landing or takeoff.",
+      "parents": [
+       "RI"
+      ],
+      "cos": 0.2718,
+      "score": 0.4564
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-001",
+      "evidence": "During a night visual approach to Runway 27R the crew lined up on the parallel taxiway, mistaking the taxiway edge lights for runway lights.",
+      "score": 0.4395,
+      "event_id": "SAMPLE-001"
+     },
+     {
+      "report_key": "SAMPLE-002",
+      "evidence": "Cleared for takeoff on Runway 4L, the crew taxied onto Runway 4R, which was closed for construction.",
+      "score": 0.3992,
+      "event_id": "SAMPLE-002"
+     },
+     {
+      "report_key": "SAMPLE-005",
+      "evidence": "The crew landed at a nearby general aviation airport with a similar runway alignment instead of the destination airport.",
+      "score": 0.3857,
+      "event_id": "SAMPLE-005"
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "evidence": "After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R.",
+      "score": 0.3768,
+      "event_id": "SAMPLE-003"
+     },
+     {
+      "report_key": "SAMPLE-004",
+      "evidence": "In low visibility the crew began a takeoff from taxiway Bravo, believing it was the runway.",
+      "score": 0.3525,
+      "event_id": "SAMPLE-004"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-07",
+      "term": "Anomaly: Ground Excursion \u2013 Runway",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.2512
+     },
+     {
+      "def_id": "IND-05",
+      "term": "Runway excursion (veer-off and overrun)",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.231
+     },
+     {
+      "def_id": "IND-18",
+      "term": "Hard landing, tail strike",
+      "parents": [
+       "ARC"
+      ],
+      "score": 0.1729
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-001",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.4395
+     },
+     {
+      "report_key": "SAMPLE-002",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.3992
+     },
+     {
+      "report_key": "SAMPLE-005",
+      "l1": [
+       "RI",
+       "NAV"
+      ],
+      "score": 0.3857
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.3768
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "l1": [
+       "RI",
+       "ATM"
+      ],
+      "score": 0.3745
+     },
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.3728
+     },
+     {
+      "report_key": "SAMPLE-004",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.3525
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2766
+     },
+     {
+      "report_key": "SAMPLE-012",
+      "l1": [
+       "RE",
+       "ICE"
+      ],
+      "score": 0.2703
+     },
+     {
+      "report_key": "SAMPLE-014",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.2253
+     }
+    ],
+    "pool_best": 0.4395,
+    "sme_applied": [],
+    "moved_to_sibling": [
+     {
+      "report_key": "SAMPLE-006",
+      "to": "C2",
+      "evidence": "Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll."
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "to": "C2",
+      "evidence": "A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance."
+     }
+    ]
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 5,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C2",
+   "name": "Runway entry or crossing without clearance",
+   "definition": "An aircraft or vehicle crosses a hold-short line, stop bar or holding point and enters an active runway without a clearance.",
+   "batch": "C",
+   "proposed_parent": "RI",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C2",
+    "parent_code": "RI",
+    "definition_ids": [
+     "IND-04",
+     "IND-01",
+     "IND-02"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-009",
+      "evidence": "The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance."
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "evidence": "A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance."
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "evidence": "Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll."
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "evidence": "A snow removal vehicle entered the active runway without a clearance during clearing operations."
+     }
+    ],
+    "concerns": ""
+   },
+   "status": "grounded",
+   "outcome": "release_candidate",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = RI",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "3 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "4 valid events, 4 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded RI",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.75 over RE",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed RI, grounded RI",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "17 entries: 4 grounded inclusions, 5 exclusions, 4 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT RI (Runway Incursion) definition.",
+     "cite_type": "parent",
+     "cite_id": "RI",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|RI"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: An aircraft or vehicle crosses a hold-short line, stop bar or holding point and enters an active runway without a clearance.",
+     "cite_type": "candidate",
+     "cite_id": "C2",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C2"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Anomaly: Ground Incursion \u2013 Runway or Taxiway' (NASA ASRS coding taxonomy): An aircraft, vehicle or person entering a runway or taxiway without authorization, or an aircraft using a taxiway or the wrong runway for landing or takeoff.",
+     "cite_type": "definition",
+     "cite_id": "IND-04",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-04"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Runway incursion' (ICAO Doc 9870, Manual on the Prevention of Runway Incursions): Any occurrence at an aerodrome involving the incorrect presence of an aircraft, vehicle or person on the protected area of a surface designated for the landing and takeoff of aircraft.",
+     "cite_type": "definition",
+     "cite_id": "IND-01",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-01"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Runway incursion types' (FAA Runway Safety programme): Runway incursions are classified by cause as pilot deviations, operational incidents (controller actions) or vehicle and pedestrian deviations, and by severity from A to D.",
+     "cite_type": "definition",
+     "cite_id": "IND-02",
+     "quote": null,
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|definition|IND-02"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'clearance' (4 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-009",
+     "quote": "The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-009"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'runway' (3 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-009",
+     "quote": "The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "include|report|SAMPLE-009"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'active' (2 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-007",
+     "quote": "A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance.",
+     "origin": "derived",
+     "seq": 7,
+     "key": "include|report|SAMPLE-007"
+    },
+    {
+     "kind": "boundary",
+     "text": "Distinguish from sibling C1 'Landing or takeoff on an unintended surface' under the same parent.",
+     "cite_type": "sibling",
+     "cite_id": "C1",
+     "quote": null,
+     "origin": "derived",
+     "seq": 8,
+     "key": "boundary|sibling|C1"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Excursion \u2013 Runway' \u2014 that definition is crosswalked to RE, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-07",
+     "quote": null,
+     "origin": "derived",
+     "seq": 9,
+     "key": "exclude|definition|IND-07"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Runway excursion (veer-off and overrun)' \u2014 that definition is crosswalked to RE, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-05",
+     "quote": null,
+     "origin": "derived",
+     "seq": 10,
+     "key": "exclude|definition|IND-05"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Runway condition code (RWYCC)' \u2014 that definition is crosswalked to RE, not RI.",
+     "cite_type": "definition",
+     "cite_id": "IND-06",
+     "quote": null,
+     "origin": "derived",
+     "seq": 11,
+     "key": "exclude|definition|IND-06"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT RE (Runway Excursion) (runner-up parent, margin 0.75).",
+     "cite_type": "parent",
+     "cite_id": "RE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 12,
+     "key": "exclude|parent|RE"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-009",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-009",
+     "quote": "The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance.",
+     "origin": "derived",
+     "seq": 13,
+     "key": "example_pos|report|SAMPLE-009"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-007",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-007",
+     "quote": "A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance.",
+     "origin": "derived",
+     "seq": 14,
+     "key": "example_pos|report|SAMPLE-007"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-006",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-006",
+     "quote": "Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll.",
+     "origin": "derived",
+     "seq": 15,
+     "key": "example_pos|report|SAMPLE-006"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-008",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-008",
+     "quote": "A snow removal vehicle entered the active runway without a clearance during clearing operations.",
+     "origin": "derived",
+     "seq": 16,
+     "key": "example_pos|report|SAMPLE-008"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Runway entry or crossing without clearance",
+    "proposed_parent": "RI",
+    "co_codes": [],
+    "parent_scores": {
+     "RI": 0.7664,
+     "RE": 0.0157,
+     "ARC": 0.0053,
+     "SCF-NP": 0.0037
+    },
+    "runner_up": "RE",
+    "margin": 0.7507,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-04",
+      "source": "NASA ASRS coding taxonomy",
+      "term": "Anomaly: Ground Incursion \u2013 Runway or Taxiway",
+      "body": "An aircraft, vehicle or person entering a runway or taxiway without authorization, or an aircraft using a taxiway or the wrong runway for landing or takeoff.",
+      "parents": [
+       "RI"
+      ],
+      "cos": 0.1444,
+      "score": 0.4866
+     },
+     {
+      "def_id": "IND-01",
+      "source": "ICAO Doc 9870, Manual on the Prevention of Runway Incursions",
+      "term": "Runway incursion",
+      "body": "Any occurrence at an aerodrome involving the incorrect presence of an aircraft, vehicle or person on the protected area of a surface designated for the landing and takeoff of aircraft.",
+      "parents": [
+       "RI"
+      ],
+      "cos": 0.0872,
+      "score": 0.2809
+     },
+     {
+      "def_id": "IND-03",
+      "source": "FAA Runway Safety programme",
+      "term": "Wrong-surface event",
+      "body": "A landing, attempted landing, line-up or takeoff on a surface other than the one assigned: a wrong runway, a taxiway, a closed runway or the wrong airport.",
+      "parents": [
+       "RI"
+      ],
+      "cos": 0.0674,
+      "score": 0.2119
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-009",
+      "evidence": "The stop bar lights were on, but the crew continued past the holding point onto the runway after mistaking a frequency change for a crossing clearance.",
+      "score": 0.7023,
+      "event_id": "SAMPLE-009"
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "evidence": "A readback error led the crew to hear cross Runway 9 instead of hold short of Runway 9, and the aircraft entered the active runway without a clearance.",
+      "score": 0.6362,
+      "event_id": "SAMPLE-007"
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "evidence": "Taxiing to Runway 16, the crew crossed the hold-short line for Runway 22 without a clearance while another aircraft was on its takeoff roll.",
+      "score": 0.6029,
+      "event_id": "SAMPLE-006"
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "evidence": "A snow removal vehicle entered the active runway without a clearance during clearing operations.",
+      "score": 0.3727,
+      "event_id": "SAMPLE-008"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-07",
+      "term": "Anomaly: Ground Excursion \u2013 Runway",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.1898
+     },
+     {
+      "def_id": "IND-05",
+      "term": "Runway excursion (veer-off and overrun)",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.1879
+     },
+     {
+      "def_id": "IND-06",
+      "term": "Runway condition code (RWYCC)",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.1873
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-009",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.7023
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.6362
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "l1": [
+       "RI",
+       "ATM"
+      ],
+      "score": 0.6029
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.3727
+     },
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.2535
+     },
+     {
+      "report_key": "SAMPLE-011",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.1859
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1739
+     },
+     {
+      "report_key": "SAMPLE-012",
+      "l1": [
+       "RE",
+       "ICE"
+      ],
+      "score": 0.1614
+     },
+     {
+      "report_key": "SAMPLE-001",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1232
+     },
+     {
+      "report_key": "SAMPLE-018",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.1177
+     }
+    ],
+    "pool_best": 0.7023,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 4,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C3",
+   "name": "Overrun after a long or fast landing on a wet or contaminated runway",
+   "definition": "The aircraft touches down long or fast on a wet or contaminated runway, braking is poor, and it overruns the runway end.",
+   "batch": "C",
+   "proposed_parent": "RE",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C3",
+    "parent_code": "RE",
+    "definition_ids": [
+     "IND-07",
+     "IND-06"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-010",
+      "evidence": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area."
+     },
+     {
+      "report_key": "SAMPLE-013",
+      "evidence": "With one thrust reverser unavailable, a long landing on a contaminated runway ended in a low-speed overrun past the runway end."
+     },
+     {
+      "report_key": "SAMPLE-011",
+      "evidence": "After an unstabilized, fast approach the aircraft touched down 2,500 feet beyond the threshold on a runway reported with standing water and came to a stop in the overrun area."
+     }
+    ],
+    "concerns": "SAMPLE-012 overran on a contaminated runway, but the report does not say the landing was long or fast. SME to decide whether the category should cover all contaminated-runway overruns."
+   },
+   "status": "grounded",
+   "outcome": "release_candidate",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = RE",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "2 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "3 valid events, 3 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded RE",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.48 over SCF-PP",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed RE, grounded RE",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "14 entries: 3 grounded inclusions, 4 exclusions, 3 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT RE (Runway Excursion) definition.",
+     "cite_type": "parent",
+     "cite_id": "RE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|RE"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: The aircraft touches down long or fast on a wet or contaminated runway, braking is poor, and it overruns the runway end.",
+     "cite_type": "candidate",
+     "cite_id": "C3",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C3"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Anomaly: Ground Excursion \u2013 Runway' (NASA ASRS coding taxonomy): An aircraft departs the runway surface during the takeoff or landing roll, including overruns after a long or fast landing.",
+     "cite_type": "definition",
+     "cite_id": "IND-07",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-07"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Runway condition code (RWYCC)' (ICAO Global Reporting Format (GRF) for runway surface conditions): A runway condition code from 6 (dry) down to 0 reports braking performance on wet or contaminated runways (water, slush, snow, ice), so crews can recompute landing distance.",
+     "cite_type": "definition",
+     "cite_id": "IND-06",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-06"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'runway' (3 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-010"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'area' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-010"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'end' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "include|report|SAMPLE-010"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Incursion \u2013 Runway or Taxiway' \u2014 that definition is crosswalked to RI, not RE.",
+     "cite_type": "definition",
+     "cite_id": "IND-04",
+     "quote": null,
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|definition|IND-04"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Wrong-surface event' \u2014 that definition is crosswalked to RI, not RE.",
+     "cite_type": "definition",
+     "cite_id": "IND-03",
+     "quote": null,
+     "origin": "derived",
+     "seq": 8,
+     "key": "exclude|definition|IND-03"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Runway incursion' \u2014 that definition is crosswalked to RI, not RE.",
+     "cite_type": "definition",
+     "cite_id": "IND-01",
+     "quote": null,
+     "origin": "derived",
+     "seq": 9,
+     "key": "exclude|definition|IND-01"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT SCF-PP (System/Component Failure \u2013 Powerplant) (runner-up parent, margin 0.48).",
+     "cite_type": "parent",
+     "cite_id": "SCF-PP",
+     "quote": null,
+     "origin": "derived",
+     "seq": 10,
+     "key": "exclude|parent|SCF-PP"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-010",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+     "origin": "derived",
+     "seq": 11,
+     "key": "example_pos|report|SAMPLE-010"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-013",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-013",
+     "quote": "With one thrust reverser unavailable, a long landing on a contaminated runway ended in a low-speed overrun past the runway end.",
+     "origin": "derived",
+     "seq": 12,
+     "key": "example_pos|report|SAMPLE-013"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-011",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-011",
+     "quote": "After an unstabilized, fast approach the aircraft touched down 2,500 feet beyond the threshold on a runway reported with standing water and came to a stop in the overrun area.",
+     "origin": "derived",
+     "seq": 13,
+     "key": "example_pos|report|SAMPLE-011"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Overrun after a long or fast landing on a wet or contaminated runway",
+    "proposed_parent": "RE",
+    "co_codes": [],
+    "parent_scores": {
+     "RE": 0.7407,
+     "SCF-PP": 0.2585,
+     "RI": 0.0141,
+     "ARC": 0.0121
+    },
+    "runner_up": "SCF-PP",
+    "margin": 0.4822,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-07",
+      "source": "NASA ASRS coding taxonomy",
+      "term": "Anomaly: Ground Excursion \u2013 Runway",
+      "body": "An aircraft departs the runway surface during the takeoff or landing roll, including overruns after a long or fast landing.",
+      "parents": [
+       "RE"
+      ],
+      "cos": 0.5736,
+      "score": 0.7442
+     },
+     {
+      "def_id": "IND-06",
+      "source": "ICAO Global Reporting Format (GRF) for runway surface conditions",
+      "term": "Runway condition code (RWYCC)",
+      "body": "A runway condition code from 6 (dry) down to 0 reports braking performance on wet or contaminated runways (water, slush, snow, ice), so crews can recompute landing distance.",
+      "parents": [
+       "RE"
+      ],
+      "cos": 0.2984,
+      "score": 0.5291
+     },
+     {
+      "def_id": "IND-05",
+      "source": "SKYbrary \u2013 Runway Excursion",
+      "term": "Runway excursion (veer-off and overrun)",
+      "body": "An aircraft leaves the runway surface during takeoff or landing, either by veering off the side or by overrunning the end.",
+      "parents": [
+       "RE"
+      ],
+      "cos": 0.0019,
+      "score": 0.3511
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-010",
+      "evidence": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+      "score": 0.6091,
+      "event_id": "SAMPLE-010"
+     },
+     {
+      "report_key": "SAMPLE-013",
+      "evidence": "With one thrust reverser unavailable, a long landing on a contaminated runway ended in a low-speed overrun past the runway end.",
+      "score": 0.4978,
+      "event_id": "SAMPLE-013"
+     },
+     {
+      "report_key": "SAMPLE-011",
+      "evidence": "After an unstabilized, fast approach the aircraft touched down 2,500 feet beyond the threshold on a runway reported with standing water and came to a stop in the overrun area.",
+      "score": 0.2517,
+      "event_id": "SAMPLE-011"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-04",
+      "term": "Anomaly: Ground Incursion \u2013 Runway or Taxiway",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.2946
+     },
+     {
+      "def_id": "IND-03",
+      "term": "Wrong-surface event",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.2338
+     },
+     {
+      "def_id": "IND-01",
+      "term": "Runway incursion",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.2273
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.6091
+     },
+     {
+      "report_key": "SAMPLE-013",
+      "l1": [
+       "RE",
+       "SCF-PP"
+      ],
+      "score": 0.4978
+     },
+     {
+      "report_key": "SAMPLE-011",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.2517
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2006
+     },
+     {
+      "report_key": "SAMPLE-012",
+      "l1": [
+       "RE",
+       "ICE"
+      ],
+      "score": 0.1978
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1721
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "l1": [
+       "RI",
+       "ATM"
+      ],
+      "score": 0.1442
+     },
+     {
+      "report_key": "SAMPLE-014",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.1219
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1087
+     },
+     {
+      "report_key": "SAMPLE-036",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.1068
+     }
+    ],
+    "pool_best": 0.6091,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 3,
+    "fp": [],
+    "fn": [
+     "SAMPLE-012"
+    ]
+   }
+  },
+  {
+   "candidate_id": "C4",
+   "name": "Upset or stall after unreliable airspeed",
+   "definition": "Disagreeing or erroneous airspeed indications, for example from icing or pitot failure, lead to a stall warning, overspeed or upset in flight.",
+   "batch": "C",
+   "proposed_parent": "LOC-I",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C4",
+    "parent_code": "LOC-I",
+    "definition_ids": [
+     "IND-09",
+     "IND-08"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-015",
+      "evidence": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered."
+     },
+     {
+      "report_key": "SAMPLE-018",
+      "evidence": "The stick shaker activated and the aircraft descended 3,000 feet during the upset before control was regained."
+     },
+     {
+      "report_key": "SAMPLE-017",
+      "evidence": "The crew pitched down in response, reached an overspeed and lost significant altitude before recovering."
+     }
+    ],
+    "concerns": "SAMPLE-016 shows unreliable airspeed with no upset; it fits SCF-NP rather than this LOC-I category."
+   },
+   "status": "needs_review",
+   "outcome": "sme_review",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = LOC-I",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "2 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "3 valid events, 3 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "65% of the closest reports are coded LOC-I",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": false,
+     "detail": "margin 0.05 over ICE",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed LOC-I, grounded LOC-I",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "13 entries: 3 grounded inclusions, 4 exclusions, 3 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT LOC-I (Loss of Control \u2013 Inflight) definition.",
+     "cite_type": "parent",
+     "cite_id": "LOC-I",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|LOC-I"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: Disagreeing or erroneous airspeed indications, for example from icing or pitot failure, lead to a stall warning, overspeed or upset in flight.",
+     "cite_type": "candidate",
+     "cite_id": "C4",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C4"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Unreliable airspeed' (SKYbrary \u2013 Unreliable Airspeed): Erroneous or disagreeing airspeed indications, for example from pitot icing, ice crystals or a blocked pitot tube, which can lead to an upset if the crew follows the wrong indication.",
+     "cite_type": "definition",
+     "cite_id": "IND-09",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-09"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Loss of control in-flight' (IATA \u2013 Loss of Control In-flight (LOC-I)): A significant, unintended departure of the aircraft from controlled flight, such as a stall, spin or upset, often following a system malfunction or crew response to erroneous indications.",
+     "cite_type": "definition",
+     "cite_id": "IND-08",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-08"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'reached' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-015",
+     "quote": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-015"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'recovered' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-015",
+     "quote": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-015"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded SCF-NP (System/Component Failure \u2013 Non-Powerplant) rather than LOC-I: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-016",
+     "quote": "The crew used the unreliable airspeed checklist, flew pitch and power, and returned to the departure airport without further problems.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "exclude|report|SAMPLE-016"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded ICE (Icing) rather than LOC-I: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-032",
+     "quote": "The takeoff was delayed beyond the de-icing fluid holdover time, and the crew returned to the pad for a second de-icing.",
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|report|SAMPLE-032"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded BIRD (Bird) rather than LOC-I: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-030",
+     "quote": "There was no indication in flight.",
+     "origin": "derived",
+     "seq": 8,
+     "key": "exclude|report|SAMPLE-030"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT ICE (Icing) (runner-up parent, margin 0.05).",
+     "cite_type": "parent",
+     "cite_id": "ICE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 9,
+     "key": "exclude|parent|ICE"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-015",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-015",
+     "quote": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered.",
+     "origin": "derived",
+     "seq": 10,
+     "key": "example_pos|report|SAMPLE-015"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-018",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-018",
+     "quote": "The stick shaker activated and the aircraft descended 3,000 feet during the upset before control was regained.",
+     "origin": "derived",
+     "seq": 11,
+     "key": "example_pos|report|SAMPLE-018"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-017",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-017",
+     "quote": "The crew pitched down in response, reached an overspeed and lost significant altitude before recovering.",
+     "origin": "derived",
+     "seq": 12,
+     "key": "example_pos|report|SAMPLE-017"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Upset or stall after unreliable airspeed",
+    "proposed_parent": "LOC-I",
+    "co_codes": [],
+    "parent_scores": {
+     "LOC-I": 0.4612,
+     "ICE": 0.4069,
+     "SCF-NP": 0.2712,
+     "BIRD": 0.0759
+    },
+    "runner_up": "ICE",
+    "margin": 0.0543,
+    "parent_agreement": 0.6477,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-09",
+      "source": "SKYbrary \u2013 Unreliable Airspeed",
+      "term": "Unreliable airspeed",
+      "body": "Erroneous or disagreeing airspeed indications, for example from pitot icing, ice crystals or a blocked pitot tube, which can lead to an upset if the crew follows the wrong indication.",
+      "parents": [
+       "LOC-I",
+       "SCF-NP"
+      ],
+      "cos": 0.8486,
+      "score": 0.9091
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-015",
+      "evidence": "Climbing through FL280 in icing conditions, the captain and first officer airspeed indications disagreed.",
+      "score": 0.5896,
+      "event_id": "SAMPLE-015"
+     },
+     {
+      "report_key": "SAMPLE-018",
+      "evidence": "Ice crystals caused unreliable airspeed indications.",
+      "score": 0.4756,
+      "event_id": "SAMPLE-018"
+     },
+     {
+      "report_key": "SAMPLE-017",
+      "evidence": "A pitot heat failure at cruise produced a falling airspeed indication.",
+      "score": 0.4707,
+      "event_id": "SAMPLE-017"
+     }
+    ],
+    "other_definitions": [],
+    "pool": [
+     {
+      "report_key": "SAMPLE-015",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.5896
+     },
+     {
+      "report_key": "SAMPLE-018",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.4756
+     },
+     {
+      "report_key": "SAMPLE-017",
+      "l1": [
+       "LOC-I",
+       "SCF-NP"
+      ],
+      "score": 0.4707
+     },
+     {
+      "report_key": "SAMPLE-016",
+      "l1": [
+       "SCF-NP"
+      ],
+      "score": 0.3147
+     },
+     {
+      "report_key": "SAMPLE-032",
+      "l1": [
+       "ICE"
+      ],
+      "score": 0.2729
+     },
+     {
+      "report_key": "SAMPLE-030",
+      "l1": [
+       "BIRD"
+      ],
+      "score": 0.2478
+     },
+     {
+      "report_key": "SAMPLE-033",
+      "l1": [
+       "CFIT"
+      ],
+      "score": 0.1838
+     },
+     {
+      "report_key": "SAMPLE-031",
+      "l1": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "score": 0.1141
+     },
+     {
+      "report_key": "SAMPLE-035",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.0961
+     },
+     {
+      "report_key": "SAMPLE-023",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.094
+     }
+    ],
+    "pool_best": 0.5896,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 3,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C5",
+   "name": "TCAS resolution advisory after an altitude deviation",
+   "definition": "The aircraft deviates from its cleared altitude (level bust) and traffic receives a TCAS resolution advisory or separation is lost.",
+   "batch": "C",
+   "proposed_parent": "MAC",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C5",
+    "parent_code": "MAC",
+    "definition_ids": [
+     "IND-11",
+     "IND-10"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-021",
+      "evidence": "The resulting level bust triggered a TCAS climb resolution advisory and separation was lost."
+     },
+     {
+      "report_key": "SAMPLE-019",
+      "evidence": "The climbing aircraft overshot its cleared altitude of FL240 by 400 feet, and opposite-direction traffic received a TCAS resolution advisory to descend."
+     },
+     {
+      "report_key": "SAMPLE-020",
+      "evidence": "Autopilot mode confusion caused an altitude deviation, and the crew received a TCAS resolution advisory for traffic 600 feet below."
+     }
+    ],
+    "concerns": "SAMPLE-022 is a TCAS resolution advisory caused by an ATC clearance, not an altitude deviation. Consider a sibling category under MAC for ATC-induced conflicts."
+   },
+   "status": "grounded",
+   "outcome": "release_candidate",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = MAC",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "2 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "3 valid events, 3 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded MAC",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.68 over NAV",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed MAC, grounded MAC",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "11 entries: 3 grounded inclusions, 1 exclusions, 3 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT MAC (Airprox / ACAS alert / loss of separation / near midair / midair collision) definition.",
+     "cite_type": "parent",
+     "cite_id": "MAC",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|MAC"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: The aircraft deviates from its cleared altitude (level bust) and traffic receives a TCAS resolution advisory or separation is lost.",
+     "cite_type": "candidate",
+     "cite_id": "C5",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C5"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Level bust (altitude deviation)' (EUROCONTROL \u2013 Level bust): An unauthorised vertical deviation of more than 300 feet from the cleared flight level or altitude, a common cause of loss of separation and TCAS resolution advisories.",
+     "cite_type": "definition",
+     "cite_id": "IND-11",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-11"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Resolution advisory (RA)' (ICAO Annex 10 \u2013 Airborne Collision Avoidance System (ACAS)): An ACAS or TCAS indication to the flight crew recommending a vertical manoeuvre to increase separation from conflicting traffic.",
+     "cite_type": "definition",
+     "cite_id": "IND-10",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-10"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'advisory' (3 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-021",
+     "quote": "The resulting level bust triggered a TCAS climb resolution advisory and separation was lost.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-021"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'resolution' (3 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-021",
+     "quote": "The resulting level bust triggered a TCAS climb resolution advisory and separation was lost.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-021"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'altitude' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-019",
+     "quote": "The climbing aircraft overshot its cleared altitude of FL240 by 400 feet, and opposite-direction traffic received a TCAS resolution advisory to descend.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "include|report|SAMPLE-019"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT NAV (Navigation Error) (runner-up parent, margin 0.68).",
+     "cite_type": "parent",
+     "cite_id": "NAV",
+     "quote": null,
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|parent|NAV"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-021",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-021",
+     "quote": "The resulting level bust triggered a TCAS climb resolution advisory and separation was lost.",
+     "origin": "derived",
+     "seq": 8,
+     "key": "example_pos|report|SAMPLE-021"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-019",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-019",
+     "quote": "The climbing aircraft overshot its cleared altitude of FL240 by 400 feet, and opposite-direction traffic received a TCAS resolution advisory to descend.",
+     "origin": "derived",
+     "seq": 9,
+     "key": "example_pos|report|SAMPLE-019"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-020",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-020",
+     "quote": "Autopilot mode confusion caused an altitude deviation, and the crew received a TCAS resolution advisory for traffic 600 feet below.",
+     "origin": "derived",
+     "seq": 10,
+     "key": "example_pos|report|SAMPLE-020"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "TCAS resolution advisory after an altitude deviation",
+    "proposed_parent": "MAC",
+    "co_codes": [],
+    "parent_scores": {
+     "MAC": 0.709,
+     "NAV": 0.0268,
+     "LOC-I": 0.0067,
+     "SCF-NP": 0.0062
+    },
+    "runner_up": "NAV",
+    "margin": 0.6823,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-11",
+      "source": "EUROCONTROL \u2013 Level bust",
+      "term": "Level bust (altitude deviation)",
+      "body": "An unauthorised vertical deviation of more than 300 feet from the cleared flight level or altitude, a common cause of loss of separation and TCAS resolution advisories.",
+      "parents": [
+       "MAC",
+       "NAV"
+      ],
+      "cos": 0.5922,
+      "score": 0.7553
+     },
+     {
+      "def_id": "IND-10",
+      "source": "ICAO Annex 10 \u2013 Airborne Collision Avoidance System (ACAS)",
+      "term": "Resolution advisory (RA)",
+      "body": "An ACAS or TCAS indication to the flight crew recommending a vertical manoeuvre to increase separation from conflicting traffic.",
+      "parents": [
+       "MAC"
+      ],
+      "cos": 0.2819,
+      "score": 0.3146
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-021",
+      "evidence": "The resulting level bust triggered a TCAS climb resolution advisory and separation was lost.",
+      "score": 0.777,
+      "event_id": "SAMPLE-021"
+     },
+     {
+      "report_key": "SAMPLE-019",
+      "evidence": "The climbing aircraft overshot its cleared altitude of FL240 by 400 feet, and opposite-direction traffic received a TCAS resolution advisory to descend.",
+      "score": 0.6963,
+      "event_id": "SAMPLE-019"
+     },
+     {
+      "report_key": "SAMPLE-020",
+      "evidence": "Autopilot mode confusion caused an altitude deviation, and the crew received a TCAS resolution advisory for traffic 600 feet below.",
+      "score": 0.6468,
+      "event_id": "SAMPLE-020"
+     },
+     {
+      "report_key": "SAMPLE-022",
+      "evidence": "The controller issued a descent clearance into conflicting traffic and both aircraft received TCAS resolution advisories.",
+      "score": 0.3127,
+      "event_id": "SAMPLE-022"
+     }
+    ],
+    "other_definitions": [],
+    "pool": [
+     {
+      "report_key": "SAMPLE-021",
+      "l1": [
+       "MAC",
+       "ATM"
+      ],
+      "score": 0.777
+     },
+     {
+      "report_key": "SAMPLE-019",
+      "l1": [
+       "MAC"
+      ],
+      "score": 0.6963
+     },
+     {
+      "report_key": "SAMPLE-020",
+      "l1": [
+       "MAC"
+      ],
+      "score": 0.6468
+     },
+     {
+      "report_key": "SAMPLE-022",
+      "l1": [
+       "MAC",
+       "ATM"
+      ],
+      "score": 0.3127
+     },
+     {
+      "report_key": "SAMPLE-017",
+      "l1": [
+       "LOC-I",
+       "SCF-NP"
+      ],
+      "score": 0.1777
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1117
+     },
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.1008
+     },
+     {
+      "report_key": "SAMPLE-026",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.0955
+     },
+     {
+      "report_key": "SAMPLE-023",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.0891
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.089
+     }
+    ],
+    "pool_best": 0.777,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 3,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C6",
+   "name": "Clear-air turbulence with cabin injuries",
+   "definition": "An unexpected encounter with turbulence in clear air injures passengers or cabin crew who are standing, unbelted or near unsecured carts.",
+   "batch": "C",
+   "proposed_parent": "TURB",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C6",
+    "parent_code": "TURB",
+    "definition_ids": [
+     "IND-13",
+     "IND-14"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-025",
+      "evidence": "Moderate to severe clear-air turbulence over the mountains caught the cabin with carts not secured, and a flight attendant was struck by a cart."
+     },
+     {
+      "report_key": "SAMPLE-026",
+      "evidence": "Three passengers who were not wearing seat belts were injured."
+     },
+     {
+      "report_key": "SAMPLE-023",
+      "evidence": "Two flight attendants in the aft galley were injured."
+     },
+     {
+      "report_key": "SAMPLE-024",
+      "evidence": "A passenger standing in the aisle broke an ankle."
+     }
+    ],
+    "concerns": "All supporting reports are also coded CABIN. Keep TURB as the parent for the SEWG decomposition and CABIN as a co-code; SME to confirm."
+   },
+   "status": "needs_review",
+   "outcome": "sme_review",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = TURB",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "2 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "4 valid events, 4 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded TURB",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": false,
+     "detail": "margin 0.02 over TURB",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed TURB, grounded TURB",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "12 entries: 3 grounded inclusions, 1 exclusions, 4 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT TURB (Turbulence Encounter) definition.",
+     "cite_type": "parent",
+     "cite_id": "TURB",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|TURB"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: An unexpected encounter with turbulence in clear air injures passengers or cabin crew who are standing, unbelted or near unsecured carts.",
+     "cite_type": "candidate",
+     "cite_id": "C6",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C6"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Clear-air turbulence (CAT)' (SKYbrary \u2013 Clear Air Turbulence): Turbulence in cloud-free air, often near jet streams or over mountains, with no visual cue and often not shown on weather radar.",
+     "cite_type": "definition",
+     "cite_id": "IND-13",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-13"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Turbulence-related injuries' (FAA Advisory Circular 120-88A \u2013 Preventing Injuries Caused by Turbulence): Passengers and flight attendants are injured in turbulence mainly when standing or not wearing seat belts, and by unsecured carts and galley equipment.",
+     "cite_type": "definition",
+     "cite_id": "IND-14",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|definition|IND-14"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'attendant' (2 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-025",
+     "quote": "Moderate to severe clear-air turbulence over the mountains caught the cabin with carts not secured, and a flight attendant was struck by a cart.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-025"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'injured' (2 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-026",
+     "quote": "Three passengers who were not wearing seat belts were injured.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-026"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'passengers' (2 of 4 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-026",
+     "quote": "Three passengers who were not wearing seat belts were injured.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "include|report|SAMPLE-026"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT CABIN (Cabin Safety Events) (runner-up parent, margin 0.02).",
+     "cite_type": "parent",
+     "cite_id": "CABIN",
+     "quote": null,
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|parent|CABIN"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-025",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-025",
+     "quote": "Moderate to severe clear-air turbulence over the mountains caught the cabin with carts not secured, and a flight attendant was struck by a cart.",
+     "origin": "derived",
+     "seq": 8,
+     "key": "example_pos|report|SAMPLE-025"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-026",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-026",
+     "quote": "Three passengers who were not wearing seat belts were injured.",
+     "origin": "derived",
+     "seq": 9,
+     "key": "example_pos|report|SAMPLE-026"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-023",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-023",
+     "quote": "Two flight attendants in the aft galley were injured.",
+     "origin": "derived",
+     "seq": 10,
+     "key": "example_pos|report|SAMPLE-023"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-024",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-024",
+     "quote": "A passenger standing in the aisle broke an ankle.",
+     "origin": "derived",
+     "seq": 11,
+     "key": "example_pos|report|SAMPLE-024"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Clear-air turbulence with cabin injuries",
+    "proposed_parent": "TURB",
+    "co_codes": [
+     "TURB"
+    ],
+    "parent_scores": {
+     "CABIN": 0.8713,
+     "TURB": 0.854,
+     "MAC": 0.0258,
+     "BIRD": 0.0178
+    },
+    "runner_up": "TURB",
+    "margin": 0.0173,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-14",
+      "source": "FAA Advisory Circular 120-88A \u2013 Preventing Injuries Caused by Turbulence",
+      "term": "Turbulence-related injuries",
+      "body": "Passengers and flight attendants are injured in turbulence mainly when standing or not wearing seat belts, and by unsecured carts and galley equipment.",
+      "parents": [
+       "TURB",
+       "CABIN"
+      ],
+      "cos": 0.309,
+      "score": 0.5854
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-025",
+      "evidence": "Moderate to severe clear-air turbulence over the mountains caught the cabin with carts not secured, and a flight attendant was struck by a cart.",
+      "score": 0.6306,
+      "event_id": "SAMPLE-025"
+     },
+     {
+      "report_key": "SAMPLE-026",
+      "evidence": "Only light chop was expected, but the aircraft met sudden severe turbulence in clear air.",
+      "score": 0.5084,
+      "event_id": "SAMPLE-026"
+     },
+     {
+      "report_key": "SAMPLE-023",
+      "evidence": "The aircraft encountered severe clear-air turbulence at FL350 with no weather shown on radar.",
+      "score": 0.397,
+      "event_id": "SAMPLE-023"
+     },
+     {
+      "report_key": "SAMPLE-024",
+      "evidence": "Unforecast turbulence near the jet stream occurred just after the seat belt sign was turned off.",
+      "score": 0.3303,
+      "event_id": "SAMPLE-024"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-13",
+      "term": "Clear-air turbulence (CAT)",
+      "parents": [
+       "TURB"
+      ],
+      "score": 0.5158
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-025",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.6306
+     },
+     {
+      "report_key": "SAMPLE-026",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.5084
+     },
+     {
+      "report_key": "SAMPLE-023",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.397
+     },
+     {
+      "report_key": "SAMPLE-024",
+      "l1": [
+       "TURB",
+       "CABIN"
+      ],
+      "score": 0.3303
+     },
+     {
+      "report_key": "SAMPLE-027",
+      "l1": [
+       "TURB"
+      ],
+      "score": 0.2126
+     },
+     {
+      "report_key": "SAMPLE-002",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1045
+     },
+     {
+      "report_key": "SAMPLE-016",
+      "l1": [
+       "SCF-NP"
+      ],
+      "score": 0.1012
+     },
+     {
+      "report_key": "SAMPLE-011",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.0834
+     },
+     {
+      "report_key": "SAMPLE-021",
+      "l1": [
+       "MAC",
+       "ATM"
+      ],
+      "score": 0.0699
+     },
+     {
+      "report_key": "SAMPLE-033",
+      "l1": [
+       "CFIT"
+      ],
+      "score": 0.0671
+     }
+    ],
+    "pool_best": 0.6306,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 4,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C7",
+   "name": "Engine damage or shutdown after bird ingestion",
+   "definition": "Birds ingested into an engine cause vibration, surge, loss of thrust, fire warning or shutdown.",
+   "batch": "C",
+   "proposed_parent": "SCF-PP",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C7",
+    "parent_code": "SCF-PP",
+    "definition_ids": [
+     "IND-16"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-031",
+      "evidence": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher."
+     },
+     {
+      "report_key": "SAMPLE-028",
+      "evidence": "The engine vibrated and lost thrust, and the crew shut it down and returned."
+     },
+     {
+      "report_key": "SAMPLE-029",
+      "evidence": "Multiple bird strikes during the takeoff roll caused the right engine to surge, and the crew rejected the takeoff."
+     }
+    ],
+    "concerns": "All supporting reports are co-coded BIRD. SAMPLE-030 is a bird strike without engine effects and is excluded."
+   },
+   "status": "grounded",
+   "outcome": "release_candidate",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = SCF-PP",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "1 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "3 valid events, 3 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded SCF-PP",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.10 over BIRD",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed SCF-PP, grounded SCF-PP",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "11 entries: 2 grounded inclusions, 2 exclusions, 3 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT SCF-PP (System/Component Failure \u2013 Powerplant) definition.",
+     "cite_type": "parent",
+     "cite_id": "SCF-PP",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|SCF-PP"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: Birds ingested into an engine cause vibration, surge, loss of thrust, fire warning or shutdown.",
+     "cite_type": "candidate",
+     "cite_id": "C7",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C7"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Engine bird ingestion' (14 CFR 33.76 \u2013 Bird ingestion (engine certification)): Engines must be shown to withstand the ingestion of birds of defined sizes; large or multiple bird ingestion can damage fan blades and cause surge, loss of thrust, shutdown or fire.",
+     "cite_type": "definition",
+     "cite_id": "IND-16",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-16"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'engine' (3 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-031",
+     "quote": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher.",
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|report|SAMPLE-031"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'bird' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-031",
+     "quote": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-031"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'shut' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-031",
+     "quote": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-031"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Wildlife strike' \u2014 that definition is crosswalked to BIRD, not SCF-PP.",
+     "cite_type": "definition",
+     "cite_id": "IND-15",
+     "quote": null,
+     "origin": "derived",
+     "seq": 6,
+     "key": "exclude|definition|IND-15"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT BIRD (Bird) (runner-up parent, margin 0.10).",
+     "cite_type": "parent",
+     "cite_id": "BIRD",
+     "quote": null,
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|parent|BIRD"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-031",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-031",
+     "quote": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher.",
+     "origin": "derived",
+     "seq": 8,
+     "key": "example_pos|report|SAMPLE-031"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-028",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-028",
+     "quote": "The engine vibrated and lost thrust, and the crew shut it down and returned.",
+     "origin": "derived",
+     "seq": 9,
+     "key": "example_pos|report|SAMPLE-028"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-029",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-029",
+     "quote": "Multiple bird strikes during the takeoff roll caused the right engine to surge, and the crew rejected the takeoff.",
+     "origin": "derived",
+     "seq": 10,
+     "key": "example_pos|report|SAMPLE-029"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Engine damage or shutdown after bird ingestion",
+    "proposed_parent": "SCF-PP",
+    "co_codes": [
+     "BIRD"
+    ],
+    "parent_scores": {
+     "SCF-PP": 0.8244,
+     "BIRD": 0.7223,
+     "CFIT": 0.0196,
+     "MAC": 0.0124
+    },
+    "runner_up": "BIRD",
+    "margin": 0.1021,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-16",
+      "source": "14 CFR 33.76 \u2013 Bird ingestion (engine certification)",
+      "term": "Engine bird ingestion",
+      "body": "Engines must be shown to withstand the ingestion of birds of defined sizes; large or multiple bird ingestion can damage fan blades and cause surge, loss of thrust, shutdown or fire.",
+      "parents": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "cos": 0.7878,
+      "score": 0.8727
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-031",
+      "evidence": "After ingesting a large bird at 3,000 feet the crew received an engine fire warning, shut the engine down and discharged the fire extinguisher.",
+      "score": 0.4771,
+      "event_id": "SAMPLE-031"
+     },
+     {
+      "report_key": "SAMPLE-028",
+      "evidence": "The engine vibrated and lost thrust, and the crew shut it down and returned.",
+      "score": 0.4035,
+      "event_id": "SAMPLE-028"
+     },
+     {
+      "report_key": "SAMPLE-029",
+      "evidence": "Multiple bird strikes during the takeoff roll caused the right engine to surge, and the crew rejected the takeoff.",
+      "score": 0.3074,
+      "event_id": "SAMPLE-029"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-15",
+      "term": "Wildlife strike",
+      "parents": [
+       "BIRD"
+      ],
+      "score": 0.1998
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-031",
+      "l1": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "score": 0.4771
+     },
+     {
+      "report_key": "SAMPLE-028",
+      "l1": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "score": 0.4035
+     },
+     {
+      "report_key": "SAMPLE-029",
+      "l1": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "score": 0.3074
+     },
+     {
+      "report_key": "SAMPLE-015",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.1149
+     },
+     {
+      "report_key": "SAMPLE-033",
+      "l1": [
+       "CFIT"
+      ],
+      "score": 0.1138
+     },
+     {
+      "report_key": "SAMPLE-030",
+      "l1": [
+       "BIRD"
+      ],
+      "score": 0.1076
+     },
+     {
+      "report_key": "SAMPLE-018",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.0837
+     },
+     {
+      "report_key": "SAMPLE-013",
+      "l1": [
+       "RE",
+       "SCF-PP"
+      ],
+      "score": 0.0597
+     },
+     {
+      "report_key": "SAMPLE-020",
+      "l1": [
+       "MAC"
+      ],
+      "score": 0.0501
+     },
+     {
+      "report_key": "SAMPLE-017",
+      "l1": [
+       "LOC-I",
+       "SCF-NP"
+      ],
+      "score": 0.0432
+     }
+    ],
+    "pool_best": 0.4771,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 3,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C8",
+   "name": "Takeoff after de-icing holdover time exceeded",
+   "definition": "The aircraft is delayed after ground de-icing and the fluid holdover time is exceeded before takeoff.",
+   "batch": "C",
+   "proposed_parent": "ICE",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C8",
+    "parent_code": "ICE",
+    "definition_ids": [
+     "IND-17"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-032",
+      "evidence": "The takeoff was delayed beyond the de-icing fluid holdover time, and the crew returned to the pad for a second de-icing."
+     }
+    ],
+    "concerns": "Only one supporting report. Not enough evidence to keep this as a separate category yet."
+   },
+   "status": "not_grounded",
+   "outcome": "escalated_to_sme",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = ICE",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "1 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": false,
+     "detail": "1 valid events, 1 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "100% of the closest reports are coded ICE",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.73 over RE",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": true,
+     "detail": "proposed ICE, grounded ICE",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "8 entries: 2 grounded inclusions, 4 exclusions, 1 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT ICE (Icing) definition.",
+     "cite_type": "parent",
+     "cite_id": "ICE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|ICE"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: The aircraft is delayed after ground de-icing and the fluid holdover time is exceeded before takeoff.",
+     "cite_type": "candidate",
+     "cite_id": "C8",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C8"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Holdover time' (FAA holdover time guidelines (ground de-icing and anti-icing)): The estimated time a de-icing or anti-icing fluid protects aircraft surfaces from frost or ice; if it is exceeded before takeoff, the aircraft must be checked or de-iced again.",
+     "cite_type": "definition",
+     "cite_id": "IND-17",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-17"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Incursion \u2013 Runway or Taxiway' \u2014 that definition is crosswalked to RI, not ICE.",
+     "cite_type": "definition",
+     "cite_id": "IND-04",
+     "quote": null,
+     "origin": "derived",
+     "seq": 3,
+     "key": "exclude|definition|IND-04"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Excursion \u2013 Runway' \u2014 that definition is crosswalked to RE, not ICE.",
+     "cite_type": "definition",
+     "cite_id": "IND-07",
+     "quote": null,
+     "origin": "derived",
+     "seq": 4,
+     "key": "exclude|definition|IND-07"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Runway incursion' \u2014 that definition is crosswalked to RI, not ICE.",
+     "cite_type": "definition",
+     "cite_id": "IND-01",
+     "quote": null,
+     "origin": "derived",
+     "seq": 5,
+     "key": "exclude|definition|IND-01"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT RE (Runway Excursion) (runner-up parent, margin 0.73).",
+     "cite_type": "parent",
+     "cite_id": "RE",
+     "quote": null,
+     "origin": "derived",
+     "seq": 6,
+     "key": "exclude|parent|RE"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-032",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-032",
+     "quote": "The takeoff was delayed beyond the de-icing fluid holdover time, and the crew returned to the pad for a second de-icing.",
+     "origin": "derived",
+     "seq": 7,
+     "key": "example_pos|report|SAMPLE-032"
+    }
+   ],
+   "agent_calls": [
+    {
+     "tool": "search_reports",
+     "args": {
+      "parent": "ICE",
+      "k": 30
+     },
+     "result": [
+      {
+       "report_key": "SAMPLE-015",
+       "score": 0.4266
+      },
+      {
+       "report_key": "SAMPLE-012",
+       "score": 0.4079
+      },
+      {
+       "report_key": "SAMPLE-018",
+       "score": 0.403
+      }
+     ]
+    },
+    {
+     "tool": "read_report",
+     "args": {
+      "report_key": "SAMPLE-015"
+     },
+     "result": {
+      "report_key": "SAMPLE-015",
+      "evidence": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered.",
+      "sentence_cos": 0.0115
+     }
+    },
+    {
+     "tool": "read_report",
+     "args": {
+      "report_key": "SAMPLE-012"
+     },
+     "result": {
+      "report_key": "SAMPLE-012",
+      "evidence": "The crew did not recompute the landing distance and the aircraft overran onto the grass beyond the runway end.",
+      "sentence_cos": 0.0232
+     }
+    }
+   ],
+   "proposals": [
+    {
+     "action": "add_link",
+     "target_type": "report",
+     "target_id": "SAMPLE-015",
+     "value": "The autopilot disconnected and the aircraft reached a stall warning before the crew recovered.",
+     "score": 0.4266
+    },
+    {
+     "action": "add_link",
+     "target_type": "report",
+     "target_id": "SAMPLE-012",
+     "value": "The crew did not recompute the landing distance and the aircraft overran onto the grass beyond the runway end.",
+     "score": 0.4079
+    }
+   ],
+   "diag": {
+    "candidate": "Takeoff after de-icing holdover time exceeded",
+    "proposed_parent": "ICE",
+    "co_codes": [],
+    "parent_scores": {
+     "ICE": 0.7369,
+     "RE": 0.0112,
+     "RI": 0.0085,
+     "ARC": 0.0055
+    },
+    "runner_up": "RE",
+    "margin": 0.7257,
+    "parent_agreement": 1.0,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-17",
+      "source": "FAA holdover time guidelines (ground de-icing and anti-icing)",
+      "term": "Holdover time",
+      "body": "The estimated time a de-icing or anti-icing fluid protects aircraft surfaces from frost or ice; if it is exceeded before takeoff, the aircraft must be checked or de-iced again.",
+      "parents": [
+       "ICE"
+      ],
+      "cos": 0.6537,
+      "score": 0.7922
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-032",
+      "evidence": "The takeoff was delayed beyond the de-icing fluid holdover time, and the crew returned to the pad for a second de-icing.",
+      "score": 0.9081,
+      "event_id": "SAMPLE-032"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-04",
+      "term": "Anomaly: Ground Incursion \u2013 Runway or Taxiway",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.2549
+     },
+     {
+      "def_id": "IND-07",
+      "term": "Anomaly: Ground Excursion \u2013 Runway",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.202
+     },
+     {
+      "def_id": "IND-01",
+      "term": "Runway incursion",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.1663
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-032",
+      "l1": [
+       "ICE"
+      ],
+      "score": 0.9081
+     },
+     {
+      "report_key": "SAMPLE-006",
+      "l1": [
+       "RI",
+       "ATM"
+      ],
+      "score": 0.2954
+     },
+     {
+      "report_key": "SAMPLE-002",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2889
+     },
+     {
+      "report_key": "SAMPLE-035",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.2284
+     },
+     {
+      "report_key": "SAMPLE-001",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2239
+     },
+     {
+      "report_key": "SAMPLE-004",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2147
+     },
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.2056
+     },
+     {
+      "report_key": "SAMPLE-015",
+      "l1": [
+       "LOC-I",
+       "ICE"
+      ],
+      "score": 0.1599
+     },
+     {
+      "report_key": "SAMPLE-029",
+      "l1": [
+       "SCF-PP",
+       "BIRD"
+      ],
+      "score": 0.1584
+     },
+     {
+      "report_key": "SAMPLE-012",
+      "l1": [
+       "RE",
+       "ICE"
+      ],
+      "score": 0.1412
+     }
+    ],
+    "pool_best": 0.9081,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 1,
+    "fp": [],
+    "fn": []
+   }
+  },
+  {
+   "candidate_id": "C9",
+   "name": "Hard landing or tail strike",
+   "definition": "A hard or bounced touchdown, or contact of the tail with the runway during rotation or flare.",
+   "batch": "C",
+   "proposed_parent": "RE",
+   "aliases": [],
+   "output": {
+    "candidate_id": "C9",
+    "parent_code": "ARC",
+    "definition_ids": [
+     "IND-18"
+    ],
+    "supporting_reports": [
+     {
+      "report_key": "SAMPLE-034",
+      "evidence": "A late flare in gusty winds led to a hard landing and a tail strike."
+     },
+     {
+      "report_key": "SAMPLE-036",
+      "evidence": "A bounced landing was followed by a hard second touchdown that damaged the nose landing gear."
+     },
+     {
+      "report_key": "SAMPLE-035",
+      "evidence": "An incorrect takeoff weight in the flight management computer led to early rotation and a tail strike on takeoff."
+     }
+    ],
+    "concerns": "The proposed parent RE does not fit: hard landings, bounced landings and tail strikes are abnormal runway contact (ARC), not excursions."
+   },
+   "status": "needs_review",
+   "outcome": "sme_review",
+   "sme_approved": false,
+   "checks": [
+    {
+     "id": "G1",
+     "name": "Parent is an allowed CICTT category",
+     "passed": true,
+     "detail": "parent = ARC",
+     "severity": "block"
+    },
+    {
+     "id": "G2",
+     "name": "Definitions exist and are crosswalked to the parent",
+     "passed": true,
+     "detail": "1 valid",
+     "severity": "block"
+    },
+    {
+     "id": "G3",
+     "name": "Every report exists, is coded to the parent and carries evidence",
+     "passed": true,
+     "detail": "ok",
+     "severity": "block"
+    },
+    {
+     "id": "G4",
+     "name": "Evidence is quoted word for word",
+     "passed": true,
+     "detail": "all quotes found in the raw report text",
+     "severity": "block"
+    },
+    {
+     "id": "G5",
+     "name": "At least 3 supporting events (at most 12)",
+     "passed": true,
+     "detail": "3 valid events, 3 links",
+     "severity": "block"
+    },
+    {
+     "id": "G6",
+     "name": "Evidence sits under the parent (agreement)",
+     "passed": true,
+     "detail": "73% of the closest reports are coded ARC",
+     "severity": "review"
+    },
+    {
+     "id": "G7",
+     "name": "Clear winner among parents",
+     "passed": true,
+     "detail": "margin 0.48 over RI",
+     "severity": "review"
+    },
+    {
+     "id": "G8",
+     "name": "Matches the parent proposed by discovery (or set by an SME)",
+     "passed": false,
+     "detail": "proposed RE, grounded ARC",
+     "severity": "review"
+    },
+    {
+     "id": "G9",
+     "name": "Criteria card is complete and every citation resolves",
+     "passed": true,
+     "detail": "14 entries: 2 grounded inclusions, 5 exclusions, 3 examples",
+     "severity": "block"
+    }
+   ],
+   "card": [
+    {
+     "kind": "include",
+     "text": "The occurrence meets the CICTT ARC (Abnormal Runway Contact) definition.",
+     "cite_type": "parent",
+     "cite_id": "ARC",
+     "quote": null,
+     "origin": "derived",
+     "seq": 0,
+     "key": "include|parent|ARC"
+    },
+    {
+     "kind": "include",
+     "text": "Core definition: A hard or bounced touchdown, or contact of the tail with the runway during rotation or flare.",
+     "cite_type": "candidate",
+     "cite_id": "C9",
+     "quote": null,
+     "origin": "derived",
+     "seq": 1,
+     "key": "include|candidate|C9"
+    },
+    {
+     "kind": "include",
+     "text": "Matches 'Hard landing, tail strike' (SKYbrary \u2013 Hard Landing and Tail Strike): A touchdown with a vertical load above limits, a bounced landing, or contact of the tail with the runway during takeoff rotation or landing flare.",
+     "cite_type": "definition",
+     "cite_id": "IND-18",
+     "quote": null,
+     "origin": "derived",
+     "seq": 2,
+     "key": "include|definition|IND-18"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'hard' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-034",
+     "quote": "A late flare in gusty winds led to a hard landing and a tail strike.",
+     "origin": "derived",
+     "seq": 3,
+     "key": "include|report|SAMPLE-034"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'led' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-034",
+     "quote": "A late flare in gusty winds led to a hard landing and a tail strike.",
+     "origin": "derived",
+     "seq": 4,
+     "key": "include|report|SAMPLE-034"
+    },
+    {
+     "kind": "include",
+     "text": "Narrative describes 'strike' (2 of 3 supporting reports).",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-034",
+     "quote": "A late flare in gusty winds led to a hard landing and a tail strike.",
+     "origin": "derived",
+     "seq": 5,
+     "key": "include|report|SAMPLE-034"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded RE (Runway Excursion) rather than ARC: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-010",
+     "quote": "Braking action was poor and the aircraft overran the runway end by 60 metres into the runway end safety area.",
+     "origin": "derived",
+     "seq": 6,
+     "key": "exclude|report|SAMPLE-010"
+    },
+    {
+     "kind": "exclude",
+     "text": "Coded RI (Runway Incursion) rather than ARC: similar wording, different occurrence category.",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-003",
+     "quote": "After a late runway change the crew did not rebrief the approach and landed on Runway 35L instead of the assigned Runway 35R.",
+     "origin": "derived",
+     "seq": 7,
+     "key": "exclude|report|SAMPLE-003"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Anomaly: Ground Excursion \u2013 Runway' \u2014 that definition is crosswalked to RE, not ARC.",
+     "cite_type": "definition",
+     "cite_id": "IND-07",
+     "quote": null,
+     "origin": "derived",
+     "seq": 8,
+     "key": "exclude|definition|IND-07"
+    },
+    {
+     "kind": "exclude",
+     "text": "Not 'Wrong-surface event' \u2014 that definition is crosswalked to RI, not ARC.",
+     "cite_type": "definition",
+     "cite_id": "IND-03",
+     "quote": null,
+     "origin": "derived",
+     "seq": 9,
+     "key": "exclude|definition|IND-03"
+    },
+    {
+     "kind": "exclude",
+     "text": "Events better described by CICTT RI (Runway Incursion) (runner-up parent, margin 0.48).",
+     "cite_type": "parent",
+     "cite_id": "RI",
+     "quote": null,
+     "origin": "derived",
+     "seq": 10,
+     "key": "exclude|parent|RI"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-034",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-034",
+     "quote": "A late flare in gusty winds led to a hard landing and a tail strike.",
+     "origin": "derived",
+     "seq": 11,
+     "key": "example_pos|report|SAMPLE-034"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-036",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-036",
+     "quote": "A bounced landing was followed by a hard second touchdown that damaged the nose landing gear.",
+     "origin": "derived",
+     "seq": 12,
+     "key": "example_pos|report|SAMPLE-036"
+    },
+    {
+     "kind": "example_pos",
+     "text": "Example: SAMPLE-035",
+     "cite_type": "report",
+     "cite_id": "SAMPLE-035",
+     "quote": "An incorrect takeoff weight in the flight management computer led to early rotation and a tail strike on takeoff.",
+     "origin": "derived",
+     "seq": 13,
+     "key": "example_pos|report|SAMPLE-035"
+    }
+   ],
+   "agent_calls": [],
+   "proposals": [],
+   "diag": {
+    "candidate": "Hard landing or tail strike",
+    "proposed_parent": "RE",
+    "co_codes": [],
+    "parent_scores": {
+     "ARC": 0.584,
+     "RI": 0.1016,
+     "RE": 0.1006,
+     "NAV": 0.0023
+    },
+    "runner_up": "RI",
+    "margin": 0.4824,
+    "parent_agreement": 0.7319,
+    "parent_forced_by_sme": false,
+    "definitions": [
+     {
+      "def_id": "IND-18",
+      "source": "SKYbrary \u2013 Hard Landing and Tail Strike",
+      "term": "Hard landing, tail strike",
+      "body": "A touchdown with a vertical load above limits, a bounced landing, or contact of the tail with the runway during takeoff rotation or landing flare.",
+      "parents": [
+       "ARC"
+      ],
+      "cos": 0.9591,
+      "score": 0.9755
+     }
+    ],
+    "support": [
+     {
+      "report_key": "SAMPLE-034",
+      "evidence": "A late flare in gusty winds led to a hard landing and a tail strike.",
+      "score": 0.7032,
+      "event_id": "SAMPLE-034"
+     },
+     {
+      "report_key": "SAMPLE-036",
+      "evidence": "A bounced landing was followed by a hard second touchdown that damaged the nose landing gear.",
+      "score": 0.5126,
+      "event_id": "SAMPLE-036"
+     },
+     {
+      "report_key": "SAMPLE-035",
+      "evidence": "An incorrect takeoff weight in the flight management computer led to early rotation and a tail strike on takeoff.",
+      "score": 0.3957,
+      "event_id": "SAMPLE-035"
+     }
+    ],
+    "other_definitions": [
+     {
+      "def_id": "IND-07",
+      "term": "Anomaly: Ground Excursion \u2013 Runway",
+      "parents": [
+       "RE"
+      ],
+      "score": 0.1698
+     },
+     {
+      "def_id": "IND-03",
+      "term": "Wrong-surface event",
+      "parents": [
+       "RI"
+      ],
+      "score": 0.1519
+     }
+    ],
+    "pool": [
+     {
+      "report_key": "SAMPLE-034",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.7032
+     },
+     {
+      "report_key": "SAMPLE-036",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.5126
+     },
+     {
+      "report_key": "SAMPLE-035",
+      "l1": [
+       "ARC"
+      ],
+      "score": 0.3957
+     },
+     {
+      "report_key": "SAMPLE-010",
+      "l1": [
+       "RE"
+      ],
+      "score": 0.2981
+     },
+     {
+      "report_key": "SAMPLE-003",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2921
+     },
+     {
+      "report_key": "SAMPLE-012",
+      "l1": [
+       "RE",
+       "ICE"
+      ],
+      "score": 0.2731
+     },
+     {
+      "report_key": "SAMPLE-013",
+      "l1": [
+       "RE",
+       "SCF-PP"
+      ],
+      "score": 0.2506
+     },
+     {
+      "report_key": "SAMPLE-007",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.2371
+     },
+     {
+      "report_key": "SAMPLE-008",
+      "l1": [
+       "RI"
+      ],
+      "score": 0.1917
+     },
+     {
+      "report_key": "SAMPLE-005",
+      "l1": [
+       "RI",
+       "NAV"
+      ],
+      "score": 0.1869
+     }
+    ],
+    "pool_best": 0.7032,
+    "sme_applied": [],
+    "moved_to_sibling": []
+   },
+   "metrics": {
+    "parent_correct": true,
+    "tp": 3,
+    "fp": [],
+    "fn": []
+   }
+  }
+ ]
+}

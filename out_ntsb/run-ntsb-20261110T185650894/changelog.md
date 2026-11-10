@@ -1,0 +1,51 @@
+# Changelog · ntsb-draft-45231e0fc8
+
+Run run-ntsb-20261110T185650894 vs previous run run-ntsb-20261110T184827908.
+
+| Bucket | Change | Target | Before | After | Cause | Reference |
+|---|---|---|---|---|---|---|
+| B03 | parent | parent | LOC-G | RE | data | input ffd47e1d→80f03ec2 |
+| B03 | link_added | definition:IND-05 |  | IND-05 | data | input ffd47e1d→80f03ec2 |
+| B03 | link_added | definition:IND-07 |  | IND-07 | data | input ffd47e1d→80f03ec2 |
+| B03 | link_added | definition:IND-20 |  | IND-20 | data | input ffd47e1d→80f03ec2 |
+| B03 | link_added | report:CEN23LA286 |  | CEN23LA286 | data | input ffd47e1d→80f03ec2 |
+| B03 | link_added | report:WPR11CA178 |  | WPR11CA178 | data | input ffd47e1d→80f03ec2 |
+| B03 | link_removed | definition:ECC-2010500 | ECC-2010500 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | link_removed | definition:ECC-2010501 | ECC-2010501 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | link_removed | definition:ECC-2060300 | ECC-2060300 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | link_removed | report:CEN18CA176 | CEN18CA176 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | link_removed | report:ERA13CA141 | ERA13CA141 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | boundary\|sibling\|B22 |  | boundary\|sibling\|B22 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | example_pos\|report\|CEN23LA286 |  | example_pos\|report\|CEN23LA286 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | example_pos\|report\|WPR11CA178 |  | example_pos\|report\|WPR11CA178 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | exclude\|definition\|ECC-2220400 |  | exclude\|definition\|ECC-2220400 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | exclude\|definition\|ECC-2220600 |  | exclude\|definition\|ECC-2220600 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | exclude\|parent\|LOC-G |  | exclude\|parent\|LOC-G | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | include\|definition\|IND-05 |  | include\|definition\|IND-05 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | include\|definition\|IND-07 |  | include\|definition\|IND-07 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | include\|definition\|IND-20 |  | include\|definition\|IND-20 | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_added | include\|parent\|RE |  | include\|parent\|RE | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | boundary\|sibling\|D05 | boundary\|sibling\|D05 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | example_pos\|report\|CEN18CA176 | example_pos\|report\|CEN18CA176 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | example_pos\|report\|ERA13CA141 | example_pos\|report\|ERA13CA141 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | exclude\|definition\|IND-07 | exclude\|definition\|IND-07 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | exclude\|definition\|IND-20 | exclude\|definition\|IND-20 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | exclude\|parent\|RE | exclude\|parent\|RE |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | exclude\|report\|WPR25LA038 | exclude\|report\|WPR25LA038 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | include\|definition\|ECC-2010500 | include\|definition\|ECC-2010500 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | include\|definition\|ECC-2010501 | include\|definition\|ECC-2010501 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | include\|definition\|ECC-2060300 | include\|definition\|ECC-2060300 |  | data | input ffd47e1d→80f03ec2 |
+| B03 | criterion_removed | include\|parent\|LOC-G | include\|parent\|LOC-G |  | data | input ffd47e1d→80f03ec2 |
+| B04 | criterion_added | boundary\|sibling\|B03 |  | boundary\|sibling\|B03 | data | input ffd47e1d→80f03ec2 |
+| B10 | status | status | needs_review | grounded | data | input ffd47e1d→80f03ec2 |
+| B12 | criterion_added | exclude\|definition\|ECC-4050600 |  | exclude\|definition\|ECC-4050600 | data | input ffd47e1d→80f03ec2 |
+| B12 | criterion_added | exclude\|report\|OPS25LA032/5 |  | exclude\|report\|OPS25LA032/5 | data | input ffd47e1d→80f03ec2 |
+| B12 | criterion_removed | exclude\|report\|OPS10IA014/2 | exclude\|report\|OPS10IA014/2 |  | data | input ffd47e1d→80f03ec2 |
+| B22 | criterion_added | boundary\|sibling\|B03 |  | boundary\|sibling\|B03 | data | input ffd47e1d→80f03ec2 |
+| B25 | criterion_added | boundary\|sibling\|B14 |  | boundary\|sibling\|B14 | data | input ffd47e1d→80f03ec2 |
+| B25 | criterion_removed | exclude\|report\|ERA24LA094 | exclude\|report\|ERA24LA094 |  | data | input ffd47e1d→80f03ec2 |
+| D04 | criterion_removed | boundary\|sibling\|B03 | boundary\|sibling\|B03 |  | data | input ffd47e1d→80f03ec2 |
+| D05 | criterion_removed | boundary\|sibling\|B03 | boundary\|sibling\|B03 |  | data | input ffd47e1d→80f03ec2 |
+| D10 | status | status | not_grounded | grounded | data | input ffd47e1d→80f03ec2 |
+| D10 | link_added | definition:ECC-2050411 |  | ECC-2050411 | data | input ffd47e1d→80f03ec2 |
+| D10 | criterion_added | include\|definition\|ECC-2050411 |  | include\|definition\|ECC-2050411 | data | input ffd47e1d→80f03ec2 |

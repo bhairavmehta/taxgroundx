@@ -1,0 +1,37 @@
+[
+ {
+  "check": "Parents correct",
+  "passed": true,
+  "detail": "30/31 (\u2265 90%)"
+ },
+ {
+  "check": "Report precision (merge-aware)",
+  "passed": true,
+  "detail": "0.861 (\u2265 0.8)"
+ },
+ {
+  "check": "Report recall (merge-aware)",
+  "passed": true,
+  "detail": "0.889 (\u2265 0.8)"
+ },
+ {
+  "check": "Guardrail faults blocked",
+  "passed": true,
+  "detail": "11/11"
+ },
+ {
+  "check": "Every bucket has a verified criteria card (G9)",
+  "passed": true,
+  "detail": "31/31"
+ },
+ {
+  "check": "SSSOM link rows complete",
+  "passed": true,
+  "detail": "341 rows, 0 incomplete"
+ },
+ {
+  "check": "Reproducible: equal inputs, settings, code \u2192 equal output hash",
+  "passed": true,
+  "detail": "1 twin run(s): run-combined-20261109T200052265"
+ }
+]

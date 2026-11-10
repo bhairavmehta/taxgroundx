@@ -1,0 +1,4 @@
+reviewed_run_id,candidate_id,action,target_type,target_id,value,rationale,prompting_report,suggestion
+run-combined-20261109T200047162,B13,,,,,,TEST-003,Fits B13 and B15 almost equally (margin 0.00): sharpen the exclusion criteria between them.
+run-combined-20261109T200047162,,,,,,,TEST-005,No bucket under OTHR in combined-draft-f687522bbb: consider a new bucket under OTHR.
+run-combined-20261109T200047162,B09,,,,,,TEST-008,Nearest bucket B09 'Hydraulic system failure in flight' scores 0.14 (< 0.25): propose a new bucket under SCF-NP (System/Component Failure – Non-Powerplant) or widen B09's inclusion criteria.

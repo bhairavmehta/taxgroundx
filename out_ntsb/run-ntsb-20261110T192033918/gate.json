@@ -1,0 +1,37 @@
+[
+ {
+  "check": "Parents correct",
+  "passed": true,
+  "detail": "n/a (\u2265 90%)"
+ },
+ {
+  "check": "Report precision (merge-aware)",
+  "passed": true,
+  "detail": "None (\u2265 0.8)"
+ },
+ {
+  "check": "Report recall (merge-aware)",
+  "passed": true,
+  "detail": "None (\u2265 0.8)"
+ },
+ {
+  "check": "Guardrail faults blocked",
+  "passed": true,
+  "detail": "11/11"
+ },
+ {
+  "check": "Every bucket has a verified criteria card (G9)",
+  "passed": true,
+  "detail": "50/50"
+ },
+ {
+  "check": "SSSOM link rows complete",
+  "passed": true,
+  "detail": "773 rows, 0 incomplete"
+ },
+ {
+  "check": "Reproducible: equal inputs, settings, code \u2192 equal output hash",
+  "passed": true,
+  "detail": "1 twin run(s): run-ntsb-20261110T185650894"
+ }
+]

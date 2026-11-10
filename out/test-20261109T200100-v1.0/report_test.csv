@@ -1,0 +1,9 @@
+report_key,bucket,parent,score,runner_up,margin,verdict,quote,prompt,expected
+TEST-001,B02,RI,0.6754,B27,0.355,fits,On a night arrival the crew aligned with the lit parallel taxiway instead of Runway 16L.,,B02
+TEST-002,B27,RI,0.7977,B02,0.391,fits,Taxiing to Runway 9 via Bravo the first officer read back hold short of Runway 4 but the captain continued across the hold-short line.,,B27
+TEST-003,B13,SCF-PP,0.7338,B16,0.5038,fits,"The left engine ingested several birds, vibration rose sharply and the crew shut the engine down and returned.",,B15
+TEST-004,C6,CABIN,0.6155,B21,0.2711,excluded,The flight diverted.,"Closest bucket C6 excludes it ('Cabin crew moved the passenger to another seat.'): route to the bucket the criterion names, or add a new bucket.",B17
+TEST-005,,,0.0,,0.0,out_of_scope,,No bucket under OTHR in v1.0: consider a new bucket under OTHR.,
+TEST-006,B12,NAV,0.5714,,0.5714,fits,Approaching the coast the GPS position jumped by several miles and the FMS showed a map shift.,,B12
+TEST-007,B04,RE,0.8552,B03,0.665,fits,Braking was poor and the aircraft stopped in the runway end safety area.,,B04
+TEST-008,B09,SCF-NP,0.1438,B10,0.117,no_fit,"The crew followed the checklist, controlled the outflow valve manually and continued to the destination.",Nearest bucket B09 'Hydraulic system failure in flight' scores 0.14 (< 0.25): propose a new bucket under SCF-NP (System/Component Failure – Non-Powerplant) or widen B09's inclusion criteria.,
